@@ -72,3 +72,7 @@ footer h3 {
 .left {
   width: 150px;
 }
+
+.background-hypnotize {
+  background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)), url("hypnotize_bg.png");
+}
