@@ -1,0 +1,150 @@
+/* Universal Styles */
+
+body {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  max-width: 750px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Navigation */
+
+nav {
+  text-align: center;
+}
+
+nav img {
+  display: block;
+  margin: 0 auto;
+	width: 180px;
+}
+
+nav span {
+  display: block;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 2px;
+	margin: 10px 0px;
+}
+
+nav a {
+  color: #666666;
+}
+
+/* Content Container */
+
+.content {
+  margin: 0 100px auto;
+}
+
+.burger {
+  height: 370px;
+  overflow: scroll;
+}
+
+/* Content Header */
+
+.header {
+  background: no-repeat center/100% url("./images/htmlcss1-img_burgerphoto.jpeg");
+  height: 320px;
+}
+
+.header h1 {
+  background-color: #05A8AA;
+  color: #FFF;
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 40px;
+  width: 68%;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Content Body */
+
+.content .body {
+  width: 100%;
+}
+
+.body {
+  margin: 0 0 auto;
+  position: relative;
+  bottom: 160px;
+
+}
+
+.body p {
+  color: #333333;
+  font-weight: 100;
+  font-size: 20px;
+  line-height: 34px;
+  margin-top: 18px;
+}
+
+.body img {
+  margin: 0 20px auto;
+  opacity: 0.3;
+  position: relative;
+  display: block;
+  top: 160px;
+}
+
+/* Content Button */
+
+.button {
+  border-radius: 15px;
+  color: #05A8AA;
+  display: inline-block;
+  font-weight: 200;
+  letter-spacing: 2px;
+  width: 200px;
+  padding: 15px;
+  margin: 10px 0px auto;
+  border: 4px ridge #0F6566;
+  background-color: #05A8AA;
+  color: #FFF;
+
+}
+
+.button:hover {
+  border: 4px ridge #05A8AA;
+  background-color: white;
+  color: #05A8AA;
+  
+}
+
+/* Content Nutrition */
+
+ul.nutrition {
+  padding: 10px;
+}
+
+ul.nutrition li {
+  display: inline-block;
+  background-color: #05A8AA;
+  list-style: none;
+  padding: 5px 7px;
+  margin: 2px 1px;
+  border-radius: 10px;
+
+}
+
+.nutrition .category {
+  color: white;
+  font-weight: 100;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.nutrition .value {
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}

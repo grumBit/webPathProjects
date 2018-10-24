@@ -1,0 +1,98 @@
+* {                /* Used to override browsers' default user agent stylesheets. */
+  margin: 0;
+	padding: 0;
+}
+* {               /* Used to move rendering calculations of the border and padding dimensions WITHIN the all elements */
+  /* box-sizing: border-box; */
+}
+
+
+body {
+  background-color: #010165;
+  margin: 0 auto;    /* auto lets browser select suitable margins (e.g. for centering) */
+}
+
+.header {
+  background-color: #00ffff;
+  text-align: center;
+}
+
+.title-row {
+  margin-top: 42px;
+  margin-bottom: 21px;
+  text-align: center;
+}
+
+.instructions-title-img{
+  border: 3px #eb6536 dotted; 
+  border-radius: 100%;        /*  radius of border corners - 100% = circle  */
+  padding: 6px 6px;
+  height: 35px;
+  margin: 30px;
+}
+
+.instructions-title {
+  position: relative;  /* Enable positioning relative to where eement would have automatically rendered */
+  bottom: 50px; /* Position element 20px up from the bottom */
+  display: inline-block;
+  font-size: 18px;
+  color: #00ffff;
+  font-family: 'Work Sans';
+  border: 3px #eb6536 solid; /* type of border - thickness, colour, line type */
+  border-radius: 15px;        /*  radius of border corners - in px or %  */
+  /*padding: 5px 10px 15px 20px; */ /* specify all 4 paddings - top, right, bottom then left (all 4 required)*/  
+  /*padding: 10px 30px; */        /* specify top-bottom and sides paddings - top-bottom then sides (only 2*/  
+  padding: 15px;             /* distance between element content and border (all around)*/
+  padding-left: 30px;        /* only pad left */
+  padding-right: 30px;        /* only pad right */
+  margin: 30px;
+}
+
+.instructions-row {
+  margin: 0 auto;
+  max-width: 400px;  /* max-width means browser can reduce size on narrow window, compared to width, which is fixed*/
+  height: 190px;
+  overflow: scroll; /* if content doesn't fit within the element's box (e.g. due to height constraint), 
+                    keep content in the box and put a scroll bar at it's side (rather than just flow below). */
+}
+
+.instructions-number {
+  padding-right: 25px;
+  font-family: 'Work Sans';
+  font-size: 36px;
+  color: #00ffff;
+}
+
+.instructions-text {
+  padding-right: 10px;
+  font-family: 'Work Sans';
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.door-row {
+  text-align: center;
+}
+
+.door-frame {
+  cursor: pointer;
+  padding: 1px;
+  border: outset;
+  margin: 50px 10px;
+}
+
+.start-row {
+    margin: auto;
+    width: 250px;
+    height: 43px;
+    font-family: 'Work Sans';
+    background-color: #eb6536;
+    padding-top: 18px;
+    font-size: 18px;
+    text-align: center;
+    color: #010165;
+    margin-bottom: 21px;
+    cursor: pointer;
+    border: outset;
+}
+
