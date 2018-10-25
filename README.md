@@ -1,35 +1,23 @@
-Projects created while doing [Codecademy web path courses](https://www.codecademy.com/learn/paths/web-development) 
--------------------------------------------
+Projects I created while doing [Codecademy web path courses](https://www.codecademy.com/learn/paths/web-development) 
+============================================================
 
 I put these up here to provide memory joggers of the things I learned
-
-**Contents**
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
-
-* [1 - Learn HTML](#1-learn-html)
-* [2 - Styling A Website using CSS](#2-styling-a-website-using-css)
-
-<!-- /code_chunk_output -->
-
----
 
 ### 1 - Learn HTML
 
 1. [Fashion Blog](https://grumbit.github.io/webPathProjects/1_Learn_HTML/1_Fashion_Blog/index.html)
 
-1. [Wine Festival Schedule (tables)](https://grumbit.github.io/webPathProjects/blob/master/1_Learn_HTML/2_Wine_Festival_Schedule_(tables)/index.html)
+2. [Wine Festival Schedule (tables)](https://grumbit.github.io/webPathProjects/1_Learn_HTML/2_Wine_Festival_Schedule_(tables)/index.html)
 
 ### 2 - Styling A Website using CSS
 
-1. [Healthy Recipes](https://grumbit.github.io/webPathProjects/blob/master/2_Styling_A_Website_Using_CSS/1_Healthy_Recipes_(lists)/index.html)
+1. [Healthy Recipes](https://grumbit.github.io/webPathProjects/2_Styling_A_Website_Using_CSS/1_Healthy_Recipes_(lists)/index.html)
 
-1. [Olivia Woodruff Portfolio](https://grumbit.github.io/webPathProjects/blob/master/2_Styling_A_Website_Using_CSS/2_Olivia_Woodruff_Portfolio/index.html)
+1. [Olivia Woodruff Portfolio](https://grumbit.github.io/webPathProjects/2_Styling_A_Website_Using_CSS/2_Olivia_Woodruff_Portfolio/index.html)
 
-1. [Dasmotos Arts and Crafts](https://grumbit.github.io/webPathProjects/blob/master/2_Styling_A_Website_Using_CSS/3_Dasmotos_Arts_and_Crafts/index.html)
+1. [Dasmotos Arts and Crafts](https://grumbit.github.io/webPathProjects/2_Styling_A_Website_Using_CSS/3_Dasmotos_Arts_and_Crafts/index.html)
 
-1. [Grum extra - combining 3 above](https://grumbit.github.io/webPathProjects/blob/master/2_Styling_A_Website_Using_CSS/Grum_combined/index.html)
+1. [Grum extra - combining 3 above](https://grumbit.github.io/webPathProjects/2_Styling_A_Website_Using_CSS/Grum_combined/index.html)
 
 ### 3 - Getting Started with JavaScript (didn't keep overly simple projects)
 
@@ -37,16 +25,16 @@ I put these up here to provide memory joggers of the things I learned
 
 1. [Davies Burgers](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/1_Davies_Burgers_(box_model_basics)/index.html)
 
-1. [We Are Broadway](https://grumbit.github.io/webPathProjects/blob/master/4_Getting_More_Advanced_With_Design/2_We_Are_Broadway_(display_and_position)/index.html)
+1. [We Are Broadway](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/2_We_Are_Broadway_(display_and_position)/index.html)
 
-1. [](https://grumbit.github.io/webPathProjects/blob/master/4_Getting_More_Advanced_With_Design//index.html)
-
-
+2. [Paint Store (colors)](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/3_Paint_Store_(colors)/index.html)
 
 
 
 
+
+<!-- 
 
 ##### Blank entry for next projects;
-1. [](https://grumbit.github.io/webPathProjects/blob/master//index.html)
-
+1. [](https://grumbit.github.io/webPathProjects//index.html)
+ -->
