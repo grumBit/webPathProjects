@@ -149,7 +149,7 @@ rgba(ddd, ddd, ddd, 0-1)<br><br>hsla(ddd, ddd%, ddd%, 0-1) | 1) The first three 
 | line-height | `d.d`, `unit` | 1)`d.d` is a unitless absolute value that will compute the line height as a ratio of the font size<br> 2) `unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.<br>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)
 
 ## Additional fonts
-See my example of using the below [here](https://grumbit.github.io/webPathProjects/Grum_extra-Typography/index.html)
+See my example of using the below [here](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/Grum_extra-Typography/index.html).
 ### Loading externally from fonts.google.com
 1. Search for fonts
 1. Having found a font, add it and select the variations (e.g. regualr (400) and 
