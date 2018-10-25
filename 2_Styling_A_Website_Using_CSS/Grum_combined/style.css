@@ -1,0 +1,123 @@
+/*
+CSS specificity/precedence from highest to lowest;
+1) ID        E.g. CSS; #my-element-id {...}   HTML; <p id="cmy-element-id">...</p>
+2) chained        CSS; h1.my-class {...}      HTML; <h1 class="my-class">...</div>
+3) class          CSS; .my-class-2 {...}      HTML; <div class="my-class-2">...</div>
+4) nested element CSS; footer h3 {...}        HTML; <footer><h3>...</h3></footer>
+5) element        CSS; h2 {...}               HTML; <h2>...</h2>
+*/
+
+
+
+
+/* sets properties for all html elements containted within <body> </body> element */
+body {
+  font-family: 'Oswald', Helvetica;  /*'Oswald' font is pulled in by <link> in HTML.  Helvetica will be used if <link> failed. */
+  font-size: 19px;
+  background-image: url("images/hypnotize_bg.png"); /* Can be relative, absolute and url */
+  padding: 10px;
+}
+
+/*sets properties for all html elements that have a class attribute set to ="banner".  E.g. <h1 class="banner">Banner text</h1>*/
+.banner {
+  font-size: 50px;
+  font-weight: bold;
+  color: khaki;
+  background-image: url("images/pattern.jpeg");
+  text-align: center;
+  height:
+}
+
+.banner-sub-text {
+  font-size: 20px;
+  opacity: 0.50;
+}
+
+.background-green {
+  background-color: mediumspringgreen;
+}
+
+.background-red {
+  background-color: lightcoral;
+}
+
+.background-blue {
+  background-color: skyblue;
+}
+
+.img-small {
+  height: 100px;
+}
+
+.list-square {
+  list-style: square;
+}
+
+.external-link {
+  color: SeaGreen;
+}
+
+/* Set properies for all h2 headers*/
+h2 {
+  font-size: 30px;
+  color: white;
+}
+
+h2, h3, h4, h5, h6 {  /* Comma separated selectors means applies to each element type */
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+footer h3 { /* NB: nested element selector: Space separated selector means applies to only h3 elements nested within a footer element */
+  display: inline-block;
+  padding: 10px;
+  color: white;
+}
+
+
+.footer-bar {
+  margin-top: 20px;
+  text-align: center;
+  position: fixed;
+  z-index: 5;       /* Sets "Z" dimension (i.e. 3rd after X & Y) the higher the number, the closer to the top of the stack */
+                    /* WARNING: z-index will not function if position either defaults, or is set to, static  */
+  width: 98%;
+  bottom: 1px;
+  background-color: #ADADAD;
+  color: white;
+  background-image: url("images/pattern.jpeg");
+
+}
+.footer-padder { /* Allows body to scroll above fixed footer */
+  height: 300px;
+}
+
+/* Chained selector.  Will only apply to <p> elements that also have a class of copyright*/
+p.copyright {
+  color: white;
+  font-size: 15px;
+  opacity: 0.50;
+  text-align: right;
+  padding: 8px;
+}
+
+th {
+  border: 2px solid #8c6b48;
+}
+
+table {
+  text-align: center;
+  margin: 20px auto;
+  background-color: #ADADAD;
+  color: white;
+}
+
+td {
+  border: 2px solid #8c6b48;
+  width: 300px;
+}
+
+.table-container {
+  max-width: 940px;
+  margin: 0 auto;
+}

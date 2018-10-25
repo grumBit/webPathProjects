@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Grum's Skeleton HTML page</title> <!-- Appears in brower's tab-->
+    <link href="style.css" type="text/css" rel="stylesheet"> <!-- href can be relative, absolute or url -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="banner"> <!--class attribute links to .banner {} in style.css-->
+      <!-- All elements relating to the banner are in this div element so that .banner styling can be inherited-->
+      <h1>An h1 used as banner</h1>
+      <p class="banner-sub-text">Some banner sub-text.</p>
+
+    </div>
+
+    <div>
+      <h2 class="background-green">An h2 heading</h2>
+      <img class="img-small" src="images/brushes.jpeg"/> <!-- src can be relative, absolute or url -->
+      <h3>An h3 heading</h3>
+      <p>Some text. <a href="prod-link.html" target="_blank" class="external-link">A link within a para.</a></p> <!-- target="_blank" will open link in new (i.e. blank) tab / window-->
+
+      <h4>An unordered list;</h4>
+      <ul class="list-square">
+        <li>Item</li>
+        <li>Another item</li>
+        <li>Could've been the 1st item</li>
+      </ul>
+
+      <h4>An ordered list;</h4>
+      <ol>
+        <li>I'm item one</li>
+        <li>I'm item two</li>
+        <li>I'm item three</li>
+      </ol>
+    </div>
+
+    <div>
+      <h2 class="background-red">Another h2 heading</h2>
+      <img class="img-small" src="images/frames.jpeg"/>
+      <h3>Another h3 heading</h3>
+      <p>More text. <a href="prod-link.html" target="_blank" class="external-link">Another link within a para.</a></p>
+
+
+        <div class="table-container">
+          <table>
+
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <h3 class="background-hypnotize">Table Header Text</h3>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <h4>1st Column Header Text</h4>
+                </th>
+                <th>
+                  <h4>2nd Column Header Text</h4>
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="left"><h4>12:00 PM</h4></td>
+                <td><h4>Welcome Reception</h4></td>
+              </tr>
+              <tr>
+                <td class="left"><h4>01:00 PM</h4></td>
+                <td><h4>Lecture</h4></td>
+              </tr>
+              <tr>
+                <td class="left"><h4>02:00 PM</h4></td>
+                <td><h4>Luncheon</h4></td>
+              </tr>
+              <tr>
+                <td class="left"><h4>03:00 PM</h4></td>
+                <td><h4>Workshop</h4></td>
+              </tr>
+              <tr>
+                <td class="left"><h4>04:00 PM</h4></td>
+                <td><h4>Wrap up</h4></td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="background-blue">Yet another h3 heading</h2>
+      <img class="img-small" src="images/paints.jpeg"/>
+      <h3>yet another h3 heading</h3>
+      <p>Yet more text in a paragraph. <a href="prod-link.html" target="_blank" class="external-link">A link within a para.</a></p>
+    </div>
+
+  </body>
+
+  <footer>
+    <p class="footer-padder"></p> <!-- Allows body to scroll above fixed footer -->
+
+    <div class="footer-bar">
+      <a href="./contact-link.html"><h3>Contact</h3></a>
+      <a href="./location-link.html"><h3>Location</h3></a>
+      <a href="./policy-link.html"><h3>Privacy Policy</h3></a>
+      <p class="copyright">Updated 12/10/2018 by GrumBit.&copy; Copyright BitJugglers Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+
+</html>
