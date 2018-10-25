@@ -19,7 +19,8 @@ I put these up here to provide memory joggers of the things I learned
 
 1. [Grum extra - combining 3 above](https://grumbit.github.io/webPathProjects/2_Styling_A_Website_Using_CSS/Grum_combined/index.html)
 
-### 3 - Getting Started with JavaScript (didn't keep overly simple projects)
+### 3 - Getting Started with JavaScript
+ (I didn't keep these overly simple projects)
 
 ### 4 - Getting More Advanced With Design
 
