@@ -7,13 +7,13 @@ Grum's SQL notes
 
 <!-- code_chunk_output -->
 
-- [basic commands](#basic-commands)
+- [Basic commands](#basic-commands)
 
 <!-- /code_chunk_output -->
 
 ---
 
-# basic commands
+# Basic commands
 
 ```sql
 CREATE TABLE table_name (
