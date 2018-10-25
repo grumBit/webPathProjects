@@ -10,21 +10,22 @@ Grum's CSS notes
 - [The Box Model](#the-box-model)
     - [`height`, `width`, `padding`, `borders`, and `margins`](#height-width-padding-borders-and-margins)
 - [Changing the Box Model from the default content-box to border-box](#changing-the-box-model-from-the-default-content-box-to-border-box)
-        - [box-sizing [content-box (default), border-box]](#box-sizing-content-box-default-border-box)
+    - [`box-sizing [content-box (default), border-box]`](#box-sizing-content-box-default-border-box)
 - [Display and Positioning](#display-and-positioning)
     - [Layout - control the positioning of elements on a web page.](#layout---control-the-positioning-of-elements-on-a-web-page)
-        - [position: [static (default), relative, absolute, fixed];](#position-static-default-relative-absolute-fixed)
-        - [z-index: [int];](#z-index-int)
-        - [display: [inline, block, inline-block];](#display-inline-block-inline-block)
-        - [float: [left, right];](#float-left-right)
-        - [clear: [left, right, both];](#clear-left-right-both)
+        - [[position: [static (default), relative, absolute, fixed];](https://developer.mozilla.org/en-US/docs/Web/CSS/position)](#position-static-default-relative-absolute-fixedhttpsdevelopermozillaorgen-usdocswebcssposition)
+            - [Use `top`, `bottom`, `left`, `right` properties to position](#use-top-bottom-left-right-properties-to-position)
+        - [`z-index: [int]`;](#z-index-int)
+        - [`display: [inline, block, inline-block]`;](#display-inline-block-inline-block)
+        - [`float: [left, right]`;](#float-left-right)
+        - [`clear: [left, right, both]`;](#clear-left-right-both)
 - [Colors](#colors)
-    - [color and background-color: [ #, rgb, hsl, rgba, hsla];](#color-and-background-color---rgb-hsl-rgba-hsla)
-    - [Solid colors - keywords, #, rgb, hsl](#solid-colors---keywords--rgb-hsl)
-    - [Alpha (aka opacity) - rgba and hsla](#alpha-aka-opacity---rgba-and-hsla)
+    - [`color` and `background-color: [ keyword #, rgb, hsl, rgba, hsla]`;](#color-and-background-color--keyword--rgb-hsl-rgba-hsla)
+    - [Solid colors - `keyword, #, rgb, hsl`](#solid-colors---keyword--rgb-hsl)
+    - [Alpha (aka opacity) - `rgba` and `hsla`](#alpha-aka-opacity---rgba-and-hsla)
 - [Typography](#typography)
     - [Typography Properties](#typography-properties)
-    - [Additional fonts](#additional-fonts)
+    - [Loading additional fonts](#loading-additional-fonts)
         - [Loading externally from fonts.google.com](#loading-externally-from-fontsgooglecom)
         - [Loading internally using font files](#loading-internally-using-font-files)
 
@@ -55,7 +56,7 @@ The five properties of the box model are: `height` and `width`, `padding`, `bord
 
 # Changing the Box Model from the default content-box to border-box
 
-### box-sizing [content-box (default), border-box]
+## `box-sizing [content-box (default), border-box]`
 The box-sizing property controls the box model used by the browser;
 
 | Setting | Effect |
@@ -68,7 +69,7 @@ The box-sizing property controls the box model used by the browser;
 # Display and Positioning
 
 ## Layout - control the positioning of elements on a web page.
-### position: [static (default), relative, absolute, fixed];
+### [position: [static (default), relative, absolute, fixed];](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
 
 | Setting | Effect |
 | ------- | ------ |
@@ -78,12 +79,13 @@ The box-sizing property controls the box model used by the browser;
 | `fixed` | Position pinned to any part of the web page. The element will remain in view no matter what. If an element's `position` is `fixed`; <br><br> 1) The element may be obscured underneath others, which `z-index: <a_suitably_big_int>` can bring the element forward. Other element(s) that are now underneath may need to have their position altered to be visiable again.  e.g. Set their `position:relative`, and then push them down using `top:<the_the_height_of_the_obscuring_element>px`.<br><br> 2) The element may shrink, which `width: 100%` can address, provided the `display` for the element is not `inline`.
 | `sticky` | Positioned relative to its default position on the page until its containing block crosses a specified threshold (such as setting top to value other than auto) within its flow root (or the container it scrolls within), at which point it is treated as "stuck" until meeting the opposite edge of its containing block.
 
-### z-index: [int];
+#### Use `top`, `bottom`, `left`, `right` properties to position
+### `z-index: [int]`;
 * The `z-index` of an element specifies how far back or how far forward an element appears on the page when it overlaps other elements. 
 * The higher the number, the closer to the top of the stack
 * WARNING: z-index will not function if position either defaults, or is set to, static.
 
-### display: [inline, block, inline-block];
+### `display: [inline, block, inline-block]`;
 * The display property allows you control how an element flows vertically and horizontally a document.
 
 | Setting | Effect |
@@ -92,12 +94,12 @@ The box-sizing property controls the box model used by the browser;
 | `block` | Elements fill the entire width of the page by default, but their width property can also be set. Unless otherwise specified, they are the height necessary to accommodate their content. The main block-by-default elements are `<h1> through <h6>, <p>, <div> and <footer>`, see [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) for more.
 | `inline-block` | Elements can also appear next to each other, can have set `width` and `height`, and do not take up their entire container width.
 
-### float: [left, right];
+### `float: [left, right]`;
 * Move elements as far `left` or `right` as possible.
 * Floated elements must have a `width` specified, otherwise the element will assume the full width of its containing element, and changing the float value will not yield any visible results.
 * The float property can also be used to float multiple elements at once. However, when multiple floated elements have different heights, it can affect their layout on the page. Specifically, elements can "bump" into each other and not allow other elements to properly move the left or right.
 
-### clear: [left, right, both];
+### `clear: [left, right, both]`;
 
 * When multiple `floated` elements have different heights, they can "bump" into each other and not allow other elements to properly move to the left or right.
 
@@ -111,56 +113,73 @@ The box-sizing property controls the box model used by the browser;
 | `none` | The element can touch either side.
 
 # Colors
-## color and background-color: [ #, rgb, hsl, rgba, hsla];
+## `color` and `background-color: [ keyword #, rgb, hsl, rgba, hsla]`;
 
 | Property | Effect |
 | -------- | ------ |
-| color [ #, rgb, hsl, rgba, hsla]<br>background [ #, rgb, hsl, rgba, hsla] | Sets element's foreground & backround respectively<br> as per schemes below.
+| `color [ #, rgb, hsl, rgba, hsla]`<br>`background [ #, rgb, hsl, rgba, hsla]` | Sets element's foreground & backround respectively<br> as per schemes below.
 
-## Solid colors - keywords, #, rgb, hsl
+## Solid colors - `keyword, #, rgb, hsl`
 
 | Setting | Effect |
 | ------- | ------ |
-| color keyword | See list [here](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Color_keywords).  NB: Each color keyword has an equivalent #hex rgb value.
-| \#hhhhhh | 6 or 3 digit hexadecimal RGB color.  3 digit represents 6 digit where each pair is a double.  E.g. #00FFFF = #0FF
-| rgb(ddd, ddd, ddd) | Specifies RGB values as 0-255 decimals
-| hsl(ddd, ddd%, ddd%) | [<img src="./color_wheel_4_background.svg" alt="drawing" width="250" height="250"/>](./color_wheel_4_background.svg)<br> 1) 0-360º Hue. As per color wheel. 0/360 = Red, 120 = green, 240 = blue.<br>2) 0-100% Saturation.  Less is toward center of wheel (greyer) and more moves to perimeter (richer) <br>3)  0-100% Lightness. 50% = normal, 0% = black, 100% = white
+| `keyword` | See list [here](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Color_keywords).  NB: Each color keyword has an equivalent #hex rgb value.
+| `#hhhhhh` | 6 or 3 digit hexadecimal RGB color.  3 digit represents 6 digit where each pair is a double.  E.g. #00FFFF = #0FF
+| `rgb(ddd, ddd, ddd)` | Specifies RGB values as 0-255 decimals
+| `hsl(ddd, ddd%, ddd%)` | [<img src="./color_wheel_4_background.svg" alt="drawing" width="250" height="250"/>](./color_wheel_4_background.svg)<br> 1) 0-360º Hue. As per color wheel. 0/360 = Red, 120 = green, 240 = blue.<br>2) 0-100% Saturation.  Less is toward center of wheel (greyer) and more moves to perimeter (richer) <br>3)  0-100% Lightness. 50% = normal, 0% = black, 100% = white
 
 * See [RGB to HSL color conversion](https://www.rapidtables.com/convert/color/rgb-to-hsl.html).
 
-## Alpha (aka opacity) - rgba and hsla
+## Alpha (aka opacity) - `rgba` and `hsla`
 
 Setting | Effect
 ------- | -------
-rgba(ddd, ddd, ddd, 0-1)<br><br>hsla(ddd, ddd%, ddd%, 0-1) | 1) The first three arguments specify the color as<br> per rgb & hsl above.<br><br> 2) Opacity is set by the last digit.  <br>0.0 = transparent, 1.0 = opaque.
+`rgba(ddd, ddd, ddd, 0-1)`<br><br>`hsla(ddd, ddd%, ddd%, 0-1)` | 1) The first three arguments specify the color as<br> per rgb & hsl above.<br><br> 2) Opacity is set by the last digit.  <br>0.0 = transparent, 1.0 = opaque.
 
 # Typography
 ## Typography Properties
 
 | Typography property | Arguments | Notes |
 | ------------------- | --------- | ----- |
-| font-family | font-name, fallback-font1, ... , [serif, sans-serif] | 1) If font-name is not available, use fallbacks or serif/sans-serif.<br>2) Use double quotes "" if the name contains spaces.
-| font-weight | `bold`, `normal`, 100-900 in multiples of 100 | 400 is usually default, 700 is bold, 300 is light
-| font-style | `italic`, `normal` (default)
-| word-spacing | `decimal` | Default is 0.25em.  NB: The preffered unit is `em` .
-| letter-spacing | `decimal` | Aka 'kerning'. NB: The preffered unit is `em` .
-| text-transform | `uppercase`
-| text-align | `left`, `center`, `right`
-| line-height | `d.d`, `unit` | 1)`d.d` is a unitless absolute value that will compute the line height as a ratio of the font size<br> 2) `unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.<br>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)
+| `font-family` | font-name, fallback-font1, ... , [serif, sans-serif] | 1) If font-name is not available, use fallbacks or serif/sans-serif.<br>2) Use double quotes "" if the name contains spaces.
+| `font-weight` | `bold`, `normal`, 100-900 in multiples of 100 | 400 is usually default, 700 is bold, 300 is light
+| `font-style` | `italic`, `normal` (default)
+| `word-spacing` | `decimal` | Default is 0.25em.  NB: The preffered unit is `em` .
+| `letter-spacing` | `decimal` | Aka 'kerning'. NB: The preffered unit is `em` .
+| `text-transform` | `uppercase`
+| `text-align` | `left`, `center`, `right`
+| `line-height` | `d.d`, `unit` | 1)`d.d` is a unitless absolute value that will compute the line height as a ratio of the font size<br> 2) `unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.<br>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)
 
-## Additional fonts
+## Loading additional fonts
 See my example of using the below [here](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/Grum_extra-Typography/index.html).
 ### Loading externally from fonts.google.com
 1. Search for fonts
-1. Having found a font, add it and select the variations (e.g. regualr (400) and 
-2. When all are saved, open the bottom-right widget and link **or** import the font(s);
+2. Having found a font, add it and select the variations (e.g. regualr (400) and 
+3. When all are saved, open the bottom-right widget and link **or** import the font(s);
     1. Link fonts via index.html;
-        - Copy-and-paste the provided \<link\> tag into the \<head\> tag of index.html.
+        - Copy-and-paste the provided \<link\> tag into the \<head\> tag of index.html. E.g.
+            ```html
+            <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+            ```
     2. Import @font-face via style.css
         - Copy-and-paste the provided \<link\> tag into a browser.
         - From the raw css displayed, copy-and-paste all the `/* latin */` @font-face {...} blocks into the _**top**_ of style.css.
-1. Add font rules to selector
+            ```css
+            @font-face {
+                font-family: 'Space Mono';
+                font-style: normal;
+                font-weight: 700;
+                src: local('Space Mono Bold'), local('SpaceMono-Bold'), url(https://fonts.gstatic.com/s/spacemono/v1/vdpMRWfyjfCvDYTz00NEPGaVI6zN22yiurzcBKxPjFE.woff2) format('woff2');
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+                }
+            ```
+4. Add font rules to selector
 - Copy-and-paste the font rules in to the appropriate selector of style.css.
+  ```css
+  <some_css_selector> {
+      font-family: "Space Mono", monospace;
+  }
+  ```
 
 ### Loading internally using font files
 1. Download font files from somewhere like fontsquirrel.com, into a suitable location such as ./fonts
