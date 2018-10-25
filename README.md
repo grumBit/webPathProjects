@@ -1,13 +1,13 @@
-Crib notes and projects I created while doing Codecademy web path courses 
+Crib notes and projects
 ============================================================
 
-I put these up here to provide memory joggers of the things I learned
+Contains crib notes and projects I created while doing [Codecademy Wweb Path](https://www.codecademy.com/learn/paths/web-development) courses . I put these up here as memory joggers of things I learned.
 
 ### Crib notes I made on the way;
 - [JavaScript language](docs/JavaScript_crib_notes.md)
 - [CSS notes](docs/css_notes/css_grum_notes.md)
 
-### [Codecademy Web Path projects](https://www.codecademy.com/learn/paths/web-development)
+### Codecademy Web Path projects
 #### 1 - Learn HTML
 
 1. [Fashion Blog (super simple)](https://grumbit.github.io/webPathProjects/1_Learn_HTML/1_Fashion_Blog/index.html)
