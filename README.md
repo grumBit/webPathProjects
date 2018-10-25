@@ -6,6 +6,7 @@ Contains crib notes and projects I created while doing [Codecademy Wweb Path](ht
 ### Crib notes made on the way
 - [JavaScript language](docs/JavaScript_crib_notes.md)
 - [CSS notes](docs/css_notes/css_grum_notes.md)
+- [SQL](docs/sql.md)
 
 ### Codecademy Web Path projects
 #### 1 - Learn HTML
