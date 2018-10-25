@@ -1,20 +1,20 @@
-Notes and projects I created while doing Codecademy web path courses 
+Crib notes and projects I created while doing Codecademy web path courses 
 ============================================================
 
 I put these up here to provide memory joggers of the things I learned
 
-## Crib notes I made on the way;
+### Crib notes I made on the way;
 - [JavaScript language](docs/JavaScript_crib_notes.md)
 - [CSS notes](docs/css_notes/css_grum_notes.md)
 
-## [Codecademy Web Path projects](https://www.codecademy.com/learn/paths/web-development)
-### 1 - Learn HTML
+### [Codecademy Web Path projects](https://www.codecademy.com/learn/paths/web-development)
+#### 1 - Learn HTML
 
 1. [Fashion Blog (super simple)](https://grumbit.github.io/webPathProjects/1_Learn_HTML/1_Fashion_Blog/index.html)
 
 2. [Wine Festival Schedule (tables)](https://grumbit.github.io/webPathProjects/1_Learn_HTML/2_Wine_Festival_Schedule_(tables)/index.html)
 
-### 2 - Styling A Website using CSS
+#### 2 - Styling A Website using CSS
 
 1. [Healthy Recipes](https://grumbit.github.io/webPathProjects/2_Styling_A_Website_Using_CSS/1_Healthy_Recipes_(lists)/index.html)
 
@@ -24,10 +24,10 @@ I put these up here to provide memory joggers of the things I learned
 
 1. [Grum extra - combining 5 above](https://grumbit.github.io/webPathProjects/2_Styling_A_Website_Using_CSS/Grum_combined/index.html)
 
-### 3 - Getting Started with JavaScript
+#### 3 - Getting Started with JavaScript
  (I didn't keep these overly simple projects)
 
-### 4 - Getting More Advanced With Design
+#### 4 - Getting More Advanced With Design
 
 1. [Davies Burgers](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/1_Davies_Burgers_(box_model_basics)/index.html)
 
