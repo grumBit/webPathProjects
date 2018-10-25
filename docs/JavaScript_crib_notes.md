@@ -70,8 +70,10 @@ Contains summary langauge and interface info, with `code` examples and links to 
   let  const                   - variable and constant declaration. camelCase by convention
   var                          - dperecated variable declaration
   ```
+  
 # [Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Expressions_and_operators)
 ### Common operator list
+
 | Operator                              | Description  |
 | --------                              |:-----------  |
 | ` ;                                  `| statement terminator and [empty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/Empty) statement
