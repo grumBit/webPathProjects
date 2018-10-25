@@ -1,7 +1,7 @@
 Grum's JavaScript Crib Notes
 ============================
 
-Contains summary langauge and interface info, with `code` examples and links to Mozilla documentation.
+Contains summary langauge and interface info, with `code` examples and [links](https://developer.mozilla.org/en-US/docs/Web/JavaScript) to Mozilla documentation.
 
 **Contents**
 
