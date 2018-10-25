@@ -74,8 +74,8 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 # [Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Expressions_and_operators)
 ### Common operator list
 
-| Operator | Description |
-| -------- |:----------- |
+| Operator | Linked Description|
+| -------- |:----------------- |
 | `;`                                        | statement terminator and [empty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/Empty) statement
 | `=`                                        | [assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Assignment_operators)
 | `==` `!=`                                  | [equality, inequality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Equality_operators)

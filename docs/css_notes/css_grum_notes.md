@@ -23,6 +23,10 @@ Grum's CSS notes
     - [Solid colors - keywords, #, rgb, hsl](#solid-colors---keywords--rgb-hsl)
     - [Alpha (aka opacity) - rgba and hsla](#alpha-aka-opacity---rgba-and-hsla)
 - [Typography](#typography)
+    - [Typography Properties](#typography-properties)
+    - [Additional fonts](#additional-fonts)
+        - [Loading externally from fonts.google.com](#loading-externally-from-fontsgooglecom)
+        - [Loading internally using font files](#loading-internally-using-font-files)
 
 <!-- /code_chunk_output -->
 
@@ -71,7 +75,7 @@ The box-sizing property controls the box model used by the browser;
 | `static` | Default value. Elements render in order, as they appear in the document flow
 | `relative` | Positioned relative to its default position on the page.
 | `absolute` | Positioned relative to its first positioned (not static) ancestor element. It can be pinned to any part of the web page, but the element will still move with the rest of the document when the page is scrolled.
-| `fixed` | Position pinned to any part of the web page. The element will remain in view no matter what. <br>If an element's `position` is `fixed`; <br> 1) The element may be obscured underneath others, which `z-index: <a_suitably_big_int>` can bring the element forward. Other element(s) that are now underneath may need to have their position altered to be visiable again.  e.g. Set their `position:relative`, and then push them down using `top:<the_the_height_of_the_obscuring_element>px`.<br> 2) The element may shrink, which `width: 100%` can address, provided the `display` for the element is not `inline`.</li></ul>
+| `fixed` | Position pinned to any part of the web page. The element will remain in view no matter what. If an element's `position` is `fixed`; <br><br> 1) The element may be obscured underneath others, which `z-index: <a_suitably_big_int>` can bring the element forward. Other element(s) that are now underneath may need to have their position altered to be visiable again.  e.g. Set their `position:relative`, and then push them down using `top:<the_the_height_of_the_obscuring_element>px`.<br><br> 2) The element may shrink, which `width: 100%` can address, provided the `display` for the element is not `inline`.
 | `sticky` | Positioned relative to its default position on the page until its containing block crosses a specified threshold (such as setting top to value other than auto) within its flow root (or the container it scrolls within), at which point it is treated as "stuck" until meeting the opposite edge of its containing block.
 
 ### z-index: [int];
@@ -128,13 +132,14 @@ The box-sizing property controls the box model used by the browser;
 
 Setting | Effect
 ------- | -------
-rgba(ddd, ddd, ddd, 0-1)<br>hsla(ddd, ddd%, ddd%, 0-1) | 1) The first three arguments specify the color as per rgb & hsl above.<br> 2) Opacity is set by the last digit.  0 = fully transparent,  1 = opaque.
+rgba(ddd, ddd, ddd, 0-1)<br><br>hsla(ddd, ddd%, ddd%, 0-1) | 1) The first three arguments specify the color as<br> per rgb & hsl above.<br><br> 2) Opacity is set by the last digit.  <br>0.0 = transparent, 1.0 = opaque.
 
 # Typography
+## Typography Properties
 
 | Typography property | Arguments | Notes |
 | ------------------- | --------- | ----- |
-| font-family | font-name | Use double quotes "" if the name contains spaces
+| font-family | font-name, fallback-font1, ... , [serif, sans-serif] | 1) If font-name is not available, use fallbacks or serif/sans-serif.<br>2) Use double quotes "" if the name contains spaces.
 | font-weight | `bold`, `normal`, 100-900 in multiples of 100 | 400 is usually default, 700 is bold, 300 is light
 | font-style | `italic`, `normal` (default)
 | word-spacing | `decimal` | Default is 0.25em.  NB: The preffered unit is `em` .
@@ -143,6 +148,38 @@ rgba(ddd, ddd, ddd, 0-1)<br>hsla(ddd, ddd%, ddd%, 0-1) | 1) The first three argu
 | text-align | `left`, `center`, `right`
 | line-height | `d.d`, `unit` | 1)`d.d` is a unitless absolute value that will compute the line height as a ratio of the font size<br> 2) `unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.<br>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)
 
+## Additional fonts
+See my example of using the below [here](https://grumbit.github.io/webPathProjects/Grum_extra-Typography/index.html)
+### Loading externally from fonts.google.com
+1. Search for fonts
+1. Having found a font, add it and select the variations (e.g. regualr (400) and 
+2. When all are saved, open the bottom-right widget and link **or** import the font(s);
+    1. Link fonts via index.html;
+        - Copy-and-paste the provided \<link\> tag into the \<head\> tag of index.html.
+    2. Import @font-face via style.css
+        - Copy-and-paste the provided \<link\> tag into a browser.
+        - From the raw css displayed, copy-and-paste all the `/* latin */` @font-face {...} blocks into the _**top**_ of style.css.
+1. Add font rules to selector
+- Copy-and-paste the font rules in to the appropriate selector of style.css.
+
+### Loading internally using font files
+1. Download font files from somewhere like fontsquirrel.com, into a suitable location such as ./fonts
+2. For each font file, add an appropriate @font-face entry into style.css. E.g.;
+    ```css
+    /* The 2 @font-face below bring in regular and bold versions of the Glegoo font.
+       Note the font-weight's 400 & 700 are required to set them up correctly */
+    @font-face {
+    font-family: "Glegoo";
+    font-style: normal;
+    font-weight: 400;
+    src: url(fonts/Glegoo-Regular.ttf) format('truetype');
+    }
+    @font-face {
+    font-family: "Glegoo";
+    font-style: normal;
+    font-weight: 700;
+    src: url(fonts/Glegoo-Bold.ttf) format('truetype');
+    }
+    ```
+
  
-
-
