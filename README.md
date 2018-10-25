@@ -35,9 +35,9 @@ Contains crib notes and projects I created while doing [Codecademy Wweb Path](ht
 
 2. [Paint Store (colors)](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/3_Paint_Store_(colors)/index.html)
 
-1. [Typography (Grum extra)](https://grumbit.github.io/webPathProjects/Grum_extra-Typography/index.html)
+1. [Typography (Grum extra)](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/Grum_extra-Typography/index.html)
 
-1. [Morocco (typography)](https://grumbit.github.io/webPathProjects/4_Morocco(typography)/index.html)
+1. [Morocco (typography)](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/4_Morocco(typography)/index.html)
 
 
 
