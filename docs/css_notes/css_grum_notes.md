@@ -13,7 +13,7 @@ Grum's CSS notes
     - [`box-sizing [content-box (default), border-box]`](#box-sizing-content-box-default-border-box)
 - [Display and Positioning](#display-and-positioning)
     - [Layout - control the positioning of elements on a web page.](#layout---control-the-positioning-of-elements-on-a-web-page)
-        - [[`display: [inline, block, inline-block]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Display#CSS_Flow_Layout_(display_block_display_inline))](#display-inline-block-inline-blockhttpsdevelopermozillaorgen-usdocswebcsscss_displaycss_flow_layout_display_block_display_inline)
+        - [[`display: [inline, block, inline-block]`](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Display#CSS_Flow_Layout_(display_block_display_inline))](#display-inline-block-inline-blockhttpsdevelopermozillaorgen-usdocswebcsscss_displaycss_flow_layout_display_block_display_inline)
         - [[`position: [static (default), relative, absolute, fixed]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/position)](#position-static-default-relative-absolute-fixedhttpsdevelopermozillaorgen-usdocswebcssposition)
             - [Use `top`, `bottom`, `left`, `right` properties to position](#use-top-bottom-left-right-properties-to-position)
         - [[`z-index: [int]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index)](#z-index-inthttpsdevelopermozillaorgen-usdocswebcssz-index)
