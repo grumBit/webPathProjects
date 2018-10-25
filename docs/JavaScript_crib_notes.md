@@ -67,15 +67,15 @@ Contains summary langauge and interface info, with `code` examples and links to 
 # [Declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Declarations)
 
   ```javascript
-  let  const                   - variable and constant declaration. camelCase by convention
-  var                          - dperecated variable declaration
+  let  const         - variable and constant declaration. camelCase by convention
+  var                - deprecated variable declaration
   ```
-  
+
 # [Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Expressions_and_operators)
 ### Common operator list
 
-| Operator                              | Description  |
-| --------                              |:-----------  |
+| Operator                              | Description |
+| --------                              |:----------- |
 | ` ;                                  `| statement terminator and [empty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/Empty) statement
 | ` =                                  `| [assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Assignment_operators)
 | ` ==  !=                             `| [equality, inequality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Equality_operators)
@@ -86,7 +86,7 @@ Contains summary langauge and interface info, with `code` examples and links to 
 | ` +=  -=  *=  /= %=                  `| [self assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Assignment_operators)
 | ` ++ --                              `| [increment, decrement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Increment_and_decrement) (prefix and postfix) 
 | ` [] {}                              `| [array [*element0,...*]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and [object {*property: value,...*}](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) initialisers/literals
-| `[a, b] = [1, 2]` **or** `{a, b} = {a:1, b:2}`| array content [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to variables
+| `[a, b] = [1, 2]` **or** <br> `{a, b} = {a:1, b:2}`| array content [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to variables
 | ` 0  ""  ''  null  undefined NaN     `| falsy values (everything else truthy) (NaN is "Not a Number")
 | ` <<  >>  >>>  &  |  ^               `| bitwise [shift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Bitwise_shift_operators) and [logical](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Binary_bitwise_operators)
 | ` <<=  >>=  >>>=  &=  ^=  |=         `| bitwise [self assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Assignment_operators)
