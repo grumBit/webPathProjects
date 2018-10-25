@@ -32,7 +32,7 @@ Grum's CSS notes
 ## `height`, `width`, `padding`, `borders`, and `margins`
 The five properties of the box model are: `height` and `width`, `padding`, `borders`, and `margins`.
 
-* The box model comprises a set of properties used to create space around and between HTML elements.
+* The box model comprises a set of properties used to create space around and between HTML elements;
 
     *   [<img src="./Codecademy-The_Box_Model_1-overview.jpg" alt="drawing" width="250"/>](Codecademy-The_Box_Model_1-overview.jpg)
 
@@ -41,9 +41,10 @@ The five properties of the box model are: `height` and `width`, `padding`, `bord
 | `height` `width` | Sets content area in `px` or `%`.
 | `border` | Surrounds the content area and padding of an element. The color, style, and thickness of a border can be set with CSS properties. <br>E.g. `border: 1px solid #eb6536` sets line width, type of line, and color of line
 | `padding` | Sets the `px` spacing between the content area and the border. It can be set in pixels or percent.
-| `margin` | Sets the `px` spacing outside of an element's border; <ul><li>**`margin: 0 auto`** sets no top-bottom margins, but **horizontally centers** an element inside of its parent content area, if it has a width.</li><li>**Horizontal** margins add, so the total space between the borders of adjacent elements is equal to the sum of the right margin of one element and the left margin of the adjacent element.</li><li>**Vertical** margins collapse, so the space between vertically adjacent elements is equal to the larger margin.</li><li>[<img src="./Codecademy-Virtual_Margins_Collapse.jpg" alt="drawing" width="150"/>](Codecademy-Virtual_Margins_Collapse.jpg)</li></ul>
-| `overflow` | property can be set to `display`, `hide`, or `scroll`, and dictates how HTML will render content that overflows its parent's content area.
-| `visibility` |property can hide or show elements.
+| `margin` | Sets the `px` spacing outside of an element's border; <br>**1) `margin: 0 auto`** sets no top-bottom margins, but **horizontally centers** an element inside of its parent content area, if it has a width.<br>**2) Horizontal** margins add, so the total space between the borders of adjacent elements is equal to the sum of the right margin of one element and the left margin of the adjacent element.<br>**3) Vertical** margins collapse, so the space between vertically adjacent elements is equal to the larger margin.<br>[<img src="./Codecademy-Virtual_Margins_Collapse.jpg" alt="drawing" width="150"/>](Codecademy-Virtual_Margins_Collapse.jpg)
+| `overflow` | Property can be set to `display`, `hide`, or `scroll`, and dictates how HTML will render content that overflows its parent's content area.
+| `visibility` |Property can hide or show elements.
+
 **WARNING**: If the element **`display`** defaults, or is set, to **`inline`**, causes the element to be as small as possible and hence partially or fully negates any `height`, `width`, `padding` and `margin` settings.
 
 
@@ -53,10 +54,10 @@ The five properties of the box model are: `height` and `width`, `padding`, `bord
 ### box-sizing [content-box (default), border-box]
 The box-sizing property controls the box model used by the browser;
 
-| Setting | Effect | Picture |
-| ------- | :----: | :-----: |
-| `content-box` | Box dimensions are affected by border thickness <br>and padding, as they are external to the box and <br>hence add to the content dimensions. | [<img src="./Codecademy-The_Box_Model_2-default_acutal_rendered_width.jpg" alt="drawing" width="150"/>](Codecademy-The_Box_Model_2-default_acutal_rendered_width.jpg)
-| `border-box` | Box dimensions is not affected by border thickness<br> or padding, instead they go into the box. | [<img src="./Codecademy-The_Box_Model_3-box-sizing_border-box.jpg" alt="drawing" width="150"/>](Codecademy-The_Box_Model_3-box-sizing_border-box.jpg)
+| Setting | Effect |
+| ------- | :----: |
+| `content-box` | Box dimensions are affected by border thickness and padding, as they are external to the box and hence add to the content dimensions. <br>[<img src="./Codecademy-The_Box_Model_2-default_acutal_rendered_width.jpg" alt="drawing" width="150"/>](Codecademy-The_Box_Model_2-default_acutal_rendered_width.jpg)
+| `border-box` | Box dimensions are not affected by border thickness or padding, instead they go into the box.<br> [<img src="./Codecademy-The_Box_Model_3-box-sizing_border-box.jpg" alt="drawing" width="150"/>](Codecademy-The_Box_Model_3-box-sizing_border-box.jpg)
 
 
 
@@ -70,7 +71,7 @@ The box-sizing property controls the box model used by the browser;
 | `static` | Default value. Elements render in order, as they appear in the document flow
 | `relative` | Positioned relative to its default position on the page.
 | `absolute` | Positioned relative to its first positioned (not static) ancestor element. It can be pinned to any part of the web page, but the element will still move with the rest of the document when the page is scrolled.
-| `fixed` | Position pinned to any part of the web page. The element will remain in view no matter what. <br>If an element's `position` is `fixed`; <ul><li>The element may be obscured underneath others, which `z-index: <a_suitably_big_int>` can bring the element forward. Other element(s) that are now underneath may need to have their position altered to be visiable again.  e.g. Set their `position:relative`, and then push them down using `top:<the_the_height_of_the_obscuring_element>px`.</li><li>The element may shrink, which `width: 100%` can address, provided the `display` for the element is not `inline`.</li></ul>
+| `fixed` | Position pinned to any part of the web page. The element will remain in view no matter what. <br>If an element's `position` is `fixed`; <br> 1) The element may be obscured underneath others, which `z-index: <a_suitably_big_int>` can bring the element forward. Other element(s) that are now underneath may need to have their position altered to be visiable again.  e.g. Set their `position:relative`, and then push them down using `top:<the_the_height_of_the_obscuring_element>px`.<br> 2) The element may shrink, which `width: 100%` can address, provided the `display` for the element is not `inline`.</li></ul>
 | `sticky` | Positioned relative to its default position on the page until its containing block crosses a specified threshold (such as setting top to value other than auto) within its flow root (or the container it scrolls within), at which point it is treated as "stuck" until meeting the opposite edge of its containing block.
 
 ### z-index: [int];
@@ -83,9 +84,9 @@ The box-sizing property controls the box model used by the browser;
 
 | Setting | Effect |
 | ------- | ------ |
-| `inline` | elements take up the minimum size required to contain the contents and cannot be altered in size with the `height` or `width` properties. See [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements) for more.
-| `block` | elements fill the entire width of the page by default, but their width property can also be set. Unless otherwise specified, they are the height necessary to accommodate their content. The main block-by-default elements are `<h1> through <h6>, <p>, <div> and <footer>`, see [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) for more.
-| `inline-block` | elements can also appear next to each other, can have set `width` and `height`, and do not take up their entire container width.
+| `inline` | Elements take up the minimum size required to contain the contents and cannot be altered in size with the `height` or `width` properties. See [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements) for more.
+| `block` | Elements fill the entire width of the page by default, but their width property can also be set. Unless otherwise specified, they are the height necessary to accommodate their content. The main block-by-default elements are `<h1> through <h6>, <p>, <div> and <footer>`, see [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) for more.
+| `inline-block` | Elements can also appear next to each other, can have set `width` and `height`, and do not take up their entire container width.
 
 ### float: [left, right];
 * Move elements as far `left` or `right` as possible.
@@ -100,10 +101,10 @@ The box-sizing property controls the box model used by the browser;
 
 | Setting | Effect |
 | ------- | ------ |
-| `left` | the left side of the element will not touch any other element within the same containing element.
-| `right` | the right side of the element will not touch any other element within the same containing element.
-| `both` | neither side of the element will touch any other element within the same containing element.
-| `none` | the element can touch either side.
+| `left` | The left side of the element will not touch any other element within the same containing element.
+| `right` | The right side of the element will not touch any other element within the same containing element.
+| `both` | Neither side of the element will touch any other element within the same containing element.
+| `none` | The element can touch either side.
 
 # Colors
 ## color and background-color: [ #, rgb, hsl, rgba, hsla];
@@ -127,7 +128,7 @@ The box-sizing property controls the box model used by the browser;
 
 Setting | Effect
 ------- | -------
-rgba(ddd, ddd, ddd, 0-1)<br>hsla(ddd, ddd%, ddd%, 0-1) | - The first three arguments specify the color as per rgb & hsl above.<br> - Opacity is set by the last digit.  0 = fully transparent,  1 = opaque.
+rgba(ddd, ddd, ddd, 0-1)<br>hsla(ddd, ddd%, ddd%, 0-1) | 1) The first three arguments specify the color as per rgb & hsl above.<br> 2) Opacity is set by the last digit.  0 = fully transparent,  1 = opaque.
 
 # Typography
 
@@ -140,7 +141,7 @@ rgba(ddd, ddd, ddd, 0-1)<br>hsla(ddd, ddd%, ddd%, 0-1) | - The first three argum
 | letter-spacing | `decimal` | Aka 'kerning'. NB: The preffered unit is `em` .
 | text-transform | `uppercase`
 | text-align | `left`, `center`, `right`
-| line-height | `d.d`, `unit` | <ul><li>`d.d` is a unitless absolute value that will compute the line height as a ratio of the font size</li><li>`unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.</li><li>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)</li></ul>
+| line-height | `d.d`, `unit` | 1)`d.d` is a unitless absolute value that will compute the line height as a ratio of the font size<br> 2) `unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.<br>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)
 
  
 
