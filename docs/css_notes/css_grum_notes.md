@@ -13,14 +13,15 @@ Grum's CSS notes
     - [`box-sizing [content-box (default), border-box]`](#box-sizing-content-box-default-border-box)
 - [Display and Positioning](#display-and-positioning)
     - [Layout - control the positioning of elements on a web page.](#layout---control-the-positioning-of-elements-on-a-web-page)
-        - [[position: [static (default), relative, absolute, fixed];](https://developer.mozilla.org/en-US/docs/Web/CSS/position)](#position-static-default-relative-absolute-fixedhttpsdevelopermozillaorgen-usdocswebcssposition)
+        - [[`display: [inline, block, inline-block]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Display#CSS_Flow_Layout_(display_block_display_inline))](#display-inline-block-inline-blockhttpsdevelopermozillaorgen-usdocswebcsscss_displaycss_flow_layout_display_block_display_inline)
+        - [[`position: [static (default), relative, absolute, fixed]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/position)](#position-static-default-relative-absolute-fixedhttpsdevelopermozillaorgen-usdocswebcssposition)
             - [Use `top`, `bottom`, `left`, `right` properties to position](#use-top-bottom-left-right-properties-to-position)
-        - [`z-index: [int]`;](#z-index-int)
-        - [`display: [inline, block, inline-block]`;](#display-inline-block-inline-block)
-        - [`float: [left, right]`;](#float-left-right)
-        - [`clear: [left, right, both]`;](#clear-left-right-both)
+        - [[`z-index: [int]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index)](#z-index-inthttpsdevelopermozillaorgen-usdocswebcssz-index)
+            - [See also "Using z-index" article](#see-also-using-z-index-article)
+        - [[`float: [left, right]`](https://developer.mozilla.org/en-US/docs/Web/CSS/float);](#float-left-righthttpsdevelopermozillaorgen-usdocswebcssfloat)
+        - [[`clear: [left, right, both]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)](#clear-left-right-bothhttpsdevelopermozillaorgen-usdocswebcssclear)
 - [Colors](#colors)
-    - [`color` and `background-color: [ keyword #, rgb, hsl, rgba, hsla]`;](#color-and-background-color--keyword--rgb-hsl-rgba-hsla)
+    - [`color` and `background-color` `[ keyword #, rgb, hsl, rgba, hsla]`;](#color-and-background-color--keyword--rgb-hsl-rgba-hsla)
     - [Solid colors - `keyword, #, rgb, hsl`](#solid-colors---keyword--rgb-hsl)
     - [Alpha (aka opacity) - `rgba` and `hsla`](#alpha-aka-opacity---rgba-and-hsla)
 - [Typography](#typography)
@@ -69,7 +70,17 @@ The box-sizing property controls the box model used by the browser;
 # Display and Positioning
 
 ## Layout - control the positioning of elements on a web page.
-### [position: [static (default), relative, absolute, fixed];](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+
+### [`display: [inline, block, inline-block]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Display#CSS_Flow_Layout_(display_block_display_inline))
+* The display property allows you control how an element flows vertically and horizontally a document.
+
+| Setting | Effect |
+| ------- | ------ |
+| `inline` | Elements take up the minimum size required to contain the contents and cannot be altered in size with the `height` or `width` properties. See [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements) for more.
+| `block` | Elements fill the entire width of the page by default, but their width property can also be set. Unless otherwise specified, they are the height necessary to accommodate their content. The main block-by-default elements are `<h1> through <h6>, <p>, <div> and <footer>`, see [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) for more.
+| `inline-block` | Elements can also appear next to each other, can have set `width` and `height`, and do not take up their entire container width.
+
+### [`position: [static (default), relative, absolute, fixed]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
 
 | Setting | Effect |
 | ------- | ------ |
@@ -80,26 +91,18 @@ The box-sizing property controls the box model used by the browser;
 | `sticky` | Positioned relative to its default position on the page until its containing block crosses a specified threshold (such as setting top to value other than auto) within its flow root (or the container it scrolls within), at which point it is treated as "stuck" until meeting the opposite edge of its containing block.
 
 #### Use `top`, `bottom`, `left`, `right` properties to position
-### `z-index: [int]`;
+### [`z-index: [int]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index)
 * The `z-index` of an element specifies how far back or how far forward an element appears on the page when it overlaps other elements. 
 * The higher the number, the closer to the top of the stack
 * WARNING: z-index will not function if position either defaults, or is set to, static.
+#### See also "[Using z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Adding_z-index)" article
 
-### `display: [inline, block, inline-block]`;
-* The display property allows you control how an element flows vertically and horizontally a document.
-
-| Setting | Effect |
-| ------- | ------ |
-| `inline` | Elements take up the minimum size required to contain the contents and cannot be altered in size with the `height` or `width` properties. See [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements) for more.
-| `block` | Elements fill the entire width of the page by default, but their width property can also be set. Unless otherwise specified, they are the height necessary to accommodate their content. The main block-by-default elements are `<h1> through <h6>, <p>, <div> and <footer>`, see [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) for more.
-| `inline-block` | Elements can also appear next to each other, can have set `width` and `height`, and do not take up their entire container width.
-
-### `float: [left, right]`;
+### [`float: [left, right]`](https://developer.mozilla.org/en-US/docs/Web/CSS/float);
 * Move elements as far `left` or `right` as possible.
 * Floated elements must have a `width` specified, otherwise the element will assume the full width of its containing element, and changing the float value will not yield any visible results.
 * The float property can also be used to float multiple elements at once. However, when multiple floated elements have different heights, it can affect their layout on the page. Specifically, elements can "bump" into each other and not allow other elements to properly move the left or right.
 
-### `clear: [left, right, both]`;
+### [`clear: [left, right, both]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
 
 * When multiple `floated` elements have different heights, they can "bump" into each other and not allow other elements to properly move to the left or right.
 
@@ -113,7 +116,7 @@ The box-sizing property controls the box model used by the browser;
 | `none` | The element can touch either side.
 
 # Colors
-## `color` and `background-color: [ keyword #, rgb, hsl, rgba, hsla]`;
+## [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color) and [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color) `[ keyword #, rgb, hsl, rgba, hsla]`;
 
 | Property | Effect |
 | -------- | ------ |
@@ -141,14 +144,14 @@ Setting | Effect
 
 | Typography property | Arguments | Notes |
 | ------------------- | --------- | ----- |
-| `font-family` | font-name, fallback-font1, ... , [serif, sans-serif] | 1) If font-name is not available, use fallbacks or serif/sans-serif.<br>2) Use double quotes "" if the name contains spaces.
-| `font-weight` | `bold`, `normal`, 100-900 in multiples of 100 | 400 is usually default, 700 is bold, 300 is light
-| `font-style` | `italic`, `normal` (default)
-| `word-spacing` | `decimal` | Default is 0.25em.  NB: The preffered unit is `em` .
-| `letter-spacing` | `decimal` | Aka 'kerning'. NB: The preffered unit is `em` .
-| `text-transform` | `uppercase`
-| `text-align` | `left`, `center`, `right`
-| `line-height` | `d.d`, `unit` | 1)`d.d` is a unitless absolute value that will compute the line height as a ratio of the font size<br> 2) `unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.<br>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)
+| [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) | font-name, fallback-font1, ... , [serif, sans-serif] | 1) If font-name is not available, use fallbacks or serif/sans-serif.<br>2) Use double quotes "" if the name contains spaces.
+| [`font-weight`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) | `bold`, `normal`, 100-900 in multiples of 100 | 400 is usually default, 700 is bold, 300 is light
+| [`font-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style) | `italic`, `normal` (default)
+| [`word-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing) | `decimal` | Default is 0.25em.  NB: The preffered unit is `em` .
+| [`letter-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing) | `decimal` | Aka 'kerning'. NB: The preffered unit is `em` .
+| [`text-transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform) | `uppercase`
+| [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align) | `left`, `center`, `right`
+| [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) | `d.d`, `unit` | 1)`d.d` is a unitless absolute value that will compute the line height as a ratio of the font size<br> 2) `unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.<br>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)
 
 ## Loading additional fonts
 See my example of using the below [here](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/Grum_extra-Typography/index.html).
