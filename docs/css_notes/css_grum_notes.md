@@ -114,11 +114,11 @@ color [ #, rgb, hsl, rgba, hsla]<br>background [ #, rgb, hsl, rgba, hsla] | Sets
 
 ## Solid colors - keywords, #, rgb, hsl
 Setting | Effect
-------- | -------
+------- | ------
 color keyword | See list [here](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Color_keywords).  NB: Each color keyword has an equivalent #hex rgb value.
-\#hhhhhh |  6 or 3 digit hexadecimal RGB color.  3 digit represents 6 digit where each pair is a double.  E.g. #00FFFF = #0FF
+\#hhhhhh | 6 or 3 digit hexadecimal RGB color.  3 digit represents 6 digit where each pair is a double.  E.g. #00FFFF = #0FF
 rgb(ddd, ddd, ddd) | Specifies RGB values as 0-255 decimals
-hsl(ddd, ddd%, ddd%) |  [<img src="./color_wheel_4_background.svg" alt="drawing" width="250" height="250"/>](./color_wheel_4_background.svg)<ul><li>0-360º Hue. As per color wheel. 0/360 = Red, 120 = green, 240 = blue.</li><li>0-100% Saturation.  Less is toward center of wheel (greyer) and more moves to perimeter (richer)</li><li>0-100% Lightness. 50% = normal, 0% = black, 100% = white</li></ul>
+hsl(ddd, ddd%, ddd%) | [<img src="./color_wheel_4_background.svg" alt="drawing" width="250" height="250"/>](./color_wheel_4_background.svg)<ul><li>0-360º Hue. As per color wheel. 0/360 = Red, 120 = green, 240 = blue.</li><li>0-100% Saturation.  Less is toward center of wheel (greyer) and more moves to perimeter (richer)</li><li>0-100% Lightness. 50% = normal, 0% = black, 100% = white</li></ul>
 
 * See [RGB to HSL color conversion](https://www.rapidtables.com/convert/color/rgb-to-hsl.html).
 
