@@ -1,11 +1,16 @@
-Projects I created while doing [Codecademy web path courses](https://www.codecademy.com/learn/paths/web-development) 
+Notes and projects I created while doing Codecademy web path courses 
 ============================================================
 
 I put these up here to provide memory joggers of the things I learned
 
+## Crib notes I made on the way;
+- [JavaScript language](docs/JavaScript_crib_notes.md)
+- [CSS notes](docs/css_notes/css_grum_notes.md)
+
+## [Codecademy Web Path projects](https://www.codecademy.com/learn/paths/web-development)
 ### 1 - Learn HTML
 
-1. [Fashion Blog](https://grumbit.github.io/webPathProjects/1_Learn_HTML/1_Fashion_Blog/index.html)
+1. [Fashion Blog (super simple)](https://grumbit.github.io/webPathProjects/1_Learn_HTML/1_Fashion_Blog/index.html)
 
 2. [Wine Festival Schedule (tables)](https://grumbit.github.io/webPathProjects/1_Learn_HTML/2_Wine_Festival_Schedule_(tables)/index.html)
 
@@ -17,7 +22,7 @@ I put these up here to provide memory joggers of the things I learned
 
 1. [Dasmotos Arts and Crafts](https://grumbit.github.io/webPathProjects/2_Styling_A_Website_Using_CSS/3_Dasmotos_Arts_and_Crafts/index.html)
 
-1. [Grum extra - combining 3 above](https://grumbit.github.io/webPathProjects/2_Styling_A_Website_Using_CSS/Grum_combined/index.html)
+1. [Grum extra - combining 5 above](https://grumbit.github.io/webPathProjects/2_Styling_A_Website_Using_CSS/Grum_combined/index.html)
 
 ### 3 - Getting Started with JavaScript
  (I didn't keep these overly simple projects)
