@@ -32,6 +32,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
     - [Loading additional fonts](#loading-additional-fonts)
         - [Loading externally from fonts.google.com](#loading-externally-from-fontsgooglecom)
         - [Loading internally using font files](#loading-internally-using-font-files)
+- [Units](#units)
 
 <!-- /code_chunk_output -->
 
@@ -220,8 +221,9 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
     src: url(fonts/Glegoo-Bold.ttf) format('truetype');
     }
     ```
+    
+# Units
 
- # Units
 
  | Unit | Description | Example |
  | ---- | ----------- | ------- |
