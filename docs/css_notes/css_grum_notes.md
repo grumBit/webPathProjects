@@ -196,11 +196,11 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
             ```
 4. Add font rules to selector
 - Copy-and-paste the font rules in to the appropriate selector of style.css.
-  ```css
-  <some_css_selector> {
-      font-family: "Space Mono", monospace;
-  }
-  ```
+    ```css
+    <some_css_selector> {
+        font-family: "Space Mono", monospace;
+    }
+    ```
 
 ### Loading internally using font files
 1. Download font files from somewhere like fontsquirrel.com, into a suitable location such as ./fonts
@@ -209,22 +209,25 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
     /* The 2 @font-face below bring in regular and bold versions of the Glegoo font.
        Note the font-weight's 400 & 700 are required to set them up correctly */
     @font-face {
-    font-family: "Glegoo";
-    font-style: normal;
-    font-weight: 400;
-    src: url(fonts/Glegoo-Regular.ttf) format('truetype');
+        font-family: "Glegoo";
+        font-style: normal;
+        font-weight: 400;
+        src: url(fonts/Glegoo-Regular.ttf) format('truetype');
     }
     @font-face {
-    font-family: "Glegoo";
-    font-style: normal;
-    font-weight: 700;
-    src: url(fonts/Glegoo-Bold.ttf) format('truetype');
+        font-family: "Glegoo";
+        font-style: normal;
+        font-weight: 700;
+        src: url(fonts/Glegoo-Bold.ttf) format('truetype');
     }
     ```
  
 # Units
 
+- Overview of units that can be applied when sizing elements;
+
  | Unit | Description | Example |
  | :--: | ----------- | ------- |
  | px   | Hard-coded number of pixels | `padding: `**`20px`**`;`
  | em   | Multiple of the base font-size being used<br>in the element| `font-size: `**`1.25em`**`;`
+
