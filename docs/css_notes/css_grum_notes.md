@@ -166,7 +166,7 @@ Setting | Effect
 | :------: | :-------: | ----- |
 | [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) | font-name,<br> fallback-font1, ... ,<br> [serif, sans-serif] | 1) If font-name is not<br>available, use fallbacks<br> or system serif/sans-serif.<br>2) Quote name if name<br> contains spaces.
 | [`font-weight`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) | `bold`, `normal`,<br> `100`-`900` in 100's | 400 is usually default,<br> 700 is bold, 300 is light.
-| [`font-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style) | `italic`,<br> `normal` (default),<br> `oblique <angle>?`
+| [`font-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style) | `italic`, `normal`,<br> `oblique <angle>?`
 | [`word-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing) | `normal` `unit` | Default is 0.25em. <br>NB: `em` unit preferred.
 | [`letter-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing) | `normal` `unit` | Aka 'kerning'. <br>NB: `em` unit preferred.
 | [`text-transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform) | `none` `capitalize`<br> `uppercase` `lowercase`<br> `full-width`
@@ -226,10 +226,11 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
  
 # Units
 
-- Overview of units that can be applied when sizing elements;
+- Overview of units that can be applied when sizing elements.
 
- | Unit | Description | Example |
- | :--: | ----------- | ------- |
- | px   | Hard-coded number of pixels | `padding: `**`20px`**`;`
- | em   | Multiple of the base font-size being used<br>in the element| `font-size: `**`1.25em`**`;`
-
+| Unit | Description | Example |
+| :--: | ----------- | ------- |
+| `px`  | Hard-coded number of pixels | `padding: `**`20px`**`;`
+| `em`  | Multiple of base (i.e. parent element's) font-size.<br>Use when sizing elements in comparison to other<br> elements nearby.| `font-size: `**`1.25em`**`;`
+| `rem` | Multiple of root element (i.e. \<html\> tag) font-size.<br>Use when sizing elements consistently <br>across entire page. |`line-height: `**`1.6rem`**`;`
+| `%`   | Size element relative to the dimensions of parent<br> element (i.e. container).<br>**NB:** For `padding` & `margin`, the `%` for all four sides <br>is computed using the **width** of the **parent** element.<br>**WARNING**: If used with box-model, may<br> cause overflow problems | `width: `**`60%`**`;`
