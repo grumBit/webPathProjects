@@ -162,8 +162,8 @@ Setting | Effect
 # Typography
 ## Typography properties (`font-family` etc)
 
-| Typography property | Arguments | Notes |
-| ------------------- | --------- | ----- |
+| Property<br> (linked) | Arguments | Notes |
+| :------: | :-------: | ----- |
 | [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) | font-name,<br> fallback-font1, ... ,<br> [serif, sans-serif] | 1) If font-name is not<br>available, use fallbacks<br> or system serif/sans-serif.<br>2) Quote name if name<br> contains spaces.
 | [`font-weight`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) | `bold`, `normal`,<br> `100`-`900` in 100's | 400 is usually default,<br> 700 is bold, 300 is light.
 | [`font-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style) | `italic`,<br> `normal` (default),<br> `oblique <angle>?`
@@ -171,7 +171,7 @@ Setting | Effect
 | [`letter-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing) | `normal` `unit` | Aka 'kerning'. <br>NB: `em` unit preferred.
 | [`text-transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform) | `none` `capitalize`<br> `uppercase` `lowercase`<br> `full-width`
 | [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align) | `left`, `center`, `right`
-| [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) | `normal` `%` `unit`<br> `unitless-number` | [<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="150"/>](./Codecademy-Line_Height_Anatomy.jpg) <br>`unitless-number`<br> is an absolute value<br> that will compute the<br> line height as a ratio<br> of the font size.
+| [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) | `normal` `%` `unit`<br> `unitless-number` | [<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="150"/>](./Codecademy-Line_Height_Anatomy.jpg) <br>`unitless-number`<br>computes the line<br> height as a ratio of<br> the font size.
 
 ## Loading additional fonts
 See my example of using the below [here](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/Grum_extra-Typography/index.html).
