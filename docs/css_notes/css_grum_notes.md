@@ -1,6 +1,8 @@
 Grum's CSS notes
 -------------------------------------------
 
+Contains CSS overview and [links](https://developer.mozilla.org/en-US/docs/Web/CSS) to Mozilla documentation.
+
 **Contents**
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
@@ -13,19 +15,17 @@ Grum's CSS notes
     - [`box-sizing [content-box (default), border-box]`](#box-sizing-content-box-default-border-box)
 - [Display and Positioning](#display-and-positioning)
     - [Layout - control the positioning of elements on a web page.](#layout---control-the-positioning-of-elements-on-a-web-page)
-        - [[`display: [inline, block, inline-block]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Display#CSS_Flow_Layout_(display_block_display_inline))](#display-inline-block-inline-blockhttpsdevelopermozillaorgen-usdocswebcsscss_displaycss_flow_layout_display_block_display_inline)
-        - [[`position: [static (default), relative, absolute, fixed]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/position)](#position-static-default-relative-absolute-fixedhttpsdevelopermozillaorgen-usdocswebcssposition)
-            - [Use `top`, `bottom`, `left`, `right` properties to position](#use-top-bottom-left-right-properties-to-position)
-        - [[`z-index: [int]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index)](#z-index-inthttpsdevelopermozillaorgen-usdocswebcssz-index)
-            - [See also "Using z-index" article](#see-also-using-z-index-article)
-        - [[`float: [left, right]`](https://developer.mozilla.org/en-US/docs/Web/CSS/float);](#float-left-righthttpsdevelopermozillaorgen-usdocswebcssfloat)
-        - [[`clear: [left, right, both]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)](#clear-left-right-bothhttpsdevelopermozillaorgen-usdocswebcssclear)
+        - [`display` `: [inline, block, inline-block]`](#display--inline-block-inline-block)
+        - [`position` `: static (default), relative, absolute, fixed`](#position--static-default-relative-absolute-fixed)
+        - [`z-index` `: [int]`](#z-index--int)
+        - [`float` `: [left, right]`](#float--left-right)
+        - [`clear` `: [left, right, both]`](#clear--left-right-both)
 - [Colors](#colors)
     - [`color` and `background-color` `[ keyword #, rgb, hsl, rgba, hsla]`;](#color-and-background-color--keyword--rgb-hsl-rgba-hsla)
     - [Solid colors - `keyword, #, rgb, hsl`](#solid-colors---keyword--rgb-hsl)
     - [Alpha (aka opacity) - `rgba` and `hsla`](#alpha-aka-opacity---rgba-and-hsla)
 - [Typography](#typography)
-    - [Typography Properties](#typography-properties)
+    - [Typography properties (`font-family` etc)](#typography-properties-font-family-etc)
     - [Loading additional fonts](#loading-additional-fonts)
         - [Loading externally from fonts.google.com](#loading-externally-from-fontsgooglecom)
         - [Loading internally using font files](#loading-internally-using-font-files)
@@ -71,7 +71,7 @@ The box-sizing property controls the box model used by the browser;
 
 ## Layout - control the positioning of elements on a web page.
 
-### [`display: [inline, block, inline-block]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Display#CSS_Flow_Layout_(display_block_display_inline))
+### [`display`](https://developer.mozilla.org/en-US/docs/Web/CSS/display) `: [inline, block, inline-block]`
 * The display property allows you control how an element flows vertically and horizontally a document.
 
 | Setting | Effect |
@@ -80,29 +80,28 @@ The box-sizing property controls the box model used by the browser;
 | `block` | Elements fill the entire width of the page by default, but their width property can also be set. Unless otherwise specified, they are the height necessary to accommodate their content. The main block-by-default elements are `<h1> through <h6>, <p>, <div> and <footer>`, see [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) for more.
 | `inline-block` | Elements can also appear next to each other, can have set `width` and `height`, and do not take up their entire container width.
 
-### [`position: [static (default), relative, absolute, fixed]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+### [`position`](https://developer.mozilla.org/en-US/docs/Web/CSS/position) `: static (default), relative, absolute, fixed`
 
 | Setting | Effect |
 | ------- | ------ |
 | `static` | Default value. Elements render in order, as they appear in the document flow
-| `relative` | Positioned relative to its default position on the page.
-| `absolute` | Positioned relative to its first positioned (not static) ancestor element. It can be pinned to any part of the web page, but the element will still move with the rest of the document when the page is scrolled.
+| `relative` | Position relative to its default position on the page, using `top`, `bottom`, `left`, `right` properties.
+| `absolute` | Position relative to its first positioned (not static) ancestor element. It can be pinned to any part of the web page, but the element will still move with the rest of the document when the page is scrolled.
 | `fixed` | Position pinned to any part of the web page. The element will remain in view no matter what. If an element's `position` is `fixed`; <br><br> 1) The element may be obscured underneath others, which `z-index: <a_suitably_big_int>` can bring the element forward. Other element(s) that are now underneath may need to have their position altered to be visiable again.  e.g. Set their `position:relative`, and then push them down using `top:<the_the_height_of_the_obscuring_element>px`.<br><br> 2) The element may shrink, which `width: 100%` can address, provided the `display` for the element is not `inline`.
-| `sticky` | Positioned relative to its default position on the page until its containing block crosses a specified threshold (such as setting top to value other than auto) within its flow root (or the container it scrolls within), at which point it is treated as "stuck" until meeting the opposite edge of its containing block.
+| `sticky` | Position relative to its default position on the page until its containing block crosses a specified threshold (such as setting top to value other than auto) within its flow root (or the container it scrolls within), at which point it is treated as "stuck" until meeting the opposite edge of its containing block.
 
-#### Use `top`, `bottom`, `left`, `right` properties to position
-### [`z-index: [int]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index)
+### [`z-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index) `: [int]`
 * The `z-index` of an element specifies how far back or how far forward an element appears on the page when it overlaps other elements. 
 * The higher the number, the closer to the top of the stack
 * WARNING: z-index will not function if position either defaults, or is set to, static.
-#### See also "[Using z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Adding_z-index)" article
+* See also [Using z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Adding_z-index) article
 
-### [`float: [left, right]`](https://developer.mozilla.org/en-US/docs/Web/CSS/float);
+### [`float`](https://developer.mozilla.org/en-US/docs/Web/CSS/float) `: [left, right]`
 * Move elements as far `left` or `right` as possible.
 * Floated elements must have a `width` specified, otherwise the element will assume the full width of its containing element, and changing the float value will not yield any visible results.
 * The float property can also be used to float multiple elements at once. However, when multiple floated elements have different heights, it can affect their layout on the page. Specifically, elements can "bump" into each other and not allow other elements to properly move the left or right.
 
-### [`clear: [left, right, both]`;](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
+### [`clear`](https://developer.mozilla.org/en-US/docs/Web/CSS/clear) `: [left, right, both]`
 
 * When multiple `floated` elements have different heights, they can "bump" into each other and not allow other elements to properly move to the left or right.
 
@@ -137,10 +136,10 @@ The box-sizing property controls the box model used by the browser;
 
 Setting | Effect
 ------- | -------
-`rgba(ddd, ddd, ddd, 0-1)`<br><br>`hsla(ddd, ddd%, ddd%, 0-1)` | 1) The first three arguments specify the color as<br> per rgb & hsl above.<br><br> 2) Opacity is set by the last digit.  <br>0.0 = transparent, 1.0 = opaque.
+`rgba(ddd, ddd, ddd, 0-1)`<br><br>`hsla(ddd, ddd%, ddd%, 0-1)` | 1) The first three arguments specify the color as<br> per rgb & hsl above.<br><br> 2) Opacity is set by the last real decimal valve.  <br>0.0 = transparent, 1.0 = opaque.
 
 # Typography
-## Typography Properties
+## Typography properties (`font-family` etc)
 
 | Typography property | Arguments | Notes |
 | ------------------- | --------- | ----- |
@@ -151,7 +150,7 @@ Setting | Effect
 | [`letter-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing) | `decimal` | Aka 'kerning'. NB: The preffered unit is `em` .
 | [`text-transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform) | `uppercase`
 | [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align) | `left`, `center`, `right`
-| [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) | `d.d`, `unit` | 1)`d.d` is a unitless absolute value that will compute the line height as a ratio of the font size<br> 2) `unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.<br>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)
+| [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) | `d.d`, `unit` | 1)`d.d` is a unitless absolute real value that will compute the line height as a ratio of the font size<br> 2) `unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.<br>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)
 
 ## Loading additional fonts
 See my example of using the below [here](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/Grum_extra-Typography/index.html).
