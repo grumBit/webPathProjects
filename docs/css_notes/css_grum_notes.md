@@ -51,7 +51,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
 | [`height`](https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport/height)[1] [`width`](https://developer.mozilla.org/en-US/docs/Web/CSS/width)[1] | Sets content area in `px` or `%`.
 | [`border`](https://developer.mozilla.org/en-US/docs/Web/CSS/border) | Surrounds the content area and padding of an element. The color, style, and thickness of a border can be set with CSS properties. <br>E.g. `border: 1px solid #eb6536` sets line width, type of line, and color of line
 | [`padding`](https://developer.mozilla.org/en-US/docs/Web/CSS/padding)[1] | Sets the `px` spacing between the content area and the border. It can be set in pixels or percent. Also, the [number of arguments](#padding-and-margin-arguments) changes which faces the arg(s) apply to.
-| [`margin`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)[1] | Sets the `px` spacing outside of an element's border; <br> **1) Arg(s):** The [number of arguments](#padding-and-margin-arguments) changes which faces the arg(s) apply to.<br>**2) `margin: 0 auto`** sets no top-bottom margins, but **horizontally centers** an element inside of its parent content area, if it has a width.<br>**3) Vertical margin collapse**: <br> **- Vertical** margins collapse, so the space between vertically adjacent elements is equal to the larger margin.<br> **- Horizontal** margins add, so the total space between the borders of adjacent elements is equal to the sum of the right margin of one element and the left margin of the adjacent element.<br>[<img src="./Codecademy-Virtual_Margins_Collapse.jpg" alt="drawing" width="150"/>](Codecademy-Virtual_Margins_Collapse.jpg)
+| [`margin`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)[1] | Sets the `px` spacing outside of an element's border; <br> **1)** The [number of arguments](#padding-and-margin-arguments) changes which faces the arg(s) apply to.<br>**2) `margin: 0 auto`** sets no top-bottom margins, but **horizontally centers** an element inside of its parent content area, if it has a width.<br>**3) Vertical margin collapse**: <br> **- Vertical** margins collapse, so the space between vertically adjacent elements is equal to the larger margin.<br> **- Horizontal** margins add, so the total space between the borders of adjacent elements is equal to the sum of the right margin of one element and the left margin of the adjacent element.<br>[<img src="./Codecademy-Virtual_Margins_Collapse.jpg" alt="drawing" width="150"/>](Codecademy-Virtual_Margins_Collapse.jpg)
 | [`overflow`](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow) | Property can be set to `display`, `hide`, or `scroll`, and dictates how HTML will render content that overflows its parent's content area.
 | [`visibility`](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility) |Property can hide or show elements.
 
@@ -221,11 +221,10 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
     src: url(fonts/Glegoo-Bold.ttf) format('truetype');
     }
     ```
-    
+ 
 # Units
 
-
  | Unit | Description | Example |
- | ---- | ----------- | ------- |
+ | :--: | ----------- | ------- |
  | px   | Hard-coded number of pixels | `padding: `**`20px`**`;`
- | em   | Multiple of the base font-size being used in the element| `font-size: 20px;`<br>`word-spacing: `**`2em`**`;`
+ | em   | Multiple of the base font-size being used<br>in the element| `font-size: `**`1.25em`**`;`
