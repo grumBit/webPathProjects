@@ -1,7 +1,7 @@
 Grum's CSS notes
 -------------------------------------------
 
-Contains CSS overview and [links](https://developer.mozilla.org/en-US/docs/Web/CSS) to Mozilla documentation.
+Contains an overview of CSS covered in the Codecademy Web Path courses and [links](https://developer.mozilla.org/en-US/docs/Web/CSS) to Mozilla documentation. 
 
 **Contents**
 
@@ -11,6 +11,7 @@ Contains CSS overview and [links](https://developer.mozilla.org/en-US/docs/Web/C
 
 - [The Box Model](#the-box-model)
     - [`height`, `width`, `padding`, `borders`, and `margins`](#height-width-padding-borders-and-margins)
+        - [Padding and margin arguments](#padding-and-margin-arguments)
 - [Changing the Box Model from the default content-box to border-box](#changing-the-box-model-from-the-default-content-box-to-border-box)
     - [`box-sizing [content-box (default), border-box]`](#box-sizing-content-box-default-border-box)
 - [Display and Positioning](#display-and-positioning)
@@ -23,7 +24,9 @@ Contains CSS overview and [links](https://developer.mozilla.org/en-US/docs/Web/C
 - [Colors](#colors)
     - [`color` and `background-color` `[ keyword #, rgb, hsl, rgba, hsla]`;](#color-and-background-color--keyword--rgb-hsl-rgba-hsla)
     - [Solid colors - `keyword, #, rgb, hsl`](#solid-colors---keyword--rgb-hsl)
-    - [Alpha (aka opacity) - `rgba` and `hsla`](#alpha-aka-opacity---rgba-and-hsla)
+    - [Alpha and Opacity](#alpha-and-opacity)
+        - [Setting with `rgba` and `hsla`](#setting-with-rgba-and-hsla)
+        - [Setting via `opacity` `: real-decimal`](#setting-via-opacity--real-decimal)
 - [Typography](#typography)
     - [Typography properties (`font-family` etc)](#typography-properties-font-family-etc)
     - [Loading additional fonts](#loading-additional-fonts)
@@ -36,22 +39,33 @@ Contains CSS overview and [links](https://developer.mozilla.org/en-US/docs/Web/C
 
 # The Box Model
 ## `height`, `width`, `padding`, `borders`, and `margins`
-The five properties of the box model are: `height` and `width`, `padding`, `borders`, and `margins`.
 
-* The box model comprises a set of properties used to create space around and between HTML elements;
+* The five properties of the box model are: `height` and `width`, `padding`, `borders`, and `margins`.
+* The box model uses the five properties to create space around and between HTML elements;
 
-    *   [<img src="./Codecademy-The_Box_Model_1-overview.jpg" alt="drawing" width="250"/>](Codecademy-The_Box_Model_1-overview.jpg)
+    *   [<img src="./Codecademy-The_Box_Model_1-overview.jpg" alt="drawing" width="250"/>](./Codecademy-The_Box_Model_1-overview.jpg)
 
 | Property | Effect |
 | -------- | ------ |
-| `height` `width` | Sets content area in `px` or `%`.
-| `border` | Surrounds the content area and padding of an element. The color, style, and thickness of a border can be set with CSS properties. <br>E.g. `border: 1px solid #eb6536` sets line width, type of line, and color of line
-| `padding` | Sets the `px` spacing between the content area and the border. It can be set in pixels or percent.
-| `margin` | Sets the `px` spacing outside of an element's border; <br>**1) `margin: 0 auto`** sets no top-bottom margins, but **horizontally centers** an element inside of its parent content area, if it has a width.<br>**2) Horizontal** margins add, so the total space between the borders of adjacent elements is equal to the sum of the right margin of one element and the left margin of the adjacent element.<br>**3) Vertical** margins collapse, so the space between vertically adjacent elements is equal to the larger margin.<br>[<img src="./Codecademy-Virtual_Margins_Collapse.jpg" alt="drawing" width="150"/>](Codecademy-Virtual_Margins_Collapse.jpg)
-| `overflow` | Property can be set to `display`, `hide`, or `scroll`, and dictates how HTML will render content that overflows its parent's content area.
-| `visibility` |Property can hide or show elements.
+| [`height`](https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport/height)[1] [`width`](https://developer.mozilla.org/en-US/docs/Web/CSS/width)[1] | Sets content area in `px` or `%`.
+| [`border`](https://developer.mozilla.org/en-US/docs/Web/CSS/border) | Surrounds the content area and padding of an element. The color, style, and thickness of a border can be set with CSS properties. <br>E.g. `border: 1px solid #eb6536` sets line width, type of line, and color of line
+| [`padding`](https://developer.mozilla.org/en-US/docs/Web/CSS/padding)[1] | Sets the `px` spacing between the content area and the border. It can be set in pixels or percent. Also, the [number of arguments](#padding-and-margin-arguments) changes which faces the arg(s) apply to.
+| [`margin`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)[1] | Sets the `px` spacing outside of an element's border; <br> **1) Arg(s):** The [number of arguments](#padding-and-margin-arguments) changes which faces the arg(s) apply to.<br>**2) `margin: 0 auto`** sets no top-bottom margins, but **horizontally centers** an element inside of its parent content area, if it has a width.<br>**3) Vertical margin collapse**: <br> **- Vertical** margins collapse, so the space between vertically adjacent elements is equal to the larger margin.<br> **- Horizontal** margins add, so the total space between the borders of adjacent elements is equal to the sum of the right margin of one element and the left margin of the adjacent element.<br>[<img src="./Codecademy-Virtual_Margins_Collapse.jpg" alt="drawing" width="150"/>](Codecademy-Virtual_Margins_Collapse.jpg)
+| [`overflow`](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow) | Property can be set to `display`, `hide`, or `scroll`, and dictates how HTML will render content that overflows its parent's content area.
+| [`visibility`](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility) |Property can hide or show elements.
 
-**WARNING**: If the element **`display`** defaults, or is set, to **`inline`**, causes the element to be as small as possible and hence partially or fully negates any `height`, `width`, `padding` and `margin` settings.
+**[1] WARNING**: If the element [`display`](#display--inline-block-inline-block) defaults, or is set, to **`inline`**, it causes the element to be as small as possible and hence partially, or fully, negates any `height`, `width`, `padding` and `margin` settings.
+
+### Padding and margin arguments
+
+The number of arguments changes which faces the arguments apply to as follows;
+
+| Arguments | Faces Applied To | Example |
+| :-------: | ---------------- | ------- |
+| 1         | All four.        | `padding: 20px;`
+| 2         | 1st to top & bottom, 2nd to sides.| `margin: 10px 20px;`
+| 3         | 1st to top, 2nd to both sides, 3rd to bottom.| `padding: 10px 20px; 5px;`
+| 4         | 1st to top, 2nd to right side, 3rd to bottom, 4th to left. |  `margin: 10px 20px 5px 50px;`
 
 
 
@@ -132,11 +146,15 @@ The box-sizing property controls the box model used by the browser;
 
 * See [RGB to HSL color conversion](https://www.rapidtables.com/convert/color/rgb-to-hsl.html).
 
-## Alpha (aka opacity) - `rgba` and `hsla`
+## Alpha and Opacity
+
+### Setting with `rgba` and `hsla`
 
 Setting | Effect
 ------- | -------
 `rgba(ddd, ddd, ddd, 0-1)`<br><br>`hsla(ddd, ddd%, ddd%, 0-1)` | 1) The first three arguments specify the color as<br> per rgb & hsl above.<br><br> 2) Opacity is set by the last real decimal valve.  <br>0.0 = transparent, 1.0 = opaque.
+
+### Setting via [`opacity`](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity) `: real-decimal`
 
 # Typography
 ## Typography properties (`font-family` etc)
@@ -203,4 +221,9 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
     }
     ```
 
- 
+ # Units
+
+ | Unit | Description | Example |
+ | ---- | ----------- | ------- |
+ | px   | Hard-coded number of pixels | `padding: `**`20px`**`;`
+ | em   | Multiple of the base font-size being used in the element| `font-size: 20px;`<br>`word-spacing: `**`2em`**`;`
