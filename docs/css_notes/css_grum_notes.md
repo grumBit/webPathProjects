@@ -164,14 +164,14 @@ Setting | Effect
 
 | Typography property | Arguments | Notes |
 | ------------------- | --------- | ----- |
-| [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) | font-name, fallback-font1, ... , [serif, sans-serif] | 1) If font-name is not available, use fallbacks or serif/sans-serif.<br>2) Use double quotes "" if the name contains spaces.
-| [`font-weight`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) | `bold`, `normal`, 100-900 in multiples of 100 | 400 is usually default, 700 is bold, 300 is light
-| [`font-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style) | `italic`, `normal` (default)
-| [`word-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing) | `decimal` | Default is 0.25em.  NB: The preffered unit is `em` .
-| [`letter-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing) | `decimal` | Aka 'kerning'. NB: The preffered unit is `em` .
-| [`text-transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform) | `uppercase`
+| [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) | font-name,<br> fallback-font1, ... ,<br> [serif, sans-serif] | 1) If font-name is not<br>available, use fallbacks<br> or system serif/sans-serif.<br>2) Quote name if name<br> contains spaces.
+| [`font-weight`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) | `bold`, `normal`,<br> `100`-`900` in 100's | 400 is usually default,<br> 700 is bold, 300 is light.
+| [`font-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style) | `italic`,<br> `normal` (default),<br> `oblique <angle>?`
+| [`word-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing) | `normal` `unit` | Default is 0.25em. <br>NB: `em` unit preferred.
+| [`letter-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing) | `normal` `unit` | Aka 'kerning'. <br>NB: `em` unit preferred.
+| [`text-transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform) | `none` `capitalize`<br> `uppercase` `lowercase`<br> `full-width`
 | [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align) | `left`, `center`, `right`
-| [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) | `d.d`, `unit` | 1)`d.d` is a unitless absolute real value that will compute the line height as a ratio of the font size<br> 2) `unit` can be any valid CSS unit, such as pixels, percents, ems, or rems.<br>[<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="400"/>](./Codecademy-Line_Height_Anatomy.jpg)
+| [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) | `normal` `%` `unit`<br> `unitless-number` | [<img src="./Codecademy-Line_Height_Anatomy.jpg" alt="drawing" width="150"/>](./Codecademy-Line_Height_Anatomy.jpg) <br>`unitless-number`<br> is an absolute value<br> that will compute the<br> line height as a ratio<br> of the font size.
 
 ## Loading additional fonts
 See my example of using the below [here](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/Grum_extra-Typography/index.html).
