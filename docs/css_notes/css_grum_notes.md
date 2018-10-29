@@ -27,7 +27,10 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
     - [Design patterns](#design-patterns)
         - [Background images](#background-images)
         - [Image and video proportional scaling](#image-and-video-proportional-scaling)
-    - [Using media queries for device-specific layouts](#using-media-queries-for-device-specific-layouts)
+    - [Using `@media` to choose rules based on display capabilities](#using-media-to-choose-rules-based-on-display-capabilities)
+        - [Rules for display width and height](#rules-for-display-width-and-height)
+        - [Rules ranges](#rules-ranges)
+        - [Rules for `resolution` DPI in \<resolution\> units](#rules-for-resolution-dpi-in-resolution-units)
 - [Colors](#colors)
     - [`color` and `background-color` `[ keyword #, rgb, hsl, rgba, hsla]`;](#color-and-background-color--keyword--rgb-hsl-rgba-hsla)
     - [Solid colors - `keyword, #, rgb, hsl`](#solid-colors---keyword--rgb-hsl)
@@ -163,13 +166,14 @@ The box-sizing property controls the box model used by the browser;
 
 - Relative lengths represent size in terms of some other distance. Depending on the unit, this can be the size of a specific character, the line height, or the size of the viewport.
 
-| Unit    | Description | Example |
-| :-----: | ----------- | ------- |
-| `em`    | Multiple of base (i.e. parent element's) font-size.<br>Use when sizing elements in comparison to other<br> elements nearby.| `font-size: `**`1.25em`**`;`
+| Unit | Description | Example |
+| :--: | ----------- | ------- |
+| `em`    | Multiple of base (i.e. parent element's) font-size.<br>Use when sizing elements in comparison to other<br> elements nearby. | `font-size: `**`1.25em`**`;`
 | `rem`   | Multiple of root element (i.e. \<html\> tag) font-size.<br>Use when sizing elements consistently <br>across entire page. |`line-height: `**`1.6rem`**`;`
 | `%`     | Size element relative to the dimensions of parent<br> element (i.e. container).<br>**NB:** For `padding` & `margin`, the `%` for all four sides <br>is computed using the **width** of the **parent** element.<br>**WARNING**: If used with box-model, may<br> cause overflow problems | `width: `**`60%`**`;`
 | `auto`  |  The browser will calculate and select a width for the<br> specified element. E.g. If the height property of an<br> image is set to auto, the image's height will<br> automatically scale proportionally with the width. | `height: `**`auto`**;
-| `ch` `vh` `vw` <br>`vmin` `vmax`| See [\<length\>](https://developer.mozilla.org/en-US/docs/Web/CSS/length) for details.
+| `ch` `vh` `vw` <br>`vmin` `vmax`| See [\<length\>](https://developer.mozilla.org/en-US/docs/Web/CSS/length) for details. | 
+
 - **NB**: When using relative sizing, to create a consistent layout based on text size and text-related dimensions on the page (i.e. padding around text), use `ems` and `rems`. Otherwise, percentages should be used.
 
 ## Design patterns
@@ -197,28 +201,51 @@ The second CSS rule ensures that images scale with the width of the container. T
 **Note**: The example above scales the width of an image (or video) to the width of a container. If the image is larger than the container, the vertical portion of the image will overflow and will not display. To swap this behavior, you can set max-height to 100% and width to auto (essentially swapping the values). This will scale the height of the image with the height of the container instead. If the image is larger than the container, the horizontal portion of the image will overflow and not display.
 
 ```CSS
-.container {
-    width: 50%;
-    height: 200px;
-    overflow: hidden;
-}
+    .container {
+        width: 50%;
+        height: 200px;
+        overflow: hidden;
+    }
 
-.container img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+    .container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
 ```
 
-## Using media queries for device-specific layouts
-- The following applies for screens that physically have upto 480px width
-```css
-@media only screen and (max-width: 480px) {
-  body {
-    font-size: 12px;
-  }
-}
-```
+## Using `@media` to choose rules based on display capabilities
+### Rules for display width and height
+- The following @media applies rules to browser windows that are upto 480px wide
+  ```css
+      @media only screen and (max-width: 480px) {
+          body {
+              font-size: 12px;
+          }
+      }
+  ```
+### Rules ranges
+- The following 2 are valid, equivalent & used in the wild;
+  1. Using 2nd `and` to chain requirements;
+  ```css
+    @media only screen and (min-width: 320px) and (max-width: 480px) {
+        /* ruleset for 320px - 480px */
+    }
+  ```
+  2. Using 2 separate rule sets;
+  ```css
+    @media only screen and (min-width: 320px) { 
+        /* ruleset for 320px - 479px */
+    }
+    
+    
+    @media only screen and (min-width: 480px) { 
+        /* ruleset for > 480px */
+    }
+  ```
+### Rules for [`resolution`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution) DPI in [\<resolution\>](https://developer.mozilla.org/en-US/docs/Web/CSS/resolution) units
+
+
 
 # Colors
 ## [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color) and [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color) `[ keyword #, rgb, hsl, rgba, hsla]`;
