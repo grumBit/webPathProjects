@@ -9,7 +9,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
 
 <!-- code_chunk_output -->
 
-- [Page Layout](#page-layout)
+- [Setting page layouts](#setting-page-layouts)
     - [The Box Model](#the-box-model)
         - [`height`, `width`, `padding`, `borders`, and `margins`](#height-width-padding-borders-and-margins)
             - [Padding and margin arguments](#padding-and-margin-arguments)
@@ -24,10 +24,8 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
     - [\<length\> - units for sizing and positioning - `px, em rem, %, auto`, etc](#length---units-for-sizing-and-positioning---px-em-rem--auto-etc)
         - [Absolute units](#absolute-units)
         - [Relative units](#relative-units)
-    - [Design patterns](#design-patterns)
-        - [Background images `background`](#background-images-background)
-        - [Image and video proportional scaling](#image-and-video-proportional-scaling)
-    - [Using `@media` to choose rules based on display capabilities](#using-media-to-choose-rules-based-on-display-capabilities)
+- [Creating responsive websites](#creating-responsive-websites)
+    - [Guidelines for using `@media` rules to address layout issues](#guidelines-for-using-media-rules-to-address-layout-issues)
         - [Logical operators between `@media` rules](#logical-operators-between-media-rules)
             - [`and` (and)](#and-and)
             - [`,` (or)](#-or)
@@ -36,6 +34,10 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [Rules for ranges of values](#rules-for-ranges-of-values)
         - [Rules for `resolution` DPI in \<resolution\> units](#rules-for-resolution-dpi-in-resolution-units)
         - [Rule for screen `orientation`](#rule-for-screen-orientation)
+        - [Rules for specific device and orientation](#rules-for-specific-device-and-orientation)
+    - [Design patterns](#design-patterns)
+        - [Background images `background`](#background-images-background)
+        - [Image and video proportional scaling](#image-and-video-proportional-scaling)
 - [Colors](#colors)
     - [`color` and `background-color` `[ keyword #, rgb, hsl, rgba, hsla]`;](#color-and-background-color--keyword--rgb-hsl-rgba-hsla)
     - [Solid colors - `keyword, #, rgb, hsl`](#solid-colors---keyword--rgb-hsl)
@@ -43,19 +45,19 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [Setting with `rgba` and `hsla`](#setting-with-rgba-and-hsla)
         - [Setting via `opacity` `: real-decimal`](#setting-via-opacity--real-decimal)
 - [Typography](#typography)
-    - [Typography properties (`font-family` etc)](#typography-properties-font-family-etc)
+    - [Typography properties (`font-family` et al)](#typography-properties-font-family-et-al)
     - [Loading additional fonts](#loading-additional-fonts)
         - [Loading externally from fonts.google.com](#loading-externally-from-fontsgooglecom)
         - [Loading internally using font files](#loading-internally-using-font-files)
 - [Tips and trips](#tips-and-trips)
     - [How to work out the effect of declarations](#how-to-work-out-the-effect-of-declarations)
-    - [Don't pad inline objects like \<img\>'s, use margins on their containers instead](#dont-pad-inline-objects-like-imgs-use-margins-on-their-containers-instead)
+    - [Avoid `padding` `inline` objects like \<img\>'s, instead use `margin` on their containers](#avoid-padding-inline-objects-like-imgs-instead-use-margin-on-their-containers)
 
 <!-- /code_chunk_output -->
 
 ---
 
-# Page Layout
+# Setting page layouts
 ## The Box Model
 ### `height`, `width`, `padding`, `borders`, and `margins`
 
@@ -184,6 +186,110 @@ The box-sizing property controls the box model used by the browser;
 
 - **NB**: When using relative sizing, to create a consistent layout based on text size and text-related dimensions on the page (i.e. padding around text), use `ems` and `rems`. Otherwise, percentages should be used.
 
+# Creating responsive websites
+
+<a id="__@media_guidelines">
+
+## Guidelines for using [`@media`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) rules to address layout issues
+
+- `@media` features can detect many aspects of a user's browser, including the screen's width, height, resolution, orientation
+- The points at which `@media` queries are set are called **breakpoints**.
+- Best practice;
+    - Set breakpoints where the dimensions at which **the layout breaks or looks odd**, to allow CSS rules to resize the page and reorganize.
+    - Avoid setting breakpoints based on specific devices.
+    - Avoid forcing projects around a certain screen size.
+  
+- See also [Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Syntax)
+
+- Determining where layouts break or look odd;
+    - **Test** (not design) using these common screen sizes;
+        - [<img src="./screen-sizes.png" alt="drawing" width="100rem"/>](./screen-sizes.png)
+    - Test browser window sizes with the Firefox developer tools rulers and device emulators. [<img src="./firefox_rulers_and_device_emulators.jpg" alt="drawing" width="80rem"/>](./firefox_rulers_and_device_emulators.jpg)
+
+
+### Logical operators between `@media` rules
+
+#### `and` (and)
+  ```css
+      @media only screen and (min-width: 320px) and (max-width: 480px) {...}
+  ```
+
+#### `,` (or)
+  ```css
+      @media only screen and (min-width: 480px), (orientation: landscape) {...}
+  ```
+
+#### Chaining `and` and `,`
+- I'm unclear of precedence - need to read [`@media`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
+  ```css
+    @media only screen and (min-width: 320px) and (max-width: 480px), (orientation: portrait) {
+        .gallery-item .thumbnail {
+        width: 95%;
+        }
+    }
+  ```
+
+### Rules for display `width` and `height`
+
+- The following @media applies rules to browser windows that are upto 480px wide
+  ```css
+      @media only screen and (max-width: 480px) {
+          body {
+              font-size: 12px;
+          }
+      }
+  ```
+### Rules for ranges of values
+
+- The following 2 are valid, equivalent & used in the wild;
+  1. Using 2nd `and` to chain requirements;
+  ```css
+    @media only screen and (min-width: 320px) and (max-width: 480px) {
+        /* ruleset for 320px - 480px */
+    }
+  ```
+
+  1. Using 2 separate rule sets;
+   
+  ```css
+    @media only screen and (min-width: 320px) { 
+        /* ruleset for 320px - 479px */
+    }
+    
+    @media only screen and (min-width: 480px) { 
+        /* ruleset for > 480px */
+    }
+  ```
+
+### Rules for [`resolution`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution) DPI in [\<resolution\>](https://developer.mozilla.org/en-US/docs/Web/CSS/resolution) units
+
+- Can target high resolution devices. E.g.;
+```css
+    @media only screen and (min-resolution: 150dpi) {
+        /* CSS for high resolution screens */
+    }
+```
+- **NB**: A 40" 4K monitor has 96dpi (3840px / 40in = 96dpi)
+- **WARNING**: When Firefox zooms in, the DPI is calculated as higher than the physical display's DPI => to test `resolution` rules, need to check Zoom level has been rest. 
+
+### Rule for screen [`orientation`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation)
+- If the windows `height` is greater than, or equal to `width`, then it is portrait oriented.
+```css
+    @media only screen and (orientation: landscape) {
+        /* CSS for high resolution screens */
+    }
+``` 
+
+### Rules for specific device and orientation
+
+```css
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        /* CSS for tablets in landscape orientation */
+    }
+```
+
+- **Important**: Use these to address layout problems, rather than drive design (see [@media guidelines](#__@media_guidelines) 
+
 ## Design patterns
 
 ### Background images [`background`](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
@@ -223,76 +329,6 @@ The second CSS rule ensures that images scale with the width of the container. T
     }
 ```
 
-## Using [`@media`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) to choose rules based on display capabilities
-
-- See also [Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Syntax)
-
-### Logical operators between `@media` rules
-#### `and` (and)
-  ```css
-      @media only screen and (min-width: 320px) and (max-width: 480px) {...}
-  ```
-#### `,` (or)
-  ```css
-      @media only screen and (min-width: 480px), (orientation: landscape) {...}
-  ```
-#### Chaining `and` and `,`
-- I'm unclear of precedence - need to read [`@media`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
-  ```css
-    @media only screen and (min-width: 320px) and (max-width: 480px), (orientation: portrait) {
-        .gallery-item .thumbnail {
-        width: 95%;
-        }
-    }
-  ```
-
-### Rules for display `width` and `height`
-- The following @media applies rules to browser windows that are upto 480px wide
-  ```css
-      @media only screen and (max-width: 480px) {
-          body {
-              font-size: 12px;
-          }
-      }
-  ```
-### Rules for ranges of values
-- The following 2 are valid, equivalent & used in the wild;
-  1. Using 2nd `and` to chain requirements;
-  ```css
-    @media only screen and (min-width: 320px) and (max-width: 480px) {
-        /* ruleset for 320px - 480px */
-    }
-  ```
-
-  2. Using 2 separate rule sets;
-   
-  ```css
-    @media only screen and (min-width: 320px) { 
-        /* ruleset for 320px - 479px */
-    }
-    
-    @media only screen and (min-width: 480px) { 
-        /* ruleset for > 480px */
-    }
-  ```
-### Rules for [`resolution`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution) DPI in [\<resolution\>](https://developer.mozilla.org/en-US/docs/Web/CSS/resolution) units
-- Can target high resolution devices. E.g.;
-```css
-    @media only screen and (min-resolution: 150dpi) {
-        /* CSS for high resolution screens */
-    }
-```
-- **NB**: A 40" 4K monitor has 96dpi (3840px / 40in = 96dpi)
-- **WARNING**: When Firefox zooms in, the DPI is calculated as higher than the physical display's DPI => to test `resolution` rules, need to check Zoom level has been rest. 
-
-### Rule for screen [`orientation`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation)
-- If the windows `height` is greater than, or equal to `width`, then it is portrait oriented.
-```css
-    @media only screen and (orientation: landscape) {
-        /* CSS for high resolution screens */
-    }
-``` 
-
 
 # Colors
 ## [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color) and [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color) `[ keyword #, rgb, hsl, rgba, hsla]`;
@@ -323,7 +359,7 @@ Setting | Effect
 ### Setting via [`opacity`](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity) `: real-decimal`
 
 # Typography
-## Typography properties (`font-family` etc)
+## Typography properties (`font-family` et al)
 
 | Property<br> (linked) | Arguments | Notes |
 | :------: | :-------: | ----- |
@@ -399,6 +435,6 @@ When working out what declarations are doing;
 - When in doubt, go back to the default style sheet and express the HTML elements using only that. Graduate views when experimenting. Don’t aim for perfection, but effect. If you don’t see it, then it must not be in the declarations.
 - In some cases the default or inherited value is the same as what what is being tried, so no change will occur. 
 
-## Don't pad inline objects like \<img\>'s, use margins on their containers instead
--  It just doesn’t make sense and is contrived, even if it can be made to make sense. 
+## Avoid `padding` `inline` objects like \<img\>'s, instead use `margin` on their containers
+-  It doesn’t make conceptual sense and is hence contrived, even if it can be made to work. 
 -  Blocks with margins is the way to go on such objects.
