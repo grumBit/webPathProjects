@@ -188,7 +188,7 @@ The box-sizing property controls the box model used by the browser;
 
 # Creating responsive websites
 
-<a id="__@media_guidelines">
+<a id="__media_guidelines"></a>
 
 ## Guidelines for using [`@media`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) rules to address layout issues
 
@@ -288,7 +288,7 @@ The box-sizing property controls the box model used by the browser;
     }
 ```
 
-- **Important**: Use these to address layout problems, rather than drive design (see [@media guidelines](#__@media_guidelines) 
+- **Important**: Use these to address layout problems, rather than drive design as per these [guidelines](#__media_guidelines).
 
 ## Design patterns
 
