@@ -28,9 +28,14 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [Background images `background`](#background-images-background)
         - [Image and video proportional scaling](#image-and-video-proportional-scaling)
     - [Using `@media` to choose rules based on display capabilities](#using-media-to-choose-rules-based-on-display-capabilities)
-        - [Rules for display width and height](#rules-for-display-width-and-height)
-        - [Rules ranges](#rules-ranges)
+        - [Logical operators between `@media` rules](#logical-operators-between-media-rules)
+            - [`and` (and)](#and-and)
+            - [`,` (or)](#-or)
+            - [Chaining `and` and `,`](#chaining-and-and-)
+        - [Rules for display `width` and `height`](#rules-for-display-width-and-height)
+        - [Rules for ranges of values](#rules-for-ranges-of-values)
         - [Rules for `resolution` DPI in \<resolution\> units](#rules-for-resolution-dpi-in-resolution-units)
+        - [Rule for screen `orientation`](#rule-for-screen-orientation)
 - [Colors](#colors)
     - [`color` and `background-color` `[ keyword #, rgb, hsl, rgba, hsla]`;](#color-and-background-color--keyword--rgb-hsl-rgba-hsla)
     - [Solid colors - `keyword, #, rgb, hsl`](#solid-colors---keyword--rgb-hsl)
@@ -219,7 +224,29 @@ The second CSS rule ensures that images scale with the width of the container. T
 ```
 
 ## Using [`@media`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) to choose rules based on display capabilities
-### Rules for display width and height
+
+- See also [Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Syntax)
+
+### Logical operators between `@media` rules
+#### `and` (and)
+  ```css
+      @media only screen and (min-width: 320px) and (max-width: 480px) {...}
+  ```
+#### `,` (or)
+  ```css
+      @media only screen and (min-width: 480px), (orientation: landscape) {...}
+  ```
+#### Chaining `and` and `,`
+- I'm unclear of precedence - need to read [`@media`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
+  ```css
+    @media only screen and (min-width: 320px) and (max-width: 480px), (orientation: portrait) {
+        .gallery-item .thumbnail {
+        width: 95%;
+        }
+    }
+  ```
+
+### Rules for display `width` and `height`
 - The following @media applies rules to browser windows that are upto 480px wide
   ```css
       @media only screen and (max-width: 480px) {
@@ -228,7 +255,7 @@ The second CSS rule ensures that images scale with the width of the container. T
           }
       }
   ```
-### Rules ranges
+### Rules for ranges of values
 - The following 2 are valid, equivalent & used in the wild;
   1. Using 2nd `and` to chain requirements;
   ```css
@@ -257,6 +284,14 @@ The second CSS rule ensures that images scale with the width of the container. T
 ```
 - **NB**: A 40" 4K monitor has 96dpi (3840px / 40in = 96dpi)
 - **WARNING**: When Firefox zooms in, the DPI is calculated as higher than the physical display's DPI => to test `resolution` rules, need to check Zoom level has been rest. 
+
+### Rule for screen [`orientation`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation)
+- If the windows `height` is greater than, or equal to `width`, then it is portrait oriented.
+```css
+    @media only screen and (orientation: landscape) {
+        /* CSS for high resolution screens */
+    }
+``` 
 
 
 # Colors
