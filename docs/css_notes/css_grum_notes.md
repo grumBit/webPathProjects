@@ -25,7 +25,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [Absolute units](#absolute-units)
         - [Relative units](#relative-units)
     - [Design patterns](#design-patterns)
-        - [Background images](#background-images)
+        - [Background images `background`](#background-images-background)
         - [Image and video proportional scaling](#image-and-video-proportional-scaling)
     - [Using `@media` to choose rules based on display capabilities](#using-media-to-choose-rules-based-on-display-capabilities)
         - [Rules for display width and height](#rules-for-display-width-and-height)
@@ -171,14 +171,14 @@ The box-sizing property controls the box model used by the browser;
 | `em`    | Multiple of base (i.e. parent element's) font-size.<br>Use when sizing elements in comparison to other<br> elements nearby. | `font-size: `**`1.25em`**`;`
 | `rem`   | Multiple of root element (i.e. \<html\> tag) font-size.<br>Use when sizing elements consistently <br>across entire page. |`line-height: `**`1.6rem`**`;`
 | `%`     | Size element relative to the dimensions of parent<br> element (i.e. container).<br>**NB:** For `padding` & `margin`, the `%` for all four sides <br>is computed using the **width** of the **parent** element.<br>**WARNING**: If used with box-model, may<br> cause overflow problems | `width: `**`60%`**`;`
-| `auto`  |  The browser will calculate and select a width for the<br> specified element. E.g. If the height property of an<br> image is set to auto, the image's height will<br> automatically scale proportionally with the width. | `height: `**`auto`**;
+| `auto`  |  The browser will calculate and select a width for the<br> specified element. E.g. If the height property of an<br> image is set to auto, the image's height will<br> automatically scale proportionally with the width. <br>**WARNING:** `auto` may be the default or inherited, in<br> which case `auto` appears to do nothing.| `height: `**`auto`**;
 | `ch` <br>`vh` <br>`vw` <br>`vmin` <br>`vmax`| See [\<length\>](https://developer.mozilla.org/en-US/docs/Web/CSS/length) for details. | 
 
 - **NB**: When using relative sizing, to create a consistent layout based on text size and text-related dimensions on the page (i.e. padding around text), use `ems` and `rems`. Otherwise, percentages should be used.
 
 ## Design patterns
 
-### Background images
+### Background images [`background`](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
 In the CSS below, the first CSS declaration sets the background image (# is a placeholder for an image URL in this example). The second declaration instructs the CSS compiler to not repeat the image (by default, images will repeat). The third declaration centers the image within the element.
 
 The third declaration scales the background image to cover the entire background of the element, while keeping the image in proportion. If the dimensions of the image exceed the dimensions of the container then only a portion of the image will display.
@@ -190,8 +190,9 @@ body {
   background-position: center;
   background-size: cover;
 }
-
 ```
+- **WARNING:** `background-size: cover` may appear to have no effect unless the screen is sufficently wide and/or the zoom level is out far enough. Testing using mobile device emulation may also be needed.
+
 ### Image and video proportional scaling
 
  In the CSS below, .container represents a container div. It is set to a width of 50% (half of the browser's width, in this example) and a height of 200 pixels. Setting overflow to hidden ensures that any content with dimensions larger than the container will be hidden from view.
@@ -232,19 +233,27 @@ The second CSS rule ensures that images scale with the width of the container. T
         /* ruleset for 320px - 480px */
     }
   ```
+
   2. Using 2 separate rule sets;
+   
   ```css
     @media only screen and (min-width: 320px) { 
         /* ruleset for 320px - 479px */
     }
-    
     
     @media only screen and (min-width: 480px) { 
         /* ruleset for > 480px */
     }
   ```
 ### Rules for [`resolution`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution) DPI in [\<resolution\>](https://developer.mozilla.org/en-US/docs/Web/CSS/resolution) units
-
+- Can target high resolution devices. E.g.;
+```css
+    @media only screen and (min-resolution: 150dpi) {
+        /* CSS for high resolution screens */
+    }
+```
+- **NB**: A 40" 4K monitor has 96dpi (3840px / 40in = 96dpi)
+- **WARNING**: When Firefox zooms in, the DPI is calculated as higher than the physical display's DPI => to test `resolution` rules, need to check Zoom level has been rest. 
 
 
 # Colors
