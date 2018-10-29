@@ -42,6 +42,9 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
     - [Loading additional fonts](#loading-additional-fonts)
         - [Loading externally from fonts.google.com](#loading-externally-from-fontsgooglecom)
         - [Loading internally using font files](#loading-internally-using-font-files)
+- [Tips and trips](#tips-and-trips)
+    - [How to work out the effect of declarations](#how-to-work-out-the-effect-of-declarations)
+    - [Don't pad inline objects like \<img\>'s, use margins on their containers instead](#dont-pad-inline-objects-like-imgs-use-margins-on-their-containers-instead)
 
 <!-- /code_chunk_output -->
 
@@ -67,7 +70,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
 
 <a id="__display_warning"></a>
 
- **[1] WARNING**: If the element [`display`](#display--inline-block-inline-block) defaults, or is set, to **`inline`**, it causes the element to be as small as possible and hence partially, or fully, negates any `height`, `width`, `padding` and `margin` settings.
+ **[1] WARNING**: If the element [`display`](#display--inline-block-inline-block) defaults to, or is set to, **`inline`**, it causes the element to be as small as possible and hence partially, or fully, negates any `height`, `width`, `padding` and `margin` settings.
 
 <a id="__padding_margin_args"></a> 
 
@@ -215,7 +218,7 @@ The second CSS rule ensures that images scale with the width of the container. T
     }
 ```
 
-## Using `@media` to choose rules based on display capabilities
+## Using [`@media`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) to choose rules based on display capabilities
 ### Rules for display width and height
 - The following @media applies rules to browser windows that are upto 480px wide
   ```css
@@ -348,3 +351,19 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
         src: url(fonts/Glegoo-Bold.ttf) format('truetype');
     }
     ```
+# Tips and trips
+
+## How to work out the effect of declarations
+When working out what declarations are doing;
+- View it in a real world sitution, directly in a browser on a machine (rather than in an emulator). 
+- Have the MDN and W3C spec pages on hand for quick review. 
+- Zoom in for small devices.
+- Zoom out for large displays & maximise window.
+- Keep in mind the purpose is fitting the view-port with meaningful, legible, intuitive content and interfaces.
+- When learning it can be very useful to isolate a problem or a plan down to a single objective. Then shrink and stretch and bang the living daylights out of the conceptual view. Your machine is that environment. The padded room, so to speak.
+- When in doubt, go back to the default style sheet and express the HTML elements using only that. Graduate views when experimenting. Don’t aim for perfection, but effect. If you don’t see it, then it must not be in the declarations.
+- In some cases the default or inherited value is the same as what what is being tried, so no change will occur. 
+
+## Don't pad inline objects like \<img\>'s, use margins on their containers instead
+-  It just doesn’t make sense and is contrived, even if it can be made to make sense. 
+-  Blocks with margins is the way to go on such objects.
