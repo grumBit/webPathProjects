@@ -172,7 +172,7 @@ The box-sizing property controls the box model used by the browser;
 | `rem`   | Multiple of root element (i.e. \<html\> tag) font-size.<br>Use when sizing elements consistently <br>across entire page. |`line-height: `**`1.6rem`**`;`
 | `%`     | Size element relative to the dimensions of parent<br> element (i.e. container).<br>**NB:** For `padding` & `margin`, the `%` for all four sides <br>is computed using the **width** of the **parent** element.<br>**WARNING**: If used with box-model, may<br> cause overflow problems | `width: `**`60%`**`;`
 | `auto`  |  The browser will calculate and select a width for the<br> specified element. E.g. If the height property of an<br> image is set to auto, the image's height will<br> automatically scale proportionally with the width. | `height: `**`auto`**;
-| `ch` `vh` `vw` <br>`vmin` `vmax`| See [\<length\>](https://developer.mozilla.org/en-US/docs/Web/CSS/length) for details. | 
+| `ch` <br>`vh` <br>`vw` <br>`vmin` <br>`vmax`| See [\<length\>](https://developer.mozilla.org/en-US/docs/Web/CSS/length) for details. | 
 
 - **NB**: When using relative sizing, to create a consistent layout based on text size and text-related dimensions on the page (i.e. padding around text), use `ems` and `rems`. Otherwise, percentages should be used.
 
