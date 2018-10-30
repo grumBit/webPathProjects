@@ -1,5 +1,4 @@
-html,
-body {
+html {
   font-family: Helvetica, sans-serif;
   font-size: 18px;
   margin: 0;
@@ -14,7 +13,7 @@ body {
 .main {
   height: 20rem;
   padding-top: 1rem;
-  background-image: url('https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-5/tsunami-coffee/images/bg-photo.png');
+  background-image: url('../img/bg-photo.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -59,7 +58,6 @@ li {
 }
 
 .supporting img {
-  height: 10%;
   width: 10%;
   margin-right: 5%;
 }
@@ -115,18 +113,16 @@ footer .container {
 @media only screen and (max-width: 1600px) {
   /* Below this width, nav bar padding was taking too much room */
 
-  /* set all sizing that inherits from html & body tag */
-  html,
-  body {
+  /* set all sizing that inherits from the root element */
+  html {
     font-size: 16px;
   }
 
 @media only screen and (max-width: 1024px) {
   /* Below this width, nav bar padding was taking too much room */
 
-  /* set all sizing that inherits from html & body tag */
-  html,
-  body {
+  /* set all sizing that inherits from the root element */
+  html {
     font-size: 14px;
   }
 
@@ -144,9 +140,8 @@ footer .container {
 @media only screen and (max-width: 768px) {
   /* Below this width, the supporting image squished up the supporting text too much */
 
-  /* set all sizing that inherits from html & body tag */
-  html,
-  body {
+  /* set all sizing that inherits from the root element */
+  html {
     font-size: 12px;
   }
 
@@ -164,9 +159,8 @@ footer .container {
 
 @media only screen and (max-width: 480px) {
 
-  /* set all sizing that inherits from html & body tag */
-  html,
-  body {
+  /* set all sizing that inherits from the root element */
+  html {
     font-size: 10px;
   }
 
