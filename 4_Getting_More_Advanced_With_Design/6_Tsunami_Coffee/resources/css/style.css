@@ -55,6 +55,19 @@ li {
   display: flex;
   align-items: flex-start;
   padding: 0 1rem;
+
+  /* "support" is font sized relative to the root html element */
+  font-size: 1.1rem;
+}
+
+/* h2 and p element's font sizes are relative to one another */
+/* through their "supporting" container */
+.supporting h2 {
+  font-size: 1.8em;
+}
+
+.supporting p {
+  font-size: 1.2em;
 }
 
 .supporting img {

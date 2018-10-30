@@ -38,8 +38,8 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
 - [Detecting browser information with `@media` rules](#detecting-browser-information-with-media-rules)
     - [Logical operators between `@media` rules](#logical-operators-between-media-rules)
         - [`and` (and)](#and-and)
-        - [`,` (or)](#-or)
-        - [Chaining `and` and `,`](#chaining-and-and-)
+        - [`,` (or)](#or)
+        - [Chaining `and` and `,`](#chaining-and-and)
     - [Rules for display `width` and `height`](#rules-for-display-width-and-height)
     - [Rules for ranges of values](#rules-for-ranges-of-values)
     - [Rules for `resolution` DPI in \<resolution\> units](#rules-for-resolution-dpi-in-resolution-units)
@@ -47,8 +47,8 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
     - [Rules for specific device and orientation](#rules-for-specific-device-and-orientation)
 - [Creating responsive websites](#creating-responsive-websites)
     - [Use relative units when sizing and positioning](#use-relative-units-when-sizing-and-positioning)
-    - [Looking for where layouts break or look odd](#looking-for-where-layouts-break-or-look-odd)
     - [Use `@media` rules to address layout issues](#use-media-rules-to-address-layout-issues)
+        - [Finding where layouts break or look odd](#finding-where-layouts-break-or-look-odd)
 - [Design patterns](#design-patterns)
     - [Background images `background`](#background-images-background)
     - [Image and video proportional scaling](#image-and-video-proportional-scaling)
@@ -75,7 +75,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
 
 | Property | Effect |
 | :------: | ------ |
-| [`height`](https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport/height)[[1]](#__display_warning) <br>[`width`](https://developer.mozilla.org/en-US/docs/Web/CSS/width)[[1]](#__display_warning) <br>`min-width`<br>`max-width`<br>`min-height`<br>`max-height` | Sets content area. 
+| [`height`](https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport/height)[[1]](#__display_warning) <br>[`width`](https://developer.mozilla.org/en-US/docs/Web/CSS/width)[[1]](#__display_warning) <br>`min-width`<br>`max-width`<br>`min-height`<br>`max-height` | Sets content area. <br> **NB**: Can combine min & max to limit scaling in two directions. E.g. <br>`div.container { `<br>`  min-height: 150px;`<br>`  max-height: 600px;`<br>`  min-width: 300px;`<br>`  max-width: 900px; `<br>`}`
 | [`border`](https://developer.mozilla.org/en-US/docs/Web/CSS/border) | Surrounds the content area and padding of an element. The color, <br>style, and thickness of a border can be set with CSS properties. <br>E.g. `border: 3px solid #eb6536` sets line width, type of line, and<br> color of line
 | [`padding`](https://developer.mozilla.org/en-US/docs/Web/CSS/padding)[[1]](#__display_warning) <br>`padding-top`, <br>`padding-bottom`, <br>`padding-right`, <br>`padding-right` | Sets the spacing between the content area and the border. For <br>`padding`, the [number of arguments](#__padding_margin_args) changes which faces the arg(s)<br> apply to.
 | [`margin`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)[[1]](#__display_warning) <br>`margin-top`, <br>`margin-bottom`, <br>`margin-right`, <br>`margin-left` | Sets the spacing outside of an element's border; <br> **1)** For `margin`, the [number of arguments](#__padding_margin_args) changes which faces the <br>arg(s) apply to.<br>**2) `margin: 0 auto`** sets no top-bottom margins, but **horizontally<br> centers** an element inside of its parent content area, if it has a width.<br>**3) Vertical margin collapse**; <br> **- Vertical** margins collapse, so the space between vertically adjacent <br>elements is equal to the larger margin.<br> **- Horizontal** margins add, so the total space between the borders of<br> adjacent elements is equal to the sum of the right margin of one <br>element and the left margin of the adjacent element.<br>[<img src="./Codecademy-Virtual_Margins_Collapse.jpg" alt="drawing" width="150"/>](Codecademy-Virtual_Margins_Collapse.jpg)
@@ -190,7 +190,7 @@ The box-sizing property controls the box model used by the browser;
 
 | Unit | Description | Example |
 | :--: | ----------- | ------- |
-| `em`    | Multiple of base (i.e. parent element's) font-size.<br>Use when sizing elements in comparison to other<br> elements nearby. | `font-size: `**`1.25em`**`;`
+| `em`    | Multiple of base (i.e. parent element's) font-size that<br> is in use. <br>Use when sizing elements in comparison to other<br> elements nearby. | `font-size: `**`1.25em`**`;`
 | `rem`   | Multiple of root element (i.e. \<html\> tag) font-size.<br>Use when sizing elements consistently <br>across entire page. |`line-height: `**`1.6rem`**`;`
 | `%`     | Size element relative to the dimensions of parent<br> element (i.e. container).<br>**NB:** For `padding` & `margin`, the `%` for all four sides <br>is computed using the **width** of the **parent** element.<br>**WARNING**: If used with box-model, may<br> cause overflow problems | `width: `**`60%`**`;`
 | `auto`  |  The browser will calculate and select a width for the<br> specified element. E.g. If the height property of an<br> image is set to auto, the image's height will<br> automatically scale proportionally with the width. <br>**WARNING:** `auto` may be the default or inherited, in<br> which case `auto` appears to do nothing.| `height: `**`auto`**;
@@ -387,13 +387,40 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
 # Creating responsive websites
 
 ## Use [relative units](#__relative_units) when [sizing](#__sizing) and [positioning](#__positioning)
-- [Absolute units](#__absolute_units) for sizing and positioning are fixed and prevents responsive websites.
+- [Absolute units](#__absolute_units) for sizing and positioning are fixed and prevent responsive websites.
+- Elements that have size units of `rem` are relative to the root font-size and will be modified by changing root element. E.g.;
+   ```css
+    html {
+        font-size: 10px;
+    }
 
-## Looking for where layouts break or look odd
-- **Test** (not design) using these common screen sizes;
-    - [<img src="./screen-sizes.png" alt="drawing" width="100rem"/>](./screen-sizes.png)
-- Test browser window sizes using the rulers and "Responsive Design Mode" in Firefox. [<img src="./firefox_rulers_and_device_emulators.jpg" alt="drawing" width="80rem"/>](./firefox_rulers_and_device_emulators.jpg)
-    - **WARNING**: Sometimes Firefox's inspection information stops dynamically updating the CSS rules being applied to elements, making it much harder to observe [`@media` breakpoints](#__@media_guidelines) in responsive designs.  **WORKAROUND** this by closing the sites tab/window and re-open the site.
+    h1 {
+        font-size: 2rem;
+    }
+    ```
+- Elements that have size units of `em` are relative to the base font-size in use, and will be modified when changing the base element. Linking contained element's sizes to the container means they can be sized relatively to one another, which will be maintained if the contained elements as a group are re-sized. E.g.;
+
+   ```css
+        .supporting {
+
+        /* "support" element's font size is relative to the root html element */
+        font-size: 1.1rem;
+        }
+
+        /* h2 and p element's font sizes are relative to one another */
+        /* through their "support" container */
+        .supporting h2 {
+        font-size: 1.8em;
+        }
+
+        .supporting p {
+        font-size: 1.2em;
+        }
+    ```
+
+
+- Linking element sizes and positions together centralises altering the overall layout.  This is very helpful when combined with `@media`.
+
 
 
 <a id="__@media_guidelines"></a>
@@ -404,8 +431,15 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
     - Set breakpoints where the dimensions at which **the layout breaks or looks odd**, to allow CSS rules to resize the page and reorganize.
     - Avoid setting breakpoints based on specific devices.
     - Avoid forcing projects around a certain screen size.
+    - Combine with using relative units.
   
 - See also [Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Syntax)
+
+### Finding where layouts break or look odd
+- **Test** (not design) using these common screen sizes;
+    - [<img src="./screen-sizes.png" alt="drawing" width="100rem"/>](./screen-sizes.png)
+- Test browser window sizes using the rulers and "Responsive Design Mode" in Firefox. [<img src="./firefox_rulers_and_device_emulators.jpg" alt="drawing" width="80rem"/>](./firefox_rulers_and_device_emulators.jpg)
+    - **WARNING**: Sometimes Firefox's inspection information stops dynamically displaying the CSS rules being applied to elements, making it much harder to observe [`@media` breakpoints](#__@media_guidelines) in responsive designs.  **WORKAROUND** this by closing the sites tab/window and re-open the site.
 
 # Design patterns
 
