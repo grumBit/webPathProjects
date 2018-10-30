@@ -54,7 +54,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
     - [Image and video proportional scaling](#image-and-video-proportional-scaling)
 - [Tips and trips](#tips-and-trips)
     - [How to work out the effect of declarations](#how-to-work-out-the-effect-of-declarations)
-    - [Avoid `padding` `inline` objects like \<img\>'s, instead use `margin` on their containers](#avoid-padding-inline-objects-like-imgs-instead-use-margin-on-their-containers)
+    - [Avoid `padding` of `inline` objects like \<img\>'s, instead use `margin` on their containers](#avoid-padding-of-inline-objects-like-imgs-instead-use-margin-on-their-containers)
 
 <!-- /code_chunk_output -->
 
@@ -430,7 +430,7 @@ body {
 
 The second CSS rule ensures that images scale with the width of the container. The height property is set to auto, meaning an image's height will automatically scale proportionally with the width. Finally, the last line will display images as block level elements (rather than inline-block, their default state). This will prevent images from attempting to align with other content on the page (like text), which can add unintended margin to the images. 
 
-**Note**: The example above scales the width of an image (or video) to the width of a container. If the image is larger than the container, the vertical portion of the image will overflow and will not display. To swap this behavior, you can set max-height to 100% and width to auto (essentially swapping the values). This will scale the height of the image with the height of the container instead. If the image is larger than the container, the horizontal portion of the image will overflow and not display.
+**Note**: The example above scales the width of an image (or video) to the width of a container. If the image is larger than the container, the vertical portion of the image will overflow and will not display. To swap this behavior, set max-height to 100% and width to auto (essentially swapping the values). This will scale the height of the image with the height of the container instead. If the image is larger than the container, the horizontal portion of the image will overflow and not display.
 
 ```CSS
     .container {
@@ -458,6 +458,6 @@ When working out what declarations are doing;
 - When in doubt, go back to the default style sheet and express the HTML elements using only that. Graduate views when experimenting. Don’t aim for perfection, but effect. If you don’t see it, then it must not be in the declarations.
 - In some cases the default or inherited value is the same as what what is being tried, so no change will occur. 
 
-## Avoid `padding` `inline` objects like \<img\>'s, instead use `margin` on their containers
+## Avoid `padding` of `inline` objects like \<img\>'s, instead use `margin` on their containers
 -  It doesn’t make conceptual sense and is hence contrived, even if it can be made to work. 
 -  Blocks with margins is the way to go on such objects.
