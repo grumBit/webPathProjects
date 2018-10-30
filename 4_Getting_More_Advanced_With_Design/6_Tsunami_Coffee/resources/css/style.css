@@ -115,16 +115,16 @@ footer .container {
 @media only screen and (max-width: 1600px) {
   /* Below this width, nav bar padding was taking too much room */
 
+  /* set all sizing that inherits from html & body tag */
   html,
   body {
     font-size: 16px;
   }
 
-
-
 @media only screen and (max-width: 1024px) {
   /* Below this width, nav bar padding was taking too much room */
 
+  /* set all sizing that inherits from html & body tag */
   html,
   body {
     font-size: 14px;
@@ -142,8 +142,9 @@ footer .container {
 }
 
 @media only screen and (max-width: 768px) {
-  /* Below this width, the supporint image squiched up the supporting text too much */
+  /* Below this width, the supporting image squished up the supporting text too much */
 
+  /* set all sizing that inherits from html & body tag */
   html,
   body {
     font-size: 12px;
@@ -154,6 +155,7 @@ footer .container {
     display: none;
   }
 
+    /* reduce the footer padding */
   footer .container {
     padding: 3em 0;
   }
@@ -161,21 +163,20 @@ footer .container {
 }
 
 @media only screen and (max-width: 480px) {
-  /* .rating h1 {
-    font-size: 2rem;
-  
-  } */
 
+  /* set all sizing that inherits from html & body tag */
   html,
   body {
     font-size: 10px;
   }
 
+  /* swap the arrangement of gallery images from horizontal to vertical */
   .gallery img {
     width: 70%;
     margin: 1% 15%;
   }
 
+  /* reduce the footer padding */
   footer .container {
     padding: 2em 0;
   }
