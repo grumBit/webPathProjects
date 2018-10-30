@@ -40,6 +40,7 @@ Contains crib notes and projects I created while doing [Codecademy Wweb Path](ht
 
 1. [Morocco (typography)](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/4_Morocco(typography)/index.html)
 
+1. [Amazing Space (@media rules)](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/5_Lesson_2_Amazing_Space_(media_rules)/index.html)
 
 
 <!-- 
