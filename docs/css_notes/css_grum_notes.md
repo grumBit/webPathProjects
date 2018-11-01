@@ -27,8 +27,9 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
     - [Flexbox layouts](#flexbox-layouts)
         - [Overview of flexbox properties](#overview-of-flexbox-properties)
         - [NB: flex-box `main-axis` and `cross-axis`](#nb-flex-box-main-axis-and-cross-axis)
-        - [`align-items` - align contents along flex-box `cross-axis` or grid-layout `block-axis`](#align-items---align-contents-along-flex-box-cross-axis-or-grid-layout-block-axis)
-        - [`flex-grow` - grow item proportionaly to others, using parent's extra space](#flex-grow---grow-item-proportionaly-to-others-using-parents-extra-space)
+        - [`justify-content` - justify _contents_ along the `main-axis` of container](#justify-content---justify-contents-along-the-main-axis-of-container)
+        - [`align-items` - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`](#align-items---align-contents-along-flex-box-cross-axis-or-grid-layout-block-axis)
+        - [`flex-grow` - grow _item_ proportionaly to others, using parent's extra space](#flex-grow---grow-item-proportionaly-to-others-using-parents-extra-space)
         - [`flex-shrink`](#flex-shrink)
         - [`flex-basis`](#flex-basis)
         - [`flex`](#flex)
@@ -240,7 +241,7 @@ The box-sizing property controls the box model used by the browser;
 - The behaviour of many flex-box properties are dependent on the `main-axis` and `cross-axis`, which are set by the `flex-direction` property.  The `cross-axis` is alwaysperpendicular to the `main-axis`.
 - See heading links for diagrams.
 
-****### [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) - justify contents along the `main-axis` of container
+### [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) - justify _contents_ along the `main-axis` of container
 - Distribute space between and around content items along the `main-axis` of their container.
   
 | Setting | Effect |
@@ -259,11 +260,11 @@ The box-sizing property controls the box model used by the browser;
 | `safe <setting>   ` | If the item overflows the alignment container causing data loss, <br>the item is instead aligned as ifthe alignment mode were start.
 | `unsafe <setting> ` | Regardless of the relative sizes of the item and alignment container<br> and whether overflow which causes data loss might happen,<br> the given alignment value is honored.
 
-- E.g. from course;
+- E.g. Pic and [code](./flex-box/justify-content/index.html) from course;;
   
 [<img src="./flex-box/justify-content/example.jpg" alt="drawing" width="650"/>](./flex-box/justify-content/example.jpg)
 
-### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) - align contents along flex-box `cross-axis` or grid-layout `block-axis`
+### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`
 - Sets the align-self value on all direct children as a group
 - Sets the alignment of an item within its containing block.
 
@@ -286,7 +287,7 @@ The box-sizing property controls the box model used by the browser;
   
 [<img src="./flex-box/align-items/example.jpg" alt="drawing" width="650"/>](./flex-box/align-items/example.jpg)
 
-### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - grow item proportionaly to others, using parent's extra space
+### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - grow _item_ proportionaly to others, using parent's extra space
 
 - E.g. Pic and [code](./flex-box/flex-grow/index.html) from course;
   
