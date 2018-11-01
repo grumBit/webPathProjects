@@ -21,6 +21,10 @@ h2 {
   text-align: center;
 }
 
+.desc {
+  font-size: 1.65em;
+}
+
 .no_grow,
 .equal_grow,
 .one_grow,

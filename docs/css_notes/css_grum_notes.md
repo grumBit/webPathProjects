@@ -26,7 +26,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [Relative units](#relative-units)
     - [Flexbox layouts](#flexbox-layouts)
         - [Overview of flexbox properties](#overview-of-flexbox-properties)
-        - [NB: flex-box `main-axis` and `cross-axis`](#nb-flex-box-main-axis-and-cross-axis)
+            - [Flex-box `main-axis` and `cross-axis`](#flex-box-main-axis-and-cross-axis)
         - [`justify-content` - justify _contents_ along the `main-axis` of container](#justify-content---justify-contents-along-the-main-axis-of-container)
         - [`align-items` - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`](#align-items---align-contents-along-flex-box-cross-axis-or-grid-layout-block-axis)
         - [`flex-grow` - grow _item_ proportionaly to others, using parent's extra space](#flex-grow---grow-item-proportionaly-to-others-using-parents-extra-space)
@@ -237,7 +237,7 @@ The box-sizing property controls the box model used by the browser;
 | [`flex-direction`](#flex-direction)  | 
 | [`flex-flow`](#flex-flow)            |
 
-### NB: flex-box [`main-axis`](https://developer.mozilla.org/en-US/docs/Glossary/main_axis) and [`cross-axis`](https://developer.mozilla.org/en-US/docs/Glossary/cross_axis)
+#### Flex-box [`main-axis`](https://developer.mozilla.org/en-US/docs/Glossary/main_axis) and [`cross-axis`](https://developer.mozilla.org/en-US/docs/Glossary/cross_axis)
 - The behaviour of many flex-box properties are dependent on the `main-axis` and `cross-axis`, which are set by the `flex-direction` property.  The `cross-axis` is alwaysperpendicular to the `main-axis`.
 - See heading links for diagrams.
 

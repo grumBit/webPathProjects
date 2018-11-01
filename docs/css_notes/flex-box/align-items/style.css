@@ -8,6 +8,10 @@ h1 {
   font-size: 18px;
 }
 
+.desc {
+  font-size: 1.65em;
+}
+
 .container {
   height: 150px;
   background-color: WhiteSmoke;
