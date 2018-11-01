@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  border: 0;
+  font-family: 'Roboto Mono', monospace;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+.desc {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.no_grow,
+.equal_grow,
+.one_grow,
+.unequal_grow {
+  width: 100px;
+  height: 100px;
+  background-color: Dodgerblue;
+  border: 2px solid lightgrey;
+  margin: 10px 30px;
+}
+
+.equal_grow.side {
+	flex-grow: 1;
+}
+
+.equal_grow.center {
+	flex-grow: 1;
+}
+
+.one_grow.side {
+}
+
+.one_grow.center {
+	flex-grow: 1;
+}
+
+.unequal_grow.side {
+	flex-grow: 1;
+}
+
+.unequal_grow.center {
+	flex-grow: 2;
+}
+
+#no_grow,
+#equal_grow,
+#one_grow,
+#unequal_grow {
+  display: flex;
+  background-color: Whitesmoke;
+  justify-content: center;
+  min-height: 200px;
+  align-items: center;
+}

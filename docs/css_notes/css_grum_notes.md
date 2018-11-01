@@ -24,6 +24,18 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
     - [\<length\> - units for sizing and positioning - `px, em rem, %, auto`, etc](#length---units-for-sizing-and-positioning---px-em-rem--auto-etc)
         - [Absolute units](#absolute-units)
         - [Relative units](#relative-units)
+    - [Flexbox layouts](#flexbox-layouts)
+        - [Overview of flexbox properties](#overview-of-flexbox-properties)
+        - [NB: flex-box `main-axis` and `cross-axis`](#nb-flex-box-main-axis-and-cross-axis)
+        - [`align-items` - align contents along flex-box `cross-axis` or grid-layout `block-axis`](#align-items---align-contents-along-flex-box-cross-axis-or-grid-layout-block-axis)
+        - [`flex-grow` - grow item proportionaly to others, using parent's extra space](#flex-grow---grow-item-proportionaly-to-others-using-parents-extra-space)
+        - [`flex-shrink`](#flex-shrink)
+        - [`flex-basis`](#flex-basis)
+        - [`flex`](#flex)
+        - [`flex-wrap`](#flex-wrap)
+        - [`align-content`](#align-content)
+        - [`flex-direction`](#flex-direction)
+        - [`flex-flow`](#flex-flow)
 - [Colors](#colors)
     - [`color` and `background-color` `[ keyword #, rgb, hsl, rgba, hsla]`;](#color-and-background-color--keyword--rgb-hsl-rgba-hsla)
     - [Solid colors - `keyword, #, rgb, hsl`](#solid-colors---keyword--rgb-hsl)
@@ -107,7 +119,7 @@ The number of arguments changes which faces the arguments apply to as follows;
 The box-sizing property controls the box model used by the browser;
 
 | Setting | Effect |
-| ------- | :----: |
+| :-----: | :----: |
 | `content-box` | Box dimensions are affected by border thickness and padding, as<br> these are external to the box, and hence add to the content dimensions. <br>[<img src="./Codecademy-The_Box_Model_2-default_acutal_rendered_width.jpg" alt="drawing" width="150"/>](Codecademy-The_Box_Model_2-default_acutal_rendered_width.jpg)
 | `border-box` | Box dimensions are not affected by border thickness or padding, <br>instead these go into the box.<br> [<img src="./Codecademy-The_Box_Model_3-box-sizing_border-box.jpg" alt="drawing" width="150"/>](Codecademy-The_Box_Model_3-box-sizing_border-box.jpg)
 
@@ -119,15 +131,17 @@ The box-sizing property controls the box model used by the browser;
 * The display property allows control of how an element flows vertically and horizontally.
 
 | Setting | Effect |
-| ------- | ------ |
-| `inline` | Elements take up the minimum size required to contain the contents and cannot be altered in size with the `height` or `width` properties. See [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements) for more.
-| `block` | Elements fill the entire width of the page by default, but their width property can also be set. Unless otherwise specified, they are the height necessary to accommodate their content. The main block-by-default elements are `<h1> through <h6>, <p>, <div> and <footer>`, see [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) for more.
-| `inline-block` | Elements can also appear next to each other, can have set `width` and `height`, and do not take up their entire container width.
+| :-----: | ------ |
+| `inline` | Elements take up the minimum size required to contain the contents and cannot<br> be altered in size with the `height` or `width` properties. See [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements) for more.
+| `block` | Elements fill the entire width of the page by default, but their width property can<br> also be set. Unless otherwise specified, they are the height necessary to<br> accommodate their content. The main block-by-default elements are<br> `<h1> through <h6>, <p>, <div> and <footer>`, see [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) for more.
+| `inline-block` | Elements can also appear next to each other, can have set `width` and `height`,<br> and do not take up their entire container width.
+| `flex` | Elements will remain block level — no other elements will appear on the same<br> line as it.|
+| `inline-flex`| Elements will be flex containers that are also inline elements.|
 
 ### [`position`](https://developer.mozilla.org/en-US/docs/Web/CSS/position) `: static (default), relative, absolute, fixed`
 
 | Setting | Effect |
-| ------- | ------ |
+| :-----: | ------ |
 | `static` | Default value. Elements render in order, as they appear in the document flow
 | `relative` | Position relative to its default position on the page.
 | `absolute` | Position relative to its first positioned (not static) ancestor element. It can be pinned to any part of the web page, but the element will still move with the rest of the document when the page is scrolled.
@@ -200,6 +214,92 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__@media"></a>
 
+## Flexbox layouts
+- A flex container is an element on a page that contains flex items.
+- All direct child elements of a flex container are flex items. 
+- Some of the properties apply to flex containers, while others apply to flex items.
+
+### Overview of flexbox properties
+- To designate an element as a flex container, set `display` of element to `flex` or `inline-flex`
+- Flex items and containers can have the following properties set;
+
+| Property                             | Purpose |
+| :----------------------------------: | ------ |
+| [`justify-content`](#justify-content)| Distributes space between and around content items along the main-axis of their container.
+| [`align-items`](#align-items)        |
+| [`flex-grow`](#flex-grow)            |
+| [`flex-shrink`](#flex-shrink)        |
+| [`flex-basis`](#flex-basis)          |
+| [`flex`](#flex)                      |
+| [`flex-wrap`](#flex-wrap)            |
+| [`align-content`](#align-content)    |
+| [`flex-direction`](#flex-direction)  | 
+| [`flex-flow`](#flex-flow)            |
+
+### NB: flex-box [`main-axis`](https://developer.mozilla.org/en-US/docs/Glossary/main_axis) and [`cross-axis`](https://developer.mozilla.org/en-US/docs/Glossary/cross_axis)
+- The behaviour of many flex-box properties are dependent on the `main-axis` and `cross-axis`, which are set by the `flex-direction` property.  The `cross-axis` is alwaysperpendicular to the `main-axis`.
+- See heading links for diagrams.
+
+****### [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) - justify contents along the `main-axis` of container
+- Distribute space between and around content items along the `main-axis` of their container.
+  
+| Setting | Effect |
+| :-----: | ------ |
+| `flex-start       ` | Pack flex items from the start
+| `flex-end         ` | Pack flex items from the end
+| `center           ` | Pack items around the center
+| `space-around     ` | Distribute items evenly. <br> Items have a half-size space on either end.
+| `space-between    ` | Distribute items evenly. <br>The first item is flush with the start, the last is flush with the end.
+| `start            ` | Pack items from the start
+| `end              ` | Pack items from the end
+| `left             ` | Pack items from the left
+| `right            ` | Pack items from the right
+| `space-evenly     ` | Distribute items evenly <br> Items have equal space around them.
+| `stretch          ` | Distribute items evenly. <br>Stretch 'auto'-sized items to fit the container.
+| `safe <setting>   ` | If the item overflows the alignment container causing data loss, <br>the item is instead aligned as ifthe alignment mode were start.
+| `unsafe <setting> ` | Regardless of the relative sizes of the item and alignment container<br> and whether overflow which causes data loss might happen,<br> the given alignment value is honored.
+
+- E.g. from course;
+  
+[<img src="./flex-box/justify-content/example.jpg" alt="drawing" width="650"/>](./flex-box/justify-content/example.jpg)
+
+### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) - align contents along flex-box `cross-axis` or grid-layout `block-axis`
+- Sets the align-self value on all direct children as a group
+- Sets the alignment of an item within its containing block.
+
+| Setting | Effect on `cross-axis` |
+| :-----: | ------ |
+| `flex-start              ` |  Pack `flex` items from the start
+| `flex-end                ` |  Pack `flex` items from the end
+| `center                  ` |  Pack items around the center
+| `baseline`<br>`first baseline`<br>`last baseline` |  The bottom of the content of all items will be aligned with each other.
+| `stretch `<br>(default)    |  If possible, the items will stretch from top to bottom of the container<br> **IMPORTANT:** <br>-  Elements with a specified height will not stretch. <br> - Elements with a minimum height **OR** no height specified will stretch.
+| `normal                  ` |  Depends on the layout mode
+| `start                   ` |  Pack items from the start 
+| `end                     ` |  Pack items from the end 
+| `self-start              ` |  
+| `self-end                ` |  
+| `safe <setting>          ` | If the item overflows the alignment container causing data loss, <br>the item is instead aligned as ifthe alignment mode were start.
+| `unsafe <setting>        ` | Regardless of the relative sizes of the item and alignment container<br> and whether overflow which causes data loss might happen,<br> the given alignment value is honored.
+
+- E.g. Pic and [code](./flex-box/align-items/index.html) from course;;
+  
+[<img src="./flex-box/align-items/example.jpg" alt="drawing" width="650"/>](./flex-box/align-items/example.jpg)
+
+### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - grow item proportionaly to others, using parent's extra space
+
+- E.g. Pic and [code](./flex-box/flex-grow/index.html) from course;
+  
+[<img src="./flex-box/flex-grow/example.jpg" alt="drawing" width="650"/>](./flex-box/flex-grow/example.jpg)
+
+### [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)
+### [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)
+### [`flex`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
+### [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)
+### [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)
+### [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
+### [`flex-flow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow)
+
 
 
 # Colors
@@ -255,7 +355,7 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
             ```html
             <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
             ```
-    1. Import @font-face via style.css
+    2. Import @font-face via style.css
         - Copy-and-paste the provided \<link\> tag into a browser.
         - From the raw css displayed, copy-and-paste all the `/* latin */` @font-face {...} blocks into the _**top**_ of style.css.
             ```css
@@ -267,7 +367,7 @@ See my example of using the below [here](https://grumbit.github.io/webPathProjec
                 unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
                 }
             ```
-1. Add font rules to selector
+4. Add font rules to selector
 - Copy-and-paste the font rules in to the appropriate selector of style.css.
     ```css
     <some_css_selector> {
