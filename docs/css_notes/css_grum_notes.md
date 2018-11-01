@@ -29,7 +29,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
             - [Flex-box `main-axis` and `cross-axis`](#flex-box-main-axis-and-cross-axis)
         - [`justify-content` - justify _contents_ along the `main-axis` of container](#justify-content---justify-contents-along-the-main-axis-of-container)
         - [`align-items` - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`](#align-items---align-contents-along-flex-box-cross-axis-or-grid-layout-block-axis)
-        - [`flex-grow` - grow _item_ proportionaly to others, using parent's extra space](#flex-grow---grow-item-proportionaly-to-others-using-parents-extra-space)
+        - [`flex-grow` - grow _item_ proportionaly to siblings, using parent's extra space](#flex-grow---grow-item-proportionaly-to-siblings-using-parents-extra-space)
         - [`flex-shrink`](#flex-shrink)
         - [`flex-basis`](#flex-basis)
         - [`flex`](#flex)
@@ -260,9 +260,9 @@ The box-sizing property controls the box model used by the browser;
 | `safe <setting>   ` | If the item overflows the alignment container causing data loss, <br>the item is instead aligned as ifthe alignment mode were start.
 | `unsafe <setting> ` | Regardless of the relative sizes of the item and alignment container<br> and whether overflow which causes data loss might happen,<br> the given alignment value is honored.
 
-- E.g. Pic and [code](./flex-box/justify-content/index.html) from course;;
+- Example, with [code](./flex-box/justify-content/index.html) from course;;
   
-[<img src="./flex-box/justify-content/example.jpg" alt="drawing" width="650"/>](./flex-box/justify-content/example.jpg)
+[<img src="./flex-box/justify-content/example.jpg" alt="drawing" width="350"/>](./flex-box/justify-content/index.html)
 
 ### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`
 - Sets the align-self value on all direct children as a group
@@ -283,20 +283,20 @@ The box-sizing property controls the box model used by the browser;
 | `safe <setting>          ` | If the item overflows the alignment container causing data loss, <br>the item is instead aligned as ifthe alignment mode were start.
 | `unsafe <setting>        ` | Regardless of the relative sizes of the item and alignment container<br> and whether overflow which causes data loss might happen,<br> the given alignment value is honored.
 
-- Example, with [code](./flex-box/align-items/index.html) from course;;
+- Example, with [code](./flex-box/align-items/index.html), from course;;
   
 [<img src="./flex-box/align-items/example.jpg" alt="drawing" width="350"/>](./flex-box/align-items/index.html)
 
-### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - grow _item_ proportionaly to others, using parent's extra space
+### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - grow _item_ proportionaly to siblings, using parent's extra space
 
 | Setting | Effect on `cross-axis` |
 | :-----: | ------ |
-| Number | Sets flex-grow for item itself (i.e. not it's children).  Effect is proportional to flow-grow specified in siblings. NB: Can be fractions, but can't be negative. |
+| Number | Sets flex-grow for item itself (i.e. not it's children).  Effect is proportional to flex-grow specified in siblings. NB: Can be fractions, but can't be negative. |
 | unset | Remove flex-gro from items
 
-- E.g. Pic and [code](./flex-box/flex-grow/index.html) from course;
+- Example, with [code](./flex-box/flex-grow/index.html) from course;
   
-[<img src="./flex-box/flex-grow/example.jpg" alt="drawing" width="650"/>](./flex-box/flex-grow/example.jpg)
+[<img src="./flex-box/flex-grow/example.jpg" alt="drawing" width="350"/>](./flex-box/flex-grow/index.html)
 
 ### [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)
 ### [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)
