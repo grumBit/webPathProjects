@@ -28,7 +28,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [Overview of flexbox properties](#overview-of-flexbox-properties)
             - [Flex-box `main-axis` and `cross-axis`](#flex-box-main-axis-and-cross-axis)
         - [`justify-content` - `main-axis` justify _contents_ along container](#justify-content---main-axis-justify-contents-along-container)
-        - [`align-items` - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`](#align-items---align-contents-along-flex-box-cross-axis-or-grid-layout-block-axis)
+        - [`align-items` - flex-box `cross-axis` (gridlayout `block-axis`) align _contents_](#align-items---flex-box-cross-axis-gridlayout-block-axis-align-contents)
         - [`flex-grow` - `cross-axis` grow _item_ proportionally to siblings, using parent's extra space](#flex-grow---cross-axis-grow-item-proportionally-to-siblings-using-parents-extra-space)
         - [`flex-shrink` - `cross-axis` shrink `item` proportionally to siblings, when parent container too small](#flex-shrink---cross-axis-shrink-item-proportionally-to-siblings-when-parent-container-too-small)
         - [`flex-basis` - set initial size of item along `main-axis`](#flex-basis---set-initial-size-of-item-along-main-axis)
@@ -227,7 +227,7 @@ The box-sizing property controls the box model used by the browser;
 | Property                             | Purpose |
 | :----------------------------------: | ------ |
 | [`justify-content`](#__justify-content)| `main-axis` justify _contents_ along container
-| [`align-items`](#__align-items)        | Align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`.
+| [`align-items`](#__align-items)        | flex-box `cross-axis` (gridlayout `block-axis`) align _contents_.
 | [`flex-grow`](#__flex-grow)            | `cross-axis` grow _item_ proportionally to siblings, using parent's extra space
 | [`flex-shrink`](#__flex-shrink)        | `cross-axis` shrink _item_ proportionally to siblings, when parent container too small
 | [`flex-basis`](#__flex-basis)          | Set initial size of item along `main-axis` 
@@ -270,9 +270,9 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
-<a id="__align-itmes"></a>
+<a id="__align-items"></a>
 
-### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`
+### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) - flex-box `cross-axis` (gridlayout `block-axis`) align _contents_
 - Sets the align-self value on all direct children as a group
 - Sets the alignment of an item within its containing block.
 
@@ -328,6 +328,7 @@ The box-sizing property controls the box model used by the browser;
 | Setting | Effect on `cross-axis` |
 | :-----: | ------ |
 | `Number`<br> (default 1) | Sets flex-shrink for item itself (i.e. not it's children).<br>NB: Can be fractions. Can't be negative. |
+
 - Example, with [code](./flex-box/flex-shrink/index.html) from course;
   
 [<img src="./flex-box/flex-shrink/example.jpg" alt="prop drawing" width="270"/>](./flex-box/flex-shrink/index.html)
