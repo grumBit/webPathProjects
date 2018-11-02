@@ -30,7 +30,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [`justify-content` - `main-axis` justify _contents_ along container](#justify-content---main-axis-justify-contents-along-container)
         - [`align-items` - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`](#align-items---align-contents-along-flex-box-cross-axis-or-grid-layout-block-axis)
         - [`flex-grow` - `cross-axis` grow _item_ proportionally to siblings, using parent's extra space](#flex-grow---cross-axis-grow-item-proportionally-to-siblings-using-parents-extra-space)
-        - [`flex-shrink` - `cross-axis` shrink `item` proportinally to siblings, when parent container too small](#flex-shrink---cross-axis-shrink-item-proportinally-to-siblings-when-parent-container-too-small)
+        - [`flex-shrink` - `cross-axis` shrink `item` proportionally to siblings, when parent container too small](#flex-shrink---cross-axis-shrink-item-proportionally-to-siblings-when-parent-container-too-small)
         - [`flex-basis` - set initial size of item along `main-axis`](#flex-basis---set-initial-size-of-item-along-main-axis)
         - [`flex`](#flex)
         - [`flex-wrap`](#flex-wrap)
@@ -226,22 +226,24 @@ The box-sizing property controls the box model used by the browser;
 
 | Property                             | Purpose |
 | :----------------------------------: | ------ |
-| [`justify-content`](#justify-content)| Distributes space between and around _content_ items along the main-axis of their container.
-| [`align-items`](#align-items)        | Align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`.
-| [`flex-grow`](#flex-grow)            | Grow _item_ proportionaly to siblings, using parent's extra space.
-| [`flex-shrink`](#flex-shrink)        |
-| [`flex-basis`](#flex-basis)          |
-| [`flex`](#flex)                      |
-| [`flex-wrap`](#flex-wrap)            |
-| [`align-content`](#align-content)    |
-| [`flex-direction`](#`flex-direction`)  | 
-| [`flex-flow`](#flex-flow)            |
+| [`justify-content`](#__justify-content)| `main-axis` justify _contents_ along container
+| [`align-items`](#__align-items)        | Align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`.
+| [`flex-grow`](#__flex-grow)            | `cross-axis` grow _item_ proportionally to siblings, using parent's extra space
+| [`flex-shrink`](#__flex-shrink)        | `cross-axis` shrink _item_ proportionally to siblings, when parent container too small
+| [`flex-basis`](#__flex-basis)          | Set initial size of item along `main-axis` 
+| [`flex`](#__flex)                      |
+| [`flex-wrap`](#__flex-wrap)            |
+| [`align-content`](#__align-content)    |
+| [`flex-direction`](#__flex-direction)  | 
+| [`flex-flow`](#__flex-flow)            |
 
 #### Flex-box [`main-axis`](https://developer.mozilla.org/en-US/docs/Glossary/main_axis) and [`cross-axis`](https://developer.mozilla.org/en-US/docs/Glossary/cross_axis)
 - The behaviour of many flex-box properties are dependent on the `main-axis` and `cross-axis`, which are set by the `flex-direction` property.  The `cross-axis` is alwaysperpendicular to the `main-axis`.
 - See heading links for diagrams.
 
 ---
+
+<a id="__justify-content"></a>
 
 ### [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) - `main-axis` justify _contents_ along container
 - Distribute space between and around content items along the `main-axis` of their container.
@@ -268,6 +270,8 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
+<a id="__align-itmes"></a>
+
 ### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`
 - Sets the align-self value on all direct children as a group
 - Sets the alignment of an item within its containing block.
@@ -293,6 +297,8 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
+<a id="__flex-grow"></a>
+
 ### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - `cross-axis` grow _item_ proportionally to siblings, using parent's extra space
 
 - Effect is proportional to flex-grow specified in siblings, with larger proportions taking up more of the partent's extra space
@@ -310,7 +316,9 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
-### [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink) - `cross-axis` shrink `item` proportinally to siblings, when parent container too small
+<a id="__flex-shrink"></a>
+
+### [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink) - `cross-axis` shrink `item` proportionally to siblings, when parent container too small
 
 - Effect is proportional to flex-shrink specified in siblings, with smaller proportions shrinking more.
 - Default of 1 means items will shrink by default. 
@@ -325,6 +333,8 @@ The box-sizing property controls the box model used by the browser;
 [<img src="./flex-box/flex-shrink/example.jpg" alt="prop drawing" width="270"/>](./flex-box/flex-shrink/index.html)
 
 ---
+
+<a id="__flex-basis"></a>
 
 ### [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis) - set initial size of item along `main-axis` 
 
@@ -344,6 +354,8 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
+<a id="__flex"></a>
+
 ### [`flex`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
 
 | Setting | Effect on `???-axis` |
@@ -354,6 +366,8 @@ The box-sizing property controls the box model used by the browser;
 [<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
 
 ---
+
+<a id="__flex-wrap"></a>
 
 ### [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)
 
@@ -366,6 +380,8 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
+<a id="__align-content"></a>
+
 ### [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)
 
 | Setting | Effect on `???-axis` |
@@ -377,7 +393,9 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
-### [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/`flex-direction`)
+<a id="__flex-direction"></a>
+
+### [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
 
 | Setting | Effect on `???-axis` |
 | :-----: | ------ |
@@ -387,6 +405,8 @@ The box-sizing property controls the box model used by the browser;
 [<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
 
 ---
+
+<a id="__flex-flow"></a>
 
 ### [`flex-flow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow)
 
@@ -398,9 +418,6 @@ The box-sizing property controls the box model used by the browser;
 [<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
 
 ---
-
-
-
 
 # Colors
 ## [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color) and [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color) `[ keyword #, rgb, hsl, rgba, hsla]`;
