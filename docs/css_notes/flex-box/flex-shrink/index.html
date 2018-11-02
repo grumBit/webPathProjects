@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>Flex Grow and Shrink</title>
-  <link href="style.css" type="text/css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-</head>
+  <head>
+    <title>Flex Shrink</title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  </head>
 
-<body>
-  <h1 class="desc">flex-grow: Grows item proportionally to siblings, using parent's extra space</h1>
+  <body>
+    <h1 class="desc">flex-shrink: Shrink item proportinally to siblings, when parent container is too small</h1>
 
-  <h1>No flow-grows (default)</h1>
-  <div id="no_grow">
-    <div class="no_grow">
-      <h2></h2>
+    <h1>Equal shrink (All default to 1)</h1>
+    <div id="no_shrink">
+      <div class="no_shrink">
+        <h2>flex-shrink: default</h2>
+      </div>
+      <div class="no_shrink">
+        <h2>flex-shrink: default</h2>
+      </div>
+      <div class="no_shrink">
+        <h2>flex-shrink: default</h2>
+      </div>
     </div>
-    <div class="no_grow">
-      <h2></h2>
+    
+    <h1>Sides shrink more</h1>
+    <div id="sides_shrink">
+      <div class="sides_shrink side">
+        <h2>flex-shrink: 2</h2>
+      </div>
+      <div class="sides_shrink center">
+        <h2>flex-shrink: default</h2>
+      </div>
+      <div class="sides_shrink side">
+        <h2>flex-shrink: 2</h2>
+      </div>
     </div>
-    <div class="no_grow">
-      <h2></h2>
+    
+    <h1>Center doesn't shrink</h1>
+    <div id="center_fixed">
+      <div class="center_fixed side">
+        <h2>flex-shrink: default</h2>
+      </div>
+      <div class="center_fixed center">
+        <h2>flex-shrink: 0</h2>
+      </div>
+      <div class="center_fixed side">
+        <h2>flex-shrink: default</h2>
+      </div>
     </div>
-  </div>
-  
-  <h1>Only one item with flex-grow</h1>
-  <div id="one_grow">
-    <div class="one_grow side">
-      <h2></h2>
+    
+  <h1>None shrink</h1>
+    <div id="all_fixed">
+      <div class="all_fixed side">
+        <h2>flex-shrink: 0</h2>
+      </div>
+      <div class="all_fixed center">
+        <h2>flex-shrink: 0</h2>
+      </div>
+      <div class="all_fixed side">
+        <h2>flex-shrink: 0</h2>
+      </div>
     </div>
-    <div class="one_grow center">
-      <h2>flex-grow: 1</h2>
-    </div>
-    <div class="one_grow side">
-      <h2></h2>
-    </div>
-  </div>
-  
-  <h1>Equal flex-grows</h1>
-  <div id="equal_grow">
-    <div class="equal_grow side">
-      <h2>flex-grow: 1</h2>
-    </div>
-    <div class="equal_grow center">
-      <h2>flex-grow: 1</h2>
-    </div>
-    <div class="equal_grow side">
-      <h2>flex-grow: 1</h2>
-    </div>
-  </div>
-  
-  <h1>Unequal flex-grows</h1>
-  <div id="unequal_grow">
-    <div class="unequal_grow side">
-      <h2>flex-grow: 1</h2>
-    </div>
-    <div class="unequal_grow center">
-      <h2>flex-grow: 2</h2>
-    </div>
-    <div class="unequal_grow side">
-      <h2>flex-grow: 1</h2>
-    </div>
-  </div>
-</body>
+  </body>
 
 </html>

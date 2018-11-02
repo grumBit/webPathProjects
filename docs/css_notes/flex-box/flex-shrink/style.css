@@ -21,44 +21,42 @@ h2 {
   font-size: 2.5em;
 }
 
-.no_grow,
-.equal_grow,
-.one_grow,
-.unequal_grow {
-  width: 100px;
-  height: 100px;
+.no_shrink,
+.center_fixed,
+.sides_shrink,
+.all_fixed {
+  width: 250px;
+  height: 250px;
   background-color: Dodgerblue;
-  border: 2px solid lightgrey;
+  border: 2px solid lightgray;
   margin: 10px 30px;
 }
 
-.equal_grow.side {
-	flex-grow: 1;
+/*
+.center_fixed.side {
+	flex-shrink: 1;
+}
+*/
+.center_fixed.center {
+	flex-shrink: 0;
 }
 
-.equal_grow.center {
-	flex-grow: 1;
+.sides_shrink.side {
+  flex-shrink: 2;
 }
 
-.one_grow.side {
+.all_fixed.side {
+	flex-shrink: 0;
 }
 
-.one_grow.center {
-	flex-grow: 1;
+.all_fixed.center {
+	flex-shrink: 0;
 }
 
-.unequal_grow.side {
-	flex-grow: 1;
-}
-
-.unequal_grow.center {
-	flex-grow: 2;
-}
-
-#no_grow,
-#equal_grow,
-#one_grow,
-#unequal_grow {
+#no_shrink,
+#center_fixed,
+#sides_shrink,
+#all_fixed {
   display: flex;
   background-color: Whitesmoke;
   justify-content: center;
