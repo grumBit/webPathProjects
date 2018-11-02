@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Flex Grow and Shrink</title>
+  <link href="style.css" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+</head>
+
+<body>
+  <h1 class="desc">flex-grow: Grows item proportionally to siblings, using parent's extra space</h1>
+
+  <h1>No flow-grows (default)</h1>
+  <div id="no_grow">
+    <div class="no_grow">
+      <h2></h2>
+    </div>
+    <div class="no_grow">
+      <h2></h2>
+    </div>
+    <div class="no_grow">
+      <h2></h2>
+    </div>
+  </div>
+  
+  <h1>Only one item with flex-grow</h1>
+  <div id="one_grow">
+    <div class="one_grow side">
+      <h2></h2>
+    </div>
+    <div class="one_grow center">
+      <h2>flex-grow: 1</h2>
+    </div>
+    <div class="one_grow side">
+      <h2></h2>
+    </div>
+  </div>
+  
+  <h1>Equal flex-grows</h1>
+  <div id="equal_grow">
+    <div class="equal_grow side">
+      <h2>flex-grow: 1</h2>
+    </div>
+    <div class="equal_grow center">
+      <h2>flex-grow: 1</h2>
+    </div>
+    <div class="equal_grow side">
+      <h2>flex-grow: 1</h2>
+    </div>
+  </div>
+  
+  <h1>Unequal flex-grows</h1>
+  <div id="unequal_grow">
+    <div class="unequal_grow side">
+      <h2>flex-grow: 1</h2>
+    </div>
+    <div class="unequal_grow center">
+      <h2>flex-grow: 2</h2>
+    </div>
+    <div class="unequal_grow side">
+      <h2>flex-grow: 1</h2>
+    </div>
+  </div>
+</body>
+
+</html>
