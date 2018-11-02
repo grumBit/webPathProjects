@@ -360,8 +360,16 @@ The box-sizing property controls the box model used by the browser;
 ### [`flex`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) `: [auto | initial | none | units]`- combines grow, shrink and basis settings
 
 
-| Setting | Effect on `???-axis` |
-| :-----: | ------ |
+| Setting                         | Effect on `cross-axis`                        | Example |
+| :-----------------------------: | --------------------------------------------- | ------- |
+| `auto`                          | Sized according to its `width` and `height` properties, but <br>grows to absorb any extra free space in the flex container, <br>and shrinks to its minimum size to fit the container. <br>Equivalent to setting `flex: 1 1 auto;`. | `flex: auto;`
+| `initial`<br> (default)             | Sized according to its `width` and `height` properties. <br>It shrinks to its minimum size to fit the container, <br>but does not grow to absorb any extra free space in <br>the flex container. <br>Equivalent to setting "flex: 0 1 auto". | `flex: inital;`
+| `none`                          | Sized according to its `width` and `height` properties. <br>It is fully inflexible: it neither shrinks nor grows in relation <br>to the flex container. <br>Equivalent to setting "flex: 0 0 auto". | `flex: none;`
+| 1 unitless value                | Set `flex-grow`                               | `flex: 2;`
+| 1 unit value                    | Set `flex-basis`                              | `flex: 2em;`
+| 2 unitless values               | Sets `flex-grow`, `flex-shrink`               | `flex: 2 1;` 
+| 1 unitless value,<br> 1 unit value  | Sets `flex-grow`, `flex-basis`                | `flex: 2 100px;`
+| 2 unitless values,<br> 1 unit value | Sets `flex-grow`, `flex-shrink`, `flex-basis` | `flex: 2 2 10%;`
 
 - Example, with [code](./flex-box/prop/index.html) from course;
   
