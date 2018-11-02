@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  border: 0;
+  font-family: 'Roboto Mono', monospace;
+}
+
+h1 {
+  text-align: center;
+  font-size: 18px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 16px;
+}
+
+.desc {
+  font-size: 2.5em;
+}
+
+.no_grow,
+.grow,
+.shrink,
+.no_shrink {
+  width: 100px;  /* NB: Setting width is overriden when flex-basis is set */
+  height: 100px;
+  background-color: Dodgerblue;
+  border: 2px solid lightgrey;
+  margin: 10px 30px;
+}
+
+
+.no_grow.side {
+	flex-basis: 60px;
+}
+
+.grow.side {
+	flex-basis: 60px;
+  flex-grow: 2;
+}
+
+.grow.center {
+  flex-grow: 3;
+
+}
+
+.no_shrink.side {
+  flex-basis: 300px;
+  flex-shrink: 0;
+}
+
+.no_shrink.center {
+  flex-shrink: 0;
+	flex-basis: 150px;
+}
+
+.shrink.side {
+  flex-basis: 300px;
+  flex-shrink: 3;
+}
+
+.shrink.center {
+  flex-shrink: 2;
+	flex-basis: 150px;
+}
+
+#no_grows,
+#grows,
+#no_shrinks,
+#shrinks {
+  display: flex;
+  background-color: Whitesmoke;
+  justify-content: center;
+  min-height: 200px;
+  align-items: center;
+}

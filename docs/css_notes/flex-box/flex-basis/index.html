@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Flex Basis</title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <h1 class="desc">flex-basis: Set inital size of item before it stretches or shrinks.</h1>
+
+  
+    <h1>No grows</h1>
+    <div id="no_grows">
+      <div class="no_grow side">
+        <h2>flex-basis: 60px;</h2>
+      </div>
+      <div class="no_grow center">
+        <h2>width: 100px;</h2>
+      </div>
+      <div class="no_grow side">
+        <h2>flex-basis: 60px;</h2>
+      </div>
+    </div>
+
+  
+    <h1>Center Grow 3, Side Grows 1</h1>
+    <div id="grows">
+      <div class="grow side">
+        <h2>flex-basis: 60px;</h2>
+      </div>
+      <div class="grow center">
+        <h2>width: 100px;</h2>
+      </div>
+      <div class="grow side">
+        <h2>flex-basis: 60px;</h2>
+      </div>
+    </div>
+  
+    
+    <h1>No shrinks</h1>
+    <div id="no_shrinks">
+      <div class="no_shrink side">
+        <h2>flex-basis: 300px;</h2>
+      </div>
+      <div class="no_shrink center">
+        <h2>flex-basis: 150px;</h2>
+      </div>
+      <div class="no_shrink side">
+        <h2>flex-basis: 300px;</h2>
+      </div>
+    </div>
+
+
+    <h1>Center Shrink 2, Shrink Sides 3</h1>
+    <div id="shrinks">
+      <div class="shrink side">
+        <h2>flex-basis: 300px;</h2>
+      </div>
+      <div class="shrink center">
+        <h2>flex-basis: 150px;</h2>
+      </div>
+      <div class="shrink side">
+        <h2>flex-basis: 300px;</h2>
+      </div>
+    </div>
+  </body>
+
+
+
+</html>
