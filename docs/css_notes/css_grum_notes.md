@@ -31,7 +31,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [`align-items` - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`](#align-items---align-contents-along-flex-box-cross-axis-or-grid-layout-block-axis)
         - [`flex-grow` - `cross-axis` grow _item_ proportionally to siblings, using parent's extra space](#flex-grow---cross-axis-grow-item-proportionally-to-siblings-using-parents-extra-space)
         - [`flex-shrink` - `cross-axis` shrink `item` proportinally to siblings, when parent container too small](#flex-shrink---cross-axis-shrink-item-proportinally-to-siblings-when-parent-container-too-small)
-        - [`flex-basis`](#flex-basis)
+        - [`flex-basis` - set initial size of item along `main-axis`](#flex-basis---set-initial-size-of-item-along-main-axis)
         - [`flex`](#flex)
         - [`flex-wrap`](#flex-wrap)
         - [`align-content`](#align-content)
@@ -289,7 +289,7 @@ The box-sizing property controls the box model used by the browser;
 
 - Example, with [code](./flex-box/align-items/index.html), from course;;
   
-[<img src="./flex-box/align-items/example.jpg" alt="drawing" width="350"/>](./flex-box/align-items/index.html)
+[<img src="./flex-box/align-items/example.jpg" alt="drawing" width="300"/>](./flex-box/align-items/index.html)
 
 ---
 
@@ -322,14 +322,18 @@ The box-sizing property controls the box model used by the browser;
 | `Number`<br> (default 1) | Sets flex-shrink for item itself (i.e. not it's children).<br>NB: Can be fractions. Can't be negative. |
 - Example, with [code](./flex-box/flex-shrink/index.html) from course;
   
-[<img src="./flex-box/flex-shrink/example.jpg" alt="prop drawing" width="250"/>](./flex-box/flex-shrink/index.html)
+[<img src="./flex-box/flex-shrink/example.jpg" alt="prop drawing" width="270"/>](./flex-box/flex-shrink/index.html)
 
 ---
 
-### [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)
+### [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis) - set initial size of item along `main-axis` 
 
-| Setting | Effect on `???-axis` |
+- Set inital size of item before it stretches or shrinks.
+- **WARNING**: `flex-bais` overrides (i.e. has prioroty over) `width` (when `flex-direction`: row) or `height` (when `flex-direction`: column)
+  
+| Setting | Effect on `main-axis` |
 | :-----: | ------ |
+| units   | Set inital size of item before it stretches or shrinks.
 
 - Example, with [code](./flex-box/prop/index.html) from course;
   
