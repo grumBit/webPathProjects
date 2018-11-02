@@ -32,7 +32,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [`flex-grow` - `cross-axis` grow _item_ proportionally to siblings, using parent's extra space](#flex-grow---cross-axis-grow-item-proportionally-to-siblings-using-parents-extra-space)
         - [`flex-shrink` - `cross-axis` shrink `item` proportionally to siblings, when parent container too small](#flex-shrink---cross-axis-shrink-item-proportionally-to-siblings-when-parent-container-too-small)
         - [`flex-basis` - set initial size of item along `main-axis`](#flex-basis---set-initial-size-of-item-along-main-axis)
-        - [`flex`](#flex)
+        - [`flex` `: [auto | initial | none | units]`- combines grow, shrink and basis settings](#flex--auto--initial--none--units--combines-grow-shrink-and-basis-settings)
         - [`flex-wrap`](#flex-wrap)
         - [`align-content`](#align-content)
         - [`flex-direction`](#flex-direction)
@@ -357,7 +357,8 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__flex"></a>
 
-### [`flex`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
+### [`flex`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) `: [auto | initial | none | units]`- combines grow, shrink and basis settings
+
 
 | Setting | Effect on `???-axis` |
 | :-----: | ------ |
