@@ -234,7 +234,7 @@ The box-sizing property controls the box model used by the browser;
 | [`flex`](#flex)                      |
 | [`flex-wrap`](#flex-wrap)            |
 | [`align-content`](#align-content)    |
-| [`flex-direction`](#flex-direction)  | 
+| [`flex-direction`](#`flex-direction`)  | 
 | [`flex-flow`](#flex-flow)            |
 
 #### Flex-box [`main-axis`](https://developer.mozilla.org/en-US/docs/Glossary/main_axis) and [`cross-axis`](https://developer.mozilla.org/en-US/docs/Glossary/cross_axis)
@@ -329,15 +329,18 @@ The box-sizing property controls the box model used by the browser;
 ### [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis) - set initial size of item along `main-axis` 
 
 - Set inital size of item before it stretches or shrinks.
-- **WARNING**: `flex-bais` overrides (i.e. has prioroty over) `width` (when `flex-direction`: row) or `height` (when `flex-direction`: column)
+- Controls **one** dimension of item, depending on `flex-direction` setting;
+    - When `flex-direction`: row, controls item's `width`
+    - When `flex-direction`: column, controls item's `height`
+- **WARNING**: `flex-bais` overrides (i.e. has prioroty over) `width` (when `flex-direction`: row) or `height` (when `flex-direction`: column) settings.
   
 | Setting | Effect on `main-axis` |
 | :-----: | ------ |
 | units   | Set inital size of item before it stretches or shrinks.
 
-- Example, with [code](./flex-box/prop/index.html) from course;
+- Example, with [code](./flex-box/flex-basis/index.html) from course;
   
-[<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
+[<img src="./flex-box/flex-basis/example.jpg" alt="flex-basis drawing" width="290"/>](./flex-box/flex-basis/index.html)
 
 ---
 
@@ -374,7 +377,7 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
-### [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
+### [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/`flex-direction`)
 
 | Setting | Effect on `???-axis` |
 | :-----: | ------ |
