@@ -27,10 +27,10 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
     - [Flexbox layouts](#flexbox-layouts)
         - [Overview of flexbox properties](#overview-of-flexbox-properties)
             - [Flex-box `main-axis` and `cross-axis`](#flex-box-main-axis-and-cross-axis)
-        - [`justify-content` - justify _contents_ along the `main-axis` of container](#justify-content---justify-contents-along-the-main-axis-of-container)
+        - [`justify-content` - `main-axis` justify _contents_ along container](#justify-content---main-axis-justify-contents-along-container)
         - [`align-items` - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`](#align-items---align-contents-along-flex-box-cross-axis-or-grid-layout-block-axis)
-        - [`flex-grow` - grow _item_ proportionally to siblings, using parent's extra space](#flex-grow---grow-item-proportionally-to-siblings-using-parents-extra-space)
-        - [`flex-shrink` - skrink item proportinally to siblings, when parent container is too small](#flex-shrink---skrink-item-proportinally-to-siblings-when-parent-container-is-too-small)
+        - [`flex-grow` - `cross-axis` grow _item_ proportionally to siblings, using parent's extra space](#flex-grow---cross-axis-grow-item-proportionally-to-siblings-using-parents-extra-space)
+        - [`flex-shrink` - `cross-axis` shrink `item` proportinally to siblings, when parent container too small](#flex-shrink---cross-axis-shrink-item-proportinally-to-siblings-when-parent-container-too-small)
         - [`flex-basis`](#flex-basis)
         - [`flex`](#flex)
         - [`flex-wrap`](#flex-wrap)
@@ -243,7 +243,7 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
-### [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) - justify _contents_ along the `main-axis` of container
+### [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) - `main-axis` justify _contents_ along container
 - Distribute space between and around content items along the `main-axis` of their container.
   
 | Setting | Effect |
@@ -293,7 +293,7 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
-### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - grow _item_ proportionally to siblings, using parent's extra space
+### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - `cross-axis` grow _item_ proportionally to siblings, using parent's extra space
 
 - Effect is proportional to flex-grow specified in siblings, with larger proportions taking up more of the partent's extra space
 - Default of 0 means items do not grow by default
@@ -306,23 +306,23 @@ The box-sizing property controls the box model used by the browser;
 
 - Example, with [code](./flex-box/flex-grow/index.html) from course;
   
-[<img src="./flex-box/flex-grow/example.jpg" alt="drawing" width="350"/>](./flex-box/flex-grow/index.html)
+[<img src="./flex-box/flex-grow/example.jpg" alt="drawing" width="400"/>](./flex-box/flex-grow/index.html)
 
 ---
 
-### [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink) - skrink item proportinally to siblings, when parent container is too small
+### [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink) - `cross-axis` shrink `item` proportinally to siblings, when parent container too small
 
 - Effect is proportional to flex-shrink specified in siblings, with smaller proportions shrinking more.
 - Default of 1 means items will shrink by default. 
 - Margins are unaffected
 - **WARNING**: Minimum and maximum widths will take precedence over flex-shrink
 
-| Setting | Effect on `???-axis` |
+| Setting | Effect on `cross-axis` |
 | :-----: | ------ |
 | `Number`<br> (default 1) | Sets flex-shrink for item itself (i.e. not it's children).<br>NB: Can be fractions. Can't be negative. |
-- Example, with [code](./flex-box/prop/index.html) from course;
+- Example, with [code](./flex-box/flex-shrink/index.html) from course;
   
-[<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
+[<img src="./flex-box/flex-shrink/example.jpg" alt="prop drawing" width="250"/>](./flex-box/flex-shrink/index.html)
 
 ---
 
