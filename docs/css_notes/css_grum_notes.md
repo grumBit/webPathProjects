@@ -29,8 +29,8 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
             - [Flex-box `main-axis` and `cross-axis`](#flex-box-main-axis-and-cross-axis)
         - [`justify-content` - justify _contents_ along the `main-axis` of container](#justify-content---justify-contents-along-the-main-axis-of-container)
         - [`align-items` - align _contents_ along flex-box `cross-axis` or grid-layout `block-axis`](#align-items---align-contents-along-flex-box-cross-axis-or-grid-layout-block-axis)
-        - [`flex-grow` - grow _item_ proportionaly to siblings, using parent's extra space](#flex-grow---grow-item-proportionaly-to-siblings-using-parents-extra-space)
-        - [`flex-shrink`](#flex-shrink)
+        - [`flex-grow` - grow _item_ proportionally to siblings, using parent's extra space](#flex-grow---grow-item-proportionally-to-siblings-using-parents-extra-space)
+        - [`flex-shrink` - skrink item proportinally to siblings, when parent container is too small](#flex-shrink---skrink-item-proportinally-to-siblings-when-parent-container-is-too-small)
         - [`flex-basis`](#flex-basis)
         - [`flex`](#flex)
         - [`flex-wrap`](#flex-wrap)
@@ -293,12 +293,16 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
-### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - grow _item_ proportionaly to siblings, using parent's extra space
+### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - grow _item_ proportionally to siblings, using parent's extra space
+
+- Effect is proportional to flex-grow specified in siblings, with larger proportions taking up more of the partent's extra space
+- Default of 0 means items do not grow by default
+- Margins are unaffected
+- **WARNING**: Minimum and maximum widths will take precedence over flex-grow
 
 | Setting | Effect on `cross-axis` |
 | :-----: | ------ |
-| Number | Sets flex-grow for item itself (i.e. not it's children).  Effect is proportional to flex-grow specified in siblings. NB: Can be fractions, but can't be negative. |
-| unset | Remove flex-gro from items
+| `Number`<br> (default 0) | Sets flex-grow for item itself (i.e. not it's children).  <br>NB: Can be fractions. Can't be negative. |
 
 - Example, with [code](./flex-box/flex-grow/index.html) from course;
   
@@ -306,11 +310,16 @@ The box-sizing property controls the box model used by the browser;
 
 ---
 
-### [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)
+### [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink) - skrink item proportinally to siblings, when parent container is too small
+
+- Effect is proportional to flex-shrink specified in siblings, with smaller proportions shrinking more.
+- Default of 1 means items will shrink by default. 
+- Margins are unaffected
+- **WARNING**: Minimum and maximum widths will take precedence over flex-shrink
 
 | Setting | Effect on `???-axis` |
 | :-----: | ------ |
-
+| `Number`<br> (default 1) | Sets flex-shrink for item itself (i.e. not it's children).<br>NB: Can be fractions. Can't be negative. |
 - Example, with [code](./flex-box/prop/index.html) from course;
   
 [<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
