@@ -33,7 +33,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [`flex-shrink` `: [n]` - `main-axis` shrink `item` proportionally to siblings, when parent container too small](#flex-shrink--n---main-axis-shrink-item-proportionally-to-siblings-when-parent-container-too-small)
         - [`flex-basis` `: [auto | unit ] - set initial size of item along `main-axis`](#flex-basis--auto--unit----set-initial-size-of-item-along-main-axis)
         - [`flex` `: [auto | initial | none | units]`- combines grow, shrink and basis settings on `main-axis`](#flex--auto--initial--none--units--combines-grow-shrink-and-basis-settings-on-main-axis)
-        - [`flex-wrap` `: [wrap | nowrap | wrap-reverse ]` - sets how to wrap contained items along `main-axis`, when container has insufficient space](#flex-wrap--wrap--nowrap--wrap-reverse----sets-how-to-wrap-contained-items-along-main-axis-when-container-has-insufficient-space)
+        - [`flex-wrap` `: [wrap | nowrap | wrap-reverse ]` - sets wrapping of contained items along `main-axis`, when container has insufficient space](#flex-wrap--wrap--nowrap--wrap-reverse----sets-wrapping-of-contained-items-along-main-axis-when-container-has-insufficient-space)
         - [`align-content`](#align-content)
         - [`flex-direction`](#flex-direction)
         - [`flex-flow`](#flex-flow)
@@ -382,7 +382,7 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__flex-wrap"></a>
 
-### [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) `: [wrap | nowrap | wrap-reverse ]` - sets how to wrap contained items along `main-axis`, when container has insufficient space
+### [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) `: [wrap | nowrap | wrap-reverse ]` - sets wrapping of contained items along `main-axis`, when container has insufficient space
 
 
 | Setting | Effect on `???-axis` |
