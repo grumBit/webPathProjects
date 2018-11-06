@@ -29,11 +29,11 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
             - [Flex-box `main-axis` and `cross-axis`](#flex-box-main-axis-and-cross-axis)
         - [`justify-content` - `main-axis` justify _contents_ along container](#justify-content---main-axis-justify-contents-along-container)
         - [`align-items` - flex-box `cross-axis` (gridlayout `block-axis`) align _contents_](#align-items---flex-box-cross-axis-gridlayout-block-axis-align-contents)
-        - [`flex-grow` - `cross-axis` grow _item_ proportionally to siblings, using parent's extra space](#flex-grow---cross-axis-grow-item-proportionally-to-siblings-using-parents-extra-space)
-        - [`flex-shrink` - `cross-axis` shrink `item` proportionally to siblings, when parent container too small](#flex-shrink---cross-axis-shrink-item-proportionally-to-siblings-when-parent-container-too-small)
+        - [`flex-grow` `: [n]` - `main-axis` grow _item_ proportionally to siblings, using parent's extra space](#flex-grow--n---main-axis-grow-item-proportionally-to-siblings-using-parents-extra-space)
+        - [`flex-shrink` `: [n]` - `main-axis` shrink `item` proportionally to siblings, when parent container too small](#flex-shrink--n---main-axis-shrink-item-proportionally-to-siblings-when-parent-container-too-small)
         - [`flex-basis` `: [auto | unit ] - set initial size of item along `main-axis`](#flex-basis--auto--unit----set-initial-size-of-item-along-main-axis)
-        - [`flex` `: [auto | initial | none | units]`- combines grow, shrink and basis settings](#flex--auto--initial--none--units--combines-grow-shrink-and-basis-settings)
-        - [`flex-wrap` `: [wrap | nowrap | wrap-reverse ]` - sets how to wrap contained items when container has insufficient space](#flex-wrap--wrap--nowrap--wrap-reverse----sets-how-to-wrap-contained-items-when-container-has-insufficient-space)
+        - [`flex` `: [auto | initial | none | units]`- combines grow, shrink and basis settings on `main-axis`](#flex--auto--initial--none--units--combines-grow-shrink-and-basis-settings-on-main-axis)
+        - [`flex-wrap` `: [wrap | nowrap | wrap-reverse ]` - sets how to wrap contained items along `main-axis`, when container has insufficient space](#flex-wrap--wrap--nowrap--wrap-reverse----sets-how-to-wrap-contained-items-along-main-axis-when-container-has-insufficient-space)
         - [`align-content`](#align-content)
         - [`flex-direction`](#flex-direction)
         - [`flex-flow`](#flex-flow)
@@ -238,7 +238,7 @@ The box-sizing property controls the box model used by the browser;
 | [`flex-flow`](#__flex-flow)            |
 
 #### Flex-box [`main-axis`](https://developer.mozilla.org/en-US/docs/Glossary/main_axis) and [`cross-axis`](https://developer.mozilla.org/en-US/docs/Glossary/cross_axis)
-- The behaviour of many flex-box properties are dependent on the `main-axis` and `cross-axis`, which are set by the `flex-direction` property.  The `cross-axis` is alwaysperpendicular to the `main-axis`.
+- The behaviour of many flex-box properties are dependent on the `main-axis` and `cross-axis`, which are set by the `flex-direction` property.  The `cross-axis` is always perpendicular to the `main-axis`.
 - See heading links for diagrams.
 
 ---
@@ -299,7 +299,7 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__flex-grow"></a>
 
-### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) - `cross-axis` grow _item_ proportionally to siblings, using parent's extra space
+### [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) `: [n]` - `main-axis` grow _item_ proportionally to siblings, using parent's extra space
 
 - Effect is proportional to flex-grow specified in siblings, with larger proportions taking up more of the partent's extra space
 - Default of 0 means items do not grow by default
@@ -318,7 +318,7 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__flex-shrink"></a>
 
-### [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink) - `cross-axis` shrink `item` proportionally to siblings, when parent container too small
+### [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink) `: [n]` - `main-axis` shrink `item` proportionally to siblings, when parent container too small
 
 - Effect is proportional to flex-shrink specified in siblings, with smaller proportions shrinking more.
 - Default of 1 means items will shrink by default. 
@@ -364,7 +364,7 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__flex"></a>
 
-### [`flex`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) `: [auto | initial | none | units]`- combines grow, shrink and basis settings
+### [`flex`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) `: [auto | initial | none | units]`- combines grow, shrink and basis settings on `main-axis`
 
 
 | Setting                         | Effect on `cross-axis`                        | Example |
@@ -382,7 +382,7 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__flex-wrap"></a>
 
-### [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) `: [wrap | nowrap | wrap-reverse ]` - sets how to wrap contained items when container has insufficient space
+### [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) `: [wrap | nowrap | wrap-reverse ]` - sets how to wrap contained items along `main-axis`, when container has insufficient space
 
 
 | Setting | Effect on `???-axis` |
