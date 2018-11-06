@@ -9,6 +9,8 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
 
 <!-- code_chunk_output -->
 
+- [Basic CSS language rules](#basic-css-language-rules)
+    - [CSS specificity/precedence](#css-specificityprecedence)
 - [Setting page layouts](#setting-page-layouts)
     - [The Box Model](#the-box-model)
         - [Sizing with `height`, `width`, `padding`, `borders`, and `margins`](#sizing-with-height-width-padding-borders-and-margins)
@@ -28,13 +30,13 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [Overview of flexbox properties](#overview-of-flexbox-properties)
             - [Flex-box `main-axis` and `cross-axis`](#flex-box-main-axis-and-cross-axis)
         - [`justify-content` - `main-axis` justify _contents_ along container](#justify-content---main-axis-justify-contents-along-container)
-        - [`align-items` - flex-box `cross-axis` (gridlayout `block-axis`) align _contents_](#align-items---flex-box-cross-axis-gridlayout-block-axis-align-contents)
+        - [`align-items` - flex-box `cross-axis` (gridlayout `block-axis`) align single-row _contents_](#align-items---flex-box-cross-axis-gridlayout-block-axis-align-single-row-contents)
         - [`flex-grow` `: [n]` - `main-axis` grow _item_ proportionally to siblings, using parent's extra space](#flex-grow--n---main-axis-grow-item-proportionally-to-siblings-using-parents-extra-space)
         - [`flex-shrink` `: [n]` - `main-axis` shrink `item` proportionally to siblings, when parent container too small](#flex-shrink--n---main-axis-shrink-item-proportionally-to-siblings-when-parent-container-too-small)
         - [`flex-basis` `: [auto | unit ] - set initial size of item along `main-axis`](#flex-basis--auto--unit----set-initial-size-of-item-along-main-axis)
         - [`flex` `: [auto | initial | none | units]`- combines grow, shrink and basis settings on `main-axis`](#flex--auto--initial--none--units--combines-grow-shrink-and-basis-settings-on-main-axis)
         - [`flex-wrap` `: [wrap | nowrap | wrap-reverse ]` - sets wrapping of contained items along `main-axis`, when container has insufficient space](#flex-wrap--wrap--nowrap--wrap-reverse----sets-wrapping-of-contained-items-along-main-axis-when-container-has-insufficient-space)
-        - [`align-content`](#align-content)
+        - [`align-content` - flex-box `cross-axis` (gridlayout `block-axis`) align multi-row _contents_](#align-content---flex-box-cross-axis-gridlayout-block-axis-align-multi-row-contents)
         - [`flex-direction`](#flex-direction)
         - [`flex-flow`](#flex-flow)
 - [Colors](#colors)
@@ -72,6 +74,19 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
 <!-- /code_chunk_output -->
 
 ---
+# Basic CSS language rules
+
+## CSS specificity/precedence
+
+ - From highest to lowest;
+
+| Order of <br>precedence | Name           | Example CSS selector     | Example corresponding HTML |
+| :---------------------: | :------------: | :----------------------: | -------------------------- |
+| 1                       | ID             | `#my-element-id {...}  ` | `<p id="cmy-element-id">...</p>`
+| 2                       | chained        | `h1.my-class {...}     ` | `<h1 class="my-class">...</div>`
+| 3                       | class          | `.my-class-2 {...}     ` | `<div class="my-class-2">...</div>`
+| 4                       | nested element | `footer h3 {...}       ` | `<footer><h3>...</h3></footer>`
+| 5                       | element        | `h2 {...}              ` | `<h2>...</h2>`
 
 # Setting page layouts
 
@@ -227,13 +242,13 @@ The box-sizing property controls the box model used by the browser;
 | Property                             | Purpose |
 | :----------------------------------: | ------ |
 | [`justify-content`](#__justify-content)| `main-axis` justify _contents_ along container
-| [`align-items`](#__align-items)        | flex-box `cross-axis` (gridlayout `block-axis`) align _contents_.
+| [`align-items`](#__align-items)        | flex-box `cross-axis` (gridlayout `block-axis`) align single-line (i.e. nowrap) _contents_.
 | [`flex-grow`](#__flex-grow)            | `cross-axis` grow _item_ proportionally to siblings, using parent's extra space
 | [`flex-shrink`](#__flex-shrink)        | `cross-axis` shrink _item_ proportionally to siblings, when parent container too small
 | [`flex-basis`](#__flex-basis)          | Set initial size of item along `main-axis` 
-| [`flex`](#__flex)                      |
-| [`flex-wrap`](#__flex-wrap)            |
-| [`align-content`](#__align-content)    |
+| [`flex`](#__flex)                      | Combines flex-grow, flex-shrink and flex-basis settings on `main-axis`
+| [`flex-wrap`](#__flex-wrap)            | Sets wrapping of contained items along main-axis, when container has insufficient space
+| [`align-content`](#__align-content)    | Flex-box cross-axis (gridlayout block-axis) align multi-line ( i.e. with wrapping) contents
 | [`flex-direction`](#__flex-direction)  | 
 | [`flex-flow`](#__flex-flow)            |
 
@@ -272,16 +287,18 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__align-items"></a>
 
-### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) - flex-box `cross-axis` (gridlayout `block-axis`) align _contents_
+### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) - flex-box `cross-axis` (gridlayout `block-axis`) align single-row _contents_
 - Sets the align-self value on all direct children as a group
 - Sets the alignment of an item within its containing block.
+- Has no effect on wrapped multiple-line rows
+    - Can use [`align-contents`](#__align_contents) instead.
 
 | Setting | Effect on `cross-axis` |
 | :-----: | ------ |
 | `flex-start              ` |  Pack `flex` items from the start
 | `flex-end                ` |  Pack `flex` items from the end
 | `center                  ` |  Pack items around the center
-| `baseline`<br>`first baseline`<br>`last baseline` |  The bottom of the content of all items will be aligned with each other.
+| `baseline`<br>`first baseline`<br>`last baseline` |  The bottom of the content of all items will be aligned with each other. <br>[<img src="./flex-box/align-content/410px-Typography_Line_Terms.svg.png" alt="baseline drawing" width="300"/>](./flex-box/align-content/410px-Typography_Line_Terms.svg.png)
 | `stretch `<br>(default)    |  If possible, the items will stretch from top to bottom of the container<br> **IMPORTANT:** <br>-  Elements with a specified height will not stretch. <br> - Elements with a minimum height **OR** no height specified will stretch.
 | `normal                  ` |  Depends on the layout mode
 | `start                   ` |  Pack items from the start 
@@ -401,14 +418,31 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__align-content"></a>
 
-### [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)
+### [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content) - flex-box `cross-axis` (gridlayout `block-axis`) align multi-row _contents_
 
-| Setting | Effect on `???-axis` |
+- Has no effect on single line flex containers (i.e. ones with the default `flex-wrap: nowrap`).
+    - Can use [`align-items`](#__align-items) with single line flex containers instead.
+- Sets the align-self value on all direct children as a group
+- Sets the alignment of an item within its containing block.
+
+| Setting | Effect on `cross-axis` |
 | :-----: | ------ |
+| `flex-start              ` |  Pack `flex` items from the start
+| `flex-end                ` |  Pack `flex` items from the end
+| `center                  ` |  Pack items around the center
+| `baseline`<br>`first baseline`<br>`last baseline` |  The bottom of the content of all items will be aligned with each other. <br><br> [<img src="./flex-box/align-content/410px-Typography_Line_Terms.svg.png" alt="baseline drawing" width="300"/>](./flex-box/align-content/410px-Typography_Line_Terms.svg.png)
+| `stretch `<br>(default)    | If the combined size of the items along the cross axis is less than the<br> size of the alignment container, any auto-sized items have their size <br>increased equally (not proportionally), while still respecting the<br> constraints imposed by max-height/max-width (or equivalent<br> functionality), so that the combined size exactly fills the alignment<br> container along the cross axis.<br> **IMPORTANT:** <br>-  Elements with a specified height will not stretch. <br> - Elements with a minimum height **OR** no height specified will stretch.  <br>- If any contained item has `height` **AND** `min-height` set, container will<br> not stretch. Whereas, container will stretch if **ONLY** `min-height` set. <br>Settinh `height` to `inherit`, `initial` or `unset` on limiting contained items<br> will allow stretching.
+| `normal                  ` |  Depends on the layout mode
+| `start                   ` |  Pack items from the start 
+| `end                     ` |  Pack items from the end 
+| `self-start              ` |  
+| `self-end                ` |  
+| `safe <setting>          ` | If the item overflows the alignment container causing data loss, <br>the item is instead aligned as ifthe alignment mode were start.
+| `unsafe <setting>        ` | Regardless of the relative sizes of the item and alignment container<br> and whether overflow which causes data loss might happen,<br> the given alignment value is honored.
 
-- Example, with [code](./flex-box/prop/index.html) from course;
+- Example, with [code](./flex-box/align-content/index.html) from course;
   
-[<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
+[<img src="./flex-box/align-content/example.jpg" alt="align-content drawing" width="450"/>](./flex-box/align-content/index.html)
 
 ---
 

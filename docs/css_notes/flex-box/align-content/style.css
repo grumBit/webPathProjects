@@ -1,0 +1,66 @@
+body {
+  font-family: 'Roboto Mono', monospace;
+}
+
+h1 {
+  margin: 20px;
+  text-align: center;
+  font-size: 2em;
+}
+
+.desc {
+  font-size: 2.5em;
+}
+
+.container {
+  height: 300px;
+  max-width: 600px;
+  background-color: WhiteSmoke;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+#stretch .center, #stretch .left, #stretch .right {
+  height: unset;  /* NB: Need to unset height in order for min-height to enable stretching */
+  min-height: 75px;
+}
+
+.left,
+.center,
+.right {
+  height: 75px;
+  width: 200px;
+  margin: 2px;
+  background-color: DodgerBlue;
+  border: 2px solid lightgrey;
+}
+
+#flexstart {
+	align-content: flex-start;
+}
+
+#flexend {
+	align-content: flex-end;
+}
+
+#center {
+	align-content: center;
+}
+
+#baseline {
+	align-content: baseline;
+}
+
+#baseline .center {
+  min-height: 125px;
+}
+
+#between {
+	align-content: space-between;
+}
+
+#around {
+	align-content: space-around;
+}
+
