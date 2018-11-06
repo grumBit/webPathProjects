@@ -14,13 +14,13 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [Sizing with `height`, `width`, `padding`, `borders`, and `margins`](#sizing-with-height-width-padding-borders-and-margins)
             - [Padding and margin arguments](#padding-and-margin-arguments)
     - [Changing the Box Model](#changing-the-box-model)
-        - [`box-sizing` `: [content-box (default), border-box]`](#box-sizing--content-box-default-border-box)
+        - [`box-sizing` `: [content-box (default) | border-box]`](#box-sizing--content-box-default--border-box)
     - [Controlling and positioning of elements on a web page.](#controlling-and-positioning-of-elements-on-a-web-page)
-        - [`display` `: [inline, block, inline-block]`](#display--inline-block-inline-block)
-        - [`position` `: static (default), relative, absolute, fixed`](#position--static-default-relative-absolute-fixed)
+        - [`display` `: [inline | block | inline-block]`](#display--inline--block--inline-block)
+        - [`position` `: [static (default) | relative | absolute | fixed]`](#position--static-default--relative--absolute--fixed)
         - [`z-index` `: [int]`](#z-index--int)
-        - [`float` `: [left, right]`](#float--left-right)
-        - [`clear` `: [left, right, both]`](#clear--left-right-both)
+        - [`float` `: [left | right]`](#float--left--right)
+        - [`clear` `: [left | right | both]`](#clear--left--right--both)
     - [\<length\> - units for sizing and positioning - `px, em rem, %, auto`, etc](#length---units-for-sizing-and-positioning---px-em-rem--auto-etc)
         - [Absolute units](#absolute-units)
         - [Relative units](#relative-units)
@@ -31,9 +31,9 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
         - [`align-items` - flex-box `cross-axis` (gridlayout `block-axis`) align _contents_](#align-items---flex-box-cross-axis-gridlayout-block-axis-align-contents)
         - [`flex-grow` - `cross-axis` grow _item_ proportionally to siblings, using parent's extra space](#flex-grow---cross-axis-grow-item-proportionally-to-siblings-using-parents-extra-space)
         - [`flex-shrink` - `cross-axis` shrink `item` proportionally to siblings, when parent container too small](#flex-shrink---cross-axis-shrink-item-proportionally-to-siblings-when-parent-container-too-small)
-        - [`flex-basis` - set initial size of item along `main-axis`](#flex-basis---set-initial-size-of-item-along-main-axis)
+        - [`flex-basis` `: [auto | unit ] - set initial size of item along `main-axis`](#flex-basis--auto--unit----set-initial-size-of-item-along-main-axis)
         - [`flex` `: [auto | initial | none | units]`- combines grow, shrink and basis settings](#flex--auto--initial--none--units--combines-grow-shrink-and-basis-settings)
-        - [`flex-wrap`](#flex-wrap)
+        - [`flex-wrap` `: [wrap | nowrap | wrap-reverse ]` - sets how to wrap contained items when container has insufficient space](#flex-wrap--wrap--nowrap--wrap-reverse----sets-how-to-wrap-contained-items-when-container-has-insufficient-space)
         - [`align-content`](#align-content)
         - [`flex-direction`](#flex-direction)
         - [`flex-flow`](#flex-flow)
@@ -116,7 +116,7 @@ The number of arguments changes which faces the arguments apply to as follows;
 
 ## Changing the Box Model
 
-### [`box-sizing`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) `: [content-box (default), border-box]`
+### [`box-sizing`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) `: [content-box (default) | border-box]`
 The box-sizing property controls the box model used by the browser;
 
 | Setting | Effect |
@@ -128,7 +128,7 @@ The box-sizing property controls the box model used by the browser;
 
 ## Controlling and positioning of elements on a web page.
 
-### [`display`](https://developer.mozilla.org/en-US/docs/Web/CSS/display) `: [inline, block, inline-block]`
+### [`display`](https://developer.mozilla.org/en-US/docs/Web/CSS/display) `: [inline | block | inline-block]`
 * The display property allows control of how an element flows vertically and horizontally.
 
 | Setting | Effect |
@@ -139,7 +139,7 @@ The box-sizing property controls the box model used by the browser;
 | `flex` | Elements will remain block level — no other elements will appear on the same<br> line as it.|
 | `inline-flex`| Elements will be flex containers that are also inline elements.|
 
-### [`position`](https://developer.mozilla.org/en-US/docs/Web/CSS/position) `: static (default), relative, absolute, fixed`
+### [`position`](https://developer.mozilla.org/en-US/docs/Web/CSS/position) `: [static (default) | relative | absolute | fixed]`
 
 | Setting | Effect |
 | :-----: | ------ |
@@ -157,12 +157,12 @@ The box-sizing property controls the box model used by the browser;
 * WARNING: z-index will not function if position either defaults, or is set to, static.
 * See also [Using z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Adding_z-index) article
 
-### [`float`](https://developer.mozilla.org/en-US/docs/Web/CSS/float) `: [left, right]`
+### [`float`](https://developer.mozilla.org/en-US/docs/Web/CSS/float) `: [left | right]`
 * Move elements as far `left` or `right` as possible.
 * Floated elements must have a `width` specified, otherwise the element will assume the full width of its containing element, and changing the float value will not yield any visible results.
 * The float property can also be used to float multiple elements at once. However, when multiple floated elements have different heights, it can affect their layout on the page. Specifically, elements can "bump" into each other and not allow other elements to properly move the left or right.
 
-### [`clear`](https://developer.mozilla.org/en-US/docs/Web/CSS/clear) `: [left, right, both]`
+### [`clear`](https://developer.mozilla.org/en-US/docs/Web/CSS/clear) `: [left | right | both]`
 
 * When multiple `floated` elements have different heights, they can "bump" into each other and not allow other elements to properly move to the left or right.
 
@@ -337,7 +337,7 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__flex-basis"></a>
 
-### [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis) - set initial size of item along `main-axis` 
+### [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis) `: [auto | unit ] - set initial size of item along `main-axis` 
 
 - Set inital size of item before it stretches or shrinks.
 - Controls **one** dimension of item, depending on `flex-direction` setting;
@@ -345,9 +345,16 @@ The box-sizing property controls the box model used by the browser;
     - When `flex-direction`: column, controls item's `height`
 - **WARNING**: `flex-bais` overrides (i.e. has prioroty over) `width` (when `flex-direction`: row) or `height` (when `flex-direction`: column) settings.
   
-| Setting | Effect on `main-axis` |
-| :-----: | ------ |
-| units   | Set inital size of item before it stretches or shrinks.
+| Setting       | Effect on `main-axis` |
+| :-----------: | --------------------- |
+| `units       `| Set inital size of item before it stretches or shrinks.
+| `auto       ` | 
+| `fill       ` |
+| `max-content` |
+| `min-content` |
+| `fit-content` |
+| `content    ` | Indicates automatic sizing, based on the flex item’s content.
+
 
 - Example, with [code](./flex-box/flex-basis/index.html) from course;
   
@@ -362,31 +369,33 @@ The box-sizing property controls the box model used by the browser;
 
 | Setting                         | Effect on `cross-axis`                        | Example |
 | :-----------------------------: | --------------------------------------------- | ------- |
-| `auto`                          | Sized according to its `width` and `height` properties, but <br>grows to absorb any extra free space in the flex container, <br>and shrinks to its minimum size to fit the container. <br>Equivalent to setting `flex: 1 1 auto;`. | `flex: auto;`
-| `initial`<br> (default)             | Sized according to its `width` and `height` properties. <br>It shrinks to its minimum size to fit the container, <br>but does not grow to absorb any extra free space in <br>the flex container. <br>Equivalent to setting "flex: 0 1 auto". | `flex: inital;`
-| `none`                          | Sized according to its `width` and `height` properties. <br>It is fully inflexible: it neither shrinks nor grows in relation <br>to the flex container. <br>Equivalent to setting "flex: 0 0 auto". | `flex: none;`
+| `auto`                          | Sized according to its `width` and `height` properties,<br> but grows to absorb any extra free space in the flex<br> container, and shrinks to its minimum size to fit the<br> container. <br>Equivalent to setting `flex: 1 1 auto;`. | `flex: auto;`
+| `initial`<br> (default)             | Sized according to its `width` and `height` properties. <br>It shrinks to its minimum size to fit the container, <br>but does not grow to absorb any extra free space in <br>the flex container. <br>Equivalent to setting `flex: 0 1 auto`. | `flex: inital;`
+| `none`                          | Sized according to its `width` and `height` properties. <br>It is fully inflexible: it neither shrinks nor grows in<br> relation to the flex container. <br>Equivalent to setting `flex: 0 0 auto`. | `flex: none;`
 | 1 unitless value                | Set `flex-grow`                               | `flex: 2;`
 | 1 unit value                    | Set `flex-basis`                              | `flex: 2em;`
 | 2 unitless values               | Sets `flex-grow`, `flex-shrink`               | `flex: 2 1;` 
 | 1 unitless value,<br> 1 unit value  | Sets `flex-grow`, `flex-basis`                | `flex: 2 100px;`
 | 2 unitless values,<br> 1 unit value | Sets `flex-grow`, `flex-shrink`, `flex-basis` | `flex: 2 2 10%;`
 
-- Example, with [code](./flex-box/prop/index.html) from course;
-  
-[<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
-
 ---
 
 <a id="__flex-wrap"></a>
 
-### [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)
+### [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) `: [wrap | nowrap | wrap-reverse ]` - sets how to wrap contained items when container has insufficient space
+
 
 | Setting | Effect on `???-axis` |
 | :-----: | ------ |
+| `wrap`    | When container has insufficient space, move items to the row **below**
+| `nowrap`<br>(default) | When container has insufficient space, shrink the items
+| `wrap-reverse` | When container has insufficient space, move items to the row **above**
 
-- Example, with [code](./flex-box/prop/index.html) from course;
-  
-[<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
+
+- Example, with [code](./flex-box/flex-wrap/index.html) from course;
+
+
+[<img src="./flex-box/flex-wrap/example.jpg" alt="prop drawing" width="200"/>](./flex-box/flex-wrap/index.html)
 
 ---
 
