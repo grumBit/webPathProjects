@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  border: 0;
+  font-family: 'Roboto Mono', monospace;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+h1,
+h2 {
+  text-align: center;
+  vertical-align: baseline;
+}
+
+.desc {
+  font-size: 2.5em;
+}
+.container {
+  background-color: dodgerblue;
+  display: flex;
+  height: 500px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.box {
+  background-color: whitesmoke;
+  border: 1px solid white;
+  width: 55px;
+  height: 55px;
+  flex-grow: 1;
+}
+
+#row {
+	flex-direction: row;
+}
+
+#row-reverse {
+	flex-direction: row-reverse;
+}
+
+#column {
+	flex-direction: column;
+}
+
+#column-reverse {
+  flex-direction: column-reverse;
+
+}
