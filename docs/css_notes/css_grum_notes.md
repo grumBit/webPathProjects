@@ -29,16 +29,18 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
     - [Flexbox layouts](#flexbox-layouts)
         - [Overview of flexbox properties](#overview-of-flexbox-properties)
             - [Flex-box `main-axis` and `cross-axis`](#flex-box-main-axis-and-cross-axis)
-        - [`justify-content` - `main-axis` justify _contents_ along container](#justify-content---main-axis-justify-contents-along-container)
-        - [`align-items` - flex-box `cross-axis` (gridlayout `block-axis`) align single-row _contents_](#align-items---flex-box-cross-axis-gridlayout-block-axis-align-single-row-contents)
+            - [Flex-box default behaviour](#flex-box-default-behaviour)
+            - [Nested Flex-boxes](#nested-flex-boxes)
+        - [`justify-content` `: [et al]` - `main-axis` justify _contents_ along container](#justify-content--et-al---main-axis-justify-contents-along-container)
+        - [`align-items` `: [et al]` - flex-box `cross-axis` (gridlayout `block-axis`) align single-row _contents_](#align-items--et-al---flex-box-cross-axis-gridlayout-block-axis-align-single-row-contents)
         - [`flex-grow` `: [n]` - `main-axis` grow _item_ proportionally to siblings, using parent's extra space](#flex-grow--n---main-axis-grow-item-proportionally-to-siblings-using-parents-extra-space)
         - [`flex-shrink` `: [n]` - `main-axis` shrink `item` proportionally to siblings, when parent container too small](#flex-shrink--n---main-axis-shrink-item-proportionally-to-siblings-when-parent-container-too-small)
-        - [`flex-basis` `: [auto | unit ] - set initial size of item along `main-axis`](#flex-basis--auto--unit----set-initial-size-of-item-along-main-axis)
+        - [`flex-basis` `: [auto | unit ]` - set initial size of item along `main-axis`](#flex-basis--auto--unit----set-initial-size-of-item-along-main-axis)
         - [`flex` `: [auto | initial | none | units]`- combines grow, shrink and basis settings on `main-axis`](#flex--auto--initial--none--units--combines-grow-shrink-and-basis-settings-on-main-axis)
         - [`flex-wrap` `: [wrap | nowrap | wrap-reverse ]` - sets wrapping of contained items along `main-axis`, when container has insufficient space](#flex-wrap--wrap--nowrap--wrap-reverse----sets-wrapping-of-contained-items-along-main-axis-when-container-has-insufficient-space)
-        - [`align-content` - flex-box `cross-axis` (gridlayout `block-axis`) align multi-row _contents_](#align-content---flex-box-cross-axis-gridlayout-block-axis-align-multi-row-contents)
-        - [`flex-direction`](#flex-direction)
-        - [`flex-flow`](#flex-flow)
+        - [`align-content` `: [et al]` - flex-box `cross-axis` (gridlayout `block-axis`) align multi-row _contents_](#align-content--et-al---flex-box-cross-axis-gridlayout-block-axis-align-multi-row-contents)
+        - [`flex-direction` `: [row | row-reverse | column | column-reverse]`- set `main-axis` and direction.](#flex-direction--row--row-reverse--column--column-reverse--set-main-axis-and-direction)
+        - [`flex-flow` `: [flex-direction | flex-wrap]` - combines flex-wrap and flex-direction settings](#flex-flow--flex-direction--flex-wrap---combines-flex-wrap-and-flex-direction-settings)
 - [Colors](#colors)
     - [`color` and `background-color` `[ keyword #, rgb, hsl, rgba, hsla]`;](#color-and-background-color--keyword--rgb-hsl-rgba-hsla)
     - [Solid colors - `keyword, #, rgb, hsl`](#solid-colors---keyword--rgb-hsl)
@@ -237,46 +239,67 @@ The box-sizing property controls the box model used by the browser;
 
 ### Overview of flexbox properties
 - To designate an element as a flex container, set `display` of element to `flex` or `inline-flex`
-- Flex items and containers can have the following properties set;
+- Flex items and containers have the following settable properties;
 
-| Property                             | Purpose |
-| :----------------------------------: | ------ |
-| [`justify-content`](#__justify-content)| `main-axis` justify _contents_ along container
-| [`align-items`](#__align-items)        | flex-box `cross-axis` (gridlayout `block-axis`) align single-line (i.e. nowrap) _contents_.
-| [`flex-grow`](#__flex-grow)            | `cross-axis` grow _item_ proportionally to siblings, using parent's extra space
-| [`flex-shrink`](#__flex-shrink)        | `cross-axis` shrink _item_ proportionally to siblings, when parent container too small
-| [`flex-basis`](#__flex-basis)          | Set initial size of item along `main-axis` 
-| [`flex`](#__flex)                      | Combines flex-grow, flex-shrink and flex-basis settings on `main-axis`
-| [`flex-wrap`](#__flex-wrap)            | Sets wrapping of contained items along main-axis, when container has insufficient space
-| [`align-content`](#__align-content)    | Flex-box cross-axis (gridlayout block-axis) align multi-line ( i.e. with wrapping) contents
-| [`flex-direction`](#__flex-direction)  | 
-| [`flex-flow`](#__flex-flow)            |
+| Property                               | Axis of<br> effect | Default | Purpose |
+| :------------------------------------: | :----------------: | :-----: | ------- |
+| [`justify-content`](#__justify-content)|  `main-axis `  | `normal`<br>(none)        | justify _contents_ along container
+| [`align-items`](#__align-items)        |  `cross-axis ` | `stretch                ` | Flex-box `cross-axis` (Gridlayout `block-axis`) align<br> single-line (i.e. nowrap) _contents_.
+| [`flex-grow`](#__flex-grow)            |  `main-axis `  | `0`<br> (none)            | grow _item_ proportionally to siblings, using parent's<br> extra space
+| [`flex-shrink`](#__flex-shrink)        |  `main-axis `  | `1                      ` | Shrink _item_ proportionally to siblings, when parent<br> container too small
+| [`flex-basis`](#__flex-basis)          |  `main-axis `  | `auto                   ` | Set initial size of item
+| [`flex`](#__flex)                      |  `main-axis `  | N/A                       | Combines `flex-grow`, `flex-shrink` and `flex-basis` settings
+| [`flex-wrap`](#__flex-wrap)            |  `main-axis `  | `nowrap                 ` | Sets wrapping of contained items, when container has<br> insufficient space
+| [`align-content`](#__align-content)    |  `cross-axis ` | `stretch                ` | Flex-box `cross-axis` (Gridlayout `block-axis`) align<br> multi-line (i.e. with wrapping) contents
+| [`flex-direction`](#__flex-direction)  |  N/A           | `row                    ` | Set `main-axis` and direction
+| [`flex-flow`](#__flex-flow)            |  N/A           | N/A                       | Combines `flex-direction` and `flex-wrap` settings
+
+<a id="__main-axis"></a>
 
 #### Flex-box [`main-axis`](https://developer.mozilla.org/en-US/docs/Glossary/main_axis) and [`cross-axis`](https://developer.mozilla.org/en-US/docs/Glossary/cross_axis)
 - The behaviour of many flex-box properties are dependent on the `main-axis` and `cross-axis`, which are set by the `flex-direction` property.  The `cross-axis` is always perpendicular to the `main-axis`.
-- See heading links for diagrams.
+- See heading links for diagrams
+
+#### Flex-box default behaviour
+- Once an element is a flex containter, the default settings for each property applies, and hence it's contents will;
+    - Have the `main-axis` as `row` (i.e. horizontal and left to right).
+    - On the `main-axis`;
+        - Not stretch
+        - Not grow if extra space is present
+        - Shrink if there is not enough space
+        - Not wrap
+    - On the `cross-axis`;
+        - Stretch
+
+#### Nested Flex-boxes
+- Flexboxes can be nested.
+- Example, with [code](./flex-box/nested-flex-boxes/index.html) from course;;
+  
+[<img src="./flex-box/nested-flex-boxes/example.jpg" alt="drawing" width="350"/>](./flex-box/nested-flex-boxes/index.html)
+
 
 ---
 
 <a id="__justify-content"></a>
 
-### [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) - `main-axis` justify _contents_ along container
+### [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) `: [et al]` - `main-axis` justify _contents_ along container
 - Distribute space between and around content items along the `main-axis` of their container.
   
 | Setting | Effect |
 | :-----: | ------ |
-| `flex-start       ` | Pack flex items from the start
-| `flex-end         ` | Pack flex items from the end
-| `center           ` | Pack items around the center
-| `space-around     ` | Distribute items evenly. <br> Items have a half-size space on either end.
-| `space-between    ` | Distribute items evenly. <br>The first item is flush with the start, the last is flush with the end.
-| `start            ` | Pack items from the start
-| `end              ` | Pack items from the end
-| `left             ` | Pack items from the left
-| `right            ` | Pack items from the right
-| `space-evenly     ` | Distribute items evenly <br> Items have equal space around them.
-| `stretch          ` | Distribute items evenly. <br>Stretch 'auto'-sized items to fit the container.
-| `safe <setting>   ` | If the item overflows the alignment container causing data loss, <br>the item is instead aligned as ifthe alignment mode were start.
+| `flex-start         ` | Pack flex items from the start
+| `flex-end           ` | Pack flex items from the end
+| `center             ` | Pack items around the center
+| `space-around       ` | Distribute items evenly. <br> Items have a half-size space on either end.
+| `space-between      ` | Distribute items evenly. <br>The first item is flush with the start, the last is flush with the end.
+| `start              ` | Pack items from the start
+| `end                ` | Pack items from the end
+| `left               ` | Pack items from the left
+| `right              ` | Pack items from the right
+| `normal`<br>(default) | Pack items in their default position as if no justify-content value was set.
+| `space-evenly       ` | Distribute items evenly <br> Items have equal space around them.
+| `stretch            ` | Distribute items evenly. <br>Stretch 'auto'-sized items to fit the container.
+| `safe <setting>     ` | If the item overflows the alignment container causing data loss, <br>the item is instead aligned as ifthe alignment mode were start.
 | `unsafe <setting> ` | Regardless of the relative sizes of the item and alignment container<br> and whether overflow which causes data loss might happen,<br> the given alignment value is honored.
 
 - Example, with [code](./flex-box/justify-content/index.html) from course;;
@@ -287,7 +310,7 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__align-items"></a>
 
-### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) - flex-box `cross-axis` (gridlayout `block-axis`) align single-row _contents_
+### [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) `: [et al]` - flex-box `cross-axis` (gridlayout `block-axis`) align single-row _contents_
 - Sets the align-self value on all direct children as a group
 - Sets the alignment of an item within its containing block.
 - Has no effect on wrapped multiple-line rows
@@ -354,7 +377,7 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__flex-basis"></a>
 
-### [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis) `: [auto | unit ] - set initial size of item along `main-axis` 
+### [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis) `: [auto | unit ]` - set initial size of item along `main-axis` 
 
 - Set inital size of item before it stretches or shrinks.
 - Controls **one** dimension of item, depending on `flex-direction` setting;
@@ -365,7 +388,7 @@ The box-sizing property controls the box model used by the browser;
 | Setting       | Effect on `main-axis` |
 | :-----------: | --------------------- |
 | `units       `| Set inital size of item before it stretches or shrinks.
-| `auto       ` | 
+| `auto       `<br> (default) | ??? 
 | `fill       ` |
 | `max-content` |
 | `min-content` |
@@ -418,7 +441,7 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__align-content"></a>
 
-### [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content) - flex-box `cross-axis` (gridlayout `block-axis`) align multi-row _contents_
+### [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content) `: [et al]` - flex-box `cross-axis` (gridlayout `block-axis`) align multi-row _contents_
 
 - Has no effect on single line flex containers (i.e. ones with the default `flex-wrap: nowrap`).
     - Can use [`align-items`](#__align-items) with single line flex containers instead.
@@ -448,27 +471,53 @@ The box-sizing property controls the box model used by the browser;
 
 <a id="__flex-direction"></a>
 
-### [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
+### [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) `: [row | row-reverse | column | column-reverse]`- set `main-axis` and direction.
 
-| Setting | Effect on `???-axis` |
-| :-----: | ------ |
+- See [here](#__main-axis) for links to Mozilla docs re: `main-axis` and `cross-axis`
 
-- Example, with [code](./flex-box/prop/index.html) from course;
+- The `main-axis` is used to position flex items with the following properties:
+   1. justify-content
+   2. flex-grow
+   3. flex-shrink
+   4. flex-basis
+   5. flex
+   6. flex-wrap
+
+- The `cross-axis` is used to position flex items with the following properties:
+   1. align-items
+   2. align-content
+
+| Setting             | `main-axis` and direction |
+| :-----------------: | ------------------------- |
+| `row`<br>(default)  | Left to right across the parent element starting from the top left corner (default).
+| `row-reverse      ` | Right to left across the parent element starting from the top right corner.
+| `column           ` | Top to bottom of the parent element starting from the top left corner.
+| `column-reverse   ` | The bottom to the top of the parent element starting from the bottom left 
+
+- Example, with [code](./flex-box/flex-direction/index.html) from course;
   
-[<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
+[<img src="./flex-box/flex-direction/example.jpg" alt="flex-direction drawing" width="350"/>](./flex-box/flex-direction/index.html)
 
 ---
 
 <a id="__flex-flow"></a>
 
-### [`flex-flow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow)
+### [`flex-flow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow) `: [flex-direction | flex-wrap]` - combines flex-wrap and flex-direction settings
+-  All values for flex-direction and flex-wrap are accepted.
+-  Order of arguments is not important
+   
+| flex-direction settings |
+| :---------------------: |
+| `row                  ` |
+| `row-reverse          ` |
+| `column               ` |
+| `column-reverse       ` |
 
-| Setting | Effect on `???-axis` |
-| :-----: | ------ |
-
-- Example, with [code](./flex-box/prop/index.html) from course;
-  
-[<img src="./flex-box/prop/example.jpg" alt="prop drawing" width="350"/>](./flex-box/prop/index.html)
+| flex-wrap settings      |
+| :---------------------: |
+| `nowrap               ` |
+| `wrap                 ` |
+| `wrap-reverse         ` |
 
 ---
 
