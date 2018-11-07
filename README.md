@@ -45,8 +45,9 @@ Contains crib notes and projects I created while doing [Codecademy Wweb Path](ht
 1. [Tsunami Coffee](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/6_Tsunami_Coffee/index.html)
 
 1. [Grum extra (Flex-box review)](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/7_Grum_extra_Flex-box_review/index.html)
-<!-- 
 
+
+<!-- 
 ##### Blank entry for next projects;
 1. [](https://grumbit.github.io/webPathProjects//index.html)
  -->
