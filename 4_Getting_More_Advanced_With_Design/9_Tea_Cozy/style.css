@@ -115,7 +115,7 @@ main {
  |                                Mission                                     |
  *----------------------------------------------------------------------------*/
 
-.mission {
+#mission {
   /* Sizing as per spec, but converted to em for @media scaling */
   height: 31.82em;
   width: 100%;
@@ -134,7 +134,7 @@ main {
  |                                  Tea                                       |
  *----------------------------------------------------------------------------*/
 
-.tea {
+#tea {
   /* size as per spec, but converted to em for @media scaling */
   max-width: 45.45em;
 
@@ -167,7 +167,7 @@ main {
  |                                Locations                                   |
  *----------------------------------------------------------------------------*/
 
-.locations {
+#locations {
 
   /* Size as per spec, but converted to em for @media scaling */
   min-height: 22.73em;
@@ -180,7 +180,7 @@ main {
   /* background-size: cover; */
 }
 
-.locations h2 {
+#locations h2 {
   /* Remove default h2 margins to position as per spec */
   margin: 0;
 }
@@ -245,6 +245,18 @@ footer {
 }
 
 
+@media only screen and (max-width: 640px){
+  a {
+    /* reduce link fontsize */
+    font-size: .85em;
+  }
+
+  nav li {
+    /* bring links closer together */
+    padding: .27em;
+  }
+}
+
 @media only screen and (max-width: 1000px){
   main {
     max-width: 90%;
@@ -255,8 +267,12 @@ footer {
   /* selects narrow windows */
 
   html {
+    /* reduce fonts through out */
     font-size: 20px;
   }
+
+
+
 
   h2 {
     margin-block-start: .33em;
@@ -268,32 +284,37 @@ footer {
     margin-block-end: .4em;
   }
 
-  .mission {
+  #mission {
+    /* reduce size of mission */
     height: 15em;
     padding-top: 0;
   }
 
-  .tea {
+  #tea {
+    /* bring tea closer to mission */
     margin-top: 1.15em;
   }
 
   .tea_item img {
-    /* Set image dimensions as per spec, but converted to em for @media scaling */
+    /* decrease size of tea images */
     width: 9.18em;
     height: 6.11em;
   }
   
 
-  .locations {
+  #locations {
+    /* bring locations closer to teas */
     padding-top: 1.5em;
     margin-top: 1.5em;
   }
 
   .location_item {
+    /* reduce size of location item */
     height: 8em;
   }
 
   .footer_items {
+    /* reduce size of footer items */
     height: 6.01em;
   }
 
