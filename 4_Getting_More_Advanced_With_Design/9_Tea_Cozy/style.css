@@ -33,19 +33,11 @@ a {
   color: inherit;
 }
 
-
 .background_pic {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-
-  
-  
-
-
-
 /*----------------------------------------------------------------------------*
  |                                 Header                                     |
  *----------------------------------------------------------------------------*/
@@ -54,7 +46,6 @@ header {
   /* Color as per spec */
   background-color: black;
 
-  
   /* Border as per spec */
   border-bottom: 1px solid;
   
