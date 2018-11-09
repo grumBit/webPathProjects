@@ -8,24 +8,57 @@
 </head>
 
 <body>
-  <h1>Nested flex-boxes take 2</h1>
   
-  <div class="main">
-    <div class="container">
-      <div class="child">
-        <h2>Child</h2>
-        <h2>1</h2>
+  <div id="main">
+    <h1>Nested flex-boxes take 2</h1>
+    <div class="flex-container">
+      <div id="section_1" class="content">
+        <h2>Section 1</h2>
+        <div id="section_1_items" class="flex-container">
+          <div class="item">
+            <h2>Item</h2>
+            <h2>1</h2>
+          </div>
+          <div class="item">
+            <h2>Item</h2>
+            <h2>2</h2>
+          </div>
+          <div class="item">
+            <h2>Item</h2>
+            <h2>3</h2>
+          </div>
+        </div>
       </div>
-      <div class="child">
-        <h2>Child</h2>
-        <h2>2</h2>
-      </div>
-      <div class="child">
-        <h2>Child</h2>
-        <h2>3</h2>
+      <div id="section_2" class="content">
+        <h2>Section 2</h2>
       </div>
     </div>
-    <div class="container"></div>
+
+    <div class="flex-container">
+      <div id="section_3" class="content">
+        <h2>Section 3</h2>
+        <div id="section_3_items" class="flex-container">
+          <div class="item">
+            <h2>Item</h2>
+            <h2>4</h2>
+          </div>
+          <div class="item">
+            <h2>Item</h2>
+            <h2>5</h2>
+          </div>
+          <div class="item">
+            <h2>Item</h2>
+            <h2>6</h2>
+          </div>
+          <div class="item">
+            <h2>Item</h2>
+            <h2>7</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </body>
 
