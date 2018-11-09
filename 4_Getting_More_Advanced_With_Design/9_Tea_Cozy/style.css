@@ -5,7 +5,7 @@
 
 html {
   /* Set colors and fonts as per spec */
-  font-size: 12px;
+  font-size: 22px;
   font-family: "Helvetica";
   text-align: center;
   background-color: black;
@@ -34,6 +34,17 @@ a {
 }
 
 
+.background_pic {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+  
+  
+
+
 
 /*----------------------------------------------------------------------------*
  |                                 Header                                     |
@@ -42,6 +53,7 @@ a {
 header {
   /* Color as per spec */
   background-color: black;
+
   
   /* Border as per spec */
   border-bottom: 1px solid;
@@ -118,10 +130,8 @@ main {
   width: 100%;
   padding-top: 3.18em; /* Not explicitly listed in spec, but implicit in pic */
 
-
   /* Add background as per spec */
   background-image: url("./img/img-mission-background.jpg");
-  /* background-size: cover; */
 }
 
 .mission_statement {
@@ -195,17 +205,25 @@ main {
 
   /* Size as per spec, but converted to em for @media scaling */
   width: 13.64em;
+
+  /* Make contained items scale by height for @media flexibility */
+  height: 14em;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.location_item h4 {
-  margin-top: 2em;
+.location_item h3, .location_item h4 {
+  /* Remove margins to made contained items scale by height for @media flexibility */
+  margin: 0;
 }
+
 
 /*----------------------------------------------------------------------------*
  |                                 Footer                                     |
  *----------------------------------------------------------------------------*/
 
 footer {
+  margin-top: 1em;
   width: 100%;
 }
 
@@ -233,4 +251,59 @@ footer {
 
   /* Position as per spec, but converted to em for @media scaling */
   margin-left: .91em;
+}
+
+
+@media only screen and (max-width: 1000px){
+  main {
+    max-width: 90%;
+  }
+}
+
+@media only screen and (max-height: 1500px) and (orientation: portrait) {
+  /* selects narrow windows */
+
+  html {
+    font-size: 20px;
+  }
+
+  h2 {
+    margin-block-start: .33em;
+    margin-block-end: .23em;
+  }
+
+  h4 {
+    margin-block-start: .4em;
+    margin-block-end: .4em;
+  }
+
+  .mission {
+    height: 15em;
+    padding-top: 0;
+  }
+
+  .tea {
+    margin-top: 1.15em;
+  }
+
+  .tea_item img {
+    /* Set image dimensions as per spec, but converted to em for @media scaling */
+    width: 9.18em;
+    height: 6.11em;
+  }
+  
+
+  .locations {
+    padding-top: 1.5em;
+    margin-top: 1.5em;
+  }
+
+  .location_item {
+    height: 8em;
+  }
+
+  .footer_items {
+    height: 6.01em;
+  }
+
 }
