@@ -1,21 +1,19 @@
-/**************** Page wide ***************/
+
+/*----------------------------------------------------------------------------*
+ |                                  Page                                      |
+ *----------------------------------------------------------------------------*/
 
 html {
-  font-size: 22px;
+  /* Set colors and fonts as per spec */
+  font-size: 12px;
   font-family: "Helvetica";
   text-align: center;
   background-color: black;
   color: rgba(255, 245, 238, 0.7);
-
-  /* Keep padding and border sizing within elements*/ 
-  box-sizing: border-box;
 }
 
 body {
-  /* Layout contained items down the page */
-  flex-direction: column;
-
-  /* Remove user agent margin, so spec positioning is correlates */
+  /* Remove user agent margin, so spec positioning correlates more easily */
   margin: 0;
 }
 
@@ -35,49 +33,52 @@ a {
   color: inherit;
 }
 
-/**************** Header ***************/
+
+
+/*----------------------------------------------------------------------------*
+ |                                 Header                                     |
+ *----------------------------------------------------------------------------*/
 
 header {
-  /* Keep header at the top of the page and over other elements*/
+  /* Color as per spec */
+  background-color: black;
+  
+  /* Border as per spec */
+  border-bottom: 1px solid;
+  
+  /* Keep header at the top of the page and over other elements */
   position: fixed;
   top: 0;
   z-index: 10;
-  background-color: black;
 
-  /* Sizing as per spec */
+  /* Sizing as per spec, but converted to em for @media scaling */
   width: 100%;
-  height: 69px;
-
-  /* Utilise flex-box layouts*/
-/*   display: flex;
-  align-items: center;
- */
-  /* Border as per spec */
-  border-bottom: 1px solid;
+  height: 3.14em; 
 }
 
 main, footer {
-  /* Position following major sections below fixed header */
+  /* Position subsequent major sections below fixed header */
   position: relative;
-  top: 70px;
+  top: 3.15em;
 }
 
 .logo {
-  /* position as per spec*/
-  padding-left: 10px;
+  /* position as per spec, but converted to em for @media scaling*/
+  padding-left: .45em;
 }
 
 .logo img {
   display: block;
 
-  /* Size as per spec */
-  height: 50px;
+  /* Size as per spec, but converted to em for @media scaling */
+  height: 2.27em;
 
+  /* Opacity as per spec */
   opacity: .7;
 }
 
 nav.flex-box_container { 
-/* Using chained selector with higher precedence than .flex-box_container selector, so that it's flex-box properties can be overriden here */
+/* NB: Using chained selector with higher precedence than .flex-box_container selector, so that it's flex-box properties can be overriden here */
 
   /* Allow nav to take up any extra space */
   flex-grow: 1;
@@ -88,26 +89,34 @@ nav.flex-box_container {
 
 nav li {
   display: inline;
-  padding: 20px;
+  padding: .91em;
 }
 
 
-/**************** Main ***************/
+/*----------------------------------------------------------------------------*
+ |                                  Main                                      |
+ *----------------------------------------------------------------------------*/
 
 main {  
   /* Layout contained items down the page */
   flex-direction: column;
 
-  max-width: 1200px;
+  /* size as per spec, but converted to em for @media scaling */
+  max-width: 54.55em;
+
+  /* position centrally as per spec */
+  margin: auto;
 }
 
-/**************** Mission ***************/
+/*----------------------------------------------------------------------------*
+ |                                Mission                                     |
+ *----------------------------------------------------------------------------*/
 
 .mission {
-  /* Sizing as per spec */
-  height: 700px;
+  /* Sizing as per spec, but converted to em for @media scaling */
+  height: 31.82em;
   width: 100%;
-  padding-top: 70px; /* Not explicitly listed in spec, but implicit in pic */
+  padding-top: 3.18em; /* Not explicitly listed in spec, but implicit in pic */
 
 
   /* Add background as per spec */
@@ -118,17 +127,18 @@ main {
 .mission_statement {
   background-color: black;
   width: 100%;
-  margin: 10;
 }
 
-/**************** Tea ***************/
+/*----------------------------------------------------------------------------*
+ |                                  Tea                                       |
+ *----------------------------------------------------------------------------*/
 
 .tea {
-  /* size as per spec */
-  max-width: 1000px;
+  /* size as per spec, but converted to em for @media scaling */
+  max-width: 45.45em;
 
   /* position as per (implicit) spec */
-  margin-top: 70px;
+  margin-top: 3.15em;
 }
 
 .tea_items {
@@ -137,29 +147,32 @@ main {
 }
 
 .tea_item {
-  margin: 15px;
+  margin: .68em;
 }
 
 .tea_item img {
-  /* Set image dimensions as per spec */
-  width: 300px;
-  height: 200px;
+  /* Set image dimensions as per spec, but converted to em for @media scaling */
+  width: 13.64em;
+  height: 9.09em;
 }
 
 .tea_item h4 {
-  margin-top: 10px;
-  margin-bottom: 0px;
+  /* Position as per spec, but converted to em for @media scaling */
+  margin-top: .45em;
+  margin-bottom: 0;
 }
 
-/**************** Locations ***************/
+/*----------------------------------------------------------------------------*
+ |                                Locations                                   |
+ *----------------------------------------------------------------------------*/
 
 .locations {
 
-  /* Size as per spec */
-  min-height: 500px;
+  /* Size as per spec, but converted to em for @media scaling */
+  min-height: 22.73em;
   width: 100%;
-  padding-top: 70px; /* Not explicitly listed in spec, but implicit in pic */
-  margin-top: 70px;
+  padding-top: 3.15em; /* Not explicitly listed in spec, but implicit in pic */
+  margin-top: 3.15em;
 
   /* Add background as per spec */
   background-image: url("./img/img-locations-background.jpg");
@@ -177,19 +190,20 @@ main {
 .location_item {
   background-color: black;
 
-  /* Position as per spec */
-  margin: 15px 20px;
+  /* Position as per spec, but converted to em for @media scaling */
+  margin: .68em .91em;
 
-  /* size as per spec */
-  width: 300px;
+  /* Size as per spec, but converted to em for @media scaling */
+  width: 13.64em;
 }
 
 .location_item h4 {
   margin-top: 2em;
 }
 
-
-/**************** Footer ***************/
+/*----------------------------------------------------------------------------*
+ |                                 Footer                                     |
+ *----------------------------------------------------------------------------*/
 
 footer {
   width: 100%;
@@ -202,8 +216,8 @@ footer {
   /* Layout items down the page */
   flex-direction: column;
 
-  /* size as per spec */
-  height: 200px;
+  /* size as per spec, but converted to em for @media scaling */
+  height: 9.01em;
   justify-content: space-around;
 }
 
@@ -217,6 +231,6 @@ footer {
   /* Align as per spec */
   text-align: left;
 
-  /* Position as per spec */
-  margin-left: 20px;
+  /* Position as per spec, but converted to em for @media scaling */
+  margin-left: .91em;
 }
