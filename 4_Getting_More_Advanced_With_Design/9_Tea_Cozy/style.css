@@ -270,8 +270,7 @@ footer {
 }
 
 @media only screen and (max-width: 1080px) and (orientation: portrait) {
-
-
+  
   h2 {
     margin-block-start: .33em;
     margin-block-end: .23em;
