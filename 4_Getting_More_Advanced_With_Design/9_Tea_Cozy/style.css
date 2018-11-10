@@ -245,7 +245,7 @@ footer {
 }
 
 
-@media only screen and (max-width: 640px){
+@media only screen and (max-width: 590px){
   a {
     /* reduce link fontsize */
     font-size: .85em;
@@ -255,23 +255,21 @@ footer {
     /* bring links closer together */
     padding: .27em;
   }
-}
-
-@media only screen and (max-width: 1000px){
-  main {
-    max-width: 90%;
-  }
-}
-
-@media only screen and (max-height: 1500px) and (orientation: portrait) {
-  /* selects narrow windows */
 
   html {
     /* reduce fonts through out */
     font-size: 20px;
   }
 
+}
 
+@media only screen and (max-width: 1220px){
+  main {
+    max-width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1080px) and (orientation: portrait) {
 
 
   h2 {
