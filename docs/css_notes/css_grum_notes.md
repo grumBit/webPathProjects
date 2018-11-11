@@ -69,6 +69,7 @@ Contains an overview of CSS covered in the Codecademy Web Path courses and [link
 - [Design patterns](#design-patterns)
     - [Background images `background`](#background-images-background)
     - [Image and video proportional scaling](#image-and-video-proportional-scaling)
+    - [Always add reset.css to all pages.](#always-add-resetcss-to-all-pages)
 - [Tips and trips](#tips-and-trips)
     - [How to work out the effect of declarations](#how-to-work-out-the-effect-of-declarations)
     - [Avoid `padding` of `inline` objects like \<img\>'s, instead use `margin` on their containers](#avoid-padding-of-inline-objects-like-imgs-instead-use-margin-on-their-containers)
@@ -798,6 +799,12 @@ The second CSS rule ensures that images scale with the width of the container. T
         display: block;
     }
 ```
+
+## Always add reset.css to all pages.
+- This tries to minimise browsers creating problems by having diferent user agent default styles.
+- The reset.css used in the Codecademy projects in the this reppo seem to be effective, but searching the web may find better.
+
+
 # Tips and trips
 
 ## How to work out the effect of declarations
