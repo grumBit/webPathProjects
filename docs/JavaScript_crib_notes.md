@@ -361,29 +361,6 @@ Contains summary langauge and interface info, with `code` examples and [links](h
     }    
     ```
 
-#### []()
-  - . E.g.;
-    ```javascript
-    document.;
-    ```
-
-#### []()
-  - . E.g.;
-    ```javascript
-    document.;
-    ```
-
-#### []()
-  - . E.g.;
-    ```javascript
-    document.;
-    ```
-
-#### []()
-  - . E.g.;
-    ```javascript
-    document.;
-    ```
 # Grum code snipets
 ### `documentDirURL()` - Returns URL of directory containing the document
 ```javascript
