@@ -9,6 +9,7 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 <!-- code_chunk_output -->
 - [Declarations](#declarations)
+  - [Variable scope](#variable-scope)
 - [Operators](#operators)
     - [Common operator list](#common-operator-list)
     - [Link to operator precedence table](#link-to-operator-precedence-table)
@@ -54,10 +55,15 @@ Contains summary langauge and interface info, with `code` examples and [links](h
       - [.parentNode](#parentnode)
     - [ParentNode](#parentnode)
       - [.children](#children)
-      - [[]()](#)
-      - [[]()](#)
-      - [[]()](#)
-      - [[]()](#)
+- [Arrays](#arrays)
+  - [Support mixed types](#support-mixed-types)
+  - [Support nested arrays](#support-nested-arrays)
+  - [Const restricts overall assignment, not contents assignment](#const-restricts-overall-assignment-not-contents-assignment)
+  - [Arrays are passed-by-reference into functions and hence mutable](#arrays-are-passed-by-reference-into-functions-and-hence-mutable)
+  - [.length returns length](#length-returns-length)
+  - [.push(arg1, arg2, ...) adds element to end](#pusharg1-arg2--adds-element-to-end)
+  - [.pop() remove and return last element](#pop-remove-and-return-last-element)
+  - [Other commons methods; .join(), .slice(), .splice(), .shift(), .unshift(), and .concat()](#other-commons-methods-join-slice-splice-shift-unshift-and-concat)
 - [Grum code snipets](#grum-code-snipets)
     - [`documentDirURL()` - Returns URL of directory containing the document](#documentdirurl---returns-url-of-directory-containing-the-document)
 <!-- /code_chunk_output -->
@@ -70,6 +76,35 @@ Contains summary langauge and interface info, with `code` examples and [links](h
   let,  const         - variable and constant declaration. camelCase by convention
   var                - deprecated variable declaration
   ```
+
+## Variable scope
+- Global variables can be modified anywhere
+- A block has access to all the variables available in the parent block (i.e. where the block was defined).
+- Re-declaring a variable using the same name in a block will mask the parent's variable, until the block ends. **See warning in code re-quirk.** Eg.
+    ```js
+    const parentBlock = () => {
+      // parent block
+
+      let someVar = "This was declared and set in the parent block";
+
+      console.log("In the parent block, someVar was set to: \"" + someVar + "\"");
+
+      if (true) {
+        // inner block
+
+        console.log("WARNING: The parent's someVar is NEVER accessible within the inner block, " +
+          "because someVar is going to be re-declared later in this block. " + 
+          "If someVar is accessed prior to being re-declared, it will cause a ReferenceError.");
+
+        let someVar = "This was re-declared and set within the inner block";
+        console.log("Inner block has masked someVar, which is set to: \"" + someVar + "\"");
+      }
+
+      console.log("Back out in the parent block scope, someVar, is back to it's original value: \"" + someVar + "\"");
+    };
+
+    parentBlock();
+    ```
 
 # [Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Expressions_and_operators)
 ### Common operator list
@@ -361,6 +396,53 @@ Contains summary langauge and interface info, with `code` examples and [links](h
     }    
     ```
 
+---
+
+# [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+## Support mixed types
+  ```js
+  const mixedArray = [ "string", 10, true ];
+  ```
+
+## Support nested arrays
+  ```js
+  const nestedArr = [[1], [2, 3]];
+  console.log(nestedArr[1]); // Output: [2, 3]
+  console.log(nestedArr[1][0]); // Output: 2
+  ```
+
+## Const restricts overall assignment, not contents assignment
+  ```js
+  const myArray = [ 'str1', 'str2' ];
+  myArray[3] = 'Able to add element to const array'; //works
+  myArray = [ 'Unable to re-assign with new (or existing) array' ]; //fails
+  ```
+
+## Arrays are passed-by-reference into functions and hence mutable
+
+## .length returns length
+  ```js
+  const myArray = [ 'str1', 'str2' ];
+  console.log(myArray.length); //Output: 2
+  ```
+
+## .push(arg1, arg2, ...) adds element to end
+  ```js
+  const myArray = [ 'str1', 'str2' ];
+  myArray.push('str3', 'str4');
+  console.log(myArray); //Output: Array(4) ["str1", "str2", "str3", "str4"]
+  ```
+
+
+## .pop() remove and return last element
+  ```js
+  const myArray = [ 'str1', 'str2', 'str3' ];
+  const lastElement = myArray.pop()
+  console.log(myArray); //Output : Array(2) ["str1", "str2"]
+  console.log(lastElement); //Output: str3
+  ```
+## Other commons methods; .join(), .slice(), .splice(), .shift(), .unshift(), and .concat()
+
 # Grum code snipets
 ### `documentDirURL()` - Returns URL of directory containing the document
 ```javascript
@@ -377,3 +459,4 @@ function documentDirURL() {
 }
 ```
 ---
+
