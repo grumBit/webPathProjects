@@ -44,6 +44,10 @@ Contains summary langauge and interface info, with `code` examples and [links](h
       - [Separate function declaration](#separate-function-declaration)
 - [Arrays](#arrays)
   - [Notes](#notes)
+    - [Support mixed types.](#support-mixed-types)
+    - [Support nested arrays.](#support-nested-arrays)
+    - [`const` restricts array re-assignment, but not contents assignment.](#const-restricts-array-re-assignment-but-not-contents-assignment)
+    - [Are pass-by-reference into functions, where they are mutable](#are-pass-by-reference-into-functions-where-they-are-mutable)
   - [Common properties and methods with code](#common-properties-and-methods-with-code)
     - [`.length -> int` - returns number of elements](#length---int---returns-number-of-elements)
     - [`.push(arg1, arg2, ...)` - append element(s)](#pusharg1-arg2----append-elements)
@@ -64,6 +68,9 @@ Contains summary langauge and interface info, with `code` examples and [links](h
     - [`.some(function)` -> boolean - returns true if any elements passes the provided test](#somefunction---boolean---returns-true-if-any-elements-passes-the-provided-test)
 - [Objects](#objects)
   - [Notes](#notes-1)
+    - [Support a mix of properties (including nested objects) and methods.](#support-a-mix-of-properties-including-nested-objects-and-methods)
+    - [`const` restricts object re-assignment, but not contents assignment.](#const-restricts-object-re-assignment-but-not-contents-assignment)
+    - [Are pass-by-reference into functions, where their properties are mutable.](#are-pass-by-reference-into-functions-where-their-properties-are-mutable)
   - [Declarations](#declarations)
   - [Properties](#properties)
     - [Declared as key-value pairs](#declared-as-key-value-pairs)
@@ -417,26 +424,50 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 ## Notes
 
-- Support mixed types. E.g.;
+### Support mixed types.
+- Includes functions and objects. E.g.;
   ```js
-  const mixedArray = [ "string", 10, true ];
+  const mixedArray = [ "string", 10, true, func = arg => {console.log(arg)}, obj = { 'key':'value'} ];
+
+  console.log(mixedArray); // Output: Array(5) ["string", 10, true, , Object]
+  func('yo'); //Output: yo
   ```
 
-- Support nested arrays. E.g.;
+### Support nested arrays.
+- E.g.;
   ```js
   const nestedArr = [[1], [2, 3]];
+
   console.log(nestedArr[1]); // Output: [2, 3]
   console.log(nestedArr[1][0]); // Output: 2
   ```
 
-- `const` restricts overall assignment, but not contents assignment. E.g.;
+### `const` restricts array re-assignment, but not contents assignment.
+-  E.g.;
   ```js
   const myArray = [ 'str1', 'str2' ];
   myArray[3] = 'Able to add element to const array'; //works
   myArray = [ 'Unable to re-assign with new (or existing) array' ]; //fails
   ```
 
-- Arrays are pass-by-reference into functions and are hence mutable within those functions.
+### Are pass-by-reference into functions, where they are mutable
+- **IMPORTANT**:
+  -  The passed-in-reference is **always** a variable, (not a constant), regardless of the original variable's declaration.
+  -  Re-assigining a different array to the passed-in-reference does not change original array's reference (i.e. has no impact outside the function).
+-  E.g.;
+  ```js
+  const anArray = [ "A string", 3.92];
+
+  const func = arr => {
+    arr[0] = 'Elements of passed-in arrays can be changed';
+    arr = ["The array reference can be replaced with a new array, but won't effect the original array"];
+    arr[0] = 'And once the reference is to a different array, further changes apply to the new array only';
+  }
+
+  console.log(anArray[0]); // Output: A string
+  func(anArray);
+  console.log(anArray[0]); // Output: Elements of passed-in arrays can be changed
+  ```
 
 ## Common [properties and methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) with code
 
@@ -561,7 +592,8 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 ## Notes
 
-- Support a mix of properties (including nested objects) and methods. E.g.;
+### Support a mix of properties (including nested objects) and methods.
+- E.g.;
   ```js
   let anObj = {
     'keyStr' : 'A value', // A property
@@ -575,30 +607,33 @@ Contains summary langauge and interface info, with `code` examples and [links](h
   anObj.funcMeUp() // Output: Me is well func'd bro
   ```
 
-- `const` restricts overall assignment, but not contents assignment. E.g.;
+### `const` restricts object re-assignment, but not contents assignment.
+-  E.g.;
   ```js
   const anObj = { 'keyStr' : 'A value', 'key Str2' : 3.92 }; 
   anObj.keyStr = 'A new value'; // Works
   anObj = { 'diffKey' : 'Aonther new value' }; // Fails
   ```
 
-- Objects are pass-by-reference into functions, and hence their properties are mutable within those functions.
-  - IMPORTANT:
-    -  The passed-in-reference is always a variable, (not a constant), regardless of the original variable's declaration.
-    -  Re-assigining a differnt object to the passed-in-reference does not change original object's reference (i.e. has no impact outside)
-    ```js
-    const anObj = { 'keyStr' : 'A value', 'keyStr2' : 3.92 };
+### Are pass-by-reference into functions, where their properties are mutable.
 
-    const func = obj => {
-      obj.keyStr = 'Values of passed-in objects can be changed';
-      obj = { 'keyStr' : "The object reference can be replaced with a new object, but won't effect the original object", 'keyStr2' : 3.92 };
-      obj.keyStr = 'And once the reference is to a different object, further changes apply to the new object only';
-    }
+- **IMPORTANT**:
+  -  The passed-in-reference is always a variable, (not a constant), regardless of the original variable's declaration.
+  -  Re-assigining a differnt object to the passed-in-reference does not change the original object's reference (i.e. has no impact outside the function)
+-  E.g.;
+  ```js
+  const anObj = { 'keyStr' : 'A value', 'keyStr2' : 3.92 };
 
-    console.log(anObj.keyStr); // Output: A value
-    func(anObj);
-    console.log(anObj.keyStr); // Output: Values of passed-in objects can be changed
-    ```
+  const func = obj => {
+    obj.keyStr = 'Values of passed-in objects can be changed';
+    obj = { 'keyStr' : "The object reference can be replaced with a new object, but won't effect the original object", 'keyStr2' : 3.92 };
+    obj.keyStr = 'And once the reference is to a different object, further changes apply to the new object only';
+  }
+
+  console.log(anObj.keyStr); // Output: A value
+  func(anObj);
+  console.log(anObj.keyStr); // Output: Values of passed-in objects can be changed
+  ```
   
 ## Declarations
 
@@ -730,6 +765,10 @@ Contains summary langauge and interface info, with `code` examples and [links](h
   parentObj.childObj1.morePeepObjs=[ {'name':'Fred'}, {'name':'Alice'}];  //Add a property
   console.log(parentObj.childObj1['morePeepObjs'][0].name); //Access new property, mixed notation. Output: Fred
   ``` 
+
+## Iterator - [`for...in  aka for (let var in obj) {...}`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+
+
 ---
 
 # Interfacing with the [DOM (Document Object Model)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
