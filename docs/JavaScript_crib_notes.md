@@ -8,8 +8,10 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
-- [Declarations](#declarations)
+- [Variable Declarations](#variable-declarations)
+  - [`let`, `const`, `var`(deprecated)](#let-const-vardeprecated)
   - [Variable scope](#variable-scope)
+  - [`${varName}` Variable interpolation](#varname-variable-interpolation)
 - [Operators](#operators)
     - [Common operator list](#common-operator-list)
     - [Link to operator precedence table](#link-to-operator-precedence-table)
@@ -19,13 +21,14 @@ Contains summary langauge and interface info, with `code` examples and [links](h
     - [switch](#switch)
     - [throw and try...catch...finally](#throw-and-trycatchfinally)
     - [break and continue](#break-and-continue)
-- [Iterators](#iterators)
+- [Iterations](#iterations)
     - [do...while](#dowhile)
     - [for](#for)
     - [for...in](#forin)
     - [for...of](#forof)
     - [while](#while)
 - [Functions](#functions)
+  - [Function declarations](#function-declarations)
     - [(Standard) Function declarations](#standard-function-declarations)
     - [Function Expression declarations (a.k.a. anomymous functions)](#function-expression-declarations-aka-anomymous-functions)
     - [Arrow function declarations (syntax sugar for function expressions)](#arrow-function-declarations-syntax-sugar-for-function-expressions)
@@ -34,6 +37,29 @@ Contains summary langauge and interface info, with `code` examples and [links](h
         - [`One parameter`](#one-parameter)
         - [`Two or more parameters`](#two-or-more-parameters)
         - [`Single-line blocks`](#single-line-blocks)
+  - [Iterators](#iterators)
+    - [3 declaration styles](#3-declaration-styles)
+      - [Arrow `=>` ES6 (preferred style)](#arrow--es6-preferred-style)
+      - [Anonymous function declaration](#anonymous-function-declaration)
+      - [Separate function declaration](#separate-function-declaration)
+- [Arrays](#arrays)
+  - [Notes](#notes)
+  - [Common properties and methods with code](#common-properties-and-methods-with-code)
+    - [`.length -> int` - returns number of elements](#length---int---returns-number-of-elements)
+    - [`.push(arg1, arg2, ...)` - append element(s)](#pusharg1-arg2----append-elements)
+    - [`.pop() -> element` - remove and return last element](#pop---element---remove-and-return-last-element)
+    - [`.join(optional_delimiter) -> String` - concatenate elements into string](#joinoptionaldelimiter---string---concatenate-elements-into-string)
+    - [`.slice(optinal_begin, optional_end) -> new Array` - return portion of array](#sliceoptinalbegin-optionalend---new-array---return-portion-of-array)
+    - [`.splice(args)` - remove existing elements and/or add new elements](#spliceargs---remove-existing-elements-andor-add-new-elements)
+    - [`.shift()` - remove first element](#shift---remove-first-element)
+    - [`.unshift(element1, element2, ....) -> new_length` - prepend elements](#unshiftelement1-element2----newlength---prepend-elements)
+    - [`.concat(args) -> new Array` - merge two or more arrays](#concatargs---new-array---merge-two-or-more-arrays)
+  - [Common iterators with example code](#common-iterators-with-example-code)
+    - [`.forEach(function)` - iterate over each element](#foreachfunction---iterate-over-each-element)
+    - [`.map(function) -> new Array` - return mapped elements](#mapfunction---new-array---return-mapped-elements)
+    - [`.filter(function) -> new Array` - return matching elements](#filterfunction---new-array---return-matching-elements)
+    - [`.findIndex(function) -> int` - return index of 1st matching element](#findindexfunction---int---return-index-of-1st-matching-element)
+    - [`.reduce(function, optional_start_value) -> value` - return single accumulated value](#reducefunction-optionalstartvalue---value---return-single-accumulated-value)
 - [Interfacing with the DOM (Document Object Model)](#interfacing-with-the-dom-document-object-model)
     - [`document` keyword](#document-keyword)
   - [Basic properties and methods](#basic-properties-and-methods)
@@ -55,22 +81,15 @@ Contains summary langauge and interface info, with `code` examples and [links](h
       - [.parentNode](#parentnode)
     - [ParentNode](#parentnode)
       - [.children](#children)
-- [Arrays](#arrays)
-  - [Support mixed types](#support-mixed-types)
-  - [Support nested arrays](#support-nested-arrays)
-  - [Const restricts overall assignment, not contents assignment](#const-restricts-overall-assignment-not-contents-assignment)
-  - [Arrays are passed-by-reference into functions and hence mutable](#arrays-are-passed-by-reference-into-functions-and-hence-mutable)
-  - [.length returns length](#length-returns-length)
-  - [.push(arg1, arg2, ...) adds element to end](#pusharg1-arg2--adds-element-to-end)
-  - [.pop() remove and return last element](#pop-remove-and-return-last-element)
-  - [Other commons methods; .join(), .slice(), .splice(), .shift(), .unshift(), and .concat()](#other-commons-methods-join-slice-splice-shift-unshift-and-concat)
 - [Grum code snipets](#grum-code-snipets)
-    - [`documentDirURL()` - Returns URL of directory containing the document](#documentdirurl---returns-url-of-directory-containing-the-document)
+  - [`documentDirURL()` - Returns URL of directory containing the document](#documentdirurl---returns-url-of-directory-containing-the-document)
 <!-- /code_chunk_output -->
 
 ---
 
-# [Declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Declarations)
+# Variable Declarations
+## [`let`, `const`, `var`(deprecated)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Declarations)
+
 
   ```javascript
   let,  const         - variable and constant declaration. camelCase by convention
@@ -105,6 +124,13 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
     parentBlock();
     ```
+## [`${varName}`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Template_literals) Variable interpolation
+Use back-quotes for variable interpolation. Eg.
+```js
+const str1 = 'some text';
+const num1 = 10;
+console.log(`This will interpolate ${str1} and the number ${num1}`);
+```
 
 # [Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Expressions_and_operators)
 ### Common operator list
@@ -133,6 +159,8 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 | `/ab+c/i`                                  | [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
 
 ### [Link to operator precedence table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table)
+
+
 
 ---
 
@@ -192,7 +220,7 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 ---
 
-# [Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Iterations)
+# [Iterations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Iterations)
 
 ### [do...while](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)
   ```javascript
@@ -233,7 +261,42 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 ---
 
-# [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Functions_and_classes)
+
+---
+
+# [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
+- are first class objects => have properties such as .length and .name and methods such as .toString()
+- can be called and assigned ;
+  ```js
+  const announceThatIAmDoingImportantWork = () => {
+      console.log("I’m doing very important work!");
+  };
+
+  const busy = announceThatIAmDoingImportantWork; // Note that ()'s are missing, so the function is not called
+
+  busy(); // Outputs: I’m doing very important work!
+
+  console.log(busy.name); // Outputs: announceThatIAmDoingImportantWork
+  ```
+
+- can be passed into higher-order fuctions as callback functions (NB: pass-by-reference);
+  ```js
+  const addTwo = num => num + 2;
+
+  const checkConsistentOutput = (func, val) => {
+    let firstTry = func(val);
+    let secondTry = func(val);
+    if (firstTry === secondTry) {
+        return firstTry
+    } else {
+        return 'This function returned inconsistent results'
+    }
+  };
+
+  console.log(checkConsistentOutput(addTwo, 10));  // Outputs 12
+  ```
+- 
+## [Function declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Functions_and_classes)
 
 ### [(Standard) Function declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
@@ -290,7 +353,160 @@ Contains summary langauge and interface info, with `code` examples and [links](h
     ```javascript
     const isCircleBig = radius => 2*radius* 3.14 > 1000 ? true : false ;
     ```
+
 ---
+
+## [Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Iterators)
+### 3 declaration styles
+- 3 equivalent styles to use are;
+#### Arrow `=>` ES6 (preferred style)
+  ```js
+  const groceries = ['mango', 'papaya', 'pineapple', 'apple'];
+  groceries.forEach(groceryItem => {console.log(groceryItem)} );
+  ```
+#### Anonymous function declaration
+  ```js
+  const groceries = ['mango', 'papaya', 'pineapple', 'apple'];
+  groceries.forEach(function(groceryItem) {console.log(groceryItem)} );
+  ```
+#### Separate function declaration
+  ```js
+  const groceries = ['mango', 'papaya', 'pineapple', 'apple'];
+  function printGrocery(item) { console.log(item) };
+  groceries.forEach(printGrocery);
+  ```
+
+---
+
+# [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+## Notes
+- Support mixed types. E.g.;
+  ```js
+  const mixedArray = [ "string", 10, true ];
+  ```
+
+- Support nested arrays. E.g.;
+  ```js
+  const nestedArr = [[1], [2, 3]];
+  console.log(nestedArr[1]); // Output: [2, 3]
+  console.log(nestedArr[1][0]); // Output: 2
+  ```
+
+- `const` restricts overall assignment, but not contents assignment. E.g.;
+  ```js
+  const myArray = [ 'str1', 'str2' ];
+  myArray[3] = 'Able to add element to const array'; //works
+  myArray = [ 'Unable to re-assign with new (or existing) array' ]; //fails
+  ```
+
+- Arrays are passed-by-reference into functions and are hence mutable within those functions.
+
+## Common [properties and methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) with code
+- See heading link for full list.
+  
+### [`.length -> int`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length) - returns number of elements
+  ```js
+  const myArray = [ 'str1', 'str2' ];
+  console.log(myArray.length); //Output: 2
+  ```
+
+### [`.push(arg1, arg2, ...)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) - append element(s)
+  ```js
+  const myArray = [ 'str1', 'str2' ];
+  myArray.push('str3', 'str4');
+  console.log(myArray); //Output: Array(4) ["str1", "str2", "str3", "str4"]
+  ```
+
+
+### [`.pop() -> element`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)  - remove and return last element
+  ```js
+  const myArray = [ 'str1', 'str2', 'str3' ];
+  const lastElement = myArray.pop()
+  console.log(myArray); //Output : Array(2) ["str1", "str2"]
+  console.log(lastElement); //Output: str3
+  ```
+### [`.join(optional_delimiter) -> String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join) - concatenate elements into string
+
+### [`.slice(optinal_begin, optional_end) -> new Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) - return portion of array
+
+### [`.splice(args)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) - remove existing elements and/or add new elements
+
+### [`.shift()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift) - remove first element 
+
+### [`.unshift(element1, element2, ....) -> new_length`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) - prepend elements
+
+### [`.concat(args) -> new Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) - merge two or more arrays
+
+## Common [iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Iteration_methods) with example code
+
+- See linked heading for listing of all array iterators.
+
+### [`.forEach(function)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#Syntax) - iterate over each element
+- Does not return anything
+- E.g.;
+  ```js
+  const groceries = ['mango', 'papaya', 'pineapple', 'apple'];
+  groceries.forEach(groceryItem => {console.log(groceryItem)} );
+  ```
+
+### [`.map(function) -> new Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - return mapped elements
+- Returns new array with the results of calling a provided callback function on every element in the calling array. E.g.;
+  ```js
+  const numbers = [1, 2, 3, 4, 5]; 
+
+  const bigNumbers = numbers.map(number => { return number * 10; } );
+
+  console.log(numbers); // Output: [1, 2, 3, 4, 5]
+  console.log(bigNumbers); // Output: [10, 20, 30, 40, 50]
+  ```
+
+### [`.filter(function) -> new Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) - return matching elements
+- Creates a new array with all elements that pass the test (i.e. return true) implemented by the provided function. E.g.
+  ```js
+  const words = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+
+  const shortWords = words.filter(word => { return word.length < 5; });
+
+  console.log(words); // Output: ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+  console.log(shortWords); // Output: ['chair', 'music', 'brick', 'pen', 'door']
+  ```
+### [`.findIndex(function) -> int`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex) - return index of 1st matching element
+- Return the index of the first element that evaluates to true in the callback function.
+- Returns -1 if no match
+- E.g.;
+  ```js
+  const jumbledNums = [123, 25, 78, 5, 9]; 
+
+  const lessThanTen = jumbledNums.findIndex(num => { return num < 10; } );
+
+  console.log(lessThanTen); // Output: 3
+  console.log(jumbledNums[3]); // Output: 5
+  ```
+
+### [`.reduce(function, optional_start_value) -> value`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) - return single accumulated value
+- Returns a single value after iterating through the elements of an array, thereby reducing the array.
+- If no 2nd argument provided, accumulator starts as first array element, and first iteration starts with 2nd array element. E.g.;
+  ```js
+  const numbers = [1, 2, 4, 10];
+
+  const summedNums = numbers.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue } ) ; // Note no 2nd argument provided
+
+  console.log(summedNums) // Output: 17
+  ```
+- If 2nd argument provided, accumulator starts with 2nd argument, and 1st iteration starts with 1st array element E.g.;
+  ```js
+  const numbers = [1, 2, 4, 10];
+
+  const summedNums = numbers.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue }, 1000 ) ; // Note 2nd argument '1000' provided
+
+  console.log(summedNums) // Output: 1017
+  ```
+
+
+---
+
 # Interfacing with the [DOM (Document Object Model)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
 ### `document` keyword
@@ -398,53 +614,8 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 ---
 
-# [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-## Support mixed types
-  ```js
-  const mixedArray = [ "string", 10, true ];
-  ```
-
-## Support nested arrays
-  ```js
-  const nestedArr = [[1], [2, 3]];
-  console.log(nestedArr[1]); // Output: [2, 3]
-  console.log(nestedArr[1][0]); // Output: 2
-  ```
-
-## Const restricts overall assignment, not contents assignment
-  ```js
-  const myArray = [ 'str1', 'str2' ];
-  myArray[3] = 'Able to add element to const array'; //works
-  myArray = [ 'Unable to re-assign with new (or existing) array' ]; //fails
-  ```
-
-## Arrays are passed-by-reference into functions and hence mutable
-
-## .length returns length
-  ```js
-  const myArray = [ 'str1', 'str2' ];
-  console.log(myArray.length); //Output: 2
-  ```
-
-## .push(arg1, arg2, ...) adds element to end
-  ```js
-  const myArray = [ 'str1', 'str2' ];
-  myArray.push('str3', 'str4');
-  console.log(myArray); //Output: Array(4) ["str1", "str2", "str3", "str4"]
-  ```
-
-
-## .pop() remove and return last element
-  ```js
-  const myArray = [ 'str1', 'str2', 'str3' ];
-  const lastElement = myArray.pop()
-  console.log(myArray); //Output : Array(2) ["str1", "str2"]
-  console.log(lastElement); //Output: str3
-  ```
-## Other commons methods; .join(), .slice(), .splice(), .shift(), .unshift(), and .concat()
-
 # Grum code snipets
-### `documentDirURL()` - Returns URL of directory containing the document
+## `documentDirURL()` - Returns URL of directory containing the document
 ```javascript
 //Returns URL of directory containing the document
 function documentDirURL() {
