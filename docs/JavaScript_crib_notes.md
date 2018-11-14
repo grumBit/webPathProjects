@@ -38,13 +38,15 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 			* [`One parameter`](#one-parameter)
 			* [`Two or more parameters`](#two-or-more-parameters)
 			* [`Single-line blocks`](#single-line-blocks)
-* [Arrays (sub-doc)](#arrays-sub-docjavascript_crib_notes-arraysmd)
-* [Objects (sub-doc)](#objects-sub-docjavascript_crib_notes-objectsmd)
-* [Interfacing with the DOM (Document Object Model) (sub-doc)](#interfacing-with-the-dom-document-object-model-sub-docjavascript_crib_notes-dommd)
+* [Arrays (sub-doc)](#arrays-sub-doc)
+* [Objects (sub-doc)](#objects-sub-doc)
+* [Interfacing with the DOM (sub-doc)](#interfacing-with-the-dom-sub-doc)
 * [Grum code snipets](#grum-code-snipets)
 	* [`documentDirURL()` - Returns URL of directory containing the document](#documentdirurl-returns-url-of-directory-containing-the-document)
 
 <!-- /code_chunk_output -->
+
+
 
 ---
 
@@ -325,15 +327,21 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 ---
 
-# [Arrays (sub-doc)](JavaScript_crib_notes-Arrays.md)
+# Arrays (sub-doc)
+
+- See [here](JavaScript_crib_notes-Arrays.md)
 
 ---
 
-# [Objects (sub-doc)](JavaScript_crib_notes-Objects.md)
+# Objects (sub-doc)
 
+- See [here](JavaScript_crib_notes-Objects.md)
+  
 ---
 
-# [Interfacing with the DOM (sub-doc)](JavaScript_crib_notes-DOM.md)
+# Interfacing with the DOM (sub-doc)
+
+- See [here](JavaScript_crib_notes-DOM.md)
 
 ---
 

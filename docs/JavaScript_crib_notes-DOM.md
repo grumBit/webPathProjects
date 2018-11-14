@@ -9,6 +9,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
+
 * [Interfacing with the DOM (Document Object Model)](#interfacing-with-the-dom-document-object-modelhttpsdevelopermozillaorgen-usdocswebapidocument_object_model)
 		* [`document` keyword](#document-keyword)
 	* [Basic properties and methods](#basic-properties-and-methods)
@@ -32,6 +33,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 			* [.children](#childrenhttpsdevelopermozillaorgen-usdocswebapiparentnodechildren)
 * [Grum code snipets](#grum-code-snipets)
 	* [`documentDirURL()` - Returns URL of directory containing the document](#documentdirurl-returns-url-of-directory-containing-the-document)
+
 <!-- /code_chunk_output -->
 
 ---
