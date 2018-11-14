@@ -88,6 +88,10 @@ Contains summary langauge and interface info, with `code` examples and [links](h
       - [Old - `let anObj = { funcName: function () {}, funcName2: function () {} }`](#old---let-anobj---funcname-function---funcname2-function)
     - [Invocation - `objName.funcName(args)`](#invocation---objnamefuncnameargs)
   - [Object nesting & chaining](#object-nesting--chaining)
+  - [Iterator - `for...in` aka `for (let property_name in obj) {...}`](#iterator---forin-aka-for-let-propertyname-in-obj)
+    - [WARNING: property_name is a `String`, not a reference](#warning-propertyname-is-a-string-not-a-reference)
+      - [`typeof` can be used to determine a property value's type](#typeof-can-be-used-to-determine-a-property-values-type)
+    - [WARNING: Avoid adding, modifying or deleting properties other than the current](#warning-avoid-adding-modifying-or-deleting-properties-other-than-the-current)
 - [Interfacing with the DOM (Document Object Model)](#interfacing-with-the-dom-document-object-model)
     - [`document` keyword](#document-keyword)
   - [Basic properties and methods](#basic-properties-and-methods)
@@ -766,7 +770,92 @@ Contains summary langauge and interface info, with `code` examples and [links](h
   console.log(parentObj.childObj1['morePeepObjs'][0].name); //Access new property, mixed notation. Output: Fred
   ``` 
 
-## Iterator - [`for...in  aka for (let var in obj) {...}`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+## Iterator - [`for...in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)   aka `for (let property_name in obj) {...}`
+
+### WARNING: property_name is a `String`, not a reference
+- `for...in` interates over the properties, and provides **ONLY** a string containing each properties' name (i.e. key name). It is **NOT** a reference to contained data primatives, objects or functions.
+- The string can then be use to access the property value via bracket notation.
+- E.g.;
+  ```js
+  let anObj = {
+      'keyStr' : 'A value', // A property
+      'key Str2' : 3.92,  // Another property
+      nestedObj: { 'keyStr3' : 'Another value', 'keyStr4' : [ 'Yo', 'Ho', 'Ho'] } // A nested object
+    }
+
+  for ( let propertyName in anObj.nestedObj ) {
+      console.log(`${propertyName} : ${anObj.nestedObj[propertyName]}`); // Works
+  }
+
+  /* Output:
+  keyStr3 : Another value
+  keyStr4 : Yo,Ho,Ho
+  */
+  ```
+  
+#### `typeof` can be used to determine a property value's type
+- E.g.;
+  
+  ```js
+  let anObj = {
+      aFunc () {  // A method
+        console.log("funcs message!"); 
+      },
+      anotherFunc () { // Another method
+        console.log("Another funcs message!"); 
+      },
+      'keyStr' : 'A value', // A property
+      'key Str2' : 3.92,  // Another property
+
+      childObj: { 'keyStr3' : 'Another value', 'keyStr4' : [ 'Yo', 'Ho', 'Ho'] } // A nested object
+
+    }
+
+  const traverseObj = (obj, indent) => {
+
+      if ( typeof obj != 'object') return;
+      if ( indent === undefined ) indent = '';
+
+      for (propertyName in obj) {
+          let propertyValue = obj[propertyName];
+
+          let valueType = typeof propertyValue;
+          switch (valueType) {
+              case 'function' :
+                  console.log(`${indent}> ${propertyName} (${valueType}) Calling...`);
+                  propertyValue();
+                  break;
+              case 'object' :
+                  console.log(`${indent}> ${propertyName} (${valueType})`);
+                  traverseObj(propertyValue, indent + "    ");
+                  break;
+              default :
+                  console.log(`${indent}> ${propertyName} (${valueType}) : ${propertyValue}`);
+                  break;
+          }
+      }
+  }
+
+  traverseObj(anObj);
+
+  /* Output:
+  > aFunc (function) Calling...
+  funcs message
+  > anotherFunc (function) Calling...
+  Another funcs message!
+  > keyStr (string) : A value
+  > key Str2 (number) : 3.92
+  > childObj (object)
+      > keyStr3 (string) : Another value
+      > keyStr4 (object)
+          > 0 (string) : Yo
+          > 1 (string) : Ho
+          > 2 (string) : Ho
+  */
+  ```
+
+### WARNING: Avoid adding, modifying or deleting properties other than the current
+- This is due to the order of visiting being arbitrary (see link for details)
 
 
 ---
