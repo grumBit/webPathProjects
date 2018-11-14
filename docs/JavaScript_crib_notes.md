@@ -9,6 +9,9 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 <!-- code_chunk_output -->
 
+* [Arrays (sub-doc)](#arrays-sub-doc)
+* [Objects (sub-doc)](#objects-sub-doc)
+* [Interfacing with the DOM (sub-doc)](#interfacing-with-the-dom-sub-doc)
 * [Variable Declarations](#variable-declarations)
 	* [`let`, `const`, `var`(deprecated)](#let-const-vardeprecatedhttpsdevelopermozillaorgen-usdocswebjavascriptreferencedeclarations)
 	* [Variable scope](#variable-scope)
@@ -38,9 +41,6 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 			* [`One parameter`](#one-parameter)
 			* [`Two or more parameters`](#two-or-more-parameters)
 			* [`Single-line blocks`](#single-line-blocks)
-* [Arrays (sub-doc)](#arrays-sub-doc)
-* [Objects (sub-doc)](#objects-sub-doc)
-* [Interfacing with the DOM (sub-doc)](#interfacing-with-the-dom-sub-doc)
 * [Grum code snipets](#grum-code-snipets)
 	* [`documentDirURL()` - Returns URL of directory containing the document](#documentdirurl-returns-url-of-directory-containing-the-document)
 
@@ -49,6 +49,18 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 
 ---
+
+# Arrays (sub-doc)
+
+- See [here](JavaScript_crib_notes-Arrays.md)
+
+# Objects (sub-doc)
+
+- See [here](JavaScript_crib_notes-Objects.md)
+
+# Interfacing with the DOM (sub-doc)
+
+- See [here](JavaScript_crib_notes-DOM.md)
 
 # Variable Declarations
 
@@ -324,24 +336,6 @@ Contains summary langauge and interface info, with `code` examples and [links](h
     ```javascript
     const isCircleBig = radius => 2*radius* 3.14 > 1000 ? true : false ;
     ```
-
----
-
-# Arrays (sub-doc)
-
-- See [here](JavaScript_crib_notes-Arrays.md)
-
----
-
-# Objects (sub-doc)
-
-- See [here](JavaScript_crib_notes-Objects.md)
-  
----
-
-# Interfacing with the DOM (sub-doc)
-
-- See [here](JavaScript_crib_notes-DOM.md)
 
 ---
 
