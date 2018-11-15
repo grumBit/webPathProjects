@@ -10,46 +10,47 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 
 <!-- code_chunk_output -->
 
-* [Objects](#objects)
-	* [Notes](#notes)
-		* [Support a mix of properties (including nested objects) and methods.](#support-a-mix-of-properties-including-nested-objects-and-methods)
-		* [`const` restricts object re-assignment, but not contents assignment.](#const-restricts-object-re-assignment-but-not-contents-assignment)
-		* [Are pass-by-reference into functions, where their properties are mutable.](#are-pass-by-reference-into-functions-where-their-properties-are-mutable)
-		* [`this` references the _calling object_](#this-references-the-_calling-object_)
-			* [WARNING: Arrow functions bind `this` to the function itself (i.e. global scope)](#warning-arrow-functions-bind-this-to-the-function-itself-ie-global-scope)
-	* [Properties](#properties)
-		* [Declared as key-value pairs](#declared-as-key-value-pairs)
-			* [Empty object - `let emptyObj = {};`](#empty-object-let-emptyobj)
-			* [Non-empty - `let anObj = { 'keyStr' : 'A value', 'keyStr2' : 3.92 }`](#non-empty-let-anobj-keystr-a-value-keystr2-392)
-		* [Access notation](#access-notation)
-			* [Dot notation `objName.keyName`](#dot-notation-objnamekeyname)
-			* [Bracket notation - `objName['keyName']`](#bracket-notation-objnamekeyname)
-				* [With variables - `objName[varName]`](#with-variables-objnamevarname)
-			* [ES6 Destructed Assignment - `[let|const] {keyName} = obj`](#es6-destructed-assignment-letconst-keyname-obj)
-		* [Assignment - `objName[keyName] = 'New value'`](#assignment-objnamekeyname-new-value)
-		* [Deletion - `delete objName[keyName]`](#deletion-delete-objnamekeyname)
-	* [Methods](#methods)
-		* [Declaration](#declaration)
-			* [Preferred ES6 - `let anObj = { funcName () {}, funcName2 () {} }`](#preferred-es6-let-anobj-funcname-funcname2)
-			* [Old - `let anObj = { funcName: function () {}, funcName2: function () {} }`](#old-let-anobj-funcname-function-funcname2-function)
-		* [Invocation - `objName.funcName(args)`](#invocation-objnamefuncnameargs)
-	* [Object nesting & chaining](#object-nesting-chaining)
-	* [Iterator - `for...in`   aka `for (let property_name in obj) {...}`](#iterator-forinhttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementsforin-aka-for-let-property_name-in-obj)
-		* [WARNING: property_name is a `String`, not a reference](#warning-property_name-is-a-string-not-a-reference)
-			* [`typeof` can be used to determine a property value's type](#typeof-can-be-used-to-determine-a-property-values-type)
-		* [WARNING: Avoid adding, modifying or deleting properties other than the current](#warning-avoid-adding-modifying-or-deleting-properties-other-than-the-current)
-	* [Getters and setters](#getters-and-setters)
-		* [Property privacy - By convention prepend name with `_`](#property-privacy-by-convention-prepend-name-with-_)
-		* [**WARNING**: properties cannot share the same name as getters/setters](#warning-properties-cannot-share-the-same-name-as-getterssetters)
-		* [`get funcName() {}` - Getters](#get-funcname-getters)
-		* [`set funcName(args) {}` - Setters](#set-funcnameargs-setters)
-			* [Grum shortcut discovered](#grum-shortcut-discovered)
-	* [Factory Functions](#factory-functions)
-		* [Old long-hand](#old-long-hand)
-		* [New ES6 Destructuring - Property Value Shorthand](#new-es6-destructuring-property-value-shorthand)
-	* [Built-in Object Methods](#built-in-object-methods)
-	* [Built-in Methods of the Object constructor](#built-in-methods-of-the-object-constructor)
-	* [Grums Object traverser](#grums-object-traverser)
+- [Objects](#objects)
+  - [Notes](#notes)
+    - [Support a mix of properties (including nested objects) and methods.](#support-a-mix-of-properties-including-nested-objects-and-methods)
+    - [`const` restricts object re-assignment, but not contents assignment.](#const-restricts-object-re-assignment-but-not-contents-assignment)
+    - [Are pass-by-reference into functions, where their properties are mutable.](#are-pass-by-reference-into-functions-where-their-properties-are-mutable)
+    - [`this` references the _calling object_](#this-references-the-calling-object)
+      - [WARNING: Arrow functions bind `this` to the function itself (i.e. global scope)](#warning-arrow-functions-bind-this-to-the-function-itself-ie-global-scope)
+  - [Properties](#properties)
+    - [Declared as key-value pairs](#declared-as-key-value-pairs)
+      - [Empty object - `let emptyObj = {};`](#empty-object---let-emptyobj)
+      - [Non-empty - `let anObj = { 'keyStr' : 'A value', 'keyStr2' : 3.92 }`](#non-empty---let-anobj---keystr--a-value-keystr2--392)
+      - [ES6 Non-empty from vars shortcut - `let anObj = { var1, var2, var3 }`](#es6-non-empty-from-vars-shortcut---let-anobj---var1-var2-var3)
+    - [Access notation](#access-notation)
+      - [Dot notation `objName.keyName`](#dot-notation-objnamekeyname)
+      - [Bracket notation - `objName['keyName']`](#bracket-notation---objnamekeyname)
+        - [With variables - `objName[varName]`](#with-variables---objnamevarname)
+      - [ES6 Destructed Assignment - `[let|const] {keyName} = obj`](#es6-destructed-assignment---letconst-keyname--obj)
+    - [Assignment - `objName[keyName] = 'New value'`](#assignment---objnamekeyname--new-value)
+    - [Deletion - `delete objName[keyName]`](#deletion---delete-objnamekeyname)
+  - [Methods](#methods)
+    - [Declaration](#declaration)
+      - [Preferred ES6 - `let anObj = { funcName () {}, funcName2 () {} }`](#preferred-es6---let-anobj---funcname---funcname2)
+      - [Old - `let anObj = { funcName: function () {}, funcName2: function () {} }`](#old---let-anobj---funcname-function---funcname2-function)
+    - [Invocation - `objName.funcName(args)`](#invocation---objnamefuncnameargs)
+  - [Object nesting & chaining](#object-nesting--chaining)
+  - [Iterator - `for...in` aka `for (let property_name in obj) {...}`](#iterator---forin-aka-for-let-propertyname-in-obj)
+    - [WARNING: property_name is a `String`, not a reference](#warning-propertyname-is-a-string-not-a-reference)
+      - [`typeof` can be used to determine a property value's type](#typeof-can-be-used-to-determine-a-property-values-type)
+    - [WARNING: Avoid adding, modifying or deleting properties other than the current](#warning-avoid-adding-modifying-or-deleting-properties-other-than-the-current)
+  - [Getters and setters](#getters-and-setters)
+    - [Property privacy - By convention prepend name with `_`](#property-privacy---by-convention-prepend-name-with)
+    - [**WARNING**: properties cannot share the same name as getters/setters](#warning-properties-cannot-share-the-same-name-as-getterssetters)
+    - [`get funcName() {}` - Getters](#get-funcname----getters)
+    - [`set funcName(args) {}` - Setters](#set-funcnameargs----setters)
+      - [ES6 Object Initialiser shortcut for setters](#es6-object-initialiser-shortcut-for-setters)
+  - [Factory Functions](#factory-functions)
+    - [Old long-hand](#old-long-hand)
+    - [New ES6 Destructuring - Property Value Shorthand](#new-es6-destructuring---property-value-shorthand)
+  - [Built-in Object Methods](#built-in-object-methods)
+  - [Built-in Methods of the Object constructor](#built-in-methods-of-the-object-constructor)
+  - [Grums Object traverser](#grums-object-traverser)
 
 <!-- /code_chunk_output -->
 
@@ -143,6 +144,29 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 
 - Note the properties are comma separated (as are methods).
 
+#### ES6 Non-empty from vars shortcut - `let anObj = { var1, var2, var3 }`
+
+- See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Property_definitions) for details
+- The variable names become the key names, and the variable contents become the values;
+  - NB: Not compatible with Internet Explorer, which stopped being supported in 2016.
+
+  ```js
+  const var1 = 'A value';
+  const var2 = 'A 2nd value';
+  const var3 = 'A 3rd value';
+
+  const anObj = { var1, var2, var3 };
+
+  for (propertyName in anObj){
+    console.log(`${propertyName} : ${anObj[propertyName]}`);
+  }
+  /* Output:
+  var1 : A value
+  var2 : A 2nd value
+  var3 : A 3rd value
+  */
+  ```
+
 ### Access notation
 
 #### Dot notation `objName.keyName`
@@ -211,6 +235,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   ```
 
 ## Methods
+- A method is property with a function as its value. 
 
 ### Declaration
 
@@ -359,13 +384,15 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   console.log(robot.numOfSensors); //output: 100
   ```
 
-#### Grum shortcut discovered
-- Not sure where this comes from (?ES6), but I found this on functions that seems to work out the property names from the function parameter names;
+#### ES6 Object Initialiser shortcut for setters
+
+- Can use the [ES6 Object Initialiser shortcut](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) with setters to simplify the code;
+  - NB: Not copmatible with Internet Explorer, which stopped being supported in 2016.
 ```js
 const team = {
 
   _players : [
-    {firstName:'Pablo', lastName:'Sanchez', age: 11},
+    {firstName:'Pablo', lastName:'Sanchez', age: 11},  // hardcoded just to compare to shortcut additions
     {firstName:'Ro', lastName:'Coster', age: 12},
     {firstName:'Finn', lastName:'Coster', age: 11}
   ],
