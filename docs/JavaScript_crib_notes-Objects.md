@@ -25,6 +25,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
       - [Dot notation `objName.keyName`](#dot-notation-objnamekeyname)
       - [Bracket notation - `objName['keyName']`](#bracket-notation---objnamekeyname)
         - [With variables - `objName[varName]`](#with-variables---objnamevarname)
+      - [ES6 Destructed Assignment - `[let|const] {keyName} = obj`](#es6-destructed-assignment---letconst-keyname--obj)
     - [Assignment - `objName[keyName] = 'New value'`](#assignment---objnamekeyname--new-value)
     - [Deletion - `delete objName[keyName]`](#deletion---delete-objnamekeyname)
   - [Methods](#methods)
@@ -42,6 +43,11 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
     - [**WARNING**: properties cannot share the same name as getters/setters](#warning-properties-cannot-share-the-same-name-as-getterssetters)
     - [`get funcName() {}` - Getters](#get-funcname----getters)
     - [`set funcName(args) {}` - Setters](#set-funcnameargs----setters)
+  - [Factory Functions](#factory-functions)
+    - [Old long-hand](#old-long-hand)
+    - [New ES6 Destructuring - Property Value Shorthand](#new-es6-destructuring---property-value-shorthand)
+  - [Built-in Object Methods](#built-in-object-methods)
+  - [Built-in Methods of the Object constructor](#built-in-methods-of-the-object-constructor)
 
 <!-- /code_chunk_output -->
 
@@ -166,6 +172,19 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   console.log(returnAnyProp(anObj, 'key Str2')); // Works - Output: 3.92
   ```
 
+#### ES6 Destructed Assignment - `[let|const] {keyName} = obj`
+- Shorthand for extracting properties (of any type) into local variables
+- E.g.
+  ```js
+  let anObj = { 'keyStr' : 'A value', 'key Str2' : 3.92 };
+
+  const {keyStr} = anObj;
+
+  console.log(keyStr);  // output: A Value
+  ```
+
+
+
 ### Assignment - `objName[keyName] = 'New value'`
 
 - If property exists, the value is updated. Otherwise, new property is added. E.g.;
@@ -252,6 +271,8 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   console.log(parentObj.childObj1['morePeepObjs'][0].name); //Access new property, mixed notation. Output: Fred
   ``` 
 
+<a id="__for_in"></a>
+
 ## Iterator - [`for...in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)   aka `for (let property_name in obj) {...}`
 
 ### WARNING: property_name is a `String`, not a reference
@@ -337,7 +358,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   ```
 
 ### WARNING: Avoid adding, modifying or deleting properties other than the current
-- This is due to the order of visiting being arbitrary (see link for details)
+- This is due to the order of visiting being arbitrary (see [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in#Deleted_added_or_modified_properties) for details)
 
 ## Getters and setters
 
@@ -394,3 +415,52 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   ```
 
 ---
+
+## Factory Functions
+
+- Allow objects to be created en-masse (like constructors)
+
+### Old long-hand
+- E.g.
+  ```js
+  const robotFactory = (model, mobile) => {
+    return {
+      model: model,
+      mobile: mobile,
+      beep() {
+        console.log('Beep Boop');
+      }
+    }
+  }
+
+  const tinCan = robotFactory('P-500', true);
+
+  tinCan.beep();
+  ```
+
+### New ES6 Destructuring - Property Value Shorthand
+- Reduces the need to specify arg and property names.
+- The example factory function below is equivalent to the long-hand above;
+  ```js
+  function robotFactory(model, mobile){
+    return {
+      model,
+      mobile,
+      beep() {
+        console.log('Beep Boop');
+      }
+    }
+  }
+
+  const newRobot = robotFactory('P-501', false)
+  console.log(newRobot.model) // output: P-501
+  console.log(newRobot.mobile) //output: false
+  ```
+
+## Built-in Object Methods
+
+- See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods)
+
+## Built-in Methods of the Object constructor
+
+- See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods_of_the_Object_constructor)
