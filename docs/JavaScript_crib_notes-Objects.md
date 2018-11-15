@@ -43,11 +43,13 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
     - [**WARNING**: properties cannot share the same name as getters/setters](#warning-properties-cannot-share-the-same-name-as-getterssetters)
     - [`get funcName() {}` - Getters](#get-funcname----getters)
     - [`set funcName(args) {}` - Setters](#set-funcnameargs----setters)
+      - [Grum shortcut discovered](#grum-shortcut-discovered)
   - [Factory Functions](#factory-functions)
     - [Old long-hand](#old-long-hand)
     - [New ES6 Destructuring - Property Value Shorthand](#new-es6-destructuring---property-value-shorthand)
   - [Built-in Object Methods](#built-in-object-methods)
   - [Built-in Methods of the Object constructor](#built-in-methods-of-the-object-constructor)
+  - [Grums Object traverser](#grums-object-traverser)
 
 <!-- /code_chunk_output -->
 
@@ -297,65 +299,8 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   ```
   
 #### `typeof` can be used to determine a property value's type
-- E.g.;
-  
-  ```js
-  let anObj = {
-      aFunc () {  // A method
-        console.log("funcs message!"); 
-      },
-      anotherFunc () { // Another method
-        console.log("Another funcs message!"); 
-      },
-      'keyStr' : 'A value', // A property
-      'key Str2' : 3.92,  // Another property
 
-      childObj: { 'keyStr3' : 'Another value', 'keyStr4' : [ 'Yo', 'Ho', 'Ho'] } // A nested object
-
-    }
-
-  const traverseObj = (obj, indent) => {
-
-      if ( typeof obj != 'object') return;
-      if ( indent === undefined ) indent = '';
-
-      for (propertyName in obj) {
-          let propertyValue = obj[propertyName];
-
-          let valueType = typeof propertyValue;
-          switch (valueType) {
-              case 'function' :
-                  console.log(`${indent}> ${propertyName} (${valueType}) Calling...`);
-                  propertyValue();
-                  break;
-              case 'object' :
-                  console.log(`${indent}> ${propertyName} (${valueType})`);
-                  traverseObj(propertyValue, indent + "    ");
-                  break;
-              default :
-                  console.log(`${indent}> ${propertyName} (${valueType}) : ${propertyValue}`);
-                  break;
-          }
-      }
-  }
-
-  traverseObj(anObj);
-
-  /* Output:
-  > aFunc (function) Calling...
-  funcs message
-  > anotherFunc (function) Calling...
-  Another funcs message!
-  > keyStr (string) : A value
-  > key Str2 (number) : 3.92
-  > childObj (object)
-      > keyStr3 (string) : Another value
-      > keyStr4 (object)
-          > 0 (string) : Yo
-          > 1 (string) : Ho
-          > 2 (string) : Ho
-  */
-  ```
+- See [below](#__object_traverser) for example
 
 ### WARNING: Avoid adding, modifying or deleting properties other than the current
 - This is due to the order of visiting being arbitrary (see [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in#Deleted_added_or_modified_properties) for details)
@@ -414,6 +359,29 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   console.log(robot.numOfSensors); //output: 100
   ```
 
+#### Grum shortcut discovered
+- Not sure where this comes from (?ES6), but I found this on functions that seems to work out the property names from the function parameter names;
+```js
+const team = {
+
+  _players : [
+    {firstName:'Pablo', lastName:'Sanchez', age: 11},
+    {firstName:'Ro', lastName:'Coster', age: 12},
+    {firstName:'Finn', lastName:'Coster', age: 11}
+  ],
+  get players(){ return this._players },
+  addPlayer(firstName, lastName, age){
+    this.players.push({firstName, lastName, age}); // <- note lack of ':' and property names 
+  },
+
+};
+
+team.addPlayer('Mick','Maloy',52);  //<- looking in debugger, these adds all wound up with correct key:value pairs
+team.addPlayer('Steph', 'Curry', 28);
+team.addPlayer('Lisa', 'Leslie', 44);
+team.addPlayer('Bugs', 'Bunny', 76);
+```
+
 ---
 
 ## Factory Functions
@@ -464,3 +432,65 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 ## Built-in Methods of the Object constructor
 
 - See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods_of_the_Object_constructor)
+
+<a -id="__object_traverser"></a>
+## Grums Object traverser
+- A useful bit of code I came up with for displaying the contents of any object;
+  
+  ```js
+  let anObj = {
+      aFunc () {  // A method
+        console.log("funcs message!"); 
+      },
+      anotherFunc () { // Another method
+        console.log("Another funcs message!"); 
+      },
+      'keyStr' : 'A value', // A property
+      'key Str2' : 3.92,  // Another property
+
+      childObj: { 'keyStr3' : 'Another value', 'keyStr4' : [ 'Yo', 'Ho', 'Ho'] } // A nested object
+
+    }
+
+  const traverseObj = (obj, indent) => {
+
+      if ( typeof obj != 'object') return;
+      if ( indent === undefined ) indent = '';
+
+      for (propertyName in obj) {
+          let propertyValue = obj[propertyName];
+
+          let valueType = typeof propertyValue;
+          switch (valueType) {
+              case 'function' :
+                  console.log(`${indent}> ${propertyName} (${valueType})`);
+  //                  propertyValue();  // <- could call function like this, but it's not safe without args to provide
+                  break;
+              case 'object' :
+                  console.log(`${indent}> ${propertyName} (${valueType})`);
+                  traverseObj(propertyValue, indent + "    ");
+                  break;
+              default :
+                  console.log(`${indent}> ${propertyName} (${valueType}) : ${propertyValue}`);
+                  break;
+          }
+      }
+  }
+
+  traverseObj(anObj);
+
+  /* Output:
+  > aFunc (function) Calling...
+  funcs message
+  > anotherFunc (function) Calling...
+  Another funcs message!
+  > keyStr (string) : A value
+  > key Str2 (number) : 3.92
+  > childObj (object)
+      > keyStr3 (string) : Another value
+      > keyStr4 (object)
+          > 0 (string) : Yo
+          > 1 (string) : Ho
+          > 2 (string) : Ho
+  */
+  ```
