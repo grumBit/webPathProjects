@@ -7,42 +7,43 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
+
 <!-- code_chunk_output -->
 
-* [Arrays (sub-doc)](#arrays-sub-doc)
-* [Objects (sub-doc)](#objects-sub-doc)
-* [Interfacing with the DOM (sub-doc)](#interfacing-with-the-dom-sub-doc)
-* [Variable Declarations](#variable-declarations)
-	* [`let`, `const`, `var`(deprecated)](#let-const-vardeprecatedhttpsdevelopermozillaorgen-usdocswebjavascriptreferencedeclarations)
-	* [Variable scope](#variable-scope)
-	* [`${varName}` Variable interpolation](#varnamehttpsdevelopermozillaorgen-usdocswebjavascriptreferenceglobal_objectsstringtemplate_literals-variable-interpolation)
-* [Operators](#operatorshttpsdevelopermozillaorgen-usdocswebjavascriptreferenceexpressions_and_operators)
-	* [Common operator list](#common-operator-list)
-		* [Link to operator precedence table](#link-to-operator-precedence-tablehttpsdevelopermozillaorgen-usdocswebjavascriptreferenceoperatorsoperator_precedencetable)
-* [Control Flow](#control-flowhtpsdevelopermozillaorgen-usdocswebjavascriptreferencecontrol_flow)
-	* [if...else if...else](#ifelse-ifelsehttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementsifelse)
-	* [ternary](#ternaryhttpsdevelopermozillaorgen-usdocswebjavascriptreferenceoperatorsconditional_operator)
-	* [switch](#switchhttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementsswitch)
-	* [throw and try...catch...finally](#throwhttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementsthrow-and-trycatchfinallyhttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementstrycatch)
-	* [break and continue](#breakhttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementsbreak-and-continuehttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementscontinue)
-* [Iterations](#iterationshttpsdevelopermozillaorgen-usdocswebjavascriptreferenceiterations)
-	* [do...while](#dowhilehttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementsdowhile)
-	* [for](#forhttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementsfor)
-	* [for...in](#forinhttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementsforin)
-	* [for...of](#forofhttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementsforof)
-	* [while](#whilehttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementswhile)
-* [Functions](#functionshttpsdevelopermozillaorgen-usdocswebjavascriptreferenceglobal_objectsfunction)
-	* [Function declarations](#function-declarationshttpsdevelopermozillaorgen-usdocswebjavascriptreferencefunctions_and_classes)
-		* [(Standard) Function declarations](#standard-function-declarationshttpsdevelopermozillaorgen-usdocswebjavascriptreferencestatementsfunction)
-		* [Function Expression declarations (a.k.a. anomymous functions)](#function-expression-declarationshttpsdevelopermozillaorgen-usdocswebjavascriptreferenceoperatorsfunction-aka-anomymous-functions)
-		* [Arrow function declarations (syntax sugar for function expressions)](#arrow-function-declarationshttpsdevelopermozillaorgen-usdocswebjavascriptreferencefunctionsarrow_functions-syntax-sugar-for-function-expressions)
-		* [Concise body declarations (syntax sugar++)](#concise-body-declarations-syntax-sugar)
-			* [`Zero parameters`](#zero-parameters)
-			* [`One parameter`](#one-parameter)
-			* [`Two or more parameters`](#two-or-more-parameters)
-			* [`Single-line blocks`](#single-line-blocks)
-* [Grum code snipets](#grum-code-snipets)
-	* [`documentDirURL()` - Returns URL of directory containing the document](#documentdirurl-returns-url-of-directory-containing-the-document)
+- [Arrays (sub-doc)](#arrays-sub-doc)
+- [Objects (sub-doc)](#objects-sub-doc)
+- [Interfacing with the DOM (sub-doc)](#interfacing-with-the-dom-sub-doc)
+- [Variable Declarations](#variable-declarations)
+  - [`let`, `const`, `var`(deprecated)](#let-const-vardeprecated)
+  - [Variable scope](#variable-scope)
+  - [Variable interpolation - `${varName}`](#variable-interpolation---varname)
+- [Operators](#operators)
+  - [Common operator list](#common-operator-list)
+  - [Precedence](#precedence)
+- [Control Flow](#control-flow)
+  - [if - `if (cond) {...} else if (cond) {...} else`](#if---if-cond--else-if-cond--else)
+  - [ternary - `cond ? statement : statement`](#ternary---cond--statement--statement)
+  - [switch - `switch (expr) { case val : ... break; default : ...}`](#switch---switch-expr--case-val---break-default)
+  - [exceptions - `throw expr;` `try {...} catch {...} finally {...}`](#exceptions---throw-expr-try--catch--finally)
+  - [break and continue](#break-and-continue)
+- [Iterations](#iterations)
+  - [do...while - `do {...} while (cond)`](#dowhile---do--while-cond)
+  - [for - `for (let i = ... ; cond ; incr) {...}`](#for---for-let-i----cond--incr)
+  - [for...in - `for (let prop in obj) {...}`](#forin---for-let-prop-in-obj)
+  - [for...of - `for ( let val of iterable ) {...}`](#forof---for--let-val-of-iterable)
+  - [while - `while (cond) {...}`](#while---while-cond)
+- [Functions](#functions)
+  - [Function declarations](#function-declarations)
+    - [Standard - `function funcName(params){...}`](#standard---function-funcnameparams)
+    - [Function Expression (anomymous) - `const funcName = function(params){...}`](#function-expression-anomymous---const-funcname--functionparams)
+    - [Arrow - `const funcName = (params) => {...}`](#arrow---const-funcname--params)
+    - [Concise body declarations](#concise-body-declarations)
+      - [Zero parameters - `const funcName = () => {...}`](#zero-parameters---const-funcname)
+      - [One parameter - `const funcName = parm1 => {...}`](#one-parameter---const-funcname--parm1)
+      - [Two or more parameters - `const funcName = (parm1, param2) => {...}`](#two-or-more-parameters---const-funcname--parm1-param2)
+      - [Single-line blocks - `const funcName = param1 => statement;`](#single-line-blocks---const-funcname--param1--statement)
+- [Grum code snipets](#grum-code-snipets)
+  - [`documentDirURL()` - Returns URL of directory containing the document](#documentdirurl---returns-url-of-directory-containing-the-document)
 
 <!-- /code_chunk_output -->
 
@@ -101,7 +102,7 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
     parentBlock();
     ```
-## [`${varName}`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Template_literals) Variable interpolation
+## [Variable interpolation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Template_literals) - `${varName}`
 
 - Use back-quotes for variable interpolation. Eg.
   ```js
@@ -137,13 +138,14 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 | `,`                                        | [*expr1 , expr2, ...*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Comma_operator) evaluates each of its operands (from left to right) and returns the value of the last operand.
 | `/ab+c/i`                                  | [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
 
-### [Link to operator precedence table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table)
+## Precedence
+- See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table).
 
 ---
 
 # [Control Flow](ht|ps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Control_flow)
 
-## [if...else if...else](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+## [if](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) - `if (cond) {...} else if (cond) {...} else`
 
   ```javascript
   if (cond) {                  // if then else
@@ -155,13 +157,13 @@ Contains summary langauge and interface info, with `code` examples and [links](h
   }
   ```
 
-## [ternary](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+## [ternary](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) - `cond ? statement : statement`
 
   ```javascript
   cond ? statement : statement // ternary conditional
   ```
 
-## [switch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+## [switch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) - `switch (expr) { case val : ... break; default : ...}`
 
   ```javascript
   switch (expression) {         // switch
@@ -174,7 +176,7 @@ Contains summary langauge and interface info, with `code` examples and [links](h
   }
   ```
 
-## [throw](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) and [try...catch...finally](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
+## exceptions - [`throw expr;`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)  [`try {...} catch {...} finally {...}`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
 
   ```javascript
   function getRectArea(width, height) {
@@ -200,7 +202,7 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 # [Iterations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Iterations)
 
-## [do...while](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)
+## [do...while](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while) - `do {...} while (cond)`
 
   ```javascript
   do {
@@ -208,23 +210,25 @@ Contains summary langauge and interface info, with `code` examples and [links](h
   } while (condition)
   ```
 
-## [for](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+## [for](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) - `for (let i = ... ; cond ; incr) {...}`
 
   ```javascript
-  for (var i = 0; i < 9; i++) {
+  for (let i = 0; i < 9; i++) {
     str = str + i;
   }
   ```
 
-## [for...in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+## [for...in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) - `for (let prop in obj) {...}`
+
+- See [my Objects notes on `for...in`](JavaScript_crib_notes-Objects.md#__for_in)
 
   ```javascript
-  for (variable in object) { //iterates over all non-Symbol, enumerable properties of an object.
+  for (propertyName in object) { //iterates over all non-Symbol, enumerable properties of an object.
     ...
   } 
   ```
 
-## [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+## [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) - `for ( let val of iterable ) {...}`
   ```javascript
   let iterable = [10, 20, 30];
   for (let value of iterable) {
@@ -233,7 +237,7 @@ Contains summary langauge and interface info, with `code` examples and [links](h
   } // 11, 21, 31
   ```
 
-## [while](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
+## [while](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while) - `while (cond) {...}`
   ```javascript
   while (condition) {
     ...
@@ -280,10 +284,10 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 - 
 ## [Function declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Functions_and_classes)
 
-### [(Standard) Function declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+### [Standard](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) - `function funcName(params){...}`
 
-  ```javascript
-  function func_name(parm1 = <default_value> ,
+  ```js
+  function funcName(parm1 = <default_value> ,
                      param2) {
     ...
     return <value> ;          // NB: if no return, returns "undefined"
@@ -293,44 +297,44 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 - NB: "Hoisting" (declaring after invoation) is supported, but not recommended
 - NB: When functions are called, parameters that are not passed in, and have no default, will be "undefined", rather than cause an error. 
 
-### [Function Expression declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function) (a.k.a. anomymous functions)
-  ```javascript
-  const func_name = function (parm1 , param2) {
+### [Function Expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function) (anomymous) - `const funcName = function(params){...}`
+  ```js
+  const funcName = function (parm1 , param2) {
     ...
    return <value> ;
   }
 
- console.log(func_name( 1, 2)); // Grum says WTF? Function effectively has a name, so how is it anomymous???
+ console.log(funcName( 1, 2)); // Grum says WTF? Function effectively has a name, so how is it anomymous???
   ```
 
 - WARNING: "Hoisting" (declaring after invoation) is NOT supported
 
-### [Arrow function declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) (syntax sugar for function expressions)
-  ```javascript
-  const func_name = (parm1 , param2) => {...}
+### [Arrow](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) - `const funcName = (params) => {...}`
+  ```js
+  const funcName = (parm1 , param2) => {...}
   ```
 
-### Concise body declarations (syntax sugar++)
+### Concise body declarations
 
-#### `Zero parameters`
+#### Zero parameters - `const funcName = () => {...}`
   ```javascript
-  const func_name = () => {...};
+  const funcName = () => {...};
   ```
 
-#### `One parameter`
+#### One parameter - `const funcName = parm1 => {...}`
   ```javascript
-  const func_name = parm1 => {...};
+  const funcName = parm1 => {...};
   ```
 
-#### `Two or more parameters`
+#### Two or more parameters - `const funcName = (parm1, param2) => {...}`
   ```javascript
-  const func_name = (parm1, param2) => {...};
+  const funcName = (parm1, param2) => {...};
   ```
 
-#### `Single-line blocks`
+#### Single-line blocks - `const funcName = param1 => statement;`
   - Note lack of {}.  Automatically returns what statement evalutes to.
   ```javascript
-  const func_name = param1 => statement;
+  const funcName = param1 => statement;
   ```
   - NB: Ternary conditional counts as single statement. E.g.;
     ```javascript
