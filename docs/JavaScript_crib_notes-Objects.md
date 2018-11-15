@@ -1,5 +1,5 @@
-Grum's JavaScript Crib Notes - Objects
-======================================
+Grum's JavaScript Crib Notes - Objects & Classes
+================================================
 
 Contains summary langauge and interface info, with `code` examples and [links](https://developer.mozilla.org/en-US/docs/Web/JavaScript) to Mozilla documentation.
 Back to [JavaScript language](JavaScript_crib_notes.md) main doc
@@ -21,7 +21,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
     - [Declared as key-value pairs](#declared-as-key-value-pairs)
       - [Empty object - `let emptyObj = {};`](#empty-object---let-emptyobj)
       - [Non-empty - `let anObj = { 'keyStr' : 'A value', 'keyStr2' : 3.92 }`](#non-empty---let-anobj---keystr--a-value-keystr2--392)
-      - [ES6 Non-empty from vars shortcut - `let anObj = { var1, var2, var3 }`](#es6-non-empty-from-vars-shortcut---let-anobj---var1-var2-var3)
+      - [ES6 vars shortcut - `let anObj = { var1, var2, var3 }`](#es6-vars-shortcut---let-anobj---var1-var2-var3)
     - [Access notation](#access-notation)
       - [Dot notation `objName.keyName`](#dot-notation-objnamekeyname)
       - [Bracket notation - `objName['keyName']`](#bracket-notation---objnamekeyname)
@@ -31,8 +31,8 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
     - [Deletion - `delete objName[keyName]`](#deletion---delete-objnamekeyname)
   - [Methods](#methods)
     - [Declaration](#declaration)
-      - [Preferred ES6 - `let anObj = { funcName () {}, funcName2 () {} }`](#preferred-es6---let-anobj---funcname---funcname2)
-      - [Old - `let anObj = { funcName: function () {}, funcName2: function () {} }`](#old---let-anobj---funcname-function---funcname2-function)
+      - [Preferred ES6 - `funcName(){...},`](#preferred-es6---funcname)
+      - [Old - `funcName: function(){...},`](#old---funcname-function)
     - [Invocation - `objName.funcName(args)`](#invocation---objnamefuncnameargs)
   - [Object nesting & chaining](#object-nesting--chaining)
   - [Iterator - `for...in` aka `for (let property_name in obj) {...}`](#iterator---forin-aka-for-let-propertyname-in-obj)
@@ -51,6 +51,23 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   - [Built-in Object Methods](#built-in-object-methods)
   - [Built-in Methods of the Object constructor](#built-in-methods-of-the-object-constructor)
   - [Grums Object traverser](#grums-object-traverser)
+- [Classes](#classes)
+  - [`class CaptialisedCamelCase {}` - naming convention](#class-captialisedcamelcase----naming-convention)
+  - [`this` - refers to instance of class](#this---refers-to-instance-of-class)
+  - [`constructor(args) {}` - always called on creation](#constructorargs----always-called-on-creation)
+  - [Methods](#methods-1)
+    - [`funcName(){...}` - standard declaration](#funcname---standard-declaration)
+    - [Getters and Setters](#getters-and-setters)
+      - [`get funcName(){...}`](#get-funcname)
+      - [`set funcName(args){...}`](#set-funcnameargs)
+    - [`instance.funcName(args)` - invocation](#instancefuncnameargs---invocation)
+    - [Basic full example](#basic-full-example)
+    - [`static funcName(args){}` - Class methods](#static-funcnameargs---class-methods)
+  - [Inheritance](#inheritance)
+    - [`class ChildClass extends ParentClass {}`](#class-childclass-extends-parentclass)
+    - [`super(args)` - calls parent constructor](#superargs---calls-parent-constructor)
+      - [`super` - must be called before `this` can be used](#super---must-be-called-before-this-can-be-used)
+    - [Basic example](#basic-example)
 
 <!-- /code_chunk_output -->
 
@@ -144,7 +161,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 
 - Note the properties are comma separated (as are methods).
 
-#### ES6 Non-empty from vars shortcut - `let anObj = { var1, var2, var3 }`
+#### ES6 vars shortcut - `let anObj = { var1, var2, var3 }`
 
 - See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Property_definitions) for details
 - The variable names become the key names, and the variable contents become the values;
@@ -239,7 +256,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 
 ### Declaration
 
-#### Preferred ES6 - `let anObj = { funcName () {}, funcName2 () {} }`
+#### Preferred ES6 - `funcName(){...},`
 
 - IMPORTANT method declarations are comma separated (as are properties).
 
@@ -260,7 +277,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   anObj.funcMeSideways(); // Output: Ooof!
   ```
 
-#### Old - `let anObj = { funcName: function () {}, funcName2: function () {} }`
+#### Old - `funcName: function(){...},`
 - Don't use this, but be aware it may be used by older code.
 
 ### Invocation - `objName.funcName(args)`
@@ -521,3 +538,140 @@ team.addPlayer('Bugs', 'Bunny', 76);
           > 2 (string) : Ho
   */
   ```
+
+# Classes
+
+## `class CaptialisedCamelCase {}` - naming convention
+
+## `this` - refers to instance of class
+
+## `constructor(args) {}` - always called on creation
+- Can define instance properties within constructor. E.g.;
+  ```js
+  class Surgeon {
+    constructor(name, department) {
+      this._name = name;  // <- Note _ to indicate private (not enforced)
+      this._department = department;
+    }
+  }
+
+  const surgeonCurry = new Surgeon('Curry', 'Cardiovascular');
+
+  console.log(surgeonCurry); //Output: Surgeon {name: "Curry", department: "Cardiovascular"}
+  ```
+
+
+## Methods
+- Class method and getter syntax is the same as it is for objects **except you can not include commas between methods**.
+
+### `funcName(){...}` - standard declaration
+
+
+### Getters and Setters
+
+#### `get funcName(){...}`
+- As per Object getters, but no comma after.
+
+#### `set funcName(args){...}`
+- As per Object setters, but no comma after.
+
+### `instance.funcName(args)` - invocation
+- As per Object method invocation
+- Except for getters abnd setter, opening and closing parentheses must be included.
+
+### Basic full example
+  ```js
+  class Surgeon {
+    constructor(name, department) {
+      this._name = name;
+      this._department = department;
+      this._remainingVacationDays = 20;
+    }
+    
+    get name(){
+      return this._name;
+    }
+    
+    get department(){
+      return this._department;
+    }
+    
+    get remainingVacationDays(){
+      return this._remainingVacationDays;
+    }
+    
+    takeVacationDays(daysOff){
+      this._remainingVacationDays -= daysOff;
+    }
+  }
+
+  const surgeonCurry = new Surgeon('Curry', 'Cardiovascular');
+  const surgeonDurant = new Surgeon('Durant', 'Orthopedics');
+
+  console.log(surgeonCurry.name);
+  surgeonCurry.takeVacationDays(3);
+  console.log(surgeonCurry.remainingVacationDays);
+  ```
+
+### `static funcName(args){}` - Class methods
+- Call using `ClassName.funcName(args)`
+
+## Inheritance
+
+### `class ChildClass extends ParentClass {}`
+
+### `super(args)` - calls parent constructor
+
+#### `super` - must be called before `this` can be used
+- if not, JavaScript will throw a reference error.
+
+### Basic example
+```js
+class HospitalEmployee {
+  constructor(name) {
+    this._name = name;
+    this._remainingVacationDays = 20;
+  }
+  
+  get name() {
+    return this._name;
+  }
+  
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+  
+  takeVacationDays(daysOff) {
+    this._remainingVacationDays -= daysOff;
+  }
+}
+
+class Nurse extends HospitalEmployee {
+  constructor(name, certifications) {
+    super(name);
+    this._certifications = certifications;
+  } 
+  
+  get certifications() {
+    return this._certifications
+  }
+  
+  addCertification(newCertification){
+    this._certifications.push(newCertification);
+  }
+  
+}
+
+const nurseOlynyk = new Nurse('Olynyk', ['Trauma','Pediatrics']);
+nurseOlynyk.takeVacationDays(5);
+console.log(nurseOlynyk.remainingVacationDays);
+
+nurseOlynyk.addCertification('Genetics');
+console.log(nurseOlynyk.certifications);
+```
+
+
+
+
+
+
