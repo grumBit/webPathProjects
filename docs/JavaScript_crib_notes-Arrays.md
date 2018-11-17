@@ -31,6 +31,8 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
       - [Arrow `=>` ES6 (preferred style)](#arrow--es6-preferred-style)
       - [Anonymous function declaration](#anonymous-function-declaration)
       - [Separate function declaration](#separate-function-declaration)
+        - [NB: Useful when reusing existing functions](#nb-useful-when-reusing-existing-functions)
+    - [Grum explanation of call-back functions](#grum-explanation-of-call-back-functions)
   - [Common iterators with example code](#common-iterators-with-example-code)
     - [`.forEach(function)` - iterate over each element](#foreachfunction---iterate-over-each-element)
     - [`.map(function) -> new Array` - return mapped elements](#mapfunction---new-array---return-mapped-elements)
@@ -165,6 +167,68 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   function printGrocery(item) { console.log(item) };
   groceries.forEach(printGrocery);
   ```
+
+##### NB: Useful when reusing existing functions
+
+### Grum explanation of call-back functions
+- The Array iterators are all high-order functions, which expect a call-back function as a parameter (i.e. to be passed in).
+- There are 3 parts to creating a call-back function to pass into a higher-order function;
+  1. Determining the arguments the call-back will get.
+  2. Determining what is to be returned by the call-back function.
+  3. Deciding which declaration style to use.
+1. Call-back arguments.
+   - Check the iterator spec.
+     - E.g. 1; `forEach()` calls the call-back with 4 args, with the last 3 being optional.
+     - E.g. 2; `sort()` calls the call-back with 2 args.
+2. Call-back return.
+   - Again, check the iterator spec.
+     - E.g. 1; `forEach()` does not expect a return value at all.
+     - E.g. 2; `sort()` expects a number, where < 0 if arg1 is lower, 0 if arg1 & arg2 are equal, & > 0 if arg2 is lower.
+3. Declaration style
+    - Each of the 3 styles may be better, depending on the situation.
+    - The important part is they all achieve exactly the same thing; Providing the function required by the iterator.
+    - E.g. 1; Arrow `=>`
+      - Very compact
+      - Is the "preferred" style
+      ```js
+      const speciesArray = [ {speciesName:'shark', numTeeth:50}, {speciesName:'dog', numTeeth:42}, {speciesName:'alligator', numTeeth:80}, {speciesName:'human', numTeeth:32}];
+
+      const sortSpeciesByTeeth = species => {
+        return species.sort((a, b) => {return a.numTeeth - b.numTeeth}); // <- very compact!
+      }
+
+      const sortedSpecies = sortSpeciesByTeeth(speciesArray);
+      ```
+    - E.g. 2; Anonymous function
+      - Also compact
+      - Spells out a function is being defined
+      ```js
+      const speciesArray = [ {speciesName:'shark', numTeeth:50}, {speciesName:'dog', numTeeth:42}, {speciesName:'alligator', numTeeth:80}, {speciesName:'human', numTeeth:32}];
+
+      const sortSpeciesByTeeth = species => {
+        return species.sort(function(a, b) {return a.numTeeth - b.numTeeth}); // <- clear that a function has been provided
+      }
+
+      const sortedSpecies = sortSpeciesByTeeth(speciesArray);
+      ```
+    - E.g. 3; Separate declaration
+      - Least compact
+      - Naming of function makes it clear what it is doing
+      - Separate fuction can be re-used in other situations
+      - When passed-in, no args are listed, making it seem a bit odd
+      ```js
+      const speciesArray = [ {speciesName:'shark', numTeeth:50}, {speciesName:'dog', numTeeth:42}, {speciesName:'alligator', numTeeth:80}, {speciesName:'human', numTeeth:32}];
+
+      function compareSpecies(a, b) {   // <- Name makes it clear what the function is for
+        return a.numTeeth - b.numTeeth
+      }
+
+      const sortSpeciesByTeeth = species => {
+        return species.sort(compareSpecies);  // <- Again, great name!  But no args listed
+      }
+
+      const sortedSpecies = sortSpeciesByTeeth(speciesArray);
+      ```
 
 ---
 
