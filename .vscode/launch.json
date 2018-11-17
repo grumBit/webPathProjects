@@ -4,11 +4,18 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Launch javaScriptTemp/tmp.js",
       "program": "${workspaceFolder}/javaScriptTemp/tmp.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Lodash test suite",
+      "program": "${workspaceFolder}//5_Intro_to_JavaScript/3_Lodash/lodash/test/test-all.js"
     }
   ]
 }

@@ -13,6 +13,7 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 - [Arrays (sub-doc)](#arrays-sub-doc)
 - [Objects (sub-doc)](#objects-sub-doc)
 - [Interfacing with the DOM (sub-doc)](#interfacing-with-the-dom-sub-doc)
+- [Lodash module of super useful functions](#lodash-module-of-super-useful-functions)
 - [Variable Declarations](#variable-declarations)
   - [`let`, `const`, `var`(deprecated)](#let-const-vardeprecated)
   - [Variable scope](#variable-scope)
@@ -62,6 +63,10 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 # Interfacing with the DOM (sub-doc)
 
 - See [here](JavaScript_crib_notes-DOM.md)
+
+# Lodash module of super useful functions
+
+- See [here](https://lodash.com/)
 
 # Variable Declarations
 
