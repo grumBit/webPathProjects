@@ -1,9 +1,15 @@
-// Grum: Note to self, test these _ methods using "node test/test-all.js";
+// See https://lodash.com/docs for function specs
+
+// Grum notes to self;
+//   - Test these _ methods using "node test/test-all.js" or "VS Code Lodash test suite" config
+//   - Implement functions as copmactly as possile, using js built-ins & recursion where possible.  
+//   - Ignore reability & maintainability.
+
 const _ = {
   clamp(number, lower, upper){ return number < lower ? lower : number > upper ? upper : number  },
   inRange(number, start, end = 0) { return start > end ? number >= end && number < start : number >= start && number < end },
   words(string) { return string.split(' ') },
-  pad(string, length) {
+  pad(string, length) {  // Uses alternating recursion
     const padRight = (string, numPads) => numPads < 1 ? string :  padLeft(string, numPads - 1) + " ";
     const padLeft =  (string, numPads) => numPads < 1 ? string : " " + padRight(string, numPads - 1);
     return padRight(string, length - string.length) },
@@ -17,8 +23,7 @@ const _ = {
   chunk(array, size, newArray = []){
     if( array.length < 1) return newArray ;
     newArray.push(array.splice(0, size));
-    return this.chunk(array, size, newArray) }
+    return this.chunk(array, size, newArray) // recurse }
 };
 
-// Do not write or modify code below this line.
 module.exports = _;
