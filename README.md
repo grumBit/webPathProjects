@@ -62,7 +62,7 @@ Contains crib notes and projects I created while doing [Codecademy Wweb Path](ht
 
 1. [Team Stats](https://grumbit.github.io/webPathProjects/5_Intro_to_JavaScript/2_Team_Stats.js) - Nested objects
 
-1. [Lodash](https://grumbit.github.io/webPathProjects/5_Intro_to_JavaScript/3_Lodash/lodash/_.js) - Complact implemtation and testing of Lodash functions
+1. [Lodash](https://grumbit.github.io/webPathProjects/5_Intro_to_JavaScript/3_Lodash/lodash/_.js) - Compact implemtation and testing of Lodash functions
 
 #### 6 - Building Interactive JavaScript Websites
 
