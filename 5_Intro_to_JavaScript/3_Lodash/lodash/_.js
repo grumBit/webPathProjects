@@ -23,7 +23,7 @@ const _ = {
   chunk(array, size, newArray = []){
     if( array.length < 1) return newArray ;
     newArray.push(array.splice(0, size));
-    return this.chunk(array, size, newArray) // recurse }
+    return this.chunk(array, size, newArray) /*recurse*/ }
 };
 
 module.exports = _;
