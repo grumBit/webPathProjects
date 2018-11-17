@@ -456,7 +456,7 @@ team.addPlayer('Bugs', 'Bunny', 76);
   ```js
   function robotFactory(model, mobile){
     return {
-      model,
+      model,  // Note lack of : model compared to above
       mobile,
       beep() {
         console.log('Beep Boop');
@@ -467,6 +467,36 @@ team.addPlayer('Bugs', 'Bunny', 76);
   const newRobot = robotFactory('P-501', false)
   console.log(newRobot.model) // output: P-501
   console.log(newRobot.mobile) //output: false
+  ```
+- This example includes destructuring with getters & setters;
+  ```js
+  function dogFactory(_name, _breed, _weight){   // Note args are prepended with _ to  avoid name colisions with getters
+    if ( typeof _name != 'string' || typeof _breed != 'string' || typeof _weight != 'number' ){
+      return undefined;
+    }
+    return {
+      _name, // Note lack of : _name.
+      _breed,
+      _weight,
+
+      get name(){return this._name},   // Note need to have _ on properties to avoid name colision with getter
+      get breed(){return this._breed},
+      get weight(){return this._weight},
+
+      set name(name) { this._name = name },
+      set breed(breed) { this._breed = breed },
+      set weight(weight) { this._weight = weight },
+      
+      bark() {return 'ruff! ruff!'},
+      eatTooManyTreats() {this._weight += 1}
+    }
+  }
+
+  const dog = dogFactory('Joe', 'Pug', 27);
+  dog.weight = 29;
+  dog.eatTooManyTreats();
+
+  console.log(dog); // output: Object {_name: "Joe", _breed: "Pug", _weight: 30, name: <accessor>, breed: <accessor>, …}
   ```
 
 ## Built-in Object Methods
