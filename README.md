@@ -58,11 +58,11 @@ Contains crib notes and projects I created while doing [Codecademy Wweb Path](ht
 
 - See Arrays and Objects in [JavaScript crib notes](docs/JavaScript_crib_notes.md)
 
-1. [Meal Maker](https://grumbit.github.io/webPathProjects/5_Intro_to_JavaScript/1_Meal_Maker.js) - Nested objects
+1. [Meal Maker](https://github.com/grumBit/webPathProjects/blob/master/5_Intro_to_JavaScript/1_Meal_Maker.js) - Nested objects
 
-1. [Team Stats](https://grumbit.github.io/webPathProjects/5_Intro_to_JavaScript/2_Team_Stats.js) - Nested objects
+1. [Team Stats](https://github.com/grumBit/webPathProjects/blob/master/5_Intro_to_JavaScript/2_Team_Stats.js) - Nested objects
 
-1. [Lodash](https://grumbit.github.io/webPathProjects/5_Intro_to_JavaScript/3_Lodash/lodash/_.js) - Compact implemtation and testing of Lodash functions
+1. [Lodash](https://github.com/grumBit/webPathProjects/blob/master/5_Intro_to_JavaScript/3_Lodash/lodash/_.js) - Compact implemtation and testing of Lodash functions
 
 #### 6 - Building Interactive JavaScript Websites
 
