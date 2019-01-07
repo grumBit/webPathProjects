@@ -84,7 +84,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 
 ### [Global Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes)
 
-#### [.style](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style)
+#### [`.style`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style) - CSS for element
   - Contains CSS styling declarations to be applied to the element. E.g.;
     ```javascript
     document.body.style.backgroundColor = "#201F2E";
@@ -92,22 +92,23 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 
 ### [Node](https://developer.mozilla.org/en-US/docs/Web/API/Node)
 
-#### [.appendChild](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
+#### [`.appendChild`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
 
   - Adds a node to the end of the list of children of a specified parent node. E.g.; see [`.createElement()`](#getelementbyidid).
 
 
-#### [.removeChild(child)](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild)
+#### [`.removeChild(child)`](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild)
 
   - removes a child node from the DOM. Returns removed node. E.g.;
     ```javascript
     let elementToRemove = document.getElementById('myElementId');
-    document.getElementById('parentElementId').removeChild(elementToRemove);
+    let parent = elementToRemove.parentNode;
+    parent.removeChild(elementToRemove);
     ```
 
 ### [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
 
-#### [.hidden](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden) - see link for usecases
+#### [`.hidden`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden) - see link for usecases
 
   - Boolen property that applies to all presentation modes. Not the same as CSS `display` E.g.;
     ```javascript
@@ -116,9 +117,9 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 
 ### [GlobalEventHandlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers)
 
-#### [.onclick](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick)
+#### [`.onclick`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick)
 
-  - . E.g.;
+  - Example that will toggle "button" b/w red and blue;
     ```javascript
     let element = document.querySelector("button");
 
@@ -126,20 +127,20 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
       element.style.backgroundColor = "red";
       element.style.color = "white";
       element.innerHTML = "Red Button";
-      element.onclick = turnButtonBlue;
+      element.onclick = turnButtonBlue;  /* Note this swaps to other, blue, function*/
     }
 
     function turnButtonBlue (){
       element.style.backgroundColor = "blue";
       element.style.color = "white";
       element.innerHTML = "Blue Button";
-      element.onclick = turnButtonRed;
+      element.onclick = turnButtonRed; /* Note this swaps back to other, red, function*/
     }
 
     element.onclick = turnButtonRed;
     ```
 
-#### [.parentNode](https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode)
+#### [`.parentNode`](https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode)
 
   - Returns the parent of the specified node. E.g.;
     ```javascript
@@ -149,7 +150,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 
 ### [ParentNode](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode)
 
-#### [.children](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children)
+#### [`.children`](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children)
 
   - Returns a live [HTMLCollection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection) containing all of the child elements. E.g.;
     ```javascript
@@ -158,6 +159,85 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
     }    
     ```
 
+---
+
+# Events
+
+## Event Handler Registration
+
+- The DOM element being interacted with is the _event target_
+- An event handler function is registered as a property attached to _event target_
+
+### _event names_
+- _event names_  have the prefix _`on`_, followed by the event type. (e.g. `onclick`)
+- E.g.;
+  ```js
+  let eventTarget = document.getElementById('targetElement');
+
+
+  let eventHandlerFunction = function() {
+    // this block of code will run
+  }
+
+  eventTarget.onclick = eventHandlerFunction;
+  ```
+  - Note the named event handler function.  This is best-practice as anonymous functions are less readable and reusable
+
+### [_event types_](https://developer.mozilla.org/en-US/docs/Web/Events)
+- See the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Events) for the many possible event types that exist.
+
+- Some interesting pointer ones;
+
+| event type | Fire when |
+| ---------- |:--------- |
+| click | A pointing device button (ANY button; soon to be primary button only) has been pressed and released on an element. |
+| mouseover | A pointing device is moved onto the element that has the listener attached or onto one of its children. |
+| mousedown | A pointing device button is pressed on an element. |
+| mouseup | A pointing device button is released over an element. |
+| mouseout | A pointing device is moved off the element that has the listener attached or off one of its children. |
+
+
+### `.addEventListener(){ "event type" , eventHandlerunction}`
+  - alternative to using _event names_ above
+  - allows adding multiple listener functions on the same event type
+  - The following is equivalent to the _event names_ example above;
+  ```js
+  let eventTarget = document.getElementById('targetElement');
+
+
+  let eventHandlerFunction = function() {
+    // this block of code will run
+  }
+
+  eventTarget.addEventListener ( 'click', eventHandlerFunction);
+  ```
+
+### `.removeEventListener(){ "event type" , eventHandlerunction}`
+- Needs to identify which function to remove from the event target, as each event type can have multiple event listner functions, => the event handler function passed to the `.removeEventListener()` method **must** be the same function as the corresponding `.addEventListener()`.
+- Example follows on from one above for `.addEventListener`
+  ```js
+  eventTarget.removeEventListener ( 'click', eventHandlerFunction);
+  ```
+
+## Event Properties
+
+### `.target` - element that triggered event
+
+### [`.type`](https://developer.mozilla.org/en-US/docs/Web/Events) - triggered event type
+
+### `.timeStamp` - milliseconds since document loaded and event triggered
+
+- e.g.;
+  ```js
+  let eventTarget = document.getElementById('targetElement');
+
+  let eventHandlerFunction = function() {
+    console.log(`.target = ${event.target}, .type = ${event.type}, .timeStamp = ${event.timeStamp}`);  
+    // outputs: .target = [object HTMLButtonElement], .type = click, .timeStamp = 434205
+  }
+
+  eventTarget.addEventListener ( 'click', eventHandlerFunction);
+  ```
 ---
 
 # Grum code snipets
