@@ -10,8 +10,12 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 <!-- code_chunk_output -->
 
+- [`<script src="path">` tag loading and embedding](#script-src%22path%22-tag-loading-and-embedding)
+  - [`defer` attribute defers execution](#defer-attribute-defers-execution)
+  - [`async` attribute](#async-attribute)
+  - [`<head>` convention to locate `defer` and `async`](#head-convention-to-locate-defer-and-async)
 - [Arrays (sub-doc)](#arrays-sub-doc)
-- [Objects (sub-doc)](#objects-sub-doc)
+- [Objects and Classes (sub-doc)](#objects-and-classes-sub-doc)
 - [Interfacing with the DOM (sub-doc)](#interfacing-with-the-dom-sub-doc)
 - [Lodash module of super useful functions](#lodash-module-of-super-useful-functions)
 - [Variable Declarations](#variable-declarations)
@@ -52,11 +56,36 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 ---
 
+# `<script src="path">` tag loading and embedding 
+- Need to consider where to add `<script>` tags in HTML files as;
+  - HTML parses all elements in order, and hence will load and execute JavaScript when it is found
+  - Loading and excuting will add a delay on completeing display of the page
+  - If there are dependencies b/w JS files, they must be loaded in an appropriate order
+  - JavaScript cannot modify elements that have yet to be parsed into the DOM
+
+## `defer` attribute defers execution
+  - JS will be loaded, but will not execute until entire HTML has been parsed
+  - Addresses delay and DOM access issues above.
+
+## `async` attribute
+  - JS will be loaded AND immediately executed in the background
+  - Can be used on scripts where order (i.e. no dependencies) and timing are not important
+  - Optimises web page loading time
+
+## `<head>` convention to locate `defer` and `async`
+- The convention is to put the script tag in the `<head>` element and to use the `defer` and `async` attributes.
+- Note that the attributes can be used together. E.g.;
+  ```js
+  <script src="example.js" defer async> </script>
+  ```
+  - This will ensure the HTML is fully parsed before the script executed (i.e. the DOM is populated) AND allows the script to run in the background, ensuring the page doesn't block.
+
+
 # Arrays (sub-doc)
 
 - See [here](JavaScript_crib_notes-Arrays.md)
 
-# Objects (sub-doc)
+# Objects and Classes (sub-doc)
 
 - See [here](JavaScript_crib_notes-Objects.md)
 
