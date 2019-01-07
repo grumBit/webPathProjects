@@ -507,7 +507,7 @@ team.addPlayer('Bugs', 'Bunny', 76);
 
 - See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods_of_the_Object_constructor)
 
-<a -id="__object_traverser"></a>
+<a id="__object_traverser"></a>
 ## Grums Object traverser
 - A useful bit of code I came up with for displaying the contents of any object;
   
@@ -607,7 +607,7 @@ team.addPlayer('Bugs', 'Bunny', 76);
 
 ### `instance.funcName(args)` - invocation
 - As per Object method invocation
-- Except for getters abnd setter, opening and closing parentheses must be included.
+- Except for getters and setters, opening and closing parentheses must be included.
 
 ### Basic full example
   ```js
