@@ -23,7 +23,7 @@ body{
   font-style: italic;
 }
 .piano{
-  width: 305px;
+  width: 315px;
   height: 210px;
   display: block;
   margin: 0 auto;
@@ -31,22 +31,25 @@ body{
   margin-top: 30px;
 }
 .key{
-  width: 30px;
+  width: 32px;
   height: 200px;
   display: inline-block;
-  border: solid #141c3a 2px;
-  box-shadow: 2px 5px;
+  border: solid #141c3a 0px;
+  box-shadow: 2px 3px rgb(109, 30, 30);
   background-color: white;
   color: #141c3a;
+  margin: 1px;
 }
 .black-key{
   width: 25px;
   height: 100px;
   display: inline-block;
   background-color: #141c3a;
+  box-shadow: 2px 3px rgb(58, 58, 58);
+
   color: white;
   position: absolute;
-  margin-left: -12px;
+  margin-left: -14px;
   padding: 0px;
 }
 .keynote{
