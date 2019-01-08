@@ -175,8 +175,10 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   let eventTarget = document.getElementById('targetElement');
 
 
-  let eventHandlerFunction = function() {
+  let eventHandlerFunction = function(event) {
     // this block of code will run
+    event.target.style.backgroundColor = 'red';
+    event.target.innerHTML="Grum Waz Ere";
   }
 
   eventTarget.onclick = eventHandlerFunction;
@@ -205,8 +207,11 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   let eventTarget = document.getElementById('targetElement');
 
 
-  let eventHandlerFunction = function() {
+  let eventHandlerFunction = function(event) {
     // this block of code will run
+    event.target.style.backgroundColor = 'red';
+    event.target.innerHTML="Grum Waz Ere";
+
   }
 
   eventTarget.addEventListener ( 'click', eventHandlerFunction);
@@ -231,7 +236,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   ```js
   let eventTarget = document.getElementById('targetElement');
 
-  let eventHandlerFunction = function() {
+  let eventHandlerFunction = function(event) {
     console.log(`.target = ${event.target}, .type = ${event.type}, .timeStamp = ${event.timeStamp}`);  
     // outputs: .target = [object HTMLButtonElement], .type = click, .timeStamp = 434205
   }
