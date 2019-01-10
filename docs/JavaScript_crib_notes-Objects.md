@@ -10,6 +10,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
 
 <!-- code_chunk_output -->
 
+- [Grum's JavaScript Crib Notes - Objects & Classes](#grums-javascript-crib-notes---objects--classes)
 - [Objects](#objects)
   - [Notes](#notes)
     - [Support a mix of properties (including nested objects) and methods.](#support-a-mix-of-properties-including-nested-objects-and-methods)
@@ -252,7 +253,7 @@ Back to [JavaScript language](JavaScript_crib_notes.md) main doc
   ```
 
 ## Methods
-- A method is property with a function as its value. 
+- A method is a property with a function as its value. 
 
 ### Declaration
 
