@@ -10,14 +10,17 @@ Contains summary langauge and interface info, with `code` examples and [links](h
 
 <!-- code_chunk_output -->
 
+- [Grum's JavaScript Crib Notes](#grums-javascript-crib-notes)
 - [`<script src="path">` tag loading and embedding](#script-src%22path%22-tag-loading-and-embedding)
   - [`defer` attribute defers execution](#defer-attribute-defers-execution)
   - [`async` attribute](#async-attribute)
   - [`<head>` convention to locate `defer` and `async`](#head-convention-to-locate-defer-and-async)
-- [Arrays (sub-doc)](#arrays-sub-doc)
-- [Objects and Classes (sub-doc)](#objects-and-classes-sub-doc)
-- [Interfacing with the DOM (sub-doc)](#interfacing-with-the-dom-sub-doc)
-- [Lodash module of super useful functions](#lodash-module-of-super-useful-functions)
+- [Linked docs](#linked-docs)
+  - [Arrays](#arrays)
+  - [Objects and Classes](#objects-and-classes)
+  - [Interfacing with the DOM](#interfacing-with-the-dom)
+  - [Templating with Handlebars](#templating-with-handlebars)
+  - [Lodash module of super useful functions](#lodash-module-of-super-useful-functions)
 - [Variable Declarations](#variable-declarations)
   - [`let`, `const`, `var`(deprecated)](#let-const-vardeprecated)
   - [Variable scope](#variable-scope)
@@ -81,19 +84,25 @@ Contains summary langauge and interface info, with `code` examples and [links](h
   - This will ensure the HTML is fully parsed before the script executed (i.e. the DOM is populated) AND allows the script to run in the background, ensuring the page doesn't block.
 
 
-# Arrays (sub-doc)
+# Linked docs
+
+## Arrays
 
 - See [here](JavaScript_crib_notes-Arrays.md)
 
-# Objects and Classes (sub-doc)
+## Objects and Classes
 
 - See [here](JavaScript_crib_notes-Objects.md)
 
-# Interfacing with the DOM (sub-doc)
+## Interfacing with the DOM
 
 - See [here](JavaScript_crib_notes-DOM.md)
 
-# Lodash module of super useful functions
+## Templating with Handlebars
+
+- See [here](Handlebars_crib_notes.md)
+
+## Lodash module of super useful functions
 
 - See [here](https://lodash.com/)
 
