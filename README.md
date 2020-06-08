@@ -4,11 +4,14 @@ Crib notes and projects
 Contains crib notes and projects I created while doing [Codecademy Wweb Path](https://www.codecademy.com/learn/paths/web-development) courses . I put these up here as memory joggers of things I learned.
 
 ### Crib notes made on the way
+
 - [JavaScript language](docs/JavaScript_crib_notes.md)
 - [CSS notes](docs/css_notes/css_grum_notes.md)
 - [SQL](docs/sql.md)
+- [Python language](docs/python-crib-notes/Python_crib_notes.md)
 
 ### Codecademy Web Path projects
+
 #### 1 - Learn HTML
 
 1. [Fashion Blog](https://grumbit.github.io/webPathProjects/1_Learn_HTML/1_Fashion_Blog/index.html) -  Super simple
@@ -50,9 +53,8 @@ Contains crib notes and projects I created while doing [Codecademy Wweb Path](ht
 7. [Grum extra](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/7_Grum_extra_Flex-box_review/index.html) - Flex-box
 
 8. [To Do app](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/8_To-Do_App/index.html) - Flex-box
-   
-9. [Tea Cozy](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/9_Tea_Cozy/index.html) - Flex-box
 
+9. [Tea Cozy](https://grumbit.github.io/webPathProjects/4_Getting_More_Advanced_With_Design/9_Tea_Cozy/index.html) - Flex-box
 
 #### 5 - JavaScript: Arrays, Loops, and Objects
 
@@ -75,7 +77,6 @@ Contains crib notes and projects I created while doing [Codecademy Wweb Path](ht
 - See classes in [JavaScript crib notes](docs/JavaScript_crib_notes.md)
 
 1. [Build a Library](https://grumbit.github.io/webPathProjects/8_Intermediate_JavaScript/1_Build_A_Library.js) - Classes with inheritance
-
 
 #### 9 - Learn the Command Line
 
