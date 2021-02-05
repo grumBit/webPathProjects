@@ -1,30 +1,40 @@
 # Grums Python Crib Notes <!-- omit in toc -->
 
+
+[< Back](../../README.md)
+
 ---
 
-Contains summary notes of basic Python info, with `code` examples. Noites were taken while looking at [Programiz Python tutorial](https://www.programiz.com/python-programming/first-program)
+Summary notes of basic Python info, with code examples.
 
-## Sections
+- Literals
+  - [bool](./Python_crib_notes-Lit_bool.md)
+  - [Numerics](./Python_crib_notes-Lit_numerics.md)
+  - [Strings](./Python_crib_notes-Lit_string.md)
 
-- [Language structure](./Python_crib_notes-Python.org_Language_reference_v3.7.md)
-
-- [Literals](./Python_crib_notes-Literals.md)
-
-  - Numeric, String, Boolean, Collections (List, Array, NumPy, Tuple, Dict, Set, Frozenset)
-
-- [Operators](./Python_crib_notes-Operators.md)
-
-- [Variables and Types](./Python_crib_notes-Variables_and_Types.md)
-
-- [Functions, Closures and Decorators](./Python_crib_notes-Functions_Closures_and_Decorators.md)
-
-- [self vs cls: Instance, Class, and Static Methods Demystified](./Python_crib_notes-self_vs_cls.py)
+- Collections (implemented [Sequence](./Python_crib_notes-Lit_sequence.md)s)
+  - [Array module](https://www.programiz.com/python-programming/array) - alternative to List
+    - May be needed to interface with C code, otherwise avoid
+  - [Dict](./Python_crib_notes-Lit_dict.md)
+  - [List `[x,y]`](./Python_crib_notes-Lit_list.md)
+  - [NumPy module](https://www.programiz.com/python-programming/matrix) arrays for matrices
+  - [Set and Frozenset](./Python_crib_notes-Lit_.md)
+  - [Tuple](./Python_crib_notes-Lit_tuple.md)
+  - [](./Python_crib_notes-Lit_.md)
 
 - [Exceptions](./Python_crib_notes-Exceptions.md)
 
-- [Control Flow, Iteration, Generators, \*args and \*\*kwargs](./Python_crib_notes-Control_flow_and_Iteration.md)
+- Basic language
+  - [Language structure](./Python_crib_notes-Python.org_Language_reference_v3.7.md)
+  - [Operators](./Python_crib_notes-Operators.md)
+  - [Variables and Types](./Python_crib_notes-Variables_and_Types.md)
+  - [Control Flow, Iteration, Generators and zip()](./Python_crib_notes-Control_flow_and_Iteration.md)
+  - [Functions, Closures and Decorators](./Python_crib_notes-Functions_Closures_and_Decorators.md)
+  - [\*args, \*\*kwargs, \* and \*\*](./Python_crib_notes-args_and_kwargs.md)
 
 - [Classes and Objects](./Python_crib_notes-Classes_and_Objects.md)
+
+  - [self vs cls: Instance, Class, and Static Methods Demystified](./Python_crib_notes-self_vs_cls.py)
 
 - [Modules, packages and `import`](./Python_crib_notes-Modules_packages_and_import.md)
 

@@ -1,9 +1,9 @@
 Crib notes and projects
 ============================================================
 
-Contains crib notes and projects I created while doing [Codecademy Wweb Path](https://www.codecademy.com/learn/paths/web-development) courses . I put these up here as memory joggers of things I learned.
+Contains my memory jogger crib notes and projects.
 
-### Crib notes made on the way
+### Languages
 
 - [JavaScript language](docs/JavaScript_crib_notes.md)
 - [CSS notes](docs/css_notes/css_grum_notes.md)

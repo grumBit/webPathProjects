@@ -1,6 +1,8 @@
 # Control Flow and Iteration <!-- omit in toc -->
 
-Back to main [Python crib notes](./Python_crib_notes.md)
+[< Back](./Python_crib_notes.md)
+
+---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
@@ -10,22 +12,14 @@ Back to main [Python crib notes](./Python_crib_notes.md)
   - [`if` test expression `:` ... `elif` test expression `:` ... `else:`](#if-test-expression---elif-test-expression---else)
   - [`if` var `in`](#if-var-in)
 - [Iteration](#iteration)
-  - [`for` item `in` sequence `:`](#for-item-in-sequence)
+  - [`for` item `in` sequence `:`](#for-item-in-sequence-)
   - [`for` i `in` `range(`start`,` end`,` step`):`](#for-i-in-rangestart-end-step)
   - [`for` x `in (`x `for` x `in` xyz `if` x `not in` a`):`](#for-x-in-x-for-x-in-xyz-if-x-not-in-a)
-    - [↑ Combines `for` with expression using generator function](#%e2%86%91-combines-for-with-expression-using-generator-function)
+    - [↑ Combines `for` with expression using generator function](#-combines-for-with-expression-using-generator-function)
   - [`while` test expression`:`](#while-test-expression)
   - [`break` out of the innermost loop](#break-out-of-the-innermost-loop)
   - [`continue` to next iteration of current loop](#continue-to-next-iteration-of-current-loop)
   - [`else:` executes at un-broken termination of loop](#else-executes-at-un-broken-termination-of-loop)
-  - [`*args`, `**kwargs`, `*` and `**`](#args-kwargs--and)
-    - [def func(`*args`): - **tuple** packing operator](#def-funcargs---tuple-packing-operator)
-      - [Example](#example)
-    - [def func(`**kwargs`): - keyword **dict** packing operator)](#def-funckwargs---keyword-dict-packing-operator)
-    - [def func(`a`, `b`, `*args`, `**kwargs` ): - required order of arguments](#def-funca-b-args-kwargs----required-order-of-arguments)
-      - [Example - NB: Iterate using kwargs.values()](#example---nb-iterate-using-kwargsvalues)
-    - [`*` iterable and `**` dict unpacking operators](#iterable-and--dict-unpacking-operators)
-      - [Examples](#examples)
 - [Generator functions](#generator-functions)
   - [Simple generator functions with `yield` and loops](#simple-generator-functions-with-yield-and-loops)
   - [Generator expression `(expression for item in iterable`)](#generator-expression-expression-for-item-in-iterable)
@@ -42,9 +36,9 @@ Back to main [Python crib notes](./Python_crib_notes.md)
 
 ---
 
-# Control flow
+## Control flow
 
-## `if` test expression `:` ... `elif` test expression `:` ... `else:`
+### `if` test expression `:` ... `elif` test expression `:` ... `else:`
 
 - For test expressions;
   - Non-zero values are interpreted as `True`.
@@ -63,20 +57,20 @@ else:
     print('More')
 ```
 
-## `if` var `in`
+### `if` var `in`
 
-# Iteration
+## Iteration
 
-## `for` item `in` sequence `:`
+### `for` item `in` sequence `:`
 
 ```python
 words = ['iterating', 'over', 'a', 'sequence']
 for w in words:
     print(w, end=" ")
-# iterating over a sequence
+## iterating over a sequence
 ```
 
-## `for` i `in` `range(`start`,` end`,` step`):`
+### `for` i `in` `range(`start`,` end`,` step`):`
 
 ```python
 for i in range(13, 20, 2):
@@ -88,9 +82,9 @@ print(my_list)
 # [20, 18, 16, 14]
 ```
 
-## `for` x `in (`x `for` x `in` xyz `if` x `not in` a`):`
+### `for` x `in (`x `for` x `in` xyz `if` x `not in` a`):`
 
-### ↑ Combines `for` with expression using generator function
+#### ↑ Combines `for` with expression using generator function
 
 - NB: See generator function notes below
 
@@ -117,14 +111,14 @@ print(myList)
 # Outputs: [12, 242]
 ```
 
-## `while` test expression`:`
+### `while` test expression`:`
 
 ```python
 while True:
     print("infinite loop")
 ```
 
-## `break` out of the innermost loop
+### `break` out of the innermost loop
 
 ```python
 for outer_word in ["Breaking", "out", "of", "innermost", "loop"]:
@@ -135,7 +129,7 @@ for outer_word in ["Breaking", "out", "of", "innermost", "loop"]:
 # Breaking out of innermost loop
 ```
 
-## `continue` to next iteration of current loop
+### `continue` to next iteration of current loop
 
 ```python
 for word in ["'continue'","skips","rest","of","lines"]:
@@ -145,7 +139,7 @@ for word in ["'continue'","skips","rest","of","lines"]:
 # 'continue' skips rest of lines
 ```
 
-## `else:` executes at un-broken termination of loop
+### `else:` executes at un-broken termination of loop
 
 ```python
 for word in ["'else'","executes at un-broken termination of"]:
@@ -165,137 +159,7 @@ else:
 # But not when the loop breaks
 ```
 
-## `*args`, `**kwargs`, `*` and `**`
-
-### def func(`*args`): - **tuple** packing operator
-
-- Combines any number of positional arguments into a single argument that is an iterable, immutable, tuple.
-
-- NB: The argument name can be any variable name, not just `args`.
-
-#### Example
-
-```python
-def my_sum(*integers):
-    print("'integers' type =", type(integers))
-    result = 0
-    for x in integers:
-        result += x
-    return result
-
-print("my_sum(1, 2, 3) =", my_sum(1, 2, 3))
-
-# 'integers' type = <class 'tuple'>
-# my_sum(1, 2, 3) = 6
-```
-
-### def func(`**kwargs`): - keyword **dict** packing operator)
-
-- Combines any number of keyword (or named) positional arguments into a single argument that is an iterable, dictionary.
-
-- NB: The name can be any variable name, not just `kwargs`.
-
-### def func(`a`, `b`, `*args`, `**kwargs` ): - required order of arguments
-
-- to create a function that takes a changeable number of both positional and named arguments, the required order of parameters is:
-
-  - Standard arguments
-  - `*args` arguments
-  - `**kwargs` arguments
-
-- E.g.;
-
-```python
-# correct_function_definition.py;
-def my_function(a, b, *args, **kwargs):
-    pass
-
-# wrong_function_definition.py
-def my_function(a, b, **kwargs, *args):
-    pass
-```
-
-#### Example - NB: Iterate using kwargs.values()
-
-```python
-def concatenate(**kwargs):
-    result = ""
-    # Iterating over the Python kwargs dictionary
-    for arg in kwargs.values():  # NB: Without .values(), iterates through keys!
-        result += arg
-    return result
-
-print(concatenate(a="Real", b="Python", c="Is", d="Great", e="!"))
-
-# RealPythonIsGreat!
-```
-
-### `*` iterable and `**` dict unpacking operators
-
-- Unpacks contents of iterables and dictionaries as individual arguments to pass into functions
-
-#### Examples
-
-```python
-l1 = [1, 2, 3]
-l2 = [4, 5]
-l3 = [6, 7, 8, 9]
-
-print("\nBasic unpacking:")
-print("print(l1) =", l1, "    - l1 printed when still packed")
-print("print(*l1) =", *l1, "       - l1's unpacked content passed to print as multiple args")
-
-def sum_3(a, b, c):
-    return(a + b + c)
-
-def sums(*args):
-    result = 0
-    for x in args:
-        result += x
-    return result
-
-print("sum_3(*l1) =", sum_3(*l1), "           - Function sum_3(a, b, c) was passed it's 3 required args by unpacking l1")
-
-print("sums(*l1, *l2, *l3) =", sums(*l1, *l2, *l3), " - Function sums(*args) was passed 3 unpacked lists")
-
-a = [*"GFC"]
-print("'a = [*\"GFC\"]'            - Unpacked iterable string into list: a =", a)
-
-print("\nMerging:")
-
-l4 = [*l1, *l2]
-print("'l4 = [*l1, *l2]'         - Merged lists l1 and l2 into l4 =", l4)
-
-d1 = {"A": 1, "B": 2}
-d2 = {"C": 3, "D": 4}
-d3 = {**d1, **d2}
-print("'d3 = {**d1, **d2}'       - Merged dicts d1 and d2 into d3 =", d3)
-
-print("\nVariable argument assignment:")
-
-*a, = "GFC"
-print("'*a, = \"GFC\"'             - Used comma for variable assignment: a =", a)
-
-start, *body, end = l3
-print("'start, *body, end = l3'  - Unpacked l3 into variable args: start =", start, ", body =", body, ", end =", end)
-
-# Basic unpacking:
-# print(l1) = [1, 2, 3]     - l1 printed when still packed
-# print(*l1) = 1 2 3        - l1's unpacked content passed to print as multiple args
-# sum_3(*l1) = 6            - Function sum_3(a, b, c) was passed it's 3 required args by unpacking l1
-# sums(*l1, *l2, *l3) = 45  - Function sums(*args) was passed 3 unpacked lists
-# 'a = [*"GFC"]'            - Unpacked iterable string into list: a = ['G', 'F', 'C']
-
-# Merging:
-# 'l4 = [*l1, *l2]'         - Merged lists l1 and l2 into l4 = [1, 2, 3, 4, 5]
-# 'd3 = {**d1, **d2}'       - Merged dicts d1 and d2 into d3 = {'A': 1, 'B': 2, 'C': 3, 'D': 4}
-
-# Variable argument assignment:
-# '*a, = "GFC"'             - Used comma for variable assignment: a = ['G', 'F', 'C']
-# 'start, *body, end = l3'  - Unpacked l3 into variable args: start = 6 , body = [7, 8] , end = 9
-```
-
-# Generator functions
+## Generator functions
 
 - A generator function;
   - Contains one or more yield statements.
@@ -305,7 +169,7 @@ print("'start, *body, end = l3'  - Unpacked l3 into variable args: start =", sta
   - Local variables and their states are remembered between successive calls.
   - When the function terminates, StopIteration is raised automatically on further calls.
 
-## Simple generator functions with `yield` and loops
+### Simple generator functions with `yield` and loops
 
 ```python
 def rev_str(my_str):
@@ -357,7 +221,7 @@ for n in powTwoGenFunc(4):
 # Using generator function: 1, 2, 4, 8, 16,
 ```
 
-## Generator expression `(expression for item in iterable`)
+### Generator expression `(expression for item in iterable`)
 
 - Similar to list comprehensions, except while list comprehensions produce an entire list, generator expressions produce one item at a time.
 
@@ -400,7 +264,7 @@ print("Summed Generator expression sans brackets =", sum(x**2 for x in my_list))
 # Summed Generator expression sans brackets = 146
 ```
 
-## Can represent infinite stream without taking up memory
+### Can represent infinite stream without taking up memory
 
 ```python
 def all_pow_twos():
@@ -416,7 +280,7 @@ for i in range(14):
 # 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192,
 ```
 
-## Pipelining generator expressions
+### Pipelining generator expressions
 
 - Generators can be used to pipeline a series of operations;
 
@@ -437,13 +301,13 @@ with open('sales.log') as file:
 # Total number of pizzas sold =  3061
 ```
 
-# `zip(*iterables)` - parallel iteration of iterables
+## `zip(*iterables)` - parallel iteration of iterables
 
 - "Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables. The iterator stops when the shortest input iterable is exhausted. With a single iterable argument, it returns an iterator of 1-tuples. With no arguments, it returns an empty iterator. ([Source](https://docs.python.org/3/library/functions.html#zip))"
 
 - See here for really good explanation
 
-## WARNING: zip returns `iterator` (not `iterable`) => can't iterate twice
+### WARNING: zip returns `iterator` (not `iterable`) => can't iterate twice
 
 - Once the zip returned `iterator` has been iterated over, it can't be re-used.
 - E.g.;
@@ -457,7 +321,7 @@ print(f"zipped content = {list(zipped)} - List is empty as iterator was already 
 # zipped content = [] - List is empty as iterator already used
 ```
 
-## Zipping, Un-zipping and Parallel List iteration
+### Zipping, Un-zipping and Parallel List iteration
 
 ```python
 numbers = [1, 2, 3]
@@ -493,7 +357,7 @@ for l, n, o in zip(letters, numbers, operators):
 #   Letter: c, Number: 3, Operator: +
 ```
 
-## Sorting in parallel
+### Sorting in parallel
 
 ```python
 letters = ['b', 'a', 'd', 'c']
@@ -505,7 +369,7 @@ print(sorted(zip(numbers, letters)) , " - Numbers 1st in tuple")
 #  [(1, 'c'), (2, 'b'), (3, 'd'), (4, 'a')]  - Numbers 1st in tuple
 ```
 
-## Calculating in parallel
+### Calculating in parallel
 
 ```python
 sales = [52000.00, 51000.00, 48000.00]
@@ -518,7 +382,7 @@ for sales, costs in zip(sales, prod_cost):
 # Profit: 4800.0
 ```
 
-## Parallel dictionary iteration
+### Parallel dictionary iteration
 
 ```python
 dict_one = {'first_name': 'John', 'last_name': 'Smith', 'job': 'Python Nube'}
@@ -531,7 +395,7 @@ for (key_1, val_1), (key_2, val_2) in zip(dict_one.items(), dict_two.items()):
 # job: Python Nube            job: Community Manager
 ```
 
-## Dictionary building and updating
+### Dictionary building and updating
 
 ```python
 
