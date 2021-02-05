@@ -19,7 +19,6 @@ Summary notes of basic Python info, with code examples.
   - [NumPy module](https://www.programiz.com/python-programming/matrix) arrays for matrices
   - [Set and Frozenset](./Python_crib_notes-Lit_.md)
   - [Tuple](./Python_crib_notes-Lit_tuple.md)
-  - [](./Python_crib_notes-Lit_.md)
 
 - Basic language
   - [Language structure](./Python_crib_notes-Python.org_Language_reference_v3.7.md)
