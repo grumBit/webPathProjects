@@ -40,6 +40,6 @@ Summary notes of basic Python info, with code examples.
   - [Useful examples](./Python_crib_notes-Misc_useful_examples.md)
     - [Logging](./Python_crib_notes-Misc_useful_examples.md#logging)
     - [Time out alarm](./Python_crib_notes-Misc_useful_examples.md#time-out-alarm)
-  -Useful commands
+  - Useful commands
     - Print class doc string `print(double.__doc__)`
     - `pass` - do nothing when needed
