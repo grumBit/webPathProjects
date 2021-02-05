@@ -1,31 +1,32 @@
 # Quirky Python stuff <!-- omit in toc -->
 
-NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
+[< Back](./Python_crib_notes.md)
+
+---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 - [float vs. Decimal](#float-vs-decimal)
-- [float vs. Decimal](#float-vs-decimal)
   - [WARNING: Use `Decimal` class to avoid `float` literal rounding errors](#warning-use-decimal-class-to-avoid-float-literal-rounding-errors)
-- [`*` iterable and `**` dict unpacking operators](#iterable-and-dict-unpacking-operators)
+- [`*` iterable and `**` dict unpacking operators](#-iterable-and--dict-unpacking-operators)
   - [Examples of unpacking](#examples-of-unpacking)
-- [List comprehensions `[ expression for item in iterable ]`](#list-comprehensions-expression-for-item-in-iterable)
-  - [`for` - `[ expression for item in list]`](#for-expression-for-item-in-list)
-  - [Nested **loops** - `[ expression for item_1 in list_1 for item_2 in list_2 ]`](#nested-loops-expression-for-item_1-in-list_1-for-item_2-in-list_2)
-  - [Nested **comprehensions** - `[[inner comprehension] outer comprehension]`](#nested-comprehensions-inner-comprehension-outer-comprehension)
-  - [`if` selection - `[ expression for item in list if cond ]`](#if-selection-expression-for-item-in-list-if-cond)
-  - [Nested `if` selection - `[ expression for item in list if cond_1 if cond_2]`](#nested-if-selection-expression-for-item-in-list-if-cond_1-if-cond_2)
-  - [`if ... else` expression - `[ value_1 if cond else value_2 for item in list ]`](#if-else-expression-value_1-if-cond-else-value_2-for-item-in-list)
+- [List comprehensions `[ expression for item in iterable ]`](#list-comprehensions--expression-for-item-in-iterable-)
+  - [`for` - `[ expression for item in list]`](#for----expression-for-item-in-list)
+  - [Nested **loops** - `[ expression for item_1 in list_1 for item_2 in list_2 ]`](#nested-loops----expression-for-item_1-in-list_1-for-item_2-in-list_2-)
+  - [Nested **comprehensions** - `[[inner comprehension] outer comprehension]`](#nested-comprehensions---inner-comprehension-outer-comprehension)
+  - [`if` selection - `[ expression for item in list if cond ]`](#if-selection----expression-for-item-in-list-if-cond-)
+  - [Nested `if` selection - `[ expression for item in list if cond_1 if cond_2]`](#nested-if-selection----expression-for-item-in-list-if-cond_1-if-cond_2)
+  - [`if ... else` expression - `[ value_1 if cond else value_2 for item in list ]`](#if--else-expression----value_1-if-cond-else-value_2-for-item-in-list-)
   - [List comprehension vs. lambda functions](#list-comprehension-vs-lambda-functions)
-- [Dictionary Comprehension - `my_dict = {key: value for key in range() if ...}`](#dictionary-comprehension-my_dict-key-value-for-key-in-range-if)
+- [Dictionary Comprehension - `my_dict = {key: value for key in range() if ...}`](#dictionary-comprehension---my_dict--key-value-for-key-in-range-if-)
   - [Basic example](#basic-example)
   - [Example with `if`](#example-with-if)
 - [Variables](#variables)
-  - [Mutable variables `[a-z|A-Z]` `[a-z|A-Z|0-9|_]* = literal`](#mutable-variables-a-za-z-a-za-z0-9_-literal)
-  - [Immutable / constant variables `[A-Z]` `[A-Z|_]* = literal`](#immutable-constant-variables-a-z-a-z_-literal)
-  - [Multiple parallel assignment `var1 , var2 = literal1, literal2`](#multiple-parallel-assignment-var1-var2-literal1-literal2)
-  - [Multiple serial assignment `var1 = var2 = var3 = literal`](#multiple-serial-assignment-var1-var2-var3-literal)
+  - [Mutable variables `[a-z|A-Z]` `[a-z|A-Z|0-9|_]* = literal`](#mutable-variables-a-za-z-a-za-z0-9_--literal)
+  - [Immutable / constant variables `[A-Z]` `[A-Z|_]* = literal`](#immutable--constant-variables-a-z-a-z_--literal)
+  - [Multiple parallel assignment `var1 , var2 = literal1, literal2`](#multiple-parallel-assignment-var1--var2--literal1-literal2)
+  - [Multiple serial assignment `var1 = var2 = var3 = literal`](#multiple-serial-assignment-var1--var2--var3--literal)
   - [Variable name scopes](#variable-name-scopes)
     - [Function `enclosing` sets name scopes](#function-enclosing-sets-name-scopes)
     - [`enclosed` variable access is immutable by default](#enclosed-variable-access-is-immutable-by-default)
@@ -33,7 +34,6 @@ NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
     - [Function nesting extends `enclosing`](#function-nesting-extends-enclosing)
     - [`enclosed` variables can be masked by children](#enclosed-variables-can-be-masked-by-children)
     - [WARNING: Beware of accidental name scoping errors](#warning-beware-of-accidental-name-scoping-errors)
-    - [Sharing global variables across Python modules](#sharing-global-variables-across-python-modules)
     - [Sharing global variables across Python modules](#sharing-global-variables-across-python-modules)
 <!-- /code_chunk_output -->
 
@@ -355,7 +355,6 @@ print("Non-comprehension odd squares:", odd_squares)
 # Comprehension odd squares:     {1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
 # Traditional odd squares: {1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
 ```
-
 
 ## Variables
 

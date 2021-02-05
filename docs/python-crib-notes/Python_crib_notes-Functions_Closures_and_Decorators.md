@@ -1,26 +1,28 @@
 # Functions, Closures and Decorators<!-- omit in toc -->
 
-NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
+[< Back](./Python_crib_notes.md)
+
+---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 - [Functions](#functions)
-  - [Function definition `def [a-z|A-Z][a-z|A-Z|0-9|_]*(arg1, arg2):`](#function-definition-def-a-za-zarg1-arg2)
-  - [`return [expression_list]` - no expression returns `None`](#return-expressionlist---no-expression-returns-none)
+  - [Function definition `def a-z|A-Z*(arg1, arg2):`](#function-definition-def-a-za-zarg1-arg2)
+  - [`return [expression_list]` - no expression returns `None`](#return-expression_list---no-expression-returns-none)
   - [Variable Function Arguments](#variable-function-arguments)
-    - [Default arguments `f(mandatory_arg,` **`default_arg='default value'`**`)`](#default-arguments-fmandatoryarg-defaultargdefault-value)
-    - [Calling functions with keyword arguments `f( arg_1 = literal, ... ,arg_n = literal`](#calling-functions-with-keyword-arguments-f-arg1--literal--argn--literal)
+    - [Default arguments `f(mandatory_arg,` **`default_arg='default value'`**`)`](#default-arguments-fmandatory_arg-default_argdefault-value)
+    - [Calling functions with keyword arguments `f( arg_1 = literal, ... ,arg_n = literal`](#calling-functions-with-keyword-arguments-f-arg_1--literal--arg_n--literal)
     - [Arbitrary number of arguments - `def f(*names):`](#arbitrary-number-of-arguments---def-fnames)
   - [Anonymous/Lambda Functions - `lambda args: expression`](#anonymouslambda-functions---lambda-args-expression)
     - [lambdas with filter and map](#lambdas-with-filter-and-map)
   - [Arguments are pass-by-value](#arguments-are-pass-by-value)
-  - [Copy-assignment of functions `copied_f = f`](#copy-assignment-of-functions-copiedf--f)
+  - [Copy-assignment of functions `copied_f = f`](#copy-assignment-of-functions-copied_f--f)
 - [Closures](#closures)
   - [Critreria to create closures](#critreria-to-create-closures)
   - [When to use closures](#when-to-use-closures)
   - [Statefull callbacks and TimeOutAlarm example](#statefull-callbacks-and-timeoutalarm-example)
-- [Decorators `@my_decorator \n def my_func():`](#decorators-mydecorator-n-def-myfunc)
+- [Decorators `@my_decorator \n def my_func():`](#decorators-my_decorator-n-def-my_func)
   - [Background: Higher-order functions](#background-higher-order-functions)
   - [Background: Closures return functions](#background-closures-return-functions)
   - [Decorator basics and `@` syntax-sugar](#decorator-basics-and--syntax-sugar)

@@ -1,13 +1,15 @@
 # Exceptions <!-- omit in toc -->
 
-NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
+[< Back](./Python_crib_notes.md)
+
+---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
-- [Catching - `try:` ... `except(AnException, ...):`](#catching---try--exceptanexception)
+- [Catching - `try:` ... `except(AnException, ...):`](#catching---try--exceptanexception-)
 - [Raising - `raise AnException(arg,...)`](#raising---raise-anexceptionarg)
-- [Cleaning up - `try:` ... `finally:` ...](#cleaning-up---try--finally)
+- [Cleaning up - `try:` ... `finally:`](#cleaning-up---try--finally)
 - [Custom exceptions - `class MyException(Exception):`](#custom-exceptions---class-myexceptionexception)
 - [List of Built-in exceptions](#list-of-built-in-exceptions)
 <!-- /code_chunk_output -->
@@ -46,7 +48,7 @@ except ValueError as ve:
 # That is not a positive number!
 ```
 
-# Cleaning up - `try:` ... `finally:` ...
+# Cleaning up - `try:` ... `finally:`
 
 ```python
 try:

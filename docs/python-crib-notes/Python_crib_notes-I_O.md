@@ -1,6 +1,8 @@
 # I/O <!-- omit in toc -->
 
-NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
+[< Back](./Python_crib_notes.md)
+
+---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
@@ -14,12 +16,12 @@ NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
   - [cd -`os.chdir('dirname')`](#cd--oschdirdirname)
   - [ls - `os.listdir('dirname')`](#ls---oslistdirdirname)
   - [mkdir - `os.mkdir('dirname')`](#mkdir---osmkdirdirname)
-  - [mv - `os.rename('dirname','new_dirname')`](#mv---osrenamedirnamenewdirname)
+  - [mv - `os.rename('dirname','new_dirname')`](#mv---osrenamedirnamenew_dirname)
   - [rm and rmdir - `os.remove('name')`](#rm-and-rmdir---osremovename)
 - [Misc](#misc)
   - [`print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)` - defaults](#printobjects-sep--endn-filesysstdout-flushfalse---defaults)
-  - [`input([optional_prompt])` - returns string from keyboard](#inputoptionalprompt---returns-string-from-keyboard)
-  - [Use `eval(input("Enter maths:"))` to calc](#use-evalinput%22enter-maths%22-to-calc)
+  - [`input([optional_prompt])` - returns string from keyboard](#inputoptional_prompt---returns-string-from-keyboard)
+  - [Use `eval(input("Enter maths:"))` to calc](#use-evalinputenter-maths-to-calc)
 <!-- /code_chunk_output -->
 
 ---

@@ -1,25 +1,27 @@
 # Modules, packages and `import` <!-- omit in toc -->
 
-NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
+[< Back](./Python_crib_notes.md)
+
+---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 - [Modules](#modules)
-  - [Import module name only - `import module_filename`.py](#import-module-name-only---import-modulefilenamepy)
-  - [Import specific names - `from module_filename import name1, name2, ...`](#import-specific-names---from-modulefilename-import-name1-name2)
-  - [Import the all names - `from module_filename import *`](#import-the-all-names---from-modulefilename-import)
-  - [Rename module - `import module_filename as`](#rename-module---import-modulefilename-as)
+  - [Import module name only - `import module_filename`.py](#import-module-name-only---import-module_filenamepy)
+  - [Import specific names - `from module_filename import name1, name2, ...`](#import-specific-names---from-module_filename-import-name1-name2-)
+  - [Import the all names - `from module_filename import *`](#import-the-all-names---from-module_filename-import-)
+  - [Rename module - `import module_filename as`](#rename-module---import-module_filename-as)
   - [Module import searching](#module-import-searching)
-  - [Reload a module - `imp.reload(my_module)`](#reload-a-module---impreloadmymodule)
-  - [dir() built-in function](#dir-built-in-function)
-    - [Names defined in a module - `dir(module_name)`](#names-defined-in-a-module---dirmodulename)
-    - [Names in current namespace - `dir()`](#names-in-current-namespace---dir)
-- [Packages - folders must contain `__init__.py`](#packages---folders-must-contain-initpy)
-	- [Import package module - `import TopPackage.SubPackage1.module1`](#import-package-module---import-toppackagesubpackage1module1)
-	- [Import package module - `from TopPackage.SubPackage1 import module1`](#import-package-module---from-toppackagesubpackage1-import-module1)
-	- [Import package module function - `from TopPackage.SubPackage1.module1 import my_func`](#import-package-module-function---from-toppackagesubpackage1module1-import-myfunc)
-	- [Package import searching](#package-import-searching)
+  - [Reload a module - `imp.reload(my_module)`](#reload-a-module---impreloadmy_module)
+- [dir() built-in function](#dir-built-in-function)
+  - [Names defined in a module - `dir(module_name)`](#names-defined-in-a-module---dirmodule_name)
+  - [Names in current namespace - `dir()`](#names-in-current-namespace---dir)
+- [Packages - folders must contain `__init__.py`](#packages---folders-must-contain-__init__py)
+  - [Import package module - `import TopPackage.SubPackage1.module1`](#import-package-module---import-toppackagesubpackage1module1)
+  - [Import package module - `from TopPackage.SubPackage1 import module1`](#import-package-module---from-toppackagesubpackage1-import-module1)
+  - [Import package module function - `from TopPackage.SubPackage1.module1 import my_func`](#import-package-module-function---from-toppackagesubpackage1module1-import-my_func)
+  - [Package import searching](#package-import-searching)
 <!-- /code_chunk_output -->
 
 ---

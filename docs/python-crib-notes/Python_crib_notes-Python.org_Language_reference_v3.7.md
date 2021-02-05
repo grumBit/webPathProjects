@@ -1,11 +1,13 @@
 # [Python.org Language reference v3.7](https://docs.python.org/3.7/reference/index.html) <!-- omit in toc -->
 
-NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
+[< Back](./Python_crib_notes.md)
+
+---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
-- [Uses BNF (Backus–Naur Form) Notation](#uses-bnf-backus%e2%80%93naur-form-notation)
+- [Uses BNF (Backus–Naur Form) Notation](#uses-bnf-backusnaur-form-notation)
 - [Lexical analysis](#lexical-analysis)
   - [Encoding declarations](#encoding-declarations)
   - [Line Structure and `NEWLINE` token generation](#line-structure-and-newline-token-generation)
@@ -40,7 +42,7 @@ NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
 | `+`          | 1 or more repetitions, and bind as tightly as possible
 | `[]`         | 0 or 1 occurrences (i.e. phrase is optional)
 | `' '`        | Literal string
-| ` `          | White space separates tokens
+| ``          | White space separates tokens
 | `...`        | For [lexical definitions](https://docs.python.org/3.7/reference/lexical_analysis.html), inclusive range of ASCII characters (e.g. "a"..."z")
 | `<`phrase`>` | For [lexical definitions](https://docs.python.org/3.7/reference/lexical_analysis.html), informal description of the symbol defined
 

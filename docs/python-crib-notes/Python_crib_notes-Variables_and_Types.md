@@ -1,13 +1,15 @@
 # Variables and Types<!-- omit in toc -->
 
-NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
+[< Back](./Python_crib_notes.md)
+
+---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 - [Variables](#variables)
-  - [Mutable variables `[a-z|A-Z]` `[a-z|A-Z|0-9|_]* = literal`](#mutable-variables-a-za-z-a-za-z0-9--literal)
-  - [Immutable / constant variables `[A-Z]` `[A-Z|_]* = literal`](#immutable--constant-variables-a-z-a-z--literal)
+  - [Mutable variables `[a-z|A-Z]` `[a-z|A-Z|0-9|_]* = literal`](#mutable-variables-a-za-z-a-za-z0-9_--literal)
+  - [Immutable / constant variables `[A-Z]` `[A-Z|_]* = literal`](#immutable--constant-variables-a-z-a-z_--literal)
   - [Multiple parallel assignment `var1 , var2 = literal1, literal2`](#multiple-parallel-assignment-var1--var2--literal1-literal2)
   - [Multiple serial assignment `var1 = var2 = var3 = literal`](#multiple-serial-assignment-var1--var2--var3--literal)
   - [Variable name scopes](#variable-name-scopes)
@@ -304,4 +306,3 @@ print("BEWARE: datatype of num_int changed to:",type((num_int)))
 ### List to Set `set([1,2,3])`
 
 ### List to Dict `dict([[1,2],[3,4]])` - note pairs
-

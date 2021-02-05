@@ -1,17 +1,20 @@
 # Operators
 
-Back to main [Python crib notes](./Python_crib_notes.md)
+[< Back](./Python_crib_notes.md)
+
+---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
+- [Operators](#operators)
 - [Arithmetic](#arithmetic)
 - [Comparison](#comparison)
 - [Logical](#logical)
 - [Bitwise](#bitwise)
 - [Assignment](#assignment)
-- [Slicing `[::]`](#slicing)
-  - [Syntax candy for `slice(start_point, end_point, step)`](#syntax-candy-for-slicestartpoint-endpoint-step)
+- [Slicing `[::]`](#slicing-)
+  - [Syntax candy for `slice(start_point, end_point, step)`](#syntax-candy-for-slicestart_point-end_point-step)
 - [Identity](#identity)
 - [Membership](#membership)
 
@@ -20,7 +23,6 @@ Back to main [Python crib notes](./Python_crib_notes.md)
 ---
 
 # Arithmetic
-
 
 | Operator | Meaning | Example
 |:--------:|:------- |:-----
@@ -79,7 +81,6 @@ Back to main [Python crib notes](./Python_crib_notes.md)
 | `^=`  | `x ^= 5`  | `x = x ^ 5`
 | `>>=` | `x >>= 5` | `x = x >> 5`
 | `<<=` | `x <<= 5` | `x = x << 5`
-
 
 # Slicing `[::]`
 
