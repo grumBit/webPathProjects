@@ -7,12 +7,24 @@
 <!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
+- [Pretty Printing json blobs via dict](#pretty-printing-json-blobs-via-dict)
 - [Logging](#logging)
 - [Time out alarm](#time-out-alarm)
 
 <!-- /code_chunk_output -->
 
 ---
+
+# Pretty Printing json blobs via dict
+
+```python
+import json
+from pprint import PrettyPrinter
+
+
+json_blob=b'{"connector_input": {"pk": 23, "connector_type__name": "Zendesk", "customer_id": 29, "connector_authorization": {"pk": 27, "connector_type__name": "Zendesk"}, "update_daily": "disabled", "created_at": "2021-01-01T00:00:00Z", "configuration": {}, "schema": {"title": "", "type": "object", "properties": {"account": {"title": "Account", "type": "array", "items": {"type": "string"}}, "report_type": {"title": "Report Type", "type": "string"}}, "required": ["account", "report_type"]}}, "message": "success"}'
+PrettyPrinter().pprint(json.loads(json_blob))
+```
 
 # Logging
 
