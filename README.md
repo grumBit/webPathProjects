@@ -3,6 +3,10 @@ Crib notes and projects
 
 Contains my memory jogger crib notes and projects.
 
+### Thonny and Raspberry Pi Pico
+
+- [Thonny and Raspberry Pi Pico](docs/Raspberry_Pi_Pico/Thonny_and_Raspberry_Pi_Pico.md)
+
 ### Languages
 
 - [JavaScript language](docs/JavaScript_crib_notes.md)
