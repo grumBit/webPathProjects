@@ -18,6 +18,10 @@
   - [Dictionary Comprehension - `my_dict = {key: value for key in range() if ...}`](#dictionary-comprehension---my_dict--key-value-for-key-in-range-if-)
     - [Basic example](#basic-example)
     - [Example with `if`](#example-with-if)
+    - [Comprehension on a dict](#comprehension-on-a-dict)
+      - [Modify values](#modify-values)
+      - [Modify keys](#modify-keys)
+    - [Searching](#searching)
   - [Membership test - `key in my_dict`](#membership-test---key-in-my_dict)
 - [Nested dictionaries](#nested-dictionaries)
   - [Create a Nested Dictionary](#create-a-nested-dictionary)
@@ -27,6 +31,10 @@
   - [Delete **elements** from a **nested** Dictionary](#delete-elements-from-a-nested-dictionary)
   - [Delete a nested dictionary from dictionary](#delete-a-nested-dictionary-from-dictionary)
   - [Iterate Through a Nested Dictionary](#iterate-through-a-nested-dictionary)
+    - [For loop](#for-loop)
+    - [List comprehension - `[v for (k,v) in dict.items()]`](#list-comprehension---v-for-kv-in-dictitems)
+    - [Search in nested](#search-in-nested)
+    - [Extract all sub values](#extract-all-sub-values)
 <!-- /code_chunk_output -->
 
 ---
@@ -174,6 +182,42 @@ print("Non-comprehension odd squares:", odd_squares)
 # Traditional odd squares: {1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
 ```
 
+#### Comprehension on a dict
+
+##### Modify values
+
+```python
+my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
+# Create a new dict with each of the original values doubled
+doubled_values_dict = {k:v*2 for (k,v) in my_dict.items()}
+print(f"New dict with doubled values: {doubled_values_dict}")
+
+# New dict with doubled values: {'a': 2, 'b': 4, 'c': 6, 'd': 8, 'e': 10}
+```
+
+##### Modify keys
+
+```python
+my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
+# Create a new dict with each of the original keys doubled
+doubled_keys_dict = {k*2:v for (k,v) in my_dict.items()}
+print(f"New dict with doubled keys: {doubled_keys_dict}")
+
+# New dict with doubled keys: {'aa': 1, 'bb': 2, 'cc': 3, 'dd': 4, 'ee': 5}
+```
+
+#### Searching
+
+```python
+people = {1: {'Name': 'John', 'Age': 27, 'Sex': 'Male'},
+          2: {'Name': 'Marie', 'Age': 22, 'Sex': 'Female'}}
+people_over_25 = {key:person for (key,person) in people.items() if person["Age"] > 25}
+print(f"People over 25: {people_over_25}")
+
+#People over 25: {1: {'Name': 'John', 'Age': 27, 'Sex': 'Male'}}
+
+```
+
 ### Membership test - `key in my_dict`
 
 ```python
@@ -241,23 +285,23 @@ print(people[3])
 ### Add another nested dictionary to a dictionary
 
 ```python
-people = {1: {'name': 'John', 'age': '27', 'sex': 'Male'},
-          2: {'name': 'Marie', 'age': '22', 'sex': 'Female'},
-          3: {'name': 'Luna', 'age': '24', 'sex': 'Female', 'married': 'No'}}
+people = {1: {'name': 'John', 'age': 27, 'sex': 'Male'},
+          2: {'name': 'Marie', 'age': 22, 'sex': 'Female'},
+          3: {'name': 'Luna', 'age': 24, 'sex': 'Female', 'married': 'No'}}
 
-people[4] = {'name': 'Peter', 'age': '29', 'sex': 'Male', 'married': 'Yes'}
+people[4] = {'name': 'Peter', 'age': 29, 'sex': 'Male', 'married': 'Yes'}
 print(people[4])
 
-#{'name': 'Peter', 'age': '29', 'sex': 'Male', 'married': 'Yes'}
+#{'name': 'Peter', 'age': 29, 'sex': 'Male', 'married': 'Yes'}
 ```
 
 ### Delete **elements** from a **nested** Dictionary
 
 ```python
-people = {1: {'name': 'John', 'age': '27', 'sex': 'Male'},
-          2: {'name': 'Marie', 'age': '22', 'sex': 'Female'},
-          3: {'name': 'Luna', 'age': '24', 'sex': 'Female', 'married': 'No'},
-          4: {'name': 'Peter', 'age': '29', 'sex': 'Male', 'married': 'Yes'}}
+people = {1: {'name': 'John', 'age': 27, 'sex': 'Male'},
+          2: {'name': 'Marie', 'age': 22, 'sex': 'Female'},
+          3: {'name': 'Luna', 'age': 24, 'sex': 'Female', 'married': 'No'},
+          4: {'name': 'Peter', 'age': 29, 'sex': 'Male', 'married': 'Yes'}}
 
 del people[3]['married']
 del people[4]['married']
@@ -265,17 +309,17 @@ del people[4]['married']
 print(people[3])
 print(people[4])
 
-# {'name': 'Luna', 'age': '24', 'sex': 'Female'}
-# {'name': 'Peter', 'age': '29', 'sex': 'Male'}
+# {'name': 'Luna', 'age': 24, 'sex': 'Female'}
+# {'name': 'Peter', 'age': 29, 'sex': 'Male'}
 ```
 
 ### Delete a nested dictionary from dictionary
 
 ```python
-people = {1: {'name': 'John', 'age': '27', 'sex': 'Male'},
-          2: {'name': 'Marie', 'age': '22', 'sex': 'Female'},
-          3: {'name': 'Luna', 'age': '24', 'sex': 'Female'},
-          4: {'name': 'Peter', 'age': '29', 'sex': 'Male'}}
+people = {1: {'name': 'John', 'age': 27, 'sex': 'Male'},
+          2: {'name': 'Marie', 'age': 22, 'sex': 'Female'},
+          3: {'name': 'Luna', 'age': 24, 'sex': 'Female'},
+          4: {'name': 'Peter', 'age': 29, 'sex': 'Male'}}
 
 del people[3], people[4]
 print(people)
@@ -284,9 +328,11 @@ print(people)
 
 ### Iterate Through a Nested Dictionary
 
+#### For loop
+
 ```python
-people = {1: {'Name': 'John', 'Age': '27', 'Sex': 'Male'},
-          2: {'Name': 'Marie', 'Age': '22', 'Sex': 'Female'}}
+people = {1: {'Name': 'John', 'Age': 27, 'Sex': 'Male'},
+          2: {'Name': 'Marie', 'Age': 22, 'Sex': 'Female'}}
 
 for p_id, p_info in people.items():
     print("\nPerson ID:", p_id)
@@ -303,4 +349,37 @@ for p_id, p_info in people.items():
 # Name: Marie
 # Age: 22
 # Sex: Female
+```
+
+#### List comprehension - `[v for (k,v) in dict.items()]`
+
+```python
+people = {1: {'Name': 'John', 'Age': 27, 'Sex': 'Male'},
+          2: {'Name': 'Marie', 'Age': 22, 'Sex': 'Female'}}
+
+people_list = [person for (key,person) in people.items()]
+print(f"List of people :{people_list}")
+List of people :[{'Name': 'John', 'Age': '27', 'Sex': 'Male'}, {'Name': 'Marie', 'Age': '22', 'Sex': 'Female'}]
+```
+
+#### Search in nested
+
+```python
+people = {1: {'Name': 'John', 'Age': 27, 'Sex': 'Male'},
+          2: {'Name': 'Marie', 'Age': 22, 'Sex': 'Female'}}
+people_over_25 = [person for (key,person) in people.items() if person["Age"] > 25]
+print(f"People over 25: {people_over_25}")
+
+# People over 25: [{'Name': 'John', 'Age': 27, 'Sex': 'Male'}]
+```
+
+#### Extract all sub values
+
+```python
+people = {1: {'Name': 'John', 'Age': 27, 'Sex': 'Male'},
+          2: {'Name': 'Marie', 'Age': 22, 'Sex': 'Female'}}
+all_names = [person["Name"] for (key,person) in people.items()]
+print(f"All names: {', '.join(all_names)}")
+
+#All names: John, Marie
 ```
