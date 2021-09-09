@@ -12,8 +12,11 @@
   - [Table of Built-in functions with Dictionary](#table-of-built-in-functions-with-dictionary)
 - [Examples](#examples)
   - [Various creates](#various-creates)
+  - [Create from 2 lists - `dict(zip(keys_list, values_list))`](#create-from-2-lists---dictzipkeys_list-values_list)
   - [Access item - `my_dict[key]`](#access-item---my_dictkey)
-  - [Update and add item - `my_dict[key] = value](#update-and-add-item---my_dictkey--value)
+  - [Find key using value- `my_dict[key]`](#find-key-using-value--my_dictkey)
+  - [Modify and add item - `my_dict[key] = value](#modify-and-add-item---my_dictkey--value)
+- [Merge / update 2 dicts - `my_dict.update(another_dict)`](#merge--update-2-dicts---my_dictupdateanother_dict)
   - [Delete items - `.pop(key)`, `del my_dict[key]`, `.clear()`](#delete-items---popkey-del-my_dictkey-clear)
   - [Dictionary Comprehension - `my_dict = {key: value for key in range() if ...}`](#dictionary-comprehension---my_dict--key-value-for-key-in-range-if-)
     - [Basic example](#basic-example)
@@ -93,6 +96,17 @@ my_dict = dict({1:'apple', 2:'ball'})
 my_dict = dict([(1,'apple'), (2,'ball')])
 ```
 
+### Create from 2 lists - `dict(zip(keys_list, values_list))`
+
+```python
+keys_list = [ 'name', 'age', 'address']
+values_list = [ 'John', 26, 'The Moon']
+my_dict = dict(zip( keys_list, list_of_values))
+print(my_dict)
+
+# {'name': 'John', 'age': 26, 'address': 'The Moon'}
+```
+
 ### Access item - `my_dict[key]`
 
 ```python
@@ -104,7 +118,17 @@ print(my_dict.get('age'))
 # 26
 ```
 
-### Update and add item - `my_dict[key] = value
+### Find key using value- `my_dict[key]`
+
+```python
+my_dict = {'name':'Jack', 'age': 26}
+
+print(list(my_dict.keys())[list(my_dict.values()).index(26)])
+
+# age
+```
+
+### Item modify and add - `my_dict[key] = value
 
 ```python
 my_dict = {'name':'Jack', 'age': 26}
@@ -113,6 +137,33 @@ my_dict['address'] = 'Downtown' # add item
 print(my_dict)
 
 # {'name': 'Jack', 'age': 27, 'address': 'Downtown'}
+```
+
+### Merge dict into a dict - `my_dict.update(another_dict)`
+
+- New key/value pairs in the 2nd dict are added to the 1st
+- Repeat keys in the 2nd dict overwrites/updates the 1st
+
+```python
+my_dict = {'name':'Jack', 'age': 26, 'address':'Old address, which will be replaced on merge'}
+another_dict = {'address':'The new address', 'gender' : 'Non trinary'}
+my_dict.update(another_dict)
+print(my_dict)
+
+# {'name': 'Jack', 'age': 26, 'address': 'The new address', 'gender': 'Non trinary'}
+```
+
+### Merge 2 dicts into new dict - `z = {**x, **y}`
+
+- Similar to merging one dict into another, but leaves both as they were and creates another dict
+
+```python
+my_dict = {'name':'Jack', 'age': 26, 'address':'Old address, which will be replaced on merge'}
+another_dict = {'address':'The new address', 'gender' : 'Non trinary'}
+new_dict = {**my_dict, **another_dict}
+print(new_dict)
+
+# {'name': 'Jack', 'age': 26, 'address': 'The new address', 'gender': 'Non trinary'}
 ```
 
 ### Delete items - `.pop(key)`, `del my_dict[key]`, `.clear()`
@@ -189,7 +240,7 @@ print("Non-comprehension odd squares:", odd_squares)
 ```python
 my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
 # Create a new dict with each of the original values doubled
-doubled_values_dict = {k:v*2 for (k,v) in my_dict.items()}
+doubled_values_dict = {k:v*2 for k,v in my_dict.items()}
 print(f"New dict with doubled values: {doubled_values_dict}")
 
 # New dict with doubled values: {'a': 2, 'b': 4, 'c': 6, 'd': 8, 'e': 10}
@@ -200,7 +251,7 @@ print(f"New dict with doubled values: {doubled_values_dict}")
 ```python
 my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
 # Create a new dict with each of the original keys doubled
-doubled_keys_dict = {k*2:v for (k,v) in my_dict.items()}
+doubled_keys_dict = {k*2:v for k,v in my_dict.items()}
 print(f"New dict with doubled keys: {doubled_keys_dict}")
 
 # New dict with doubled keys: {'aa': 1, 'bb': 2, 'cc': 3, 'dd': 4, 'ee': 5}
@@ -211,7 +262,7 @@ print(f"New dict with doubled keys: {doubled_keys_dict}")
 ```python
 people = {1: {'Name': 'John', 'Age': 27, 'Sex': 'Male'},
           2: {'Name': 'Marie', 'Age': 22, 'Sex': 'Female'}}
-people_over_25 = {key:person for (key,person) in people.items() if person["Age"] > 25}
+people_over_25 = {key:person for key,person in people.items() if person["Age"] > 25}
 print(f"People over 25: {people_over_25}")
 
 #People over 25: {1: {'Name': 'John', 'Age': 27, 'Sex': 'Male'}}
