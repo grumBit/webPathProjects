@@ -15,6 +15,7 @@
 - [`.count('value')` - Return number of matching tuple items](#countvalue---return-number-of-matching-tuple-items)
 - [`.index('value')` - Index of first matching tuple item](#indexvalue---index-of-first-matching-tuple-item)
 - [`'arg'` **`in`** `my_tuple` - membership test](#arg-in-my_tuple---membership-test)
+- [Named Tuples](#named-tuples)
 - [Advantages of Tuple over List](#advantages-of-tuple-over-list)
 <!-- /code_chunk_output -->
 
@@ -79,6 +80,30 @@ print("no_parentheses_tuple's class = ", type(no_parentheses_tuple))
 ## `.index('value')` - Index of first matching tuple item
 
 ## `'arg'` **`in`** `my_tuple` - membership test
+
+## Named Tuples
+
+- Shorter than defining a class manually
+- Auto string repr
+
+```python
+from collections import namedtuple
+Car = namedtuple('Car', 'color make mileage')
+
+my_car = Car('red', 'Honda', 3812.4)
+my_car.color
+# 'red'
+my_car.mileage
+# 3812.4
+
+# AutomaticString repr
+my_car 
+# Car(color='red', make='Honda', mileage=3812.4)
+
+# Like tuples, namedtuples are immutable:
+my_car.color = 'blue'
+# AttributeError: "can't set attribute"
+```
 
 ## Advantages of Tuple over List
 
