@@ -28,6 +28,7 @@
 
 ```python
 from typing import List, Optional
+
 def my_func(my_num: int = 5, my_list: Optional[List] = ['This default mutable list was created at start-up and a reference to it remains for ever']):
   my_list.insert(0, my_num)
   return my_list
@@ -57,6 +58,7 @@ my_func()
 
 ```python
 from typing import List, Optional
+
 def my_func(my_num: int = 5, my_list: Optional[List] = None):
   if my_list is None:
     my_list = []
