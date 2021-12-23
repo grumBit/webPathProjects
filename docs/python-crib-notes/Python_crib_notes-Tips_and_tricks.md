@@ -8,7 +8,7 @@
 
 <!-- code_chunk_output -->
 - [Python Mutable Defaults Are The Source of All Evil](#python-mutable-defaults-are-the-source-of-all-evil)
-  - [Rule of thumb: Try to avoid defaults **AT ALL**](#rule-of-thumb-try-to-avoid-defaults-at-all)
+  - [Rule of thumb: Try to avoid using defaults **AT ALL**](#rule-of-thumb-try-to-avoid-using-defaults-at-all)
   - [The problem: Changes to defaults persist](#the-problem-changes-to-defaults-persist)
   - [Kludgy workaround to the problem: Make defaults = `None`](#kludgy-workaround-to-the-problem-make-defaults--none)
 <!-- /code_chunk_output -->
@@ -20,7 +20,7 @@
 - Each **mutable** default object is created once at start-up, and a reference to it is retained. So, if a mutable default is changed inside the function (e.g. `some_list.extend()`), and also if it is changed **outside** the function, the change is retained and will be there the next time the function is called and the defaultis used (i.e. that argument isn't passed in). This is unlike other languages which create a new object each time the function is called.
 - **Does not** apply to **immutable** defaults. E.g. `None`, `int`
 
-## Rule of thumb: Try to avoid defaults **AT ALL**
+## Rule of thumb: Try to avoid using defaults **AT ALL**
 
 ## The problem: Changes to defaults persist
 
