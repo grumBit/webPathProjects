@@ -42,3 +42,4 @@ Summary notes of basic Python info, with code examples.
   - Useful commands
     - Print class doc string `print(double.__doc__)`
     - `pass` - do nothing when needed
+  - [Tips and tricks](./Python_crib_notes-Tips_and_tricks.md)

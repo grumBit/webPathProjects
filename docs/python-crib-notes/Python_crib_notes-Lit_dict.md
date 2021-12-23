@@ -7,26 +7,32 @@
 <!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
+- [Examples](#examples)
 - [Dict `{key1:'val1',key2:'val2'}`](#dict-key1val1key2val2)
   - [Table of Dictionary methods](#table-of-dictionary-methods)
   - [Table of Built-in functions with Dictionary](#table-of-built-in-functions-with-dictionary)
-- [Examples](#examples)
+- [Basic CRUD](#basic-crud)
   - [Various creates](#various-creates)
-  - [Create from 2 lists - `dict(zip(keys_list, values_list))`](#create-from-2-lists---dictzipkeys_list-values_list)
-  - [Access item - `my_dict[key]`](#access-item---my_dictkey)
-  - [Find key using value- `my_dict[key]`](#find-key-using-value--my_dictkey)
-  - [Item modify and add - `my_dict[key] = value](#item-modify-and-add---my_dictkey--value)
-  - [Merge dict into a dict - `my_dict.update(another_dict)`](#merge-dict-into-a-dict---my_dictupdateanother_dict)
-  - [Merge 2 dicts into new dict - `z = {**x, **y}`](#merge-2-dicts-into-new-dict---z--x-y)
-  - [Delete items - `.pop(key)`, `del my_dict[key]`, `.clear()`](#delete-items---popkey-del-my_dictkey-clear)
-  - [Dictionary Comprehension - `my_dict = {key: value for key in range() if ...}`](#dictionary-comprehension---my_dict--key-value-for-key-in-range-if-)
-    - [Basic example](#basic-example)
-    - [Example with `if`](#example-with-if)
-    - [Comprehension on a dict](#comprehension-on-a-dict)
-      - [Modify values](#modify-values)
-      - [Modify keys](#modify-keys)
-    - [Searching](#searching)
-  - [Membership test - `key in my_dict`](#membership-test---key-in-my_dict)
+  - [Create from 2 lists - `dict(zip(keys_list, values_list))`](#create-from-2-lists-dictzipkeys_list-values_list)
+  - [Access item - `my_dict[key]`](#access-item-my_dictkey)
+  - [Find key using value- `my_dict[key]`](#find-key-using-value-my_dictkey)
+  - [Item modify and add - `my_dict[key] = value](#item-modify-and-add-my_dictkey-value)
+  - [Delete items - `.pop(key)`, `del my_dict[key]`, `.clear()`](#delete-items-popkey-del-my_dictkey-clear)
+- [Sorting](#sorting)
+  - [Sort by value `lambda` or `operator`](#sort-by-value-lambda-or-operator)
+- [Merging](#merging)
+  - [Merge dict into a dict - `my_dict.update(another_dict)`](#merge-dict-into-a-dict-my_dictupdateanother_dict)
+  - [Merge 2 dicts into new dict - `z = {**x, **y}`](#merge-2-dicts-into-new-dict-z-x-y)
+  - [Recursively merge multiple nested dicts including lists](#recursively-merge-multiple-nested-dicts-including-lists)
+  - [Recursicely merge two nested dicts (doen't handle lists)](#recursicely-merge-two-nested-dicts-doent-handle-lists)
+- [Dictionary Comprehension - `my_dict = {key: value for key in range() if ...}`](#dictionary-comprehension-my_dict-key-value-for-key-in-range-if)
+  - [Basic example](#basic-example)
+  - [Example with `if`](#example-with-if)
+  - [Comprehension on a dict](#comprehension-on-a-dict)
+    - [Modify values](#modify-values)
+    - [Modify keys](#modify-keys)
+  - [Basic Searching](#basic-searching)
+  - [Membership test - `key in my_dict`](#membership-test-key-in-my_dict)
 - [Nested dictionaries](#nested-dictionaries)
   - [Create a Nested Dictionary](#create-a-nested-dictionary)
   - [Access elements of a **Nested** Dictionary](#access-elements-of-a-nested-dictionary)
@@ -36,9 +42,10 @@
   - [Delete a nested dictionary from dictionary](#delete-a-nested-dictionary-from-dictionary)
   - [Iterate Through a Nested Dictionary](#iterate-through-a-nested-dictionary)
     - [For loop](#for-loop)
-    - [List comprehension - `[v for (k,v) in dict.items()]`](#list-comprehension---v-for-kv-in-dictitems)
+    - [List comprehension - `[v for (k,v) in dict.items()]`](#list-comprehension-v-for-kv-in-dictitems)
     - [Search in nested](#search-in-nested)
     - [Extract all sub values](#extract-all-sub-values)
+      - [Extract all sub values](#extract-all-sub-values)
 <!-- /code_chunk_output -->
 
 ---
@@ -76,7 +83,9 @@
 |  cmp()   | Compares items of two dictionaries.                                                         |
 | sorted() | Return a new sorted list of keys in the dictionary.                                         |
 
-## Examples
+# Examples
+
+## Basic CRUD
 
 ### Various creates
 
@@ -140,6 +149,47 @@ print(my_dict)
 # {'name': 'Jack', 'age': 27, 'address': 'Downtown'}
 ```
 
+### Delete items - `.pop(key)`, `del my_dict[key]`, `.clear()`
+
+```python
+squares = {1:1, 2:4, 3:9, 4:16, 5:25}
+print("Initial squares dictionary: ", squares)
+print(f"Popped item with key '4' and value '{squares.pop(4)}', leaving {squares}")
+print(f"Removed random arbitrary item: {squares.popitem()}, leaving {squares}")
+
+del squares[3]
+print(f"Deleted item with key '3', leaving {squares}")
+
+squares.clear()
+print(f"Cleared all remaining items, leaving {squares}")
+
+del squares
+print(f"Delete the dictionary itself")
+
+# Initial squares dictionary:  {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+# Popped item with key '4' and value '16', leaving {1: 1, 2: 4, 3: 9, 5: 25}
+# Removed random arbitrary item: (5, 25), leaving {1: 1, 2: 4, 3: 9}
+# Deleted item with key '3', leaving {1: 1, 2: 4}
+# Cleared all remaining items, leaving {}
+# Delete the dictionary itself
+```
+
+## Sorting
+
+### Sort by value `lambda` or `operator`
+
+```python
+xs = {'a': 4, 'b': 3, 'c': 2, 'd': 1}
+sorted(xs.items(), key=lambda x: x[1])
+# [('d', 1), ('c', 2), ('b', 3), ('a', 4)]
+
+import operator
+sorted(xs.items(), key=operator.itemgetter(1))
+# [('d', 1), ('c', 2), ('b', 3), ('a', 4)]
+```
+
+## Merging
+
 ### Merge dict into a dict - `my_dict.update(another_dict)`
 
 - New key/value pairs in the 2nd dict are added to the 1st
@@ -167,32 +217,135 @@ print(new_dict)
 # {'name': 'Jack', 'age': 26, 'address': 'The new address', 'gender': 'Non trinary'}
 ```
 
-### Delete items - `.pop(key)`, `del my_dict[key]`, `.clear()`
+### Recursively merge multiple nested dicts including lists
 
-```python
-squares = {1:1, 2:4, 3:9, 4:16, 5:25}
-print("Initial squares dictionary: ", squares)
-print(f"Popped item with key '4' and value '{squares.pop(4)}', leaving {squares}")
-print(f"Removed random arbitrary item: {squares.popitem()}, leaving {squares}")
+I used this function in the ClincToCloud to BestPractice migration and it was extremely useful. However, there is a bug and a limitation;
 
-del squares[3]
-print(f"Deleted item with key '3', leaving {squares}")
+- WARNING: Bug, see `c2cexpot.py`;
 
-squares.clear()
-print(f"Cleared all remaining items, leaving {squares}")
+    ```python
+        # WARNING: there is a bug in the 'dict_merge' function here!!!
+        # The _single_to_list to list handling shouldn't be needed.
+        # Comment out one of the _single_to_list calls to debug and sort out
+    ```
 
-del squares
-print(f"Delete the dictionary itself")
+- LIMITATION: XML to dict/json conversion showed a limitation where an item may have been discovered as a single child for some parents, and a list of children for others. It might be worth having and ability to handle these situations, either via a specialised "business" code using a hook, or via generalised code that can be turned on using an arg
+  - NB: Inspired by bug above, before I realised it was a bug!
+  - e.g. of limitation;
 
-# Initial squares dictionary:  {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
-# Popped item with key '4' and value '16', leaving {1: 1, 2: 4, 3: 9, 5: 25}
-# Removed random arbitrary item: (5, 25), leaving {1: 1, 2: 4, 3: 9}
-# Deleted item with key '3', leaving {1: 1, 2: 4}
-# Cleared all remaining items, leaving {}
-# Delete the dictionary itself
+    ```json
+    { 
+      "British" : [
+        {  // Parent with single child with no list
+          "personId" : 1,
+          "name" : "Margret Thatcher",
+          "children" : {"personId" : 5}
+        },
+        {  // Parent with many children contained in a list
+          "person_id" : 2,
+          "name" : "Boris Johnson",
+          "children" : [
+            {"personId" : 11},
+            {"personId" : 12},
+            {"personId" : 13},
+            {"personId" : 14},
+            {"personId" : 15},
+            {"personId" : 16}
+          ]
+        }
+      ]
+    }
+    ```
+
+- Parent with multiple items;
+
+```json
 ```
 
-### Dictionary Comprehension - `my_dict = {key: value for key in range() if ...}`
+```python
+import collections.abc
+
+
+def dict_merge(*args, add_keys=True):
+  '''
+  - Merges lists as well as dicts 
+  - Checks and raises an exception if both dicts have a key in common but different data types
+  - Takes 2 or more dicts to merge
+  - Original dicts are untouched
+  - add_keys specifies if new keys are to be added to those already present in the first dict
+  '''
+    assert len(args) >= 2, "dict_merge requires at least two dicts to merge"
+    rtn_dct = args[0].copy() 
+    merge_dicts = args[1:]
+    for merge_dct in merge_dicts:
+        if add_keys is False:
+            merge_dct = {key: merge_dct[key] for key in set(rtn_dct).intersection(set(merge_dct))}
+        for k, v in merge_dct.items():
+            if not rtn_dct.get(k):
+                rtn_dct[k] = v
+            elif k in rtn_dct and type(v) != type(rtn_dct[k]):
+                # GFC - Good place to add handling or functional hook
+                raise TypeError(f"Overlapping keys exist with different types: original is {type(rtn_dct[k])}, new value is {type(v)}")
+            elif isinstance(rtn_dct[k], dict) and isinstance(merge_dct[k], collections.abc.Mapping):
+                rtn_dct[k] = dict_merge(rtn_dct[k], merge_dct[k], add_keys=add_keys)
+            elif isinstance(v, list):
+                for list_value in v:
+                    if list_value not in rtn_dct[k]:
+                        rtn_dct[k].append(list_value)
+            else:
+                rtn_dct[k] = v
+    return rtn_dct
+```
+
+### Recursicely merge two nested dicts (doen't handle lists)
+
+```python
+# Recursive dictionary merge
+import collections
+
+import collections
+
+
+def dict_merge(dct, merge_dct, add_keys=True):
+    """ Recursive dict merge. Inspired by :meth:``dict.update()``, instead of
+    updating only top-level keys, dict_merge recurses down into dicts nested
+    to an arbitrary depth, updating keys. The ``merge_dct`` is merged into
+    ``dct``.
+
+    This version will return a copy of the dictionary and leave the original
+    arguments untouched.
+
+    The optional argument ``add_keys``, determines whether keys which are
+    present in ``merge_dict`` but not ``dct`` should be included in the
+    new dict.
+
+    Args:
+        dct (dict) onto which the merge is executed
+        merge_dct (dict): dct merged into dct
+        add_keys (bool): whether to add new keys
+
+    Returns:
+        dict: updated dict
+    """
+    dct = dct.copy()
+    if not add_keys:
+        merge_dct = {
+            k: merge_dct[k]
+            for k in set(dct).intersection(set(merge_dct))
+        }
+
+    for k, v in merge_dct.items():
+        if (k in dct and isinstance(dct[k], dict)
+                and isinstance(merge_dct[k], collections.Mapping)):
+            dct[k] = dict_merge(dct[k], merge_dct[k], add_keys=add_keys)
+        else:
+            dct[k] = merge_dct[k]
+
+    return dct
+
+```
+
+## Dictionary Comprehension - `my_dict = {key: value for key in range() if ...}`
 
 - Same concept as List comprehension, but returns dictionary instead.
 
@@ -205,7 +358,7 @@ print(f"Delete the dictionary itself")
     - The comprehension adds the `key` : `value` pair to a new `dict`
   - When the loop ends, the comprehension returns the `dict`
 
-#### Basic example
+### Basic example
 
 ```python
 print("Comprehension squares:    ", {x: x*x for x in range(6)})
@@ -219,7 +372,7 @@ print("Traditional squares:", squares)
 # Traditional squares: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ```
 
-#### Example with `if`
+### Example with `if`
 
 ```python
 print("Comprehension odd squares:    ", {x: x*x for x in range(11) if x%2 == 1})
@@ -234,9 +387,9 @@ print("Non-comprehension odd squares:", odd_squares)
 # Traditional odd squares: {1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
 ```
 
-#### Comprehension on a dict
+### Comprehension on a dict
 
-##### Modify values
+#### Modify values
 
 ```python
 my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
@@ -247,7 +400,7 @@ print(f"New dict with doubled values: {doubled_values_dict}")
 # New dict with doubled values: {'a': 2, 'b': 4, 'c': 6, 'd': 8, 'e': 10}
 ```
 
-##### Modify keys
+#### Modify keys
 
 ```python
 my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
@@ -258,7 +411,7 @@ print(f"New dict with doubled keys: {doubled_keys_dict}")
 # New dict with doubled keys: {'aa': 1, 'bb': 2, 'cc': 3, 'dd': 4, 'ee': 5}
 ```
 
-#### Searching
+### Basic Searching
 
 ```python
 people = {1: {'Name': 'John', 'Age': 27, 'Sex': 'Male'},

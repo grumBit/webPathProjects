@@ -29,7 +29,7 @@
     - [`.sort()` - Sort items in ascending order](#sort---sort-items-in-ascending-order)
 - [Flatten `nested = [[a,b],[c,d]]` to `[a,b,c,d]`](#flatten-nested--abcd-to-abcd)
   - [Method 1 - `reduce(iconcat,nested,[],)`](#method-1---reduceiconcatnested)
-  - [Method 2 - `[ item for sublist in nested for item in sublist]`](#method-2----item-for-sublist-in-nested-for-item-in-sublist)
+  - [Method 2 - `[ l for ll in nested for l in ll]`](#method-2----l-for-ll-in-nested-for-l-in-ll)
 - [Comprehensions `[ expression for item in iterable ]`](#comprehensions--expression-for-item-in-iterable-)
   - [`for` - `[ expression for item in list]`](#for----expression-for-item-in-list)
   - [Nested **loops**](#nested-loops)
@@ -194,11 +194,12 @@ print("Nested:", nested, " Flattened: ", flattened)
 # Nested: [['a', 'b'], ['c', 'd']]  Flattened:  ['a', 'b', 'c', 'd']
 ```
 
-### Method 2 - `[ item for sublist in nested for item in sublist]`
+### Method 2 - `[ l for ll in nested for l in ll]`
 
 ```python
 nested = [['a','b'],['c','d']]
-flattened = [ item for sublist in nested for item in sublist]
+flattened = [ l for ll in nested for l in ll]
+
 print("Nested:", nested, " Flattened: ", flattened)
 
 # Nested: [['a', 'b'], ['c', 'd']]  Flattened:  ['a', 'b', 'c', 'd']
