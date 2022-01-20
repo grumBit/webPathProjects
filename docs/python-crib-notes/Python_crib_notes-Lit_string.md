@@ -13,6 +13,7 @@
   - [`'hi {} from {}'.format(x,y)`](#hi--from-formatxy)
   - [`'hi {b} from {a}'.format(a=" ",b=" ")`](#hi-b-from-aformata-b-)
   - [sprintf style - `'The value of x is %3.2f' %12.3456789`](#sprintf-style---the-value-of-x-is-32f-123456789)
+- [Handy-dandy `_to_low_camel_case` function](#handy-dandy-_to_low_camel_case-function)
 <!-- /code_chunk_output -->
 
 ---
@@ -93,3 +94,24 @@ print( f"{word}'s f-string") # 'Python's f-string'
 ### `'hi {b} from {a}'.format(a=" ",b=" ")`
 
 ### sprintf style - `'The value of x is %3.2f' %12.3456789`
+
+## Handy-dandy `_to_low_camel_case` function
+
+- This is a useful function I've needed a few times.
+- Automatically converts strings if the parts are broken up by any non-alphanumeric characters like "_", " ", "-" . Eg. `FLOOD_LIGHT_CONFIG` would become `floodLightConfig`.
+- By default only converts if some non-alphanumeric delimiters are present to prevent something like `floodLightConfig` becoming `floodlightconfig`
+
+```python
+def _to_lower_camel_case(string: str, delimiters_required = True) -> str:
+    from re import split
+
+    if delimiters_required and string.isalnum():
+        # String doesn't contain any delimiters to identify words, so skip conversion
+        return string
+
+    return "".join(
+        part.lower() if i == 0 else part.title()
+        for i, part in enumerate(split("([^a-zA-Z0-9])", string))
+        if part.isalnum()
+    )
+``
