@@ -29,10 +29,11 @@ Summary notes of basic Python info, with code examples.
   - [Exceptions](./Python_crib_notes-Exceptions.md)
   - [\*args, \*\*kwargs, \* and \*\*](./Python_crib_notes-args_and_kwargs.md)
 
-- OO and packaging
+- OO, packaging and virtual environments
   - [Classes and Objects](./Python_crib_notes-Classes_and_Objects.md)
     - [self vs cls: Instance, Class, and Static Methods Demystified](./Python_crib_notes-self_vs_cls.py)
   - [Modules, packages and `import`](./Python_crib_notes-Modules_packages_and_import.md)
+  - [`venv` virtual environments with package versioning using `pip-tools`, `pip-compile` and `pip-sync`](./Python_crib_notes-Modules_packages_and_import.md#venv-package-management-using-pip-tools-package-versioning)
 
 - Misc
   - [I/O](./Python_crib_notes-I_O.md)

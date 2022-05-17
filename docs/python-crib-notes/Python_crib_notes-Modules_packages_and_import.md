@@ -22,6 +22,10 @@
   - [Import package module - `from TopPackage.SubPackage1 import module1`](#import-package-module---from-toppackagesubpackage1-import-module1)
   - [Import package module function - `from TopPackage.SubPackage1.module1 import my_func`](#import-package-module-function---from-toppackagesubpackage1module1-import-my_func)
   - [Package import searching](#package-import-searching)
+  - [venv package management using pip-tools package versioning](#venv-package-management-using-pip-tools-package-versioning)
+    - [Use existing virtual environment](#use-existing-virtual-environment)
+    - [Create .venv dir and install versionsed packages](#create-venv-dir-and-install-versionsed-packages)
+    - [Manage package versions in requirements.txt](#manage-package-versions-in-requirementstxt)
 <!-- /code_chunk_output -->
 
 ---
@@ -130,3 +134,46 @@ print("The value of pi is", m.pi)
 ## Package import searching
 
 - While importing packages, Python looks in the list of directories defined in sys.path
+
+## venv package management using pip-tools package versioning
+
+### Use existing virtual environment
+
+- (assumes the virtual environment has been created in `.venv` dir - see below)
+
+```bash
+cd <some development dir>
+source .venv/bin/activate
+python3
+```
+
+### Create .venv dir and install versionsed packages
+
+- (assumes package versions are being managed in `requirements.txt` - see below)
+
+```bash
+cd <some development dir>
+python3 -m venv .venv
+source .venv/bin/activate
+pip install pip==22.1 setuptools==60.10.0 wheel==0.37.1 pip-tools==6.6.1
+pip-sync requirements.txt
+```
+
+### Manage package versions in requirements.txt
+
+- To add a new package, first edit `requirements.in`
+- To start versioning a new package AND/OR refresh all existing packages in `requirements.txt`, run;
+
+  ```bash
+  cd <some development dir>
+  source .venv/bin/activate
+  pip-complile requirements.in
+  ```
+
+- To only start versioning new package or update only a specific existing package, run;
+
+  ```bash
+  cd <some development dir>
+  source .venv/bin/activate
+  pip-complile requirements.in -P <some new package OR some existing package>
+  ```
