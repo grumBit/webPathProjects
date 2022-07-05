@@ -23,6 +23,8 @@
   - [When to use closures](#when-to-use-closures)
   - [Statefull callbacks and TimeOutAlarm example](#statefull-callbacks-and-timeoutalarm-example)
 - [Decorators `@my_decorator \n def my_func():`](#decorators-my_decorator-n-def-my_func)
+  - [Boilerplate decorator](#boilerplate-decorator)
+    - [Boilerplate explained with comments](#boilerplate-explained-with-comments)
   - [Background: Higher-order functions](#background-higher-order-functions)
   - [Background: Closures return functions](#background-closures-return-functions)
   - [Decorator basics and `@` syntax-sugar](#decorator-basics-and--syntax-sugar)
@@ -204,7 +206,8 @@ The criteria that must be met to create a closure in Python are;
 
 ## When to use closures
 
-- Closures can avoid the use of global values and provides some form of data hiding. - When there are few methods (one method in most cases) to be implemented in a class, closures can provide an alternate and more elegant solutions. But when the number of attributes and methods get larger, better implement a class.
+- Closures can avoid the use of global values and provides some form of data hiding.
+- When there are few methods (one method in most cases) to be implemented in a class, closures can provide an alternate and more elegant solutions. But when the number of attributes and methods get larger, better implement a class.
 
 - E.g.
 
@@ -321,6 +324,83 @@ run_with_a_time_limit(bob, 3, 10)
 ```
 
 # Decorators `@my_decorator \n def my_func():`
+
+## Boilerplate decorator
+
+```python
+from functools import wraps, partial
+
+def boilerplate_decorator(func=None, *, arg_1="some default", arg_2=5):
+    if func is None:
+        return partial(boilerplate_decorator, arg_1=arg_1, arg_2=arg_2)
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        wrapper.counter += 1
+        print(f"arg_1 = {arg_1}, arg_2 = {arg_2}, counter={wrapper.counter}")
+        print("Doing something before")
+        value = func(*args, **kwargs)
+        print("Doing something after")
+        return value
+
+    wrapper.counter = 0
+    return wrapper
+
+# Example usages
+@boilerplate_decorator(arg_1 = "some_value")
+def my_sum(numbers):
+    pass
+
+@boilerplate_decorator()
+def my_sum_2(numbers):
+    pass
+
+@boilerplate_decorator
+def my_sum_3(numbers):
+    pass
+```
+
+### Boilerplate explained with comments
+
+```python
+from functools import wraps, partial
+
+def boilerplate_decorator(func=None, *, arg_1="some default", arg_2=5):       # Take in a function and it's args to decorate and some args to the decorator itself
+    if func is None:
+        return partial(boilerplate_decorator, arg_1=arg_1, arg_2=arg_2)       # Handle decoration without parenthesis. E.g. @boilerplate_decorator
+
+    @wraps(func)                                                              # Retain identity of decorated function, which prevents func.__name__ and help(func) from returning "basic_boilerplate_decorator" stuff
+    def wrapper(*args, **kwargs):                                             # Capture all arguments to decorated function
+        wrapper.counter += 1                                                  # Alter a local state variable
+        print(f"arg_1 = {arg_1}, arg_2 = {arg_2}, counter={wrapper.counter}") # Access both the args to the decorator and some local state variable
+        print("Doing something before")                                       # Get the decorator to do some work done BEFORE running the decorated function
+        value = func(*args, **kwargs)                                         # Call the decorated function with all it's arguments and caputure it's return value
+        print("Doing something after")                                        # Get the decorator to do some work done AFTER running the decorated function
+        return value                                                          # Pass back the decorated function's return value
+
+    wrapper.counter = 0                                                       # Create and set a local state variable which can be altered
+    return wrapper                                                            # Pass back the wrapped decorated function
+
+# Example usages
+@boilerplate_decorator(arg_1 = "some_value")
+def my_sum(numbers) -> int:
+    count=0
+    for number in numbers:
+        count += number
+    return count
+
+@boilerplate_decorator()
+def my_sum_2(numbers) -> int:
+    pass
+
+@boilerplate_decorator
+def my_sum_3(numbers) -> int:
+    pass
+
+print(f"sum = {my_sum([1, 2, 3])}")
+print(f"sum = {my_sum([1, 2, 3])}")
+print(f"The decorated function's identity is '{my_sum.__name__}'")
+```
 
 ## Background: Higher-order functions
 
