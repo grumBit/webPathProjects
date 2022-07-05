@@ -26,6 +26,7 @@
     - [Use existing virtual environment](#use-existing-virtual-environment)
     - [Create .venv dir and install versionsed packages](#create-venv-dir-and-install-versionsed-packages)
     - [Manage package versions in requirements.txt](#manage-package-versions-in-requirementstxt)
+    - [Basic requirements.in](#basic-requirementsin)
 <!-- /code_chunk_output -->
 
 ---
@@ -157,6 +158,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install pip==22.1 setuptools==60.10.0 wheel==0.37.1 pip-tools==6.6.1
 pip-sync requirements.txt
+echo "/.venv" >> .gitignore
 ```
 
 ### Manage package versions in requirements.txt
@@ -175,5 +177,19 @@ pip-sync requirements.txt
   ```bash
   cd <some development dir>
   source .venv/bin/activate
-  pip-complile requirements.in -P <some new package OR some existing package>
+  pip-compile requirements.in -P <some new package OR some existing package>
   ```
+
+### Basic requirements.in
+
+```bash
+cat <<- EOF >> requirements.in
+pylint
+mypy
+EOF
+
+cat <<-EOF >> .gitignore
+__pycache__
+/.mypy_cache
+EOF
+```
