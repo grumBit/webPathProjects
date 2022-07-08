@@ -365,21 +365,21 @@ def my_sum_3(numbers):
 ```python
 from functools import wraps, partial
 
-def boilerplate_decorator(func=None, *, arg_1="some default", arg_2=5):       # Take in a function and it's args to decorate and some args to the decorator itself
+def boilerplate_decorator(func=None, *, arg_1="some default", arg_2=5):        # Take in a function and it's args to decorate and some args to the decorator itself
     if func is None:
-        return partial(boilerplate_decorator, arg_1=arg_1, arg_2=arg_2)       # Handle decoration without parenthesis. E.g. @boilerplate_decorator
+        return partial(boilerplate_decorator, arg_1=arg_1, arg_2=arg_2)        # Handle decoration without parenthesis. E.g. @boilerplate_decorator
 
-    @wraps(func)                                                              # Retain identity of decorated function, which prevents func.__name__ and help(func) from returning "basic_boilerplate_decorator" stuff
-    def wrapper(*args, **kwargs):                                             # Capture all arguments to decorated function
-        wrapper.counter += 1                                                  # Alter a local state variable
-        print(f"arg_1 = {arg_1}, arg_2 = {arg_2}, counter={wrapper.counter}") # Access both the args to the decorator and some local state variable
-        print("Doing something before")                                       # Get the decorator to do some work done BEFORE running the decorated function
-        value = func(*args, **kwargs)                                         # Call the decorated function with all it's arguments and caputure it's return value
-        print("Doing something after")                                        # Get the decorator to do some work done AFTER running the decorated function
-        return value                                                          # Pass back the decorated function's return value
+    @wraps(func)                                                               # Retain identity of decorated function, which prevents func.__name__ and help(func) from returning "basic_boilerplate_decorator" stuff
+    def wrapper(*args, **kwargs):                                              # Capture all arguments to decorated function
+        wrapper.counter += 1                                                   # Alter a local state variable
+        print(f"arg_1 = {arg_1}, arg_2 = {arg_2}, counter={wrapper.counter}")  # Access both the args to the decorator and some local state variable
+        print("Doing something before")                                        # Get the decorator to do some work done BEFORE running the decorated function
+        value = func(*args, **kwargs)                                          # Call the decorated function with all it's arguments and caputure it's return value
+        print("Doing something after")                                         # Get the decorator to do some work done AFTER running the decorated function
+        return value                                                           # Pass back the decorated function's return value
 
-    wrapper.counter = 0                                                       # Create and set a local state variable which can be altered
-    return wrapper                                                            # Pass back the wrapped decorated function
+    wrapper.counter = 0                                                        # Create and set a local state variable which can be altered
+    return wrapper                                                             # Pass back the wrapped decorated function
 
 # Example usages
 @boilerplate_decorator(arg_1 = "some_value")
