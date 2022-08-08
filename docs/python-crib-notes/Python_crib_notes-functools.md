@@ -6,6 +6,8 @@ NB: Main Python crib notes notes are [here](./Python_crib_notes.md)
 
 <!-- code_chunk_output -->
 - [partial](#partial)
+  - ['pipe-lined' sequence of function calls](#pipe-lined-sequence-of-function-calls)
+    - [Example of 'pipe-lined' sequence](#example-of-pipe-lined-sequence)
 
 <!-- /code_chunk_output -->
 
