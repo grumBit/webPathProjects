@@ -35,6 +35,9 @@ Summary notes of basic Python info, with code examples.
   - [Modules, packages and `import`](./Python_crib_notes-Modules_packages_and_import.md)
   - [`venv` virtual environments with package versioning using `pip-tools`, `pip-compile` and `pip-sync`](./Python_crib_notes-Modules_packages_and_import.md#venv-package-management-using-pip-tools-package-versioning)
 
+- Functools
+  - [parital](./Python_crib_notes-functools.md)
+
 - Misc
   - [I/O](./Python_crib_notes-I_O.md)
   - [Useful examples](./Python_crib_notes-Misc_useful_examples.md)
