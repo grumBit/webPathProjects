@@ -27,6 +27,7 @@
     - [Create .venv dir and install versionsed packages](#create-venv-dir-and-install-versionsed-packages)
     - [Manage package versions in requirements.txt](#manage-package-versions-in-requirementstxt)
     - [Basic requirements.in](#basic-requirementsin)
+  - [Creating PyPI packages](#creating-pypi-packages)
 <!-- /code_chunk_output -->
 
 ---
@@ -193,3 +194,7 @@ __pycache__
 /.mypy_cache
 EOF
 ```
+
+## Creating PyPI packages
+
+- Working example of this here; [GitHub actions CI/CD and PyPI Python packaging](https://github.com/grumBit/python_packaging_example)
