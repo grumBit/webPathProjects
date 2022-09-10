@@ -169,7 +169,7 @@ echo "/.venv" >> .gitignore
   ```bash
   cd <some development dir>
   source .venv/bin/activate
-  pip-complile requirements.in
+  pip-compile requirements.in
   ```
 
 - To only start versioning new package or update only a specific existing package, run;
