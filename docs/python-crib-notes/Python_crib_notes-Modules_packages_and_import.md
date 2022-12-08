@@ -22,6 +22,11 @@
   - [Import package module - `from TopPackage.SubPackage1 import module1`](#import-package-module---from-toppackagesubpackage1-import-module1)
   - [Import package module function - `from TopPackage.SubPackage1.module1 import my_func`](#import-package-module-function---from-toppackagesubpackage1module1-import-my_func)
   - [Package import searching](#package-import-searching)
+  - [pyenv to manage python language versions](#pyenv-to-manage-python-language-versions)
+    - [Install pyenv](#install-pyenv)
+    - [Install specific python versions](#install-specific-python-versions)
+    - [Set global python version](#set-global-python-version)
+    - [Set local python version](#set-local-python-version)
   - [venv package management using pip-tools package versioning](#venv-package-management-using-pip-tools-package-versioning)
     - [Use existing virtual environment](#use-existing-virtual-environment)
     - [Create .venv dir and install versionsed packages](#create-venv-dir-and-install-versionsed-packages)
@@ -137,6 +142,62 @@ print("The value of pi is", m.pi)
 
 - While importing packages, Python looks in the list of directories defined in sys.path
 
+## pyenv to manage python language versions
+
+### Install pyenv
+
+- NB: On windows use pyenv-win
+
+- If not installed, run;
+
+```bash
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+```
+
+- Then add the following to bash profile and start a new shell;
+
+```bash
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+```
+
+### Install specific python versions
+
+- Find available verions;
+
+```bash
+pyenv install --list
+```
+
+- Install wanted versions;
+
+```bash
+pyenv install 3.11.0
+pyenv install 3.7.15
+```
+
+### Set global python version
+
+- Set the default version to be used when no local version has been set;
+
+```bash
+pyenv global 3.11.0
+```
+
+- NB: This sets the version in `~/.pyenv/version`
+### Set local python version
+
+- cd into a directory (e.g. a repo root) and run;
+
+```bash
+cd <repo root dir>
+pyenv local 3.7.15
+```
+
+- This creates a `.python-version` file in the current directory. Whenever in this directory or it's subdirectories, the local version will apply
+
+
 ## venv package management using pip-tools package versioning
 
 ### Use existing virtual environment
@@ -158,7 +219,7 @@ cd <some development dir>
 python3 -m venv .venv
 source .venv/bin/activate
 pip install pip==22.1 setuptools==60.10.0 wheel==0.37.1 pip-tools==6.6.1
-pip-sync requirements.txt
+pip-sync requirements_dev.txt
 echo "/.venv" >> .gitignore
 ```
 
