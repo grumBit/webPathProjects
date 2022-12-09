@@ -31,7 +31,7 @@
     - [Use existing virtual environment](#use-existing-virtual-environment)
     - [Create .venv dir and install versionsed packages](#create-venv-dir-and-install-versionsed-packages)
     - [Manage package versions in requirements.txt](#manage-package-versions-in-requirementstxt)
-    - [Basic requirements.in](#basic-requirementsin)
+    - [Basic requirements.in and requirements.dev](#basic-requirementsin-and-requirementsdev)
   - [Creating PyPI packages](#creating-pypi-packages)
 <!-- /code_chunk_output -->
 
@@ -186,6 +186,7 @@ pyenv global 3.11.0
 ```
 
 - NB: This sets the version in `~/.pyenv/version`
+
 ### Set local python version
 
 - cd into a directory (e.g. a repo root) and run;
@@ -196,7 +197,6 @@ pyenv local 3.7.15
 ```
 
 - This creates a `.python-version` file in the current directory. Whenever in this directory or it's subdirectories, the local version will apply
-
 
 ## venv package management using pip-tools package versioning
 
@@ -232,6 +232,7 @@ echo "/.venv" >> .gitignore
   cd <some development dir>
   source .venv/bin/activate
   pip-compile requirements.in
+  pip-compile requirements_dev.in
   ```
 
 - To only start versioning new package or update only a specific existing package, run;
@@ -242,12 +243,18 @@ echo "/.venv" >> .gitignore
   pip-compile requirements.in -P <some new package OR some existing package>
   ```
 
-### Basic requirements.in
+### Basic requirements.in and requirements.dev
 
 ```bash
-cat <<- EOF >> requirements.in
-pylint
+touch requirements.in
+cat <<- EOF >> requirements_dev.in
+-c requirements.txt
+black
+build
 mypy
+pylint
+pytest
+pytest-cov
 EOF
 
 cat <<-EOF >> .gitignore
